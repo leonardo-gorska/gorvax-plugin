@@ -1,0 +1,337 @@
+# ============================================================
+# GorvaxCore — Quests Diárias e Semanais (quests.yml)
+# B16 — Sistema de missões rotativas com recompensas
+# ============================================================
+
+# Configurações gerais
+settings:
+  daily_count: 3          # Quantas quests diárias por dia
+  daily_reset_hour: 0     # Hora do reset (0 = meia-noite do servidor)
+  weekly_reset_day: MONDAY # Dia da semana para reset semanal
+
+# Pool de quests diárias (3 são selecionadas aleatoriamente por dia)
+daily_pool:
+  kill_zombies:
+    type: KILL_MOB
+    target: ZOMBIE
+    amount: 10
+    name: "§eMatar 10 Zumbis"
+    description: "Elimine zumbis pelo mundo."
+    icon: ROTTEN_FLESH
+    reward:
+      money: 200
+
+  kill_skeletons:
+    type: KILL_MOB
+    target: SKELETON
+    amount: 15
+    name: "§eMatar 15 Esqueletos"
+    description: "Acerte-os antes que te acertem."
+    icon: BONE
+    reward:
+      money: 250
+
+  kill_creepers:
+    type: KILL_MOB
+    target: CREEPER
+    amount: 8
+    name: "§eMatar 8 Creepers"
+    description: "Cuidado para não explodir junto."
+    icon: GUNPOWDER
+    reward:
+      money: 300
+
+  kill_endermen:
+    type: KILL_MOB
+    target: ENDERMAN
+    amount: 5
+    name: "§eMatar 5 Endermen"
+    description: "Olhe nos olhos do abismo."
+    icon: ENDER_PEARL
+    reward:
+      money: 400
+
+  kill_spiders:
+    type: KILL_MOB
+    target: SPIDER
+    amount: 12
+    name: "§eMatar 12 Aranhas"
+    description: "Limpe as teias do mundo."
+    icon: STRING
+    reward:
+      money: 200
+
+  mine_diamonds:
+    type: MINE_BLOCK
+    target: DIAMOND_ORE
+    amount: 16
+    name: "§eMinenar 16 Diamantes"
+    description: "Brilhantes esperam nas profundezas."
+    icon: DIAMOND
+    reward:
+      claim_blocks: 100
+
+  mine_iron:
+    type: MINE_BLOCK
+    target: IRON_ORE
+    amount: 32
+    name: "§eMinenar 32 Ferros"
+    description: "A base de toda armadura."
+    icon: RAW_IRON
+    reward:
+      money: 150
+
+  mine_gold:
+    type: MINE_BLOCK
+    target: GOLD_ORE
+    amount: 16
+    name: "§eMinenar 16 Ouros"
+    description: "O metal dos reis."
+    icon: RAW_GOLD
+    reward:
+      money: 200
+
+  mine_ancient_debris:
+    type: MINE_BLOCK
+    target: ANCIENT_DEBRIS
+    amount: 4
+    name: "§eMinenar 4 Netherite Antigo"
+    description: "Mergulhe nas profundezas do Nether."
+    icon: ANCIENT_DEBRIS
+    reward:
+      money: 800
+      claim_blocks: 50
+
+  mine_coal:
+    type: MINE_BLOCK
+    target: COAL_ORE
+    amount: 64
+    name: "§eMinenar 64 Carvões"
+    description: "Combustível é poder."
+    icon: COAL
+    reward:
+      money: 100
+
+  kill_players:
+    type: KILL_PLAYER
+    amount: 2
+    name: "§cMatar 2 Jogadores"
+    description: "Prove sua supremacia no PvP."
+    icon: DIAMOND_SWORD
+    reward:
+      money: 500
+
+  kill_players_3:
+    type: KILL_PLAYER
+    amount: 3
+    name: "§cMatar 3 Jogadores"
+    description: "Domine o campo de batalha."
+    icon: NETHERITE_SWORD
+    reward:
+      money: 750
+
+  sell_market:
+    type: SELL_MARKET
+    amount: 5
+    name: "§eVender 5 Itens no Mercado"
+    description: "Contribua para a economia."
+    icon: GOLD_INGOT
+    reward:
+      money: 300
+
+  sell_market_10:
+    type: SELL_MARKET
+    amount: 10
+    name: "§eVender 10 Itens no Mercado"
+    description: "Mercador nato."
+    icon: EMERALD
+    reward:
+      money: 600
+
+  boss_participate:
+    type: BOSS_PARTICIPATE
+    amount: 1
+    name: "§6Participar de um Boss"
+    description: "Enfrente o mal e sobreviva."
+    icon: WITHER_SKELETON_SKULL
+    reward:
+      crate_key: "comum"
+
+  mine_redstone:
+    type: MINE_BLOCK
+    target: REDSTONE_ORE
+    amount: 32
+    name: "§eMinenar 32 Redstones"
+    description: "A energia do mundo."
+    icon: REDSTONE
+    reward:
+      money: 150
+
+  mine_lapis:
+    type: MINE_BLOCK
+    target: LAPIS_ORE
+    amount: 16
+    name: "§eMinenar 16 Lapis Lazuli"
+    description: "A pedra dos encantamentos."
+    icon: LAPIS_LAZULI
+    reward:
+      money: 150
+
+  kill_witches:
+    type: KILL_MOB
+    target: WITCH
+    amount: 5
+    name: "§eMatar 5 Bruxas"
+    description: "Queime todas as bruxas."
+    icon: GLASS_BOTTLE
+    reward:
+      money: 350
+
+  mine_emeralds:
+    type: MINE_BLOCK
+    target: EMERALD_ORE
+    amount: 8
+    name: "§eMinenar 8 Esmeraldas"
+    description: "A moeda dos Villagers."
+    icon: EMERALD
+    reward:
+      claim_blocks: 75
+
+  kill_blazes:
+    type: KILL_MOB
+    target: BLAZE
+    amount: 8
+    name: "§eMatar 8 Blazes"
+    description: "Apague o fogo do Nether."
+    icon: BLAZE_ROD
+    reward:
+      money: 400
+
+# Pool de quests semanais (1 é selecionada por semana)
+weekly_pool:
+  boss_hunter:
+    type: BOSS_PARTICIPATE
+    amount: 3
+    name: "§6§lParticipar de 3 Bosses"
+    description: "Prove seu valor contra os maiores inimigos."
+    icon: DRAGON_HEAD
+    reward:
+      money: 2000
+      crate_key: "raro"
+
+  pvp_warrior:
+    type: KILL_PLAYER
+    amount: 5
+    name: "§c§lConseguir 5 Kills no PvP"
+    description: "Domine o campo de batalha durante a semana."
+    icon: NETHERITE_SWORD
+    reward:
+      crate_key: "raro"
+      title: "§c⚔ Guerreiro da Semana"
+
+  daily_master:
+    type: DAILY_COMPLETE
+    amount: 15
+    name: "§e§lCompletar 15 Quests Diárias"
+    description: "Dedicação total ao servidor."
+    icon: NETHER_STAR
+    reward:
+      crate_key: "lendario"
+
+  mega_miner:
+    type: MINE_BLOCK
+    target: DIAMOND_ORE
+    amount: 64
+    name: "§b§lMinenar 64 Diamantes"
+    description: "Escave até o limite."
+    icon: DIAMOND_PICKAXE
+    reward:
+      money: 3000
+      claim_blocks: 200
+
+  mob_slayer:
+    type: KILL_MOB
+    target: ANY
+    amount: 200
+    name: "§e§lMatar 200 Mobs"
+    description: "Limpe o mundo de monstros."
+    icon: IRON_SWORD
+    reward:
+      money: 1500
+      crate_key: "comum"
+
+# ============================================================
+# QUESTS DE LORE — Missões narrativas permanentes (multi-step)
+# Não resetam como diárias/semanais. Progresso persistente.
+# Cada step usa o mesmo QuestType do sistema existente.
+# Ao completar cada step, um diálogo é exibido ao jogador.
+# ============================================================
+lore_quests:
+  ferreiro_ancestral:
+    name: "§6§lO Ferreiro Ancestral"
+    description: "Descubra a história de Ashvale e do Rei Gorvax."
+    icon: ANVIL
+    steps:
+      - type: MINE_BLOCK
+        target: ANCIENT_DEBRIS
+        amount: 2
+        dialogue: "§7§oFerreiro Ancestral: §f'Esses restos... são do Pilar de Chamas. Tragam-me mais para que eu possa forjar a verdade.'"
+      - type: KILL_MOB
+        target: WITHER_SKELETON
+        amount: 10
+        dialogue: "§7§oFerreiro Ancestral: §f'Os servos do Rei eram Wither Skeletons. Eliminá-los prova sua coragem e revela o passado.'"
+      - type: BOSS_PARTICIPATE
+        target: ANY
+        amount: 1
+        dialogue: "§7§oFerreiro Ancestral: §f'Você enfrentou as bestas e sobreviveu. Agora sabe a verdade sobre Ashvale.'"
+    reward:
+      money: 5000
+      karma: 10
+      title: "§6[⚒ Herdeiro de Ashvale]"
+      book: ascensao_gorvax
+
+  segredo_glacius:
+    name: "§b§lO Segredo de Glacius"
+    description: "Investigue o que aconteceu com o Monastério de Glacius."
+    icon: PACKED_ICE
+    steps:
+      - type: MINE_BLOCK
+        target: BLUE_ICE
+        amount: 16
+        dialogue: "§3§oMonge Gelado: §f'Este gelo azul... é dos picos onde Kaldur nasceu. O monastério está perto.'"
+      - type: KILL_MOB
+        target: STRAY
+        amount: 15
+        dialogue: "§3§oMonge Gelado: §f'Os Strays eram arqueiros de Glacius — congelados e transformados. Liberte-os.'"
+      - type: KILL_MOB
+        target: ANY
+        amount: 50
+        dialogue: "§3§oMonge Gelado: §f'Você provou que é forte o bastante. A verdade sobre Glacius é sua.'"
+    reward:
+      money: 4000
+      karma: 8
+      title: "§b[❄ Discípulo de Glacius]"
+      book: queda_indrax
+
+  fragmentos_etheris:
+    name: "§5§lFragmentos de Étheris"
+    description: "Reúna os fragmentos perdidos da Biblioteca de Étheris."
+    icon: ENDER_EYE
+    steps:
+      - type: KILL_MOB
+        target: ENDERMAN
+        amount: 10
+        dialogue: "§5§oSábio de Étheris: §f'Os Endermen carregam fragmentos dimensionais. Recupere-os.'"
+      - type: MINE_BLOCK
+        target: OBSIDIAN
+        amount: 32
+        dialogue: "§5§oSábio de Étheris: §f'Obsidiana é a fundação da Biblioteca. Com isso posso reconstruir a porta.'"
+      - type: BOSS_PARTICIPATE
+        target: ANY
+        amount: 2
+        dialogue: "§5§oSábio de Étheris: §f'Ao enfrentar as bestas, a profecia se revela: fogo sem vazio é destruição, vazio sem fogo é esquecimento.'"
+    reward:
+      money: 7500
+      karma: 15
+      title: "§5[✦ Guardião dos Fragmentos]"
+      book: profecia

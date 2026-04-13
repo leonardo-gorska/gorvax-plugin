@@ -1,0 +1,144 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.gorvax_skeleton": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "q.get_name != '' ? Texture.boss1 : Texture.default"
+            ]
+        },
+        "controller.render.gorvax_wither_skeleton": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "q.get_name != '' ? Texture.boss1 : Texture.default"
+            ]
+        },
+        "controller.render.gorvax_husk": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "q.get_name != '' ? Texture.boss1 : Texture.default"
+            ]
+        },
+        "controller.render.gorvax_spider": {
+            "arrays": {
+                "materials": {
+                    "Array.materials": [
+                        "Material.default",
+                        "Material.invisible"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Array.materials[query.is_invisible]"
+                }
+            ],
+            "textures": [
+                "q.get_name != '' ? Texture.boss1 : Texture.default"
+            ]
+        },
+        "controller.render.gorvax_cave_spider": {
+            "arrays": {
+                "materials": {
+                    "Array.materials": [
+                        "Material.default",
+                        "Material.invisible"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Array.materials[query.is_invisible]"
+                }
+            ],
+            "textures": [
+                "q.get_name != '' ? Texture.boss1 : Texture.default"
+            ]
+        },
+        "controller.render.gorvax_blaze": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.body"
+                },
+                {
+                    "head": "Material.head"
+                }
+            ],
+            "textures": [
+                "q.get_name != '' ? Texture.boss1 : Texture.default"
+            ]
+        },
+        "controller.render.gorvax_enderman": {
+            "arrays": {
+                "materials": {
+                    "Array.materials": [
+                        "Material.default",
+                        "Material.invisible"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Array.materials[query.is_invisible]"
+                }
+            ],
+            "textures": [
+                "q.get_name != '' ? Texture.boss1 : Texture.default"
+            ]
+        },
+        "controller.render.gorvax_stray_clothes": {
+            "rebuild_animation_matrices": true,
+            "geometry": "Geometry.overlay",
+            "materials": [
+                {
+                    "*": "Material.overlay"
+                }
+            ],
+            "textures": [
+                "Texture.overlay"
+            ]
+        },
+        "controller.render.gorvax_stray": {
+            "rebuild_animation_matrices": true,
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "q.get_name != '' ? Texture.boss1 : Texture.default"
+            ]
+        },
+        "controller.render.gorvax_warden": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "q.get_name != '' ? Texture.boss1 : Texture.default"
+            ]
+        }
+    }
+}

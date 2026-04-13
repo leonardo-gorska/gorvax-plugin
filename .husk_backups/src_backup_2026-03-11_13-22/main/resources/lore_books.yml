@@ -1,0 +1,200 @@
+# ============================================================
+# GorvaxCore — Sistema de Lore (lore_books.yml)
+# Livros de lore, estantes interativas e totems de bioma
+# ============================================================
+
+# ============================================================
+# LIVROS DE LORE
+# Entregues ao jogador ao interagir com estantes encantadas
+# ============================================================
+books:
+  genesis:
+    title: "§4Gênesis do Mundo"
+    author: "Sábio de Étheris"
+    pages:
+      - "Antes que qualquer reino existisse, o mundo era uma extensão infinita de caos e energia bruta.\n\nDois pilares sustentavam a realidade: o Pilar de Chamas, que ardia no coração do Nether, e o Pilar do Vazio, que pulsava nas profundezas do End."
+      - "Esses pilares eram guardados por duas entidades primordiais — seres que existiam antes do primeiro bloco ser colocado.\n\nO equilíbrio entre fogo e vazio mantinha o mundo estável.\n\nMas equilíbrios são feitos para serem quebrados."
+
+  ascensao_gorvax:
+    title: "§6A Ascensão do Rei"
+    author: "Cronista de Ashvale"
+    pages:
+      - "Gorvax não nasceu rei — nasceu predador. Um Wither Skeleton das profundezas do Nether, movido por uma ambição que beirava a loucura.\n\nEnquanto outros serviam, ele conspirava. Enquanto outros temiam o Pilar de Chamas, ele o cobiçava."
+      - "Gorvax marchou sozinho até o Pilar, atravessando rios de lava e exércitos de Blazes. Matou o guardião das chamas com as próprias mãos.\n\nAo tocar o Pilar, absorveu uma fração do fogo primordial. O Pilar rachou — e Gorvax se autoproclamou Rei."
+      - "Seu elmo dourado foi forjado com o minério que brotou do Pilar rachado.\n\nMas uma pergunta inquietou os sábios de Étheris: o Pilar do Vazio rachou no mesmo instante.\n\n§8§oComo pode um evento no Nether afetar o End simultaneamente?§r\n\nNinguém encontrou a resposta. Ainda."
+
+  senhor_do_vazio:
+    title: "§5O Senhor do Vazio"
+    author: "Monge de Glacius"
+    pages:
+      - "Se Gorvax é o fogo que consome, Indrax é a escuridão que apaga.\n\nIndrax não veio do End — ele é o End. Uma entidade antiga que existia antes dos blocos, antes da luz. O Vazio personificado."
+      - "Onde Gorvax busca poder pela força bruta, Indrax opera em silêncio. Ele não invade — ele corrói. Seus domínios não ardem — eles desaparecem.\n\nOs monges de Glacius o estudaram por décadas. Nenhum sobreviveu para publicar suas conclusões."
+      - "Os registros de Étheris mencionam algo perturbador: nos dias antes da queda dos três reinos, sentinelas relataram §5sombras que se moviam contra o vento§r — e §6chamas que ardiam sem combustível§r.\n\n§8§oSempre ao mesmo tempo. Sempre nos mesmos lugares.§r\n\nComo se duas forças agissem em coordenação."
+
+  bestas_menores:
+    title: "§aAs Bestas do Mundo"
+    author: "Explorador Anônimo"
+    pages:
+      - "O desequilíbrio dos Pilares despertou criaturas adormecidas em cada canto:\n\n§2Zar'ith§0, a aranha gigante, dormia no subsolo das selvas há milênios. As vibrações a acordaram faminta."
+      - "§3Kaldur§0 era mortal — um arqueiro Stray dos picos gelados. Uma tempestade sobrenatural o congelou e renasceu como o inverno encarnado.\n\n§8Skulkor§0 foi um general antigo cujos ossos foram reanimados pelo Pilar de Chamas."
+      - "§5Xylos§0 é o mais misterioso. Ninguém sabe se veio do End ou sempre esteve lá. Manipula o espaço como papel.\n\n§4Vulgathor§0, o Blaze primordial, existia antes de Gorvax. Jurou lealdade ao novo Rei — mas há quem diga que aguarda o momento certo."
+
+  reinos_antigos:
+    title: "§eOs Reinos Perdidos"
+    author: "Arquivista Real"
+    pages:
+      - "Antes dos jogadores, três reinos antigos resistiram às bestas:\n\n§6Domínio de Ashvale§0 — Ferreiros guerreiros que forjavam armas contra Gorvax. Suas ruínas ficam perto de montanhas vulcânicas."
+      - "§bMonastério de Glacius§0 — Monges que estudavam o frio de Kaldur. O monastério congelou quando Kaldur despertou, matando todos dentro.\n\nHoje é uma tumba gelada."
+      - "§5Biblioteca de Étheris§0 — Sábios que tentaram entender Xylos e o Vazio. Construíram uma biblioteca dimensional.\n\nSeus livros contêm segredos sobre todos os bosses — mas estão em ruínas e espalhados."
+
+  profecia:
+    title: "§dA Profecia dos Pilares"
+    author: "Último Sábio de Étheris"
+    pages:
+      - "\"Quando os dois Pilares forem restaurados, o ciclo se quebrará.\n\nMas para restaurar um, o outro deve cair.\n\nEscolha com sabedoria — pois fogo sem vazio é destruição, e vazio sem fogo é esquecimento.\""
+      - "Ninguém sabe o que isso significa.\n\nAinda.\n\n§8§o[As últimas páginas estão rasgadas e ilegíveis...]"
+
+  guardioes:
+    title: "§eOs Guardiões dos Biomas"
+    author: "Naturalista Errante"
+    pages:
+      - "As criaturas menores — os mini-bosses — não são vilões. São guardiões naturais que despertaram para proteger seus biomas da corrupção dos Pilares."
+      - "O Guardião do Deserto era um guerreiro de Ashvale reanimado pelas areias encantadas.\n\nA Sentinela Gélida era uma monge de Glacius.\n\nA Araña da Selva protege os ovos de uma raça de aranhas ancestrais."
+      - "O Fantasma do Nether é um soldado do antigo exército de Gorvax que desobedeceu uma ordem e foi amaldiçoado a vagar eternamente."
+
+  bastiao:
+    title: "§6O Último Refúgio"
+    author: "Fundadores do Bastião"
+    pages:
+      - "Quando Ashvale queimou, Glacius congelou e Étheris desmoronou, os sobreviventes dos três reinos fugiram.\n\nSem lar, sem exército, sem esperança — apenas a vontade de não desaparecer."
+      - "Eles encontraram um ponto onde a corrupção dos Pilares era mais fraca — equidistante do Fogo e do Vazio.\n\nAli ergueram muralhas, torres e um trono que permanece vazio — à espera de alguém digno."
+      - "O Bastião dos Sobreviventes é o último farol da humanidade.\n\nDois memoriais guardam a memória do que nos ameaça: o Pilar de Fogo e o Pilar das Sombras.\n\nA biblioteca preserva os livros resgatados de Étheris — incluindo um fragmento perturbador:"
+      - "§8§o'...e nos últimos dias, os observadores de Ashvale viram chamas no horizonte leste. No mesmo instante, os monges de Glacius registraram sombras no oeste.\n\nNão há coincidência neste mundo.\n\nGorvax e Indrax não são dois males separados.\n\nSão aliados.'§r\n\n§4§lA guerra nunca foi contra dois inimigos. É contra uma aliança."
+
+# ============================================================
+# ESTANTES DE LORE (Localizações no Bastião dos Sobreviventes)
+# Clique direito em estante encantada nestas coordenadas = livro
+# Configure as coordenadas reais do Bastião
+# ============================================================
+bookshelves:
+  - book: genesis
+    world: world
+    x: 0
+    y: 70
+    z: 5
+  - book: ascensao_gorvax
+    world: world
+    x: 0
+    y: 70
+    z: 7
+  - book: senhor_do_vazio
+    world: world
+    x: 0
+    y: 70
+    z: 9
+  - book: bestas_menores
+    world: world
+    x: 0
+    y: 70
+    z: 11
+  - book: reinos_antigos
+    world: world
+    x: 0
+    y: 70
+    z: 13
+  - book: profecia
+    world: world
+    x: 0
+    y: 70
+    z: 15
+  - book: guardioes
+    world: world
+    x: 0
+    y: 70
+    z: 17
+  - book: bastiao
+    world: world
+    x: 0
+    y: 70
+    z: 19
+
+# ============================================================
+# TOTEMS DE BIOMA
+# Estruturas 5x5 no mapa. Clique no bloco LODESTONE = lore
+# Configure as coordenadas reais do seu mapa
+# ============================================================
+totems:
+  totem_deserto:
+    boss: "Guardião do Deserto"
+    block: LODESTONE
+    lore:
+      - ""
+      - "§6§l═══ TOTEM ANCESTRAL ═══"
+      - ""
+      - "§7O Guardião do Deserto veste armadura dourada"
+      - "§7porque era um guerreiro de Ashvale que morreu"
+      - "§7no deserto e foi reanimado pelas areias encantadas."
+      - ""
+      - "§7Ele protege este bioma da corrupção"
+      - "§7que se espalha dos Pilares."
+      - ""
+      - "§6§l═══════════════════════"
+    world: world
+    x: 0
+    y: 70
+    z: 0
+
+  totem_gelo:
+    boss: "Sentinela Gélida"
+    block: LODESTONE
+    lore:
+      - ""
+      - "§b§l═══ TOTEM ANCESTRAL ═══"
+      - ""
+      - "§7A Sentinela Gélida era uma monge de Glacius"
+      - "§7que dedicou sua vida a estudar o frio de Kaldur."
+      - "§7Quando o monastério congelou, ela renasceu como"
+      - "§7guardiã eterna das montanhas geladas."
+      - ""
+      - "§b§l═══════════════════════"
+    world: world
+    x: 0
+    y: 70
+    z: 0
+
+  totem_selva:
+    boss: "Araña da Selva"
+    block: LODESTONE
+    lore:
+      - ""
+      - "§a§l═══ TOTEM ANCESTRAL ═══"
+      - ""
+      - "§7A Araña da Selva protege os ovos de uma raça"
+      - "§7de aranhas ancestrais. Há milênios ela dormia"
+      - "§7no subsolo — até que as vibrações do Pilar"
+      - "§7rachado a despertaram, faminta."
+      - ""
+      - "§a§l═══════════════════════"
+    world: world
+    x: 0
+    y: 70
+    z: 0
+
+  totem_nether:
+    boss: "Fantasma do Nether"
+    block: LODESTONE
+    lore:
+      - ""
+      - "§c§l═══ TOTEM ANCESTRAL ═══"
+      - ""
+      - "§7O Fantasma do Nether era um soldado do antigo"
+      - "§7exército de Gorvax. Desobedeceu uma ordem e"
+      - "§7foi amaldiçoado a vagar eternamente nas chamas."
+      - "§7Agora ele guarda este bioma — não por dever,"
+      - "§7mas por não ter para onde ir."
+      - ""
+      - "§c§l═══════════════════════"
+    world: world
+    x: 0
+    y: 70
+    z: 0

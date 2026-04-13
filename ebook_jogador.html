@@ -1,0 +1,5513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GorvaxMC — Manual do Aventureiro</title>
+  <meta name="description"
+    content="Guia completo do servidor GorvaxMC: reinos, bosses, mercado, combate, cosméticos e muito mais.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=MedievalSharp&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ========== E1.1 — CSS Design System ========== */
+    :root {
+      --obsidian: #1a1a2e;
+      --obsidian-light: #16213e;
+      --bedrock: #0f0f1a;
+      --nether-gold: #d4a017;
+      --nether-gold-dim: #a67c00;
+      --ender-purple: #9b59b6;
+      --ender-purple-deep: #6c3483;
+      --blood-red: #c0392b;
+      --blood-red-dim: #922b21;
+      --diamond-blue: #3498db;
+      --diamond-blue-dim: #2176ad;
+      --emerald: #2ecc71;
+      --emerald-dim: #1e8449;
+      --netherite: #4a4a4a;
+      --stone-gray: #7f8c8d;
+      --parchment: #f5e6c8;
+      --text-primary: #e8e8e8;
+      --text-secondary: #b0b0b0;
+      --text-gold: #ffd700;
+      --enchant-glow: rgba(155, 89, 182, 0.4);
+      --font-pixel: 'Press Start 2P', monospace;
+      --font-medieval: 'MedievalSharp', cursive;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: linear-gradient(180deg, var(--bedrock) 0%, var(--obsidian) 40%, var(--obsidian-light) 100%);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    ::selection {
+      background: var(--ender-purple);
+      color: #fff;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bedrock);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--ender-purple-deep);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--ender-purple);
+    }
+
+    /* ========== Pixel Borders & Enchant Glow ========== */
+    .pixel-border {
+      border: 3px solid var(--stone-gray);
+      box-shadow: inset 0 0 0 1px #555, inset 0 0 0 2px #333,
+        0 0 15px rgba(155, 89, 182, 0.15), 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .enchant-glow {
+      box-shadow: 0 0 20px var(--enchant-glow), 0 0 40px rgba(155, 89, 182, 0.15);
+      animation: enchantPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes enchantPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px var(--enchant-glow), 0 0 40px rgba(155, 89, 182, 0.15);
+      }
+
+      50% {
+        box-shadow: 0 0 30px var(--enchant-glow), 0 0 60px rgba(155, 89, 182, 0.25);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    /* ========== E1.2 — Layout Base ========== */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --- Cover Page --- */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(ellipse at center, rgba(155, 89, 182, 0.12) 0%, transparent 70%),
+        linear-gradient(180deg, var(--bedrock), var(--obsidian));
+      position: relative;
+      overflow: hidden;
+      padding: 40px 24px;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='60' height='60' fill='none'/%3E%3Crect x='0' y='0' width='30' height='30' fill='rgba(155,89,182,0.03)'/%3E%3Crect x='30' y='30' width='30' height='30' fill='rgba(155,89,182,0.03)'/%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+
+    .cover-icon {
+      font-size: 80px;
+      margin-bottom: 24px;
+      animation: float 4s ease-in-out infinite;
+      position: relative;
+    }
+
+    .cover h1 {
+      font-family: var(--font-pixel);
+      font-size: clamp(1.4rem, 4vw, 2.4rem);
+      color: var(--nether-gold);
+      text-shadow: 0 0 30px rgba(212, 160, 23, 0.5), 0 2px 4px rgba(0, 0, 0, 0.8);
+      margin-bottom: 16px;
+      position: relative;
+      letter-spacing: 2px;
+    }
+
+    .cover h2 {
+      font-family: var(--font-medieval);
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      color: var(--ender-purple);
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .cover .version {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--stone-gray);
+      border: 1px solid var(--stone-gray);
+      padding: 6px 18px;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    /* --- Table of Contents --- */
+    .toc {
+      background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95));
+      border-radius: 8px;
+      padding: 32px;
+      margin: 48px auto;
+      max-width: 700px;
+    }
+
+    .toc h2 {
+      font-family: var(--font-pixel);
+      font-size: 1rem;
+      color: var(--nether-gold);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      padding: 0;
+      columns: 1;
+    }
+
+    .toc li {
+      counter-increment: toc;
+      margin-bottom: 6px;
+    }
+
+    .toc a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: all 0.2s;
+      font-size: 0.92rem;
+    }
+
+    .toc a::before {
+      content: counter(toc, decimal-leading-zero) '.';
+      font-family: var(--font-pixel);
+      font-size: 0.6rem;
+      color: var(--ender-purple);
+      margin-right: 12px;
+      min-width: 32px;
+    }
+
+    .toc a:hover {
+      background: rgba(155, 89, 182, 0.1);
+      color: var(--text-gold);
+      transform: translateX(6px);
+    }
+
+    /* --- Section Headings --- */
+    .section {
+      padding: 64px 0 48px;
+      animation: fadeInUp 0.6s ease-out;
+      border-top: 1px solid rgba(155, 89, 182, 0.15);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--nether-gold-dim);
+    }
+
+    .section-header .icon {
+      font-size: 32px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-medieval);
+      font-size: 1.8rem;
+      color: var(--nether-gold);
+      text-shadow: 0 0 12px rgba(212, 160, 23, 0.3);
+    }
+
+    .section-header .section-num {
+      font-family: var(--font-pixel);
+      font-size: 0.55rem;
+      color: var(--ender-purple);
+      opacity: 0.7;
+    }
+
+    h3 {
+      font-family: var(--font-medieval);
+      font-size: 1.3rem;
+      color: var(--diamond-blue);
+      margin: 28px 0 14px;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      color: var(--ender-purple);
+      margin: 20px 0 10px;
+    }
+
+    p {
+      margin-bottom: 14px;
+      color: var(--text-secondary);
+    }
+
+    ul,
+    ol {
+      margin: 0 0 14px 20px;
+      color: var(--text-secondary);
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    strong {
+      color: var(--text-primary);
+    }
+
+    a {
+      color: var(--diamond-blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--nether-gold);
+      text-decoration: underline;
+    }
+
+    /* --- Separators --- */
+    .separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 48px 0;
+      color: var(--stone-gray);
+      font-size: 1.2rem;
+      opacity: 0.5;
+    }
+
+    .separator::before,
+    .separator::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--stone-gray), transparent);
+    }
+
+    /* --- Footer --- */
+    .footer {
+      text-align: center;
+      padding: 48px 24px;
+      margin-top: 64px;
+      border-top: 1px solid rgba(155, 89, 182, 0.15);
+      color: var(--stone-gray);
+      font-size: 0.8rem;
+    }
+
+    .footer .brand {
+      font-family: var(--font-pixel);
+      font-size: 0.65rem;
+      color: var(--nether-gold);
+      margin-bottom: 8px;
+    }
+
+    /* --- Back to Top Button --- */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--ender-purple-deep), var(--ender-purple));
+      color: #fff;
+      border: 2px solid rgba(155, 89, 182, 0.5);
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+      z-index: 1000;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 20px rgba(155, 89, 182, 0.2);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 6px 24px rgba(155, 89, 182, 0.4);
+    }
+
+    /* --- Contracapa --- */
+    .contracapa {
+      text-align: center;
+      padding: 64px 24px;
+      margin-top: 48px;
+      border-top: 2px solid var(--nether-gold-dim);
+      background: linear-gradient(180deg, transparent, rgba(155, 89, 182, 0.05));
+    }
+
+    .contracapa .logo {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .contracapa h3 {
+      font-family: var(--font-pixel);
+      font-size: 0.8rem;
+      color: var(--nether-gold);
+      margin-bottom: 24px;
+      letter-spacing: 2px;
+    }
+
+    .contracapa .credits {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 2;
+    }
+
+    .contracapa .credits strong {
+      color: var(--ender-purple);
+    }
+
+    .contracapa .version-info {
+      margin-top: 32px;
+      padding: 16px 24px;
+      border: 1px solid rgba(155, 89, 182, 0.2);
+      border-radius: 8px;
+      display: inline-block;
+      font-size: 0.8rem;
+      color: var(--stone-gray);
+    }
+
+    /* --- About Section --- */
+    .about-box {
+      background: linear-gradient(135deg, rgba(155, 89, 182, 0.08), rgba(52, 152, 219, 0.08));
+      border-left: 4px solid var(--ender-purple);
+      border-radius: 0 8px 8px 0;
+      padding: 24px;
+      margin: 32px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ========== E1.3 — Reusable Components ========== */
+
+    /* --- .command-table --- */
+    .command-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.88rem;
+    }
+
+    .command-table thead th {
+      background: var(--obsidian-light);
+      color: var(--nether-gold);
+      font-family: var(--font-pixel);
+      font-size: 0.6rem;
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--nether-gold-dim);
+    }
+
+    .command-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(127, 140, 141, 0.15);
+      vertical-align: top;
+    }
+
+    .command-table tr:hover td {
+      background: rgba(155, 89, 182, 0.06);
+    }
+
+    .command-table code {
+      background: rgba(0, 0, 0, 0.3);
+      color: var(--emerald);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    /* --- .config-block --- */
+    .config-block {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 18px;
+      margin: 16px 0;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      font-family: 'Consolas', 'Courier New', monospace;
+      line-height: 1.6;
+      color: #c9d1d9;
+    }
+
+    .config-block .key {
+      color: #79c0ff;
+    }
+
+    .config-block .val-str {
+      color: #a5d6ff;
+    }
+
+    .config-block .val-num {
+      color: #56d364;
+    }
+
+    .config-block .comment {
+      color: #8b949e;
+      font-style: italic;
+    }
+
+    /* --- .boss-card --- */
+    .boss-card {
+      background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(15, 15, 26, 0.95));
+      border-radius: 10px;
+      padding: 24px;
+      margin: 24px 0;
+      border: 1px solid rgba(155, 89, 182, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .boss-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(155, 89, 182, 0.2);
+    }
+
+    .boss-card .boss-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .boss-card .boss-name {
+      font-family: var(--font-medieval);
+      font-size: 1.4rem;
+      color: var(--blood-red);
+      text-shadow: 0 0 10px rgba(192, 57, 43, 0.4);
+    }
+
+    .boss-card .boss-subtitle {
+      font-size: 0.8rem;
+      color: var(--stone-gray);
+    }
+
+    .boss-card .hp-bar {
+      height: 14px;
+      background: #1a1a1a;
+      border-radius: 7px;
+      overflow: hidden;
+      margin: 12px 0;
+      border: 1px solid rgba(192, 57, 43, 0.4);
+    }
+
+    .boss-card .hp-bar-fill {
+      height: 100%;
+      border-radius: 7px;
+      background: linear-gradient(90deg, var(--blood-red), #e74c3c);
+      box-shadow: 0 0 8px rgba(192, 57, 43, 0.5);
+      transition: width 0.5s;
+    }
+
+    .boss-card .hp-label {
+      font-family: var(--font-pixel);
+      font-size: 0.55rem;
+      color: var(--blood-red);
+      margin-bottom: 12px;
+    }
+
+    .boss-card .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .boss-card .skill-tag {
+      background: rgba(155, 89, 182, 0.15);
+      color: var(--ender-purple);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(155, 89, 182, 0.25);
+    }
+
+    .boss-card .boss-image {
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(155, 89, 182, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(155, 89, 182, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: rgba(0, 0, 0, 0.4);
+      image-rendering: pixelated;
+    }
+
+    .boss-card:hover .boss-image {
+      transform: scale(1.02);
+      box-shadow: 0 8px 32px rgba(155, 89, 182, 0.3), 0 0 25px rgba(155, 89, 182, 0.2);
+    }
+
+    .boss-mystery {
+      font-style: italic;
+      color: rgba(189, 147, 249, 0.85);
+      list-style-type: none;
+      margin-top: 6px;
+      padding-left: 0;
+    }
+
+    @keyframes boss-particles {
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: translateY(-15px) scale(1.15);
+      }
+    }
+
+    @keyframes boss-aura {
+
+      0%,
+      100% {
+        box-shadow: inset 0 0 40px rgba(255, 100, 0, 0.1), 0 0 15px rgba(255, 100, 0, 0.05);
+      }
+
+      50% {
+        box-shadow: inset 0 0 60px rgba(255, 100, 0, 0.2), 0 0 25px rgba(255, 100, 0, 0.1);
+      }
+    }
+
+    /* — Rei Gorvax — */
+    .boss-art-gorvax {
+      background: linear-gradient(180deg, #1a0a00 0%, #3d1000 30%, #6b2000 60%, #d4a017 100%);
+      color: #ff6b00;
+      animation: boss-aura 3s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(212, 160, 23, 0.2), inset 0 0 80px rgba(255, 107, 0, 0.1);
+      border-color: rgba(212, 160, 23, 0.4) !important;
+    }
+
+    .boss-art-gorvax::before {
+      background:
+        radial-gradient(circle at 20% 80%, rgba(255, 100, 0, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(212, 160, 23, 0.3) 0%, transparent 35%),
+        radial-gradient(circle at 50% 30%, rgba(139, 69, 19, 0.5) 0%, transparent 50%);
+    }
+
+    /* — Indrax Abissal — */
+    .boss-art-indrax {
+      background: linear-gradient(180deg, #05050f 0%, #0a0a2e 30%, #0d1b3e 60%, #1a0033 100%);
+      color: #7b68ee;
+      animation: boss-aura 4s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(123, 104, 238, 0.15), inset 0 0 80px rgba(10, 10, 46, 0.5);
+      border-color: rgba(123, 104, 238, 0.3) !important;
+    }
+
+    .boss-art-indrax::before {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(123, 104, 238, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 30% 70%, rgba(0, 128, 128, 0.25) 0%, transparent 35%),
+        radial-gradient(circle at 70% 30%, rgba(75, 0, 130, 0.3) 0%, transparent 45%);
+    }
+
+    /* — Zarith — */
+    .boss-art-zarith {
+      background: linear-gradient(180deg, #0a1a0a 0%, #0d2a0d 30%, #1a4a1a 60%, #2d5a1a 100%);
+      color: #7fff00;
+      animation: boss-aura 2.5s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(127, 255, 0, 0.1), inset 0 0 80px rgba(0, 100, 0, 0.2);
+      border-color: rgba(127, 255, 0, 0.3) !important;
+    }
+
+    .boss-art-zarith::before {
+      background:
+        radial-gradient(circle at 40% 60%, rgba(127, 255, 0, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 70% 80%, rgba(50, 205, 50, 0.2) 0%, transparent 35%),
+        radial-gradient(circle at 30% 30%, rgba(0, 80, 0, 0.4) 0%, transparent 50%);
+    }
+
+    /* — Kaldur — */
+    .boss-art-kaldur {
+      background: linear-gradient(180deg, #0a1520 0%, #102030 30%, #1a3a5a 60%, #a0d8ef 100%);
+      color: #87ceeb;
+      animation: boss-aura 3.5s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(135, 206, 235, 0.15), inset 0 0 80px rgba(16, 32, 48, 0.5);
+      border-color: rgba(135, 206, 235, 0.3) !important;
+    }
+
+    .boss-art-kaldur::before {
+      background:
+        radial-gradient(circle at 50% 70%, rgba(135, 206, 235, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 20% 40%, rgba(200, 230, 255, 0.2) 0%, transparent 35%),
+        radial-gradient(circle at 80% 50%, rgba(100, 149, 237, 0.2) 0%, transparent 45%);
+    }
+
+    /* — Skulkor — */
+    .boss-art-skulkor {
+      background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 30%, #2a2a2a 60%, #4a4a3a 100%);
+      color: #b0b0a0;
+      animation: boss-aura 3s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(176, 176, 160, 0.1), inset 0 0 80px rgba(30, 30, 30, 0.5);
+      border-color: rgba(176, 176, 160, 0.3) !important;
+    }
+
+    .boss-art-skulkor::before {
+      background:
+        radial-gradient(circle at 50% 60%, rgba(176, 176, 160, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 30% 80%, rgba(100, 200, 255, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 70% 40%, rgba(80, 80, 70, 0.3) 0%, transparent 50%);
+    }
+
+    /* — Xylos — */
+    .boss-art-xylos {
+      background: linear-gradient(180deg, #050008 0%, #0d001a 30%, #1a0033 60%, #2d004d 100%);
+      color: #da70d6;
+      animation: boss-aura 2s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(218, 112, 214, 0.15), inset 0 0 80px rgba(75, 0, 130, 0.3);
+      border-color: rgba(218, 112, 214, 0.3) !important;
+    }
+
+    .boss-art-xylos::before {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(218, 112, 214, 0.3) 0%, transparent 35%),
+        radial-gradient(circle at 25% 70%, rgba(138, 43, 226, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 75% 30%, rgba(148, 0, 211, 0.2) 0%, transparent 45%);
+    }
+
+    /* — Vulgathor — */
+    .boss-art-vulgathor {
+      background: linear-gradient(180deg, #1a0000 0%, #3d0000 30%, #6b1a00 60%, #ff4500 100%);
+      color: #ff4500;
+      animation: boss-aura 2.5s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(255, 69, 0, 0.2), inset 0 0 80px rgba(139, 0, 0, 0.3);
+      border-color: rgba(255, 69, 0, 0.4) !important;
+    }
+
+    .boss-art-vulgathor::before {
+      background:
+        radial-gradient(circle at 50% 80%, rgba(255, 69, 0, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 30% 50%, rgba(255, 140, 0, 0.25) 0%, transparent 35%),
+        radial-gradient(circle at 70% 60%, rgba(200, 0, 0, 0.3) 0%, transparent 45%);
+    }
+
+    /* — Mini-Bosses — */
+    .boss-art-deserto {
+      background: linear-gradient(180deg, #1a1500 0%, #3d3000 30%, #6b5a00 60%, #d4a017 100%);
+      color: #ffd700;
+      box-shadow: inset 0 -40px 60px rgba(212, 160, 23, 0.15);
+      border-color: rgba(212, 160, 23, 0.3) !important;
+    }
+
+    .boss-art-deserto::before {
+      background: radial-gradient(circle at 50% 70%, rgba(255, 215, 0, 0.2) 0%, transparent 50%);
+    }
+
+    .boss-art-gelida {
+      background: linear-gradient(180deg, #0a1525 0%, #152535 30%, #2a4a6a 60%, #87ceeb 100%);
+      color: #add8e6;
+      box-shadow: inset 0 -40px 60px rgba(173, 216, 230, 0.15);
+      border-color: rgba(173, 216, 230, 0.3) !important;
+    }
+
+    .boss-art-gelida::before {
+      background: radial-gradient(circle at 50% 70%, rgba(173, 216, 230, 0.25) 0%, transparent 50%);
+    }
+
+    .boss-art-aranha {
+      background: linear-gradient(180deg, #0a1a08 0%, #153015 30%, #1a4a1a 60%, #2d6b1a 100%);
+      color: #00ff7f;
+      box-shadow: inset 0 -40px 60px rgba(0, 255, 127, 0.1);
+      border-color: rgba(0, 255, 127, 0.3) !important;
+    }
+
+    .boss-art-aranha::before {
+      background: radial-gradient(circle at 50% 60%, rgba(0, 255, 127, 0.2) 0%, transparent 50%);
+    }
+
+    .boss-art-fantasma {
+      background: linear-gradient(180deg, #1a0500 0%, #3d0f00 30%, #6b2200 60%, #ff6347 100%);
+      color: #ff6347;
+      box-shadow: inset 0 -40px 60px rgba(255, 99, 71, 0.15);
+      border-color: rgba(255, 99, 71, 0.3) !important;
+    }
+
+    .boss-art-fantasma::before {
+      background: radial-gradient(circle at 50% 70%, rgba(255, 99, 71, 0.3) 0%, transparent 50%);
+    }
+
+    /* --- Item Art Placeholders (E6 CSS-only) --- */
+    .item-image {
+      width: 100%;
+      height: auto;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(212, 160, 23, 0.3);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(212, 160, 23, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .item-card:hover .item-image {
+      transform: scale(1.02);
+      box-shadow: 0 6px 24px rgba(212, 160, 23, 0.25), 0 0 20px rgba(212, 160, 23, 0.2);
+    }
+
+    @keyframes item-shimmer {
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: translateX(-100%);
+      }
+
+      50% {
+        opacity: 0.6;
+        transform: translateX(100%);
+      }
+    }
+
+    @keyframes item-glow {
+
+      0%,
+      100% {
+        box-shadow: inset 0 0 40px rgba(212, 160, 23, 0.1), 0 0 15px rgba(212, 160, 23, 0.05);
+      }
+
+      50% {
+        box-shadow: inset 0 0 60px rgba(212, 160, 23, 0.2), 0 0 25px rgba(212, 160, 23, 0.1);
+      }
+    }
+
+    /* — Lâmina de Gorvax — */
+    .item-art-lamina {
+      background: linear-gradient(180deg, #1a0a00 0%, #3d1000 30%, #5a1500 60%, #8b0000 100%);
+      color: #ff4500;
+      animation: item-glow 3s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(255, 69, 0, 0.2), inset 0 0 80px rgba(139, 0, 0, 0.3);
+      border-color: rgba(255, 69, 0, 0.4) !important;
+    }
+
+    .item-art-lamina::before {
+      background:
+        radial-gradient(circle at 50% 60%, rgba(255, 69, 0, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 30% 80%, rgba(212, 160, 23, 0.2) 0%, transparent 35%),
+        radial-gradient(circle at 70% 40%, rgba(139, 0, 0, 0.3) 0%, transparent 50%);
+    }
+
+    /* — Coroa de Indrax — */
+    .item-art-coroa {
+      background: linear-gradient(180deg, #05050f 0%, #0a0a2e 30%, #0d1b3e 60%, #1a0033 100%);
+      color: #9b59b6;
+      animation: item-glow 3.5s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(155, 89, 182, 0.15), inset 0 0 80px rgba(26, 0, 51, 0.5);
+      border-color: rgba(155, 89, 182, 0.4) !important;
+    }
+
+    .item-art-coroa::before {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(155, 89, 182, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 30% 70%, rgba(52, 152, 219, 0.2) 0%, transparent 35%),
+        radial-gradient(circle at 70% 30%, rgba(75, 0, 130, 0.3) 0%, transparent 45%);
+    }
+
+    /* — Botas Velocistas — */
+    .item-art-botas {
+      background: linear-gradient(180deg, #0a1520 0%, #102030 30%, #1a3a5a 60%, #3498db 100%);
+      color: #87ceeb;
+      animation: item-glow 2s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(52, 152, 219, 0.15), inset 0 0 80px rgba(16, 32, 48, 0.5);
+      border-color: rgba(52, 152, 219, 0.4) !important;
+    }
+
+    .item-art-botas::before {
+      background:
+        radial-gradient(circle at 50% 70%, rgba(52, 152, 219, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 20% 40%, rgba(135, 206, 235, 0.2) 0%, transparent 35%),
+        radial-gradient(circle at 80% 60%, rgba(100, 149, 237, 0.2) 0%, transparent 45%);
+    }
+
+    /* — Arco do Caçador — */
+    .item-art-arco {
+      background: linear-gradient(180deg, #0a1a0a 0%, #0d2a0d 30%, #1a4a1a 60%, #2ecc71 100%);
+      color: #2ecc71;
+      animation: item-glow 3s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(46, 204, 113, 0.15), inset 0 0 80px rgba(0, 100, 0, 0.3);
+      border-color: rgba(46, 204, 113, 0.4) !important;
+    }
+
+    .item-art-arco::before {
+      background:
+        radial-gradient(circle at 50% 60%, rgba(46, 204, 113, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 30% 80%, rgba(39, 174, 96, 0.2) 0%, transparent 35%),
+        radial-gradient(circle at 70% 40%, rgba(0, 80, 0, 0.3) 0%, transparent 50%);
+    }
+
+    /* — Escudo do Guardião — */
+    .item-art-escudo {
+      background: linear-gradient(180deg, #1a1500 0%, #3d3000 30%, #6b5a00 60%, #d4a017 100%);
+      color: #ffd700;
+      animation: item-glow 3.5s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(212, 160, 23, 0.2), inset 0 0 80px rgba(139, 119, 42, 0.3);
+      border-color: rgba(255, 215, 0, 0.4) !important;
+    }
+
+    .item-art-escudo::before {
+      background:
+        radial-gradient(circle at 50% 60%, rgba(255, 215, 0, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 30% 80%, rgba(212, 160, 23, 0.2) 0%, transparent 35%),
+        radial-gradient(circle at 70% 40%, rgba(184, 134, 11, 0.3) 0%, transparent 50%);
+    }
+
+    /* — Manto de Vulgathor — */
+    .item-art-manto {
+      background: linear-gradient(180deg, #1a0000 0%, #3d0000 30%, #6b1a00 60%, #ff4500 100%);
+      color: #ff4500;
+      animation: item-glow 2.5s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(255, 69, 0, 0.2), inset 0 0 80px rgba(139, 0, 0, 0.3);
+      border-color: rgba(255, 69, 0, 0.4) !important;
+    }
+
+    .item-art-manto::before {
+      background:
+        radial-gradient(circle at 50% 80%, rgba(255, 69, 0, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 30% 50%, rgba(255, 140, 0, 0.25) 0%, transparent 35%),
+        radial-gradient(circle at 70% 60%, rgba(200, 0, 0, 0.3) 0%, transparent 45%);
+    }
+
+    /* — Lança de Kaldur — */
+    .item-art-lanca {
+      background: linear-gradient(180deg, #0a1520 0%, #102030 30%, #1a3a5a 60%, #a0d8ef 100%);
+      color: #87ceeb;
+      animation: item-glow 3.5s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(135, 206, 235, 0.15), inset 0 0 80px rgba(16, 32, 48, 0.5);
+      border-color: rgba(135, 206, 235, 0.3) !important;
+    }
+
+    .item-art-lanca::before {
+      background:
+        radial-gradient(circle at 50% 70%, rgba(135, 206, 235, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 20% 40%, rgba(200, 230, 255, 0.2) 0%, transparent 35%),
+        radial-gradient(circle at 80% 50%, rgba(100, 149, 237, 0.2) 0%, transparent 45%);
+    }
+
+    /* — Elmo de Skulkor — */
+    .item-art-elmo {
+      background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 30%, #2a2a2a 60%, #4a4a3a 100%);
+      color: #b0b0a0;
+      animation: item-glow 3s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(176, 176, 160, 0.1), inset 0 0 80px rgba(30, 30, 30, 0.5);
+      border-color: rgba(176, 176, 160, 0.3) !important;
+    }
+
+    .item-art-elmo::before {
+      background:
+        radial-gradient(circle at 50% 60%, rgba(176, 176, 160, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 30% 80%, rgba(100, 200, 255, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 70% 40%, rgba(80, 80, 70, 0.3) 0%, transparent 50%);
+    }
+
+    /* — Pérola de Xylos — */
+    .item-art-perola {
+      background: linear-gradient(180deg, #050008 0%, #0d001a 30%, #1a0033 60%, #2d004d 100%);
+      color: #da70d6;
+      animation: item-glow 2s ease-in-out infinite;
+      box-shadow: inset 0 -40px 60px rgba(218, 112, 214, 0.15), inset 0 0 80px rgba(75, 0, 130, 0.3);
+      border-color: rgba(218, 112, 214, 0.3) !important;
+    }
+
+    .item-art-perola::before {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(218, 112, 214, 0.3) 0%, transparent 35%),
+        radial-gradient(circle at 25% 70%, rgba(138, 43, 226, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 75% 30%, rgba(148, 0, 211, 0.2) 0%, transparent 45%);
+    }
+
+    /* --- Crate Art Placeholders (E6 CSS-only) --- */
+    .crate-art {
+      width: 100%;
+      height: 120px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+      text-shadow: 0 0 20px currentColor;
+    }
+
+    .crate-art::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .crate-art-common {
+      background: linear-gradient(180deg, #1a1a1a 0%, #2a2a2a 50%, #4a4a4a 100%);
+      color: #bdc3c7;
+    }
+
+    .crate-art-common::before {
+      background: radial-gradient(circle at 50% 70%, rgba(189, 195, 199, 0.15) 0%, transparent 50%);
+    }
+
+    .crate-art-rare {
+      background: linear-gradient(180deg, #0a1525 0%, #102540 50%, #1a3a6a 100%);
+      color: #3498db;
+      animation: item-glow 4s ease-in-out infinite;
+    }
+
+    .crate-art-rare::before {
+      background: radial-gradient(circle at 50% 60%, rgba(52, 152, 219, 0.25) 0%, transparent 50%);
+    }
+
+    .crate-art-legendary {
+      background: linear-gradient(180deg, #1a1500 0%, #3d3000 50%, #6b5a00 100%);
+      color: #ffd700;
+      animation: item-glow 2.5s ease-in-out infinite;
+      box-shadow: inset 0 0 40px rgba(255, 215, 0, 0.1);
+    }
+
+    .crate-art-legendary::before {
+      background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.3) 0%, transparent 40%);
+    }
+
+    .crate-art-seasonal {
+      background: linear-gradient(180deg, #1a0500 0%, #3d0f00 50%, #6b2200 100%);
+      color: #ff6347;
+      animation: item-glow 3s ease-in-out infinite;
+    }
+
+    .crate-art-seasonal::before {
+      background: radial-gradient(circle at 50% 60%, rgba(255, 99, 71, 0.2) 0%, transparent 50%);
+    }
+
+    /* --- Cosmetic Showcase Banner (E6 CSS-only) --- */
+    .showcase-image {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(155, 89, 182, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(155, 89, 182, 0.15);
+      transition: transform 0.3s;
+    }
+
+    .showcase-image:hover {
+      transform: scale(1.01);
+    }
+
+    /* --- .item-card --- */
+    .item-card {
+      background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(15, 15, 26, 0.95));
+      border-radius: 10px;
+      padding: 20px;
+      margin: 16px 0;
+      border: 1px solid rgba(212, 160, 23, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .item-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(212, 160, 23, 0.15);
+    }
+
+    .item-card .item-name {
+      font-family: var(--font-medieval);
+      font-size: 1.2rem;
+      color: var(--nether-gold);
+      margin-bottom: 4px;
+    }
+
+    .item-card .item-base {
+      font-size: 0.78rem;
+      color: var(--stone-gray);
+      margin-bottom: 10px;
+    }
+
+    .item-card .item-lore {
+      border-left: 3px solid var(--ender-purple);
+      padding-left: 12px;
+      font-size: 0.85rem;
+      color: var(--ender-purple);
+      font-style: italic;
+      margin: 10px 0;
+    }
+
+    .item-card .item-enchants span {
+      display: inline-block;
+      background: rgba(46, 204, 113, 0.12);
+      color: var(--emerald);
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      margin: 2px 4px 2px 0;
+    }
+
+    .item-card .item-effect {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      background: rgba(192, 57, 43, 0.1);
+      border: 1px solid rgba(192, 57, 43, 0.2);
+      font-size: 0.82rem;
+      color: var(--blood-red);
+    }
+
+    /* --- .tip-box, .warning-box, .info-box --- */
+    .tip-box,
+    .warning-box,
+    .info-box {
+      padding: 16px 20px;
+      border-radius: 6px;
+      margin: 16px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+
+    .tip-box::before,
+    .warning-box::before,
+    .info-box::before {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tip-box {
+      background: rgba(212, 160, 23, 0.08);
+      border-left: 4px solid var(--nether-gold);
+      color: var(--parchment);
+    }
+
+    .tip-box::before {
+      content: '🔥';
+    }
+
+    .warning-box {
+      background: rgba(192, 57, 43, 0.08);
+      border-left: 4px solid var(--blood-red);
+      color: #f1a9a0;
+    }
+
+    .warning-box::before {
+      content: '🧨';
+    }
+
+    .info-box {
+      background: rgba(52, 152, 219, 0.08);
+      border-left: 4px solid var(--diamond-blue);
+      color: #aed6f1;
+    }
+
+    .info-box::before {
+      content: '📖';
+    }
+
+    /* --- .crate-card --- */
+    .crate-card {
+      background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(15, 15, 26, 0.95));
+      border-radius: 10px;
+      padding: 20px;
+      margin: 16px 0;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .crate-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .crate-card.common {
+      border: 1px solid #7f8c8d;
+    }
+
+    .crate-card.rare {
+      border: 1px solid var(--diamond-blue);
+    }
+
+    .crate-card.legendary {
+      border: 1px solid var(--nether-gold);
+      box-shadow: 0 0 20px rgba(212, 160, 23, 0.15);
+    }
+
+    .crate-card.seasonal {
+      border: 1px solid var(--blood-red);
+    }
+
+    .crate-card .crate-icon {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .crate-card .crate-name {
+      font-family: var(--font-medieval);
+      font-size: 1.15rem;
+    }
+
+    .crate-card.common .crate-name {
+      color: #bdc3c7;
+    }
+
+    .crate-card.rare .crate-name {
+      color: var(--diamond-blue);
+    }
+
+    .crate-card.legendary .crate-name {
+      color: var(--nether-gold);
+    }
+
+    .crate-card.seasonal .crate-name {
+      color: var(--blood-red);
+    }
+
+    .crate-card .crate-rewards {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    /* --- Grids --- */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    /* ========== E1.4 — Responsiveness ========== */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .cover h1 {
+        font-size: 1.2rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.4rem;
+      }
+
+      .boss-card {
+        padding: 16px;
+      }
+
+      .command-table {
+        font-size: 0.78rem;
+      }
+
+      .command-table th,
+      .command-table td {
+        padding: 8px;
+      }
+
+      .toc {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cover-icon {
+        font-size: 50px;
+      }
+
+      .section-header {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .grid-2,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ========== Print Styles ========== */
+    @media print {
+      body {
+        background: #fff;
+        color: #222;
+        font-size: 11pt;
+      }
+
+      .cover {
+        min-height: auto;
+        padding: 60px 20px;
+        page-break-after: always;
+        background: #fff;
+      }
+
+      .cover h1 {
+        color: #333;
+        text-shadow: none;
+      }
+
+      .cover h2 {
+        color: #666;
+      }
+
+      .toc {
+        page-break-after: always;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        box-shadow: none;
+      }
+
+      .toc a {
+        color: #333;
+      }
+
+      .toc a::before {
+        color: #666;
+      }
+
+      .section {
+        page-break-before: always;
+        padding: 24px 0;
+        border-top: 1px solid #ccc;
+      }
+
+      .section-header h2 {
+        color: #333;
+        text-shadow: none;
+      }
+
+      .boss-card,
+      .item-card,
+      .crate-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        background: #fafafa;
+      }
+
+      .boss-card:hover,
+      .item-card:hover,
+      .crate-card:hover {
+        transform: none;
+        box-shadow: none;
+      }
+
+      .boss-card .boss-name {
+        color: #333;
+        text-shadow: none;
+      }
+
+      .hp-bar {
+        border: 1px solid #999;
+      }
+
+      .hp-bar-fill {
+        box-shadow: none;
+        background: #c0392b;
+      }
+
+      .command-table thead th {
+        background: #eee;
+        color: #333;
+        border-bottom: 2px solid #999;
+      }
+
+      .command-table td {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .command-table code {
+        background: #eee;
+        color: #333;
+      }
+
+      .config-block {
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        color: #333;
+      }
+
+      .tip-box {
+        background: #fffbe6;
+        border-left-color: #b8860b;
+        color: #333;
+      }
+
+      .warning-box {
+        background: #ffeaea;
+        border-left-color: #c0392b;
+        color: #333;
+      }
+
+      .info-box {
+        background: #e8f4fd;
+        border-left-color: #2980b9;
+        color: #333;
+      }
+
+      .footer {
+        border-top: 1px solid #ccc;
+        color: #999;
+      }
+
+      .enchant-glow {
+        box-shadow: none;
+        animation: none;
+      }
+
+      a {
+        color: #333;
+        text-decoration: underline;
+      }
+
+      h3 {
+        color: #2c3e50;
+      }
+
+      h4 {
+        color: #555;
+      }
+
+      p,
+      ul,
+      ol,
+      li {
+        color: #333;
+      }
+
+      .back-to-top {
+        display: none !important;
+      }
+
+      .contracapa {
+        page-break-before: always;
+        border-top: 1px solid #ccc;
+        background: none;
+      }
+
+      .contracapa h3 {
+        color: #333;
+      }
+
+      .boss-card .boss-image,
+      .item-image,
+      .showcase-image {
+        box-shadow: none !important;
+        border: 1px solid #ccc;
+        max-height: 300px;
+      }
+
+      .separator {
+        opacity: 1;
+        color: #999;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== CAPA ========== -->
+  <div class="cover" id="top">
+    <img src="Imagens Ebook/cover_gorvaxmc.png" alt="GorvaxMC Cover Art" class="showcase-image">
+    <div class="cover-icon">⚔️</div>
+    <h1>GORVAXMC</h1>
+    <h2>Manual do Aventureiro</h2>
+    <p class="version">v1.0.0</p>
+  </div>
+
+  <!-- ========== SOBRE ========== -->
+  <div class="container">
+    <div class="about-box">
+      <strong>Bem-vindo ao GorvaxMC!</strong> Este é o guia definitivo do servidor.
+      Aqui você encontrará tudo sobre reinos, diplomacia, bosses épicos, mercado dinâmico,
+      itens lendários, cosméticos e muito mais. Prepare sua espada e desbrave este mundo medieval semi-anárquico.
+    </div>
+
+    <!-- ========== ÍNDICE ========== -->
+    <nav class="toc pixel-border" id="indice">
+      <h2>📜 ÍNDICE</h2>
+      <ol>
+        <li><a href="#s1">Terrenos (Claims) e Lotes</a></li>
+        <li><a href="#s2">Sistema de Confiança (Trust)</a></li>
+        <li><a href="#s3">Reinos</a></li>
+        <li><a href="#s4">Nações</a></li>
+        <li><a href="#s5">Diplomacia</a></li>
+        <li><a href="#s6">Guerra entre Reinos</a></li>
+        <li><a href="#s7">Mercado Global</a></li>
+        <li><a href="#s8">Mercado Local</a></li>
+        <li><a href="#s9">Leilão Global</a></li>
+        <li><a href="#s10">Histórico de Preços</a></li>
+        <li><a href="#s11">World Bosses</a></li>
+        <li><a href="#s12">Mini-Bosses por Bioma</a></li>
+        <li><a href="#s13">Sistema de Combate</a></li>
+        <li><a href="#s14">Sistema de Duelos</a></li>
+        <li><a href="#s15">Conquistas</a></li>
+        <li><a href="#s16">Postos Avançados (Outposts)</a></li>
+        <li><a href="#s17">Bounties</a></li>
+        <li><a href="#s18">Correio (Mailbox)</a></li>
+        <li><a href="#s19">Votação no Reino</a></li>
+        <li><a href="#s20">Chat e Comunicação</a></li>
+        <li><a href="#s21">Scoreboard / HUD</a></li>
+        <li><a href="#s22">Estatísticas do Jogador</a></li>
+        <li><a href="#s23">Proteção do seu Claim</a></li>
+        <li><a href="#s24">Itens Lendários</a></li>
+        <li><a href="#s25">Crates / Keys</a></li>
+        <li><a href="#s26">Cosméticos</a></li>
+        <li><a href="#s27">VIP &amp; Ranks Premium</a></li>
+        <li><a href="#s28">Battle Pass Sazonal</a></li>
+        <li><a href="#s29">Daily Rewards &amp; Login Streak</a></li>
+        <li><a href="#s30">Tutorial Interativo + Welcome Kit</a></li>
+        <li><a href="#s31">Menu Central</a></li>
+        <li><a href="#s32">Leaderboards &amp; Rankings</a></li>
+        <li><a href="#s33">Discord Integration</a></li>
+        <li><a href="#s34">Impostos &amp; Taxas do Reino</a></li>
+        <li><a href="#s35">Códex de Gorvax (Enciclopédia)</a></li>
+        <li><a href="#s36">Ranks de Progressão &amp; Kits</a></li>
+        <li><a href="#s37">Lore — Livros, Totems &amp; Quests</a></li>
+        <li><a href="#s38">RTP (Teleporte Aleatório)</a></li>
+      </ol>
+    </nav>
+
+    <!-- ========== SEÇÕES PLACEHOLDER (serão populadas nos batches E2-E4) ========== -->
+
+    <!-- ==================== SEÇÃO 01 — TERRENOS (CLAIMS) E LOTES ==================== -->
+    <div class="section" id="s1">
+      <div class="section-header">
+        <span class="icon">🏗️</span>
+        <div><span class="section-num">SEÇÃO 01</span>
+          <h2>Terrenos (Claims) e Lotes</h2>
+        </div>
+      </div>
+
+      <img src="Imagens Ebook/banner_claims.png" alt="Claims e Terrenos" class="showcase-image">
+
+      <h3>O que são Terrenos?</h3>
+      <p>Terrenos (claims) são áreas protegidas que você pode criar para proteger suas construções, baús e itens contra
+        outros jogadores. O GorvaxCore usa <strong>ferramentas especiais</strong> para demarcar terrenos:</p>
+
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Como Usar</th>
+            <th>Função</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🥇 <strong>Pá de Ouro</strong></td>
+            <td>Clique direito em 2 blocos</td>
+            <td>Seleciona cantos para criar um <strong>Reino</strong></td>
+          </tr>
+          <tr>
+            <td>🥈 <strong>Pá de Ferro</strong></td>
+            <td>Clique direito em 2 blocos</td>
+            <td>Seleciona cantos para criar um <strong>Lote (Feudo)</strong></td>
+          </tr>
+          <tr>
+            <td>🪵 <strong>Graveto (Stick)</strong></td>
+            <td>Clique direito</td>
+            <td>Visualiza bordas dos terrenos próximos</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Como Criar um Claim</h3>
+      <ol>
+        <li>Segure uma <strong>Pá de Ouro</strong> na mão</li>
+        <li>Use <code>/reino criar</code> para ver as instruções</li>
+        <li>Clique com o botão direito no <strong>primeiro canto</strong> da área desejada</li>
+        <li>Clique com o botão direito no <strong>canto oposto</strong> (diagonal)</li>
+        <li>As bordas brilharão para confirmar a seleção</li>
+        <li>Digite <code>/confirmar</code> (ou <code>/c</code>) para finalizar</li>
+      </ol>
+
+      <div class="warning-box">
+        <span><strong>Custo:</strong> A criação de um reino consome blocos de proteção. Quanto maior a área, mais blocos
+          são necessários.</span>
+      </div>
+
+      <h3>Visualização de Fronteiras</h3>
+      <p>Segure um <strong>Graveto (Stick)</strong> e clique com botão direito para ver as bordas dos terrenos próximos
+        por 15 segundos:</p>
+
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Tipo de Terreno</th>
+            <th>Cor das Partículas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Reinos</td>
+            <td>🟠 Laranja (FLAME)</td>
+          </tr>
+          <tr>
+            <td>Lotes à venda</td>
+            <td>🟢 Verde (HAPPY_VILLAGER)</td>
+          </tr>
+          <tr>
+            <td>Lotes alugados</td>
+            <td>🔵 Azul (DRIP_WATER)</td>
+          </tr>
+          <tr>
+            <td>Claims pessoais</td>
+            <td>⚪ Branco (END_ROD)</td>
+          </tr>
+          <tr>
+            <td>Claims de inimigos</td>
+            <td>🔴 Vermelho (REDSTONE)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Mapa de Claims</h3>
+      <p>Digite <code>/gorvax mapa</code> para ver um mini-mapa ASCII do entorno (15×15 chunks):</p>
+      <div class="config-block">
+        <span class="comment">█ = seu claim &nbsp; ▓ = aliado &nbsp; ░ = inimigo &nbsp; · = sem dono</span>
+      </div>
+
+      <h3>Lotes (Subplots / Feudos)</h3>
+      <p>Dentro de um reino, o Rei ou Vice pode dividir a área em <strong>lotes</strong> que podem ser vendidos ou
+        alugados a outros jogadores.</p>
+
+      <h4>Como Criar um Lote</h4>
+      <ol>
+        <li>Você deve ser <strong>Rei</strong> ou <strong>Vice</strong> do reino</li>
+        <li>Esteja dentro do território do reino</li>
+        <li>Segure uma <strong>Pá de Ferro</strong> na mão</li>
+        <li>Clique nos dois cantos da área interna desejada</li>
+        <li>Digite <code>/lote criar</code></li>
+      </ol>
+
+      <h4>Compra e Aluguel</h4>
+      <ul>
+        <li><strong>Comprar:</strong> <code>/lote comprar</code> — compra o lote se estiver à venda</li>
+        <li><strong>Alugar:</strong> <code>/lote alugar</code> — aluga o lote (pagamento diário automático de 24h)</li>
+      </ul>
+
+      <div class="tip-box">
+        <span>Se o inquilino não tiver dinheiro para o aluguel, <strong>perde o lote automaticamente</strong>. O valor
+          do aluguel vai para o Rei.</span>
+      </div>
+
+      <h4>Comandos de Lotes</h4>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>Aliases</th>
+            <th>O que faz</th>
+            <th>Quem pode</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/lote</code></td>
+            <td><code>/plot</code>, <code>/subplot</code>, <code>/terreno</code>, <code>/feudo</code></td>
+            <td>Abre o menu do lote</td>
+            <td>Todos (dentro do lote)</td>
+          </tr>
+          <tr>
+            <td><code>/lote info</code></td>
+            <td>—</td>
+            <td>Informações detalhadas</td>
+            <td>Todos</td>
+          </tr>
+          <tr>
+            <td><code>/lote comprar</code></td>
+            <td>—</td>
+            <td>Compra o lote atual</td>
+            <td>Jogadores com dinheiro</td>
+          </tr>
+          <tr>
+            <td><code>/lote alugar</code></td>
+            <td>—</td>
+            <td>Aluga o lote atual</td>
+            <td>Jogadores com dinheiro</td>
+          </tr>
+          <tr>
+            <td><code>/lote abandonar</code></td>
+            <td>—</td>
+            <td>Abandona o lote</td>
+            <td>Dono do lote</td>
+          </tr>
+          <tr>
+            <td><code>/lote amigo &lt;nick&gt;</code></td>
+            <td>—</td>
+            <td>Dá permissão GERAL no lote</td>
+            <td>Dono do lote</td>
+          </tr>
+          <tr>
+            <td><code>/lote criar</code></td>
+            <td>—</td>
+            <td>Cria um novo lote</td>
+            <td>Rei ou Vice</td>
+          </tr>
+          <tr>
+            <td><code>/lote retomar</code></td>
+            <td>—</td>
+            <td>Confisca o lote de alguém</td>
+            <td>Rei ou Vice</td>
+          </tr>
+          <tr>
+            <td><code>/lote preco &lt;valor&gt;</code></td>
+            <td>—</td>
+            <td>Define preço de venda</td>
+            <td>Rei, Vice ou Dono</td>
+          </tr>
+          <tr>
+            <td><code>/lote aluguel &lt;valor&gt;</code></td>
+            <td>—</td>
+            <td>Define valor diário</td>
+            <td>Rei, Vice ou Dono</td>
+          </tr>
+          <tr>
+            <td><code>/lote deletar</code></td>
+            <td>—</td>
+            <td>Deleta permanentemente</td>
+            <td>Rei</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <!-- ==================== SEÇÃO 02 — SISTEMA DE CONFIANÇA (TRUST) ==================== -->
+    <div class="section" id="s2">
+      <div class="section-header">
+        <span class="icon">🔐</span>
+        <div><span class="section-num">SEÇÃO 02</span>
+          <h2>Sistema de Confiança (Trust)</h2>
+        </div>
+      </div>
+
+      <p>O sistema de confiança permite compartilhar acesso a terrenos com outros jogadores, controlando exatamente o
+        que cada pessoa pode fazer.</p>
+
+      <h3>Tipos de Permissão</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>O que permite</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GERAL</strong></td>
+            <td>Tudo (construção + contêiner + acesso). Permissão superior.</td>
+          </tr>
+          <tr>
+            <td><strong>CONSTRUÇÃO</strong></td>
+            <td>Colocar e quebrar blocos</td>
+          </tr>
+          <tr>
+            <td><strong>CONTÊINER</strong></td>
+            <td>Abrir baús, fornalhas, barris, funis, etc.</td>
+          </tr>
+          <tr>
+            <td><strong>ACESSO</strong></td>
+            <td>Usar portas, botões, alavancas, placas de pressão</td>
+          </tr>
+          <tr>
+            <td><strong>VICE</strong></td>
+            <td>Gerenciar lotes, permissões e membros (somente em reinos)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>Aliases</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/permitir &lt;nick&gt; [tipo]</code></td>
+            <td><code>/trust</code></td>
+            <td>Dá permissão no terreno (padrão: GERAL)</td>
+          </tr>
+          <tr>
+            <td><code>/remover &lt;nick&gt;</code></td>
+            <td><code>/untrust</code></td>
+            <td>Remove todas as permissões de um jogador</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Exemplos</h3>
+      <div class="config-block">
+        <span class="comment"># Exemplos de uso:</span><br>
+        <span class="val-str">/permitir Steve</span> <span class="comment">→ Dá GERAL para Steve</span><br>
+        <span class="val-str">/permitir Alex CONTÊINER</span> <span class="comment">→ Dá apenas acesso a baús</span><br>
+        <span class="val-str">/permitir Herobrine VICE</span> <span class="comment">→ Torna Vice (apenas em
+          reinos)</span><br>
+        <span class="val-str">/remover Steve</span> <span class="comment">→ Remove tudo de Steve</span>
+      </div>
+
+      <div class="info-box">
+        <span>Permissões são cumulativas: GERAL inclui todas as outras. VICE é exclusivo para reinos e dá poderes de
+          gerenciamento.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <!-- ==================== SEÇÃO 03 — REINOS ==================== -->
+    <div class="section" id="s3">
+      <div class="section-header">
+        <span class="icon">🏰</span>
+        <div><span class="section-num">SEÇÃO 03</span>
+          <h2>Reinos</h2>
+        </div>
+      </div>
+
+      <p>Reinos são a base do GorvaxCore. Um jogador pode criar seu próprio reino, convidar membros (súditos) e governar
+        como Rei.</p>
+
+      <img src="Imagens Ebook/banner_reinos.png" alt="Reinos" class="showcase-image">
+
+      <h3>Como Criar um Reino</h3>
+      <ol>
+        <li>Segure uma <strong>Pá de Ouro</strong> na mão</li>
+        <li>Use <code>/reino criar</code> para ver instruções</li>
+        <li>Clique com botão direito no <strong>primeiro canto</strong></li>
+        <li>Clique com botão direito no <strong>canto oposto</strong> (diagonal)</li>
+        <li>As bordas brilharão para confirmar</li>
+        <li>Digite <code>/confirmar</code> (ou <code>/c</code>)</li>
+      </ol>
+
+      <h3>Ranking de Reinos</h3>
+      <p>O nível do reino é calculado automaticamente pelo número de súditos:</p>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Súditos</th>
+            <th>Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0–2</td>
+            <td>⛺ Acampamento</td>
+          </tr>
+          <tr>
+            <td>3–5</td>
+            <td>🏘️ Vila</td>
+          </tr>
+          <tr>
+            <td>6–10</td>
+            <td>🏙️ Cidade</td>
+          </tr>
+          <tr>
+            <td>11–15</td>
+            <td>🌆 Metrópole</td>
+          </tr>
+          <tr>
+            <td>16+</td>
+            <td>👑 Império</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Menu GUI do Reino</h3>
+      <p>Ao digitar <code>/reino</code>, abre-se um inventário interativo com:</p>
+      <ul>
+        <li><strong>Menu Principal</strong> — Visão geral com ações rápidas</li>
+        <li><strong>Menu de Membros</strong> — Lista de súditos, convites, promoções</li>
+        <li><strong>Menu de Lotes</strong> — Gerenciamento de lotes/feudos</li>
+        <li><strong>Menu Administrativo</strong> — Configurações avançadas (PvP, impostos, spawn)</li>
+        <li><strong>Menu de Permissões</strong> — Controle de permissões por cargo</li>
+        <li><strong>Menu de Diplomacia</strong> — Alianças, rivalidades e neutralidade</li>
+      </ul>
+
+      <h3>Comandos para Todos os Jogadores</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>Aliases</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/reino</code></td>
+            <td><code>/kingdom</code>, <code>/k</code>, <code>/cidade</code>, <code>/city</code>, <code>/town</code>
+            </td>
+            <td>Abre o menu principal do reino (GUI)</td>
+          </tr>
+          <tr>
+            <td><code>/reino criar</code></td>
+            <td>—</td>
+            <td>Mostra tutorial de criação de reino</td>
+          </tr>
+          <tr>
+            <td><code>/reino lista</code></td>
+            <td>—</td>
+            <td>Lista todos os reinos e terrenos seus</td>
+          </tr>
+          <tr>
+            <td><code>/reino spawn</code></td>
+            <td>—</td>
+            <td>Teleporta ao spawn do reino</td>
+          </tr>
+          <tr>
+            <td><code>/reino membros</code></td>
+            <td>—</td>
+            <td>Lista os súditos e aliados do reino</td>
+          </tr>
+          <tr>
+            <td><code>/reino info</code></td>
+            <td>—</td>
+            <td>Mostra informações detalhadas</td>
+          </tr>
+          <tr>
+            <td><code>/reino aceitar</code></td>
+            <td>—</td>
+            <td>Aceita um convite para entrar</td>
+          </tr>
+          <tr>
+            <td><code>/reino recusar</code></td>
+            <td>—</td>
+            <td>Recusa um convite pendente</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comandos Exclusivos do Rei (Dono)</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/reinonome &lt;nome&gt;</code></td>
+            <td>Define o nome do reino</td>
+          </tr>
+          <tr>
+            <td><code>/reino setspawn</code></td>
+            <td>Define o ponto de spawn (dentro do reino)</td>
+          </tr>
+          <tr>
+            <td><code>/reino deletar</code></td>
+            <td>Deleta permanentemente o reino</td>
+          </tr>
+          <tr>
+            <td><code>/reino transferir &lt;nick&gt;</code></td>
+            <td>Transfere a coroa para outro jogador</td>
+          </tr>
+          <tr>
+            <td><code>/reino convidar &lt;nick&gt;</code></td>
+            <td>Convida jogador (expira em 60s)</td>
+          </tr>
+          <tr>
+            <td><code>/reino pvp global &lt;on/off&gt;</code></td>
+            <td>Ativa/desativa PvP geral no reino</td>
+          </tr>
+          <tr>
+            <td><code>/reino pvp moradores &lt;on/off&gt;</code></td>
+            <td>PvP entre súditos</td>
+          </tr>
+          <tr>
+            <td><code>/reino pvp externo &lt;on/off&gt;</code></td>
+            <td>PvP de súditos fora do reino</td>
+          </tr>
+          <tr>
+            <td><code>/reino visitar &lt;nome&gt;</code></td>
+            <td>Teleporta ao spawn de outro reino público</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Convites</h3>
+      <ul>
+        <li>O Rei convida com <code>/reino convidar &lt;nick&gt;</code> ou via menu GUI</li>
+        <li>O convidado recebe notificação sonora e tem <strong>60 segundos</strong> para aceitar</li>
+        <li>Aceite com <code>/reino aceitar</code> ou recuse com <code>/reino recusar</code></li>
+      </ul>
+
+      <h3>Visitas</h3>
+      <ul>
+        <li><code>/reino visitar &lt;nome&gt;</code> teleporta ao spawn de um reino <strong>público</strong></li>
+        <li><strong>Custo</strong> configurável (padrão: $500)</li>
+        <li><strong>Cooldown</strong> de 60s entre teleportes</li>
+        <li><strong>Warmup</strong> de 5s (cancelado se se mover)</li>
+      </ul>
+
+      <h3>Banco do Reino e Impostos</h3>
+      <p>Cada reino possui um <strong>banco próprio</strong> separado do saldo pessoal do Rei:</p>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+            <th>Quem pode</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/reino depositar &lt;valor&gt;</code></td>
+            <td>Deposita no banco do reino</td>
+            <td>Qualquer membro</td>
+          </tr>
+          <tr>
+            <td><code>/reino sacar &lt;valor&gt;</code></td>
+            <td>Saca do banco</td>
+            <td>Apenas o Rei</td>
+          </tr>
+          <tr>
+            <td><code>/reino banco</code></td>
+            <td>Mostra saldo e movimentações</td>
+            <td>Qualquer membro</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <span><strong>Imposto diário:</strong> cada súdito paga taxa ao banco (padrão: $50/dia). 3 dias sem pagar =
+          expulsão automática.</span>
+      </div>
+
+      <div class="warning-box">
+        <span><strong>Upkeep:</strong> cada chunk claimado custa $10/dia (do banco do reino). 7 dias sem pagar =
+          Decadência. 14 dias = claims liberados!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <!-- ==================== SEÇÃO 04 — NAÇÕES ==================== -->
+    <div class="section" id="s4">
+      <div class="section-header">
+        <span class="icon">👑</span>
+        <div><span class="section-num">SEÇÃO 04</span>
+          <h2>Nações</h2>
+        </div>
+      </div>
+
+      <p>Nações são <strong>meta-reinos</strong> — agrupamentos de reinos sob um líder chamado
+        <strong>Imperador</strong> (o Rei do reino fundador).
+      </p>
+      <img src="Imagens Ebook/banner_nacoes.png" alt="Nações" class="showcase-image">
+
+      <h3>Benefícios</h3>
+      <ul>
+        <li><strong>Chat de Nação</strong> — Canal <code>/nc</code> para comunicação entre todos os reinos</li>
+        <li><strong>Banco da Nação</strong> — Cofre compartilhado (apenas Imperador saca)</li>
+        <li><strong>Buffs por Nível</strong> — Nível 2: Velocidade I, Nível 3: Resistência I</li>
+        <li><strong>Desconto de Visita</strong> — -50% de custo ao visitar reinos da mesma nação</li>
+      </ul>
+
+      <h3>Nível da Nação</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Nível</th>
+            <th>Requisito</th>
+            <th>Buff</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>0-9 membros</td>
+            <td>Nenhum</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>10-14 membros</td>
+            <td>Velocidade I</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>15+ membros</td>
+            <td>Velocidade I + Resistência I</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/nacao criar &lt;nome&gt;</code></td>
+            <td>Funda uma nação (custo: $50.000)</td>
+          </tr>
+          <tr>
+            <td><code>/nacao dissolver</code></td>
+            <td>Dissolve a nação (apenas Imperador)</td>
+          </tr>
+          <tr>
+            <td><code>/nacao convidar &lt;reino&gt;</code></td>
+            <td>Convida um reino para a nação</td>
+          </tr>
+          <tr>
+            <td><code>/nacao aceitar</code></td>
+            <td>Aceita convite (apenas Rei)</td>
+          </tr>
+          <tr>
+            <td><code>/nacao recusar</code></td>
+            <td>Recusa convite</td>
+          </tr>
+          <tr>
+            <td><code>/nacao sair</code></td>
+            <td>Seu reino sai da nação (apenas Rei)</td>
+          </tr>
+          <tr>
+            <td><code>/nacao expulsar &lt;reino&gt;</code></td>
+            <td>Expulsa um reino (Imperador)</td>
+          </tr>
+          <tr>
+            <td><code>/nacao depositar &lt;valor&gt;</code></td>
+            <td>Deposita no banco da nação</td>
+          </tr>
+          <tr>
+            <td><code>/nacao sacar &lt;valor&gt;</code></td>
+            <td>Saca do banco (Imperador)</td>
+          </tr>
+          <tr>
+            <td><code>/nacao banco</code></td>
+            <td>Mostra saldo do banco</td>
+          </tr>
+          <tr>
+            <td><code>/nacao info</code></td>
+            <td>Informações da nação</td>
+          </tr>
+          <tr>
+            <td><code>/nacao lista</code></td>
+            <td>Lista todas as nações</td>
+          </tr>
+          <tr>
+            <td><code>/nc &lt;mensagem&gt;</code></td>
+            <td>Chat de nação</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <span>Custo de fundação: <strong>$50.000</strong>. Limite de <strong>10 reinos</strong> por nação. Convites
+          expiram em 60 segundos.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <!-- ==================== SEÇÃO 05 — DIPLOMACIA ==================== -->
+    <div class="section" id="s5">
+      <div class="section-header">
+        <span class="icon">🤝</span>
+        <div><span class="section-num">SEÇÃO 05</span>
+          <h2>Diplomacia</h2>
+        </div>
+      </div>
+
+      <p>Reinos podem manter relações diplomáticas entre si, alterando regras de PvP, acesso a terrenos e comunicação.
+      </p>
+
+      <h3>Tipos de Relação</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Relação</th>
+            <th>Efeito</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Neutro</strong> 🟡</td>
+            <td>Regras normais de PvP (padrão)</td>
+          </tr>
+          <tr>
+            <td><strong>Aliado</strong> 🟢</td>
+            <td>PvP desativado entre súditos, acesso a terrenos aliados, chat de aliança</td>
+          </tr>
+          <tr>
+            <td><strong>Inimigo</strong> 🔴</td>
+            <td>PvP sempre ativo (mesmo em claims com PvP off), sem acesso a terrenos</td>
+          </tr>
+          <tr>
+            <td><strong>Guerra</strong> ⚔️</td>
+            <td>PvP forçado, sistema de pontos, espólios ao final</td>
+          </tr>
+          <tr>
+            <td><strong>Trégua</strong> ⚪</td>
+            <td>Estado temporário pós-guerra</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comandos de Diplomacia</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/reino alianca &lt;reino&gt;</code></td>
+            <td>Envia proposta de aliança (precisa aceite)</td>
+          </tr>
+          <tr>
+            <td><code>/reino alianca aceitar</code></td>
+            <td>Aceita proposta de aliança</td>
+          </tr>
+          <tr>
+            <td><code>/reino alianca recusar</code></td>
+            <td>Recusa proposta de aliança</td>
+          </tr>
+          <tr>
+            <td><code>/reino inimigo &lt;reino&gt;</code></td>
+            <td>Declara inimizade (unilateral)</td>
+          </tr>
+          <tr>
+            <td><code>/reino neutro &lt;reino&gt;</code></td>
+            <td>Retorna relação ao neutro</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Menu de Diplomacia</h3>
+      <p>Acessível pelo menu principal do reino (<code>/reino</code>):</p>
+      <ul>
+        <li>Lista todos os reinos com ícone de relação (🟢 aliado, 🔴 inimigo, ⚪ neutro)</li>
+        <li>Clique para propor aliança, declarar guerra ou resetar</li>
+        <li>Mostra estatísticas de cada reino (membros, nível, força)</li>
+      </ul>
+
+      <h3>Efeitos no Jogo</h3>
+      <ul>
+        <li>Ao entrar em território inimigo: mensagem de aviso "território inimigo"</li>
+        <li>Aliados ganham acesso automático (ACESSO trust) aos terrenos aliados</li>
+        <li>Chat de aliança disponível via <code>/ac</code></li>
+      </ul>
+
+      <div class="info-box">
+        <span>Para declarar <strong>guerra</strong>, veja a <a href="#s6">Seção 06 — Guerra entre Reinos</a> para regras
+          completas de conflito armado.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s6">
+      <div class="section-header">
+        <span class="icon">⚔️</span>
+        <div><span class="section-num">SEÇÃO 06</span>
+          <h2>Guerra entre Reinos</h2>
+        </div>
+      </div>
+      <p>A guerra é o nível mais extremo de conflito entre reinos. Quando diplomacia não resolve, os Reis podem
+        declarar <strong>guerra total</strong>, disputando pontos por kills e disputando espólios ao final.</p>
+      <img src="Imagens Ebook/banner_guerra.png" alt="Guerra entre Reinos" class="showcase-image">
+
+      <div class="warning-box">
+        <span>⚠️ Guerra é irreversível até o fim! Considere bem antes de declarar — há custos, perdas e consequências
+          duradouras.</span>
+      </div>
+
+      <h3>Requisitos para Declarar Guerra</h3>
+      <ul>
+        <li>Nível mínimo do reino: <strong>3</strong></li>
+        <li>Mínimo de <strong>3 membros</strong> no reino</li>
+        <li>Custo de declaração: <strong>$10.000</strong> (retirado do banco do reino)</li>
+        <li>Cooldown de <strong>30 dias</strong> antes de declarar guerra ao mesmo reino</li>
+      </ul>
+
+      <h3>Fases da Guerra</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Fase</th>
+            <th>Duração</th>
+            <th>O que acontece</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Preparação</strong> 🟡</td>
+            <td>24 horas</td>
+            <td>Ambos os reinos são notificados. Tempo para se organizar, recrutar e se equipar.</td>
+          </tr>
+          <tr>
+            <td><strong>Guerra Ativa</strong> 🔴</td>
+            <td>Até 7 dias</td>
+            <td>PvP forçado entre membros. Cada kill = +1 ponto, cada morte = −1 ponto. Placar broadcast a cada 30 min.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Resolução</strong> ⚪</td>
+            <td>Imediata</td>
+            <td>O reino com mais pontos vence. Espólios são distribuídos automaticamente.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Espólios da Vitória</h3>
+      <ul>
+        <li>💰 <strong>25% do banco</strong> do reino perdedor é transferido ao vencedor</li>
+        <li>🏕️ Vencedor pode <strong>capturar 1 outpost</strong> do perdedor</li>
+        <li>📉 Perdedor sofre <strong>3 dias de debuff</strong> (sem buffs de reino)</li>
+      </ul>
+
+      <h3>Rendição</h3>
+      <p>Um reino pode se render a qualquer momento durante a guerra ativa, mas sofre uma <strong>penalidade extra de
+          10%</strong> sobre os espólios normais (além dos 25% do banco).</p>
+
+      <h3>Comandos de Guerra</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/reino guerra &lt;reino&gt;</code></td>
+            <td>Declara guerra (custo: $10.000)</td>
+          </tr>
+          <tr>
+            <td><code>/reino guerra aceitar</code></td>
+            <td>Aceita declaração de guerra</td>
+          </tr>
+          <tr>
+            <td><code>/reino guerra recusar</code></td>
+            <td>Recusa (o declarante perde o custo)</td>
+          </tr>
+          <tr>
+            <td><code>/reino guerra render</code></td>
+            <td>Rendição imediata (+10% penalidade)</td>
+          </tr>
+          <tr>
+            <td><code>/reino guerra status</code></td>
+            <td>Mostra placar atual da guerra</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <span>Guerras também podem ser declaradas via menu de diplomacia (<code>/reino</code>). A guerra afeta a relação
+          diplomática automaticamente — ao término, a relação volta para <strong>Neutro</strong>.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s7">
+      <div class="section-header">
+        <span class="icon">💰</span>
+        <div><span class="section-num">SEÇÃO 07</span>
+          <h2>Mercado Global</h2>
+        </div>
+      </div>
+      <p>O Mercado Global é o coração econômico do GorvaxMC. Funciona como uma bolsa de valores medieval: os preços
+        <strong>flutuam em tempo real</strong> com base na oferta e demanda dos jogadores. Compre barato, venda caro e
+        domine a economia do servidor!
+      </p>
+      <img src="Imagens Ebook/banner_mercado.png" alt="Mercado & Economia" class="showcase-image">
+
+      <h3>Como Funciona o Preço Dinâmico</h3>
+      <ul>
+        <li>📈 <strong>Compras</strong> fazem o preço <strong>subir</strong> (alta demanda)</li>
+        <li>📉 <strong>Vendas</strong> fazem o preço <strong>cair</strong> (excesso de oferta)</li>
+        <li>⏳ Preços se <strong>normalizam automaticamente</strong> (decay de 10% a cada 5 minutos)</li>
+        <li>🔺 <strong>Multiplicador máximo</strong>: 3.0x do preço base</li>
+        <li>🔻 <strong>Multiplicador mínimo</strong>: 0.2x do preço base</li>
+      </ul>
+
+      <div class="tip-box">
+        <span>Fique de olho nas tendências! Compre itens quando o preço estiver baixo (multiplicador próximo de 0.2x) e
+          venda quando estiver alto. O jogador esperto é o que lucra mais!</span>
+      </div>
+
+      <h3>Categorias de Itens</h3>
+      <p>O mercado é dividido em <strong>9 categorias</strong>:</p>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Exemplos de Itens</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🧱 <strong>Blocos</strong></td>
+            <td>Stone, Oak Log, Cobblestone, Glass, Sand, Dirt</td>
+          </tr>
+          <tr>
+            <td>🌿 <strong>Natureza</strong></td>
+            <td>Oak Sapling, Wheat Seeds, Cactus, Sugar Cane, Bamboo</td>
+          </tr>
+          <tr>
+            <td>💎 <strong>Minérios</strong></td>
+            <td>Coal, Iron, Gold, Diamond, Emerald, Netherite Ingot, Lapis, Redstone, Quartz, Copper</td>
+          </tr>
+          <tr>
+            <td>🍖 <strong>Comida</strong></td>
+            <td>Steak, Pão, Maçã Dourada, Golden Carrot, Baked Potato, Pumpkin Pie</td>
+          </tr>
+          <tr>
+            <td>⚡ <strong>Redstone</strong></td>
+            <td>Redstone, Repeater, Comparator, Piston, Observer, Hopper</td>
+          </tr>
+          <tr>
+            <td>🎨 <strong>Decoração</strong></td>
+            <td>Painting, Flower Pot, Candle, Lantern, Sea Lantern, Chain</td>
+          </tr>
+          <tr>
+            <td>🦴 <strong>Mob Drops</strong></td>
+            <td>String, Gunpowder, Ender Pearl, Blaze Rod, Ghast Tear, Shulker Shell</td>
+          </tr>
+          <tr>
+            <td>⚔ <strong>Equipamento</strong></td>
+            <td>Bow, Crossbow, Shield, Trident, Elytra, Totem of Undying, God Apple</td>
+          </tr>
+          <tr>
+            <td>🔧 <strong>Ferramentas</strong></td>
+            <td>Netherite Pickaxe, Diamond Shovel, Iron Axe, Fishing Rod</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Usando a GUI do Mercado</h3>
+      <ul>
+        <li>🖱️ <strong>Clique esquerdo</strong> no item — Comprar 1 unidade</li>
+        <li>🖱️ <strong>Clique direito</strong> no item — Vender 1 unidade</li>
+        <li>⇧ <strong>Shift + Clique esquerdo</strong> — Comprar 64 unidades</li>
+        <li>⇧ <strong>Shift + Clique direito</strong> — Vender 64 unidades</li>
+      </ul>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/market</code></td>
+            <td>Abre o menu principal do mercado</td>
+          </tr>
+          <tr>
+            <td><code>/market historico</code></td>
+            <td>Mostra seu histórico pessoal de transações</td>
+          </tr>
+          <tr>
+            <td><code>/market preco &lt;item&gt;</code></td>
+            <td>Mostra o histórico de preços de um item</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <span>O retorno ao vender é de <strong>70% do preço de compra</strong>. Isso significa que vender um item sempre
+          rende menos do que comprá-lo — simulando a taxa do mercado.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s8">
+      <div class="section-header">
+        <span class="icon">🏪</span>
+        <div><span class="section-num">SEÇÃO 08</span>
+          <h2>Mercado Local</h2>
+        </div>
+      </div>
+      <p>O Mercado Local funciona como uma <strong>feira interna do reino</strong> — jogadores listam itens para venda
+        e outros membros ou visitantes podem comprá-los diretamente. É a forma de comércio jogador-para-jogador (P2P)
+        do GorvaxMC.</p>
+
+      <h3>Como Funciona</h3>
+      <ol>
+        <li>Segure o item que deseja vender na mão</li>
+        <li>Use <code>/market local listar &lt;preço&gt;</code> para criar a oferta</li>
+        <li>Outros jogadores podem ver e comprar com <code>/market local ver</code></li>
+        <li>O vendedor recebe o dinheiro automaticamente via Vault</li>
+      </ol>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/market local listar &lt;preço&gt;</code></td>
+            <td>Lista o item da mão no mercado local do reino</td>
+          </tr>
+          <tr>
+            <td><code>/market local ver</code></td>
+            <td>Abre a GUI com itens à venda no reino</td>
+          </tr>
+          <tr>
+            <td><code>/market local cancelar</code></td>
+            <td>Cancela sua oferta ativa</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Taxa Municipal</h3>
+      <p>O reino cobra uma <strong>taxa de 3%</strong> sobre cada venda realizada no mercado local. Essa taxa vai
+        diretamente para o <strong>banco do reino</strong>, incentivando o comércio interno como fonte de renda
+        para a monarquia.</p>
+
+      <div class="info-box">
+        <span>O Mercado Local é perfeito para vender itens raros entre membros do mesmo reino sem precisar passar pela
+          flutuação do Mercado Global. O Rei pode incentivar o comércio interno para enriquecer o banco do
+          reino!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s9">
+      <div class="section-header">
+        <span class="icon">🔨</span>
+        <div><span class="section-num">SEÇÃO 09</span>
+          <h2>Leilão Global</h2>
+        </div>
+      </div>
+      <p>O sistema de leilão permite que jogadores leiloem <strong>qualquer item</strong> para todos no servidor.
+        Os outros jogadores dão lances e o maior lance ao final leva o item!</p>
+
+      <h3>Como Funciona</h3>
+      <ol>
+        <li>Segure o item na mão e use <code>/leilao iniciar &lt;preço&gt; [duração]</code></li>
+        <li>Outros jogadores dão lances com <code>/leilao lance &lt;valor&gt;</code></li>
+        <li>Nos últimos <strong>30 segundos</strong>, o leilão é anunciado (broadcast)</li>
+        <li>O vencedor coleta o item; o vendedor recebe o dinheiro (menos <strong>5% de taxa</strong>)</li>
+      </ol>
+
+      <h3>Anti-Snipe</h3>
+      <p>Para evitar lances de última hora (sniping), lances nos últimos <strong>15 segundos</strong> estendem o
+        tempo do leilão em mais 15 segundos. Isso garante que todos tenham chance justa de dar um contra-lance!</p>
+
+      <h3>Parâmetros</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Parâmetro</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Duração padrão</td>
+            <td><strong>5 minutos</strong></td>
+          </tr>
+          <tr>
+            <td>Duração máxima</td>
+            <td><strong>1 hora</strong></td>
+          </tr>
+          <tr>
+            <td>Preço mínimo</td>
+            <td><strong>$10</strong></td>
+          </tr>
+          <tr>
+            <td>Incremento mínimo de lance</td>
+            <td><strong>$1</strong></td>
+          </tr>
+          <tr>
+            <td>Taxa sobre venda</td>
+            <td><strong>5%</strong></td>
+          </tr>
+          <tr>
+            <td>Máximo de leilões simultâneos</td>
+            <td><strong>3 por jogador</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/leilao iniciar &lt;preço&gt; [duração]</code></td>
+            <td>Cria um leilão com o item da mão</td>
+          </tr>
+          <tr>
+            <td><code>/leilao lance &lt;valor&gt; [ID]</code></td>
+            <td>Dá um lance em um leilão ativo</td>
+          </tr>
+          <tr>
+            <td><code>/leilao listar</code></td>
+            <td>Abre GUI com todos os leilões ativos</td>
+          </tr>
+          <tr>
+            <td><code>/leilao coletar</code></td>
+            <td>Resgata itens e dinheiro pendentes</td>
+          </tr>
+          <tr>
+            <td><code>/leilao cancelar &lt;ID&gt;</code></td>
+            <td>Cancela um leilão (sem lances)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <span>O leilão é a melhor forma de vender itens raros por preços justos. Use para Elytras, God Apples,
+          Netherite e outros itens de alto valor!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s10">
+      <div class="section-header">
+        <span class="icon">📈</span>
+        <div><span class="section-num">SEÇÃO 10</span>
+          <h2>Histórico de Preços</h2>
+        </div>
+      </div>
+      <p>O GorvaxMC registra <strong>snapshots dos preços</strong> do mercado global a cada 5 minutos e exibe
+        tendências visuais diretamente na GUI, permitindo que jogadores tomem decisões econômicas informadas.</p>
+
+      <h3>Indicador de Tendência (na GUI)</h3>
+      <p>Dentro do menu do mercado, cada item exibe automaticamente a tendência de preço:</p>
+      <ul>
+        <li>📈 <strong style="color: var(--emerald)">↑ +15.3%</strong> — Preço subindo (alta demanda)</li>
+        <li>📉 <strong style="color: var(--blood-red)">↓ -8.2%</strong> — Preço caindo (excesso de oferta)</li>
+        <li>➖ <strong style="color: var(--stone-gray)">— Estável</strong> — Sem variação significativa</li>
+      </ul>
+
+      <h3>Comando</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/market preco &lt;item&gt;</code></td>
+            <td>Mostra histórico textual de preços com snapshots recentes</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Configuração</h3>
+      <ul>
+        <li>⏱ <strong>Intervalo de snapshots:</strong> a cada <strong>5 minutos</strong></li>
+        <li>📊 <strong>Janela de tendência:</strong> últimas <strong>6 horas</strong></li>
+        <li>🗑️ <strong>Retenção:</strong> dados mantidos por <strong>24 horas</strong></li>
+      </ul>
+
+      <div class="info-box">
+        <span>Use o histórico de preços para identificar os melhores momentos de compra e venda. Um jogador atento
+          ao mercado pode multiplicar seu dinheiro apenas observando tendências!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s11">
+      <div class="section-header">
+        <span class="icon">👹</span>
+        <div><span class="section-num">SEÇÃO 11</span>
+          <h2>World Bosses</h2>
+        </div>
+      </div>
+      <p>O GorvaxMC possui <strong>7 World Bosses</strong> lendários, criaturas ancestrais que despertam
+        periodicamente para aterrorizar o mundo. Cada um carrega poderes únicos, forjados nas profundezas do Nether,
+        nos abismos do Void e nas florestas esquecidas. Enfrentá-los exige <strong>cooperação entre
+          jogadores</strong> — quanto mais dano você causa, melhor sua posição no ranking de recompensas.</p>
+
+      <div class="info-box">
+        <span>📅 <strong>Eventos agendados:</strong> Bosses despertam em horários fixos. Avisos são enviados 30, 10, 5
+          e 1 minuto antes do evento! Fique atento ao chat.</span>
+      </div>
+
+      <div class="warning-box">
+        <span>⚠️ Bosses possuem <strong>Sinergia de Aliança</strong> — se dois World Bosses estiverem próximos, eles
+          podem se apoiar mutuamente! Um feixe de energia conecta os aliados. Cuidado com eventos duplos.</span>
+      </div>
+
+      <h3>Eventos Atmosféricos</h3>
+      <p>Cada boss distorce o próprio clima ao despertar:</p>
+      <ul>
+        <li>🔥 <strong>Fúria de Gorvax</strong> — A noite cai, trovões ecoam e raios cortam o céu</li>
+        <li>🌑 <strong>Eclipse de Indrax</strong> — Escuridão absoluta, névoa densa e sussurros do abismo</li>
+        <li>🌀 <strong>Ruptura Temporal</strong> — Quando Gorvax e Indrax estão próximos, o tempo se fragmenta —
+          dia e noite alternam caoticamente</li>
+      </ul>
+
+      <!-- ===== REI GORVAX ===== -->
+      <div class="boss-card">
+        <img src="Imagens Ebook/king_gorvax.png" alt="Rei Gorvax — Textura do Resource Pack" class="boss-image">
+        <div class="boss-info">
+          <div class="boss-name">Rei Gorvax — O Soberano do Nether</div>
+          <div class="boss-subtitle">Wither Skeleton · Colossal · Armado com espada e elmo dourados</div>
+          <p>O primeiro e mais temido dos World Bosses. Gorvax era um general do exército do Nether que, através de
+            rituais proibidos, ascendeu ao trono e conquistou poder sobre as chamas e as almas dos caídos. Seu corpo
+            arde com fogo eterno e sua presença faz o próprio céu escurecer.</p>
+          <h4>⚔ Poderes Conhecidos</h4>
+          <ul>
+            <li><strong>Salto Esmagador</strong> — Salta e esmaga o chão, causando devastação ao redor</li>
+            <li><strong>Chuva de Meteoros</strong> — Invoca explosões flamejantes do céu</li>
+            <li><strong>Teleporte Surpresa</strong> — Materializa-se ao lado de sua presa</li>
+            <li class="boss-mystery">...e outros poderes ainda não documentados. Exploradores relatam habilidades
+              nunca vistas quando o Rei é provocado.</li>
+          </ul>
+          <h4>✨ Aura</h4>
+          <p>Envolto em chamas crepitantes, fumaça e almas azuis. Sua IA prioriza os guerreiros mais perigosos.</p>
+        </div>
+      </div>
+
+      <!-- ===== INDRAX ABISSAL ===== -->
+      <div class="boss-card">
+        <img src="Imagens Ebook/indrax_abissal.png" alt="Indrax Abissal — Textura do Resource Pack" class="boss-image">
+        <div class="boss-info">
+          <div class="boss-name">Indrax Abissal — O Pesadelo das Sombras</div>
+          <div class="boss-subtitle">Entidade Sombria · Gigante · Invoca minions crescentes</div>
+          <p>Nascido no vazio entre dimensões, Indrax é a contraparte sombria de Gorvax. Enquanto o Rei governa pelo
+            fogo, Indrax manipula as trevas e o próprio espaço. Dizem que olhar diretamente em seus olhos causa
+            paralisia temporária. Quando ferido, sua fúria se manifesta em hordas de servos das sombras.</p>
+          <h4>⚔ Poderes Conhecidos</h4>
+          <ul>
+            <li><strong>Pulso do Vazio</strong> — Aura que drena a vida de quem está perto</li>
+            <li><strong>Singularidade</strong> — Cria um vórtice gravitacional que atrai todos ao centro</li>
+            <li><strong>Contaminação</strong> — O próprio chão se corrompe com Sculk ao seu redor</li>
+            <li class="boss-mystery">...sobreviventes relatam poderes piores conforme Indrax perde HP. Poucos
+              voltaram para contar.</li>
+          </ul>
+          <h4>✨ Aura</h4>
+          <p>Cercado por partículas de Sculk e vibrações de Warden. Quanto mais ferido, mais minions surgem.</p>
+        </div>
+      </div>
+
+      <!-- ===== ZARITH ===== -->
+      <div class="boss-card">
+        <img src="Imagens Ebook/zarith.png" alt="Zarith — Textura do Resource Pack" class="boss-image">
+        <div class="boss-info">
+          <div class="boss-name">Zar'ith — Presa da Selva</div>
+          <div class="boss-subtitle">Spider · Imensa · Extremamente veloz</div>
+          <p>A aranha primordial que caça nas florestas densas. Zar'ith é a encarnação da emboscada perfeita — rápida
+            como um raio, letal como veneno puro. Suas teias são impossíveis de cortar e seu corpo exala toxinas
+            mortais. Dizem que ela pode sentir vibrações a dezenas de blocos de distância.</p>
+          <h4>⚔ Poderes Conhecidos</h4>
+          <ul>
+            <li><strong>Teia Venenosa</strong> — Lança teias tóxicas que envenenam e paralisam</li>
+            <li><strong>Salto Predatório</strong> — Avança com velocidade letal e arremessa a presa</li>
+            <li class="boss-mystery">...caçadores experientes alertam que ela esconde mais truques. Nunca
+              dê as costas para uma aranha.</li>
+          </ul>
+          <h4>✨ Aura</h4>
+          <p>Gosma verde-ácida e fumaça tóxica escorrem pelo chão. Aranhas menores servem como batedoras.</p>
+        </div>
+      </div>
+
+      <!-- ===== KALDUR ===== -->
+      <div class="boss-card">
+        <img src="Imagens Ebook/kaldur.png" alt="Kaldur — Textura do Resource Pack" class="boss-image">
+        <div class="boss-info">
+          <div class="boss-name">Kaldur — Coração de Gelo</div>
+          <div class="boss-subtitle">Stray · Colossal · Mestre do frio absoluto</div>
+          <p>O antigo guardião dos picos gelados, Kaldur controla o próprio inverno. Onde ele pisa, o chão congela.
+            Sua aura drena o calor de qualquer ser vivo próximo, e suas flechas de gelo perfuram até armadura de
+            Netherite. Sobreviver a seu Blizzard é considerado um feito épico.</p>
+          <h4>⚔ Poderes Conhecidos</h4>
+          <ul>
+            <li><strong>Blizzard</strong> — Nevasca devastadora em amplo raio, congelando o campo de batalha</li>
+            <li><strong>Lança de Gelo</strong> — Projétil de gelo concentrado com impacto brutal</li>
+            <li class="boss-mystery">...viajantes dos picos gelados falam de poderes ainda mais
+              aterrorizantes, mas poucos sobreviveram para descrevê-los.</li>
+          </ul>
+          <h4>✨ Aura</h4>
+          <p>Flocos de neve e brilhos etéreos girando ao seu redor. Strays servis emergem conforme perde força.</p>
+        </div>
+      </div>
+
+      <!-- ===== SKULKOR ===== -->
+      <div class="boss-card">
+        <img src="Imagens Ebook/skulkor.png" alt="Skulkor — Textura do Resource Pack" class="boss-image">
+        <div class="boss-info">
+          <div class="boss-name">Skulkor — General Reerguido</div>
+          <div class="boss-subtitle">Skeleton · Colossal · Comandante de exércitos mortos-vivos</div>
+          <p>Um general caído em batalha há séculos, ressuscitado pela magia do Nether. Skulkor não luta sozinho —
+            comanda legiões de esqueletos que obedecem a cada grito de guerra. Sua Marcha da Morte é legendária:
+            ele designa um alvo e o persegue incansavelmente com todo o seu exército.</p>
+          <h4>⚔ Poderes Conhecidos</h4>
+          <ul>
+            <li><strong>Chamado dos Mortos</strong> — Invoca esqueletos aliados para a batalha</li>
+            <li><strong>Chuva de Flechas</strong> — Dispara salvas de flechas sobre todos os guerreiros</li>
+            <li class="boss-mystery">...veteranos contam que Skulkor tem táticas de guerra que só revela
+              quando encurralado. O pior vem no final.</li>
+          </ul>
+          <h4>✨ Aura</h4>
+          <p>Fumaça negra e chamas de almas flutuam ao seu redor. Sua legião cresce conforme perde força.</p>
+        </div>
+      </div>
+
+      <!-- ===== XYLOS ===== -->
+      <div class="boss-card">
+        <img src="Imagens Ebook/xylos.png" alt="Xylos — Textura do Resource Pack" class="boss-image">
+        <div class="boss-info">
+          <div class="boss-name">Xylos — Devorador de Éter</div>
+          <div class="boss-subtitle">Enderman · Massivo · Manipulador do espaço-tempo</div>
+          <p>Uma entidade do End que transcendeu as leis da física. Xylos não caminha — ele distorce o espaço ao seu
+            redor. Jogadores relatam serem teleportados aleatoriamente, perderem o senso de direção e flutuarem
+            sem controle durante a luta. Quando gravemente ferido, ele simplesmente desaparece por alguns segundos
+            para reaparecer com fúria renovada.</p>
+          <h4>⚔ Poderes Conhecidos</h4>
+          <ul>
+            <li><strong>Ruptura Espacial</strong> — Distorce o espaço, teleportando jogadores aleatoriamente</li>
+            <li><strong>Implosão Gravitacional</strong> — Inverte a gravidade, levitando todos ao redor</li>
+            <li class="boss-mystery">...Xylos manipula dimensões de formas que a mente mortal não
+              compreende. Há relatos de poderes indescritíveis.</li>
+          </ul>
+          <h4>✨ Aura</h4>
+          <p>Partículas de portal reverso e energia dimensional flutuam caoticamente.</p>
+        </div>
+      </div>
+
+      <!-- ===== VULGATHOR ===== -->
+      <div class="boss-card">
+        <img src="Imagens Ebook/vulgathor.png" alt="Vulgathor — Textura do Resource Pack" class="boss-image">
+        <div class="boss-info">
+          <div class="boss-name">Vulgathor — Arauto das Cinzas</div>
+          <div class="boss-subtitle">Blaze · Massivo · Senhor do fogo absoluto</div>
+          <p>O Blaze primordial que queima desde antes da criação do Nether. Vulgathor transforma o campo de batalha
+            inteiro em um inferno — chuvas de fogo, pilares de magma e explosões de cinzas que cegam. Sua habilidade
+            definitiva, <strong>Inferno</strong>, é considerada a skill mais devastadora entre todos os bosses.</p>
+          <h4>⚔ Poderes Conhecidos</h4>
+          <ul>
+            <li><strong>Chuva Incendiária</strong> — Projéteis flamejantes caem do céu</li>
+            <li><strong>Explosão de Cinzas</strong> — Onda de cinzas que cega e arremessa guerreiros</li>
+            <li class="boss-mystery">...sussurram sobre uma habilidade definitiva chamada
+              <em>Inferno</em> — dizem que ninguém sobrevive quando é ativada.
+            </li>
+          </ul>
+          <h4>✨ Aura</h4>
+          <p>Chamas intensas, fumaça negra e gotas de lava flutuam ao seu redor. Blazes surgem como servos.</p>
+        </div>
+      </div>
+
+      <h3>Modo Raid</h3>
+      <p>Quando <strong>3 ou mais jogadores</strong> estão num raio de 100 blocos, o modo <strong>Raid Boss</strong>
+        pode ativar: ondas progressivas de bosses com bônus de loot por onda sobrevivida. Prepare-se para o
+        desafio supremo.
+      </p>
+
+      <h3>Eventos Sazonais</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Evento</th>
+            <th>Boss Base</th>
+            <th>Período</th>
+            <th>Lore Especial</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>❄️ <strong>Natal</strong></td>
+            <td>Kaldur Natalino</td>
+            <td>20/Dez — 05/Jan</td>
+            <td>§c❄ Edição Natalina</td>
+          </tr>
+          <tr>
+            <td>🎃 <strong>Halloween</strong></td>
+            <td>Skulkor das Sombras</td>
+            <td>25/Out — 05/Nov</td>
+            <td>§6🎃 Edição Halloween</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <span>Use <code>gorvax hud</code> para exibir a sidebar de boss com barra de HP, ranking de dano e tempo
+          restante do evento!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s12">
+      <div class="section-header">
+        <span class="icon">🐉</span>
+        <div><span class="section-num">SEÇÃO 12</span>
+          <h2>Mini-Bosses por Bioma</h2>
+        </div>
+      </div>
+      <p>Além dos World Bosses agendados, existem <strong>4 Mini-Bosses</strong> que spawnam
+        <strong>naturalmente</strong> em biomas específicos ao redor de jogadores. São mais fracos que os World Bosses,
+        mas podem surpreender aventureiros desprevenidos — e dropam loot valioso!
+      </p>
+
+      <div class="info-box">
+        <span>Mini-Bosses spawnam naturalmente quando você explora. Fique longe de claims e atento ao chat para
+          avisos de spawn!</span>
+      </div>
+
+      <!-- Guardião do Deserto -->
+      <div class="boss-card">
+        <img src="Imagens Ebook/guardiao_deserto.png" alt="Guardião do Deserto — Textura do Resource Pack"
+          class="boss-image">
+        <div class="boss-info">
+          <div class="boss-name">Guardião do Deserto</div>
+          <div class="boss-subtitle">Husk · Blindado em ouro · Guardião ancestral das areias</div>
+          <p>Emerge das areias quando aventureiros se atrevem a explorar desertos e badlands. Veste armadura dourada
+            completa e empunha uma espada reluzente. Sua tempestade de areia cega e desorienta, e quando acuado,
+            invoca servos Husks para protegê-lo. É imune ao fogo.</p>
+          <h4>📍 Biomas</h4>
+          <p>Desert, Badlands, Eroded Badlands, Wooded Badlands</p>
+          <h4>⚔ Poderes</h4>
+          <ul>
+            <li><strong>Tempestade de Areia</strong> — Rajada que atinge todos ao redor</li>
+            <li><strong>Invocar Servos</strong> — Quando acuado, invoca Husks para ajudá-lo</li>
+          </ul>
+          <h4>💥 Ao ser atingido por ele:</h4>
+          <p>Causa lentidão e fome — prepare comida extra!</p>
+        </div>
+      </div>
+
+      <!-- Sentinela Gélida -->
+      <div class="boss-card">
+        <img src="Imagens Ebook/sentinela_gelida.png" alt="Sentinela Gélida — Textura do Resource Pack"
+          class="boss-image">
+        <div class="boss-info">
+          <div class="boss-name">Sentinela Gélida</div>
+          <div class="boss-subtitle">Stray · Arqueira letal · Guardiã das neves eternas</div>
+          <p>Aparece nas planícies nevadas e picos gelados. Usa equipamento misto de diamante e malha, empunhando um
+            arco gélido devastador. Suas flechas de gelo perfuram a defesa e sua explosão congelante pode virar uma
+            luta de cabeça para baixo. Imune ao fogo, difícil de encurralar.</p>
+          <h4>📍 Biomas</h4>
+          <p>Snowy Plains, Snowy Taiga, Ice Spikes, Frozen River/Ocean, Grove, Snowy Slopes</p>
+          <h4>⚔ Poderes</h4>
+          <ul>
+            <li><strong>Nova Gélida</strong> — Explosão de gelo em área ao redor</li>
+            <li><strong>Flechas de Gelo</strong> — Dispara múltiplas flechas congelantes</li>
+          </ul>
+          <h4>💥 Ao ser atingido por ela:</h4>
+          <p>Causa lentidão e fadiga de mineração — prepare poções de velocidade!</p>
+        </div>
+      </div>
+
+      <!-- Araña da Selva -->
+      <div class="boss-card">
+        <img src="Imagens Ebook/aranha_selva.png" alt="Araña da Selva — Textura do Resource Pack" class="boss-image">
+        <div class="boss-info">
+          <div class="boss-name">Araña da Selva</div>
+          <div class="boss-subtitle">Cave Spider · Gigante · Predadora implacável da floresta</div>
+          <p>Uma aranha monstruosa que habita as selvas densas. Permanentemente acelerada, é difícil de fugir.
+            Suas teias prendem os desavisados e nuvens de veneno enfraquem até os guerreiros mais preparados.
+            Seu tamanho é aterrador para uma Cave Spider.</p>
+          <h4>📍 Biomas</h4>
+          <p>Jungle, Bamboo Jungle, Sparse Jungle</p>
+          <h4>⚔ Poderes</h4>
+          <ul>
+            <li><strong>Armadilha de Teias</strong> — Spawna teias em área para prender jogadores</li>
+            <li><strong>Nuvem Venenosa</strong> — Nuvem tóxica que causa dano contínuo</li>
+          </ul>
+          <h4>💥 Ao ser atingido por ela:</h4>
+          <p>Causa envenenamento e fraqueza — traga leite ou poções!</p>
+        </div>
+      </div>
+
+      <!-- Fantasma do Nether -->
+      <div class="boss-card">
+        <img src="Imagens Ebook/fantasma_nether.png" alt="Fantasma do Nether — Textura do Resource Pack"
+          class="boss-image">
+        <div class="boss-info">
+          <div class="boss-name">Fantasma do Nether</div>
+          <div class="boss-subtitle">Blaze · Colossal · Espírito flamejante das profundezas</div>
+          <p>O mais poderoso dos Mini-Bosses. Surge nos biomas do Nether envolvido em chamas eternas e resistência
+            sobrenatural. Sua chuva de fogo transforma o campo de batalha num inferno e seu escudo flamejante o
+            torna temporariamente quase invulnerável. Um desafio sério para qualquer aventureiro solo.</p>
+          <h4>📍 Biomas</h4>
+          <p>Nether Wastes, Soul Sand Valley, Crimson Forest, Warped Forest, Basalt Deltas</p>
+          <h4>⚔ Poderes</h4>
+          <ul>
+            <li><strong>Chuva de Fogo</strong> — Dispara múltiplas bolas de fogo do alto</li>
+            <li><strong>Escudo Flamejante</strong> — Barreira de fogo que lhe confere resistência</li>
+          </ul>
+          <h4>💥 Ao ser atingido por ele:</h4>
+          <p>Causa Wither — traga Golden Apples ou poções de regeneração!</p>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <span>Mini-Bosses despawnam após um tempo sem combate. Se quiser farmá-los, não demore para engajar!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s13">
+      <div class="section-header">
+        <span class="icon">⚔️</span>
+        <div><span class="section-num">SEÇÃO 13</span>
+          <h2>Sistema de Combate</h2>
+        </div>
+      </div>
+      <p>O GorvaxMC possui um sistema de combate completo com <strong>combat tag</strong>, proteções anti-logout,
+        <strong>kill streaks</strong> e proteção de spawn. PvP é uma parte central da experiência semi-anárquica.
+      </p>
+      <img src="Imagens Ebook/banner_combate.png" alt="Sistema de Combate" class="showcase-image">
+
+      <h3>Combat Tag</h3>
+      <p>Ao atacar ou ser atacado por outro jogador, você entra em <strong>combat tag</strong> por
+        <strong>15 segundos</strong>. Durante esse tempo:
+      </p>
+      <ul>
+        <li>🚫 Comandos bloqueados: <code>/home</code>, <code>/tpa</code>, <code>/spawn</code>, <code>/warp</code>,
+          <code>/rtp</code>, <code>/back</code>, <code>/logout</code>
+        </li>
+        <li>🚫 Abertura de GUIs (menus, baús de crate, etc.) é bloqueada</li>
+        <li>⏱ Timer exibido na <strong>ActionBar</strong> com contagem regressiva</li>
+      </ul>
+
+      <div class="warning-box">
+        <span>⚠️ Se você <strong>deslogar durante combat tag</strong>, um NPC Villager com seu inventário completo é
+          spawnado no seu lugar por 15 segundos. Se morrer, você perde tudo!</span>
+      </div>
+
+      <h3>PvP Logger NPC</h3>
+      <ul>
+        <li>Ao deslogar em combate, um <strong>Villager NPC</strong> aparece com seu nome e inventário</li>
+        <li>Se o NPC for morto, seus itens dropam normalmente</li>
+        <li>O NPC permanece por <strong>15 segundos</strong></li>
+        <li>Ao reconectar, o inventário do NPC retorna a você (se ele sobreviveu)</li>
+      </ul>
+
+      <h3>Kill Streaks</h3>
+      <p>Matar jogadores em sequência concede <strong>títulos temporários</strong> e broadcast no servidor:</p>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Kills</th>
+            <th>Título</th>
+            <th>Efeito</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>5 kills</strong></td>
+            <td>§c⚔ Imparável</td>
+            <td>Broadcast no chat a cada 5 kills</td>
+          </tr>
+          <tr>
+            <td><strong>10 kills</strong></td>
+            <td>§6⚔ Lendário</td>
+            <td>Bounty automática de <strong>$500</strong> colocada na sua cabeça!</td>
+          </tr>
+          <tr>
+            <td><strong>20 kills</strong></td>
+            <td>§4⚔ Deus da Guerra</td>
+            <td>Broadcast + alerta Discord (se configurado)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Proteção de Spawn</h3>
+      <p>Ao respawnar após morrer, você recebe <strong>5 segundos de invulnerabilidade</strong> total. Isso evita
+        spawn-kills e permite que você se oriente antes de voltar ao combate.</p>
+
+      <div class="tip-box">
+        <span>O combat tag é resetado se nenhum dano PvP ocorrer por 15 segundos. Fuja estrategicamente e aguarde o
+          timer para usar teleportes!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s14">
+      <div class="section-header">
+        <span class="icon">🤺</span>
+        <div><span class="section-num">SEÇÃO 14</span>
+          <h2>Sistema de Duelos</h2>
+        </div>
+      </div>
+      <p>Quer resolver uma rixa com honra? O sistema de duelos permite que dois jogadores se enfrentem num combate
+        justo com <strong>apostas em dinheiro</strong>, contagem regressiva e regras claras.</p>
+      <img src="Imagens Ebook/banner_duelos.png" alt="Sistema de Duelos" class="showcase-image">
+
+      <h3>Como Funciona</h3>
+      <ol>
+        <li>Desafie com <code>/duel &lt;nick&gt; &lt;valor&gt;</code> (ambos devem ter o saldo)</li>
+        <li>O outro jogador tem <strong>30 segundos</strong> para aceitar ou recusar</li>
+        <li>Contagem regressiva de <strong>5 segundos</strong> antes do início</li>
+        <li>PvP forçado entre os duelistas — combat tag ativado</li>
+        <li>Duração máxima: <strong>5 minutos</strong> (empate se ninguém morrer)</li>
+        <li>Vencedor recebe a aposta (menos <strong>5% de taxa</strong>)</li>
+      </ol>
+
+      <h3>Regras</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Parâmetro</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Distância máxima para desafiar</td>
+            <td><strong>50 blocos</strong></td>
+          </tr>
+          <tr>
+            <td>Aposta mínima</td>
+            <td><strong>$100</strong></td>
+          </tr>
+          <tr>
+            <td>Aposta máxima</td>
+            <td><strong>$100.000</strong></td>
+          </tr>
+          <tr>
+            <td>Taxa sobre o prêmio</td>
+            <td><strong>5%</strong></td>
+          </tr>
+          <tr>
+            <td>Tempo para aceitar</td>
+            <td><strong>30 segundos</strong></td>
+          </tr>
+          <tr>
+            <td>Inventário do perdedor</td>
+            <td><strong>Mantido</strong> (keep inventory)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/duel &lt;nick&gt; &lt;valor&gt;</code></td>
+            <td>Desafia um jogador com aposta</td>
+          </tr>
+          <tr>
+            <td><code>/duel aceitar</code></td>
+            <td>Aceita o desafio pendente</td>
+          </tr>
+          <tr>
+            <td><code>/duel recusar</code></td>
+            <td>Recusa o desafio</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <span>O perdedor <strong>não perde inventário</strong> — apenas a aposta. É uma forma segura de resolver
+          conflitos por dinheiro sem risco de perder equipamento.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s15">
+      <div class="section-header">
+        <span class="icon">🏆</span>
+        <div><span class="section-num">SEÇÃO 15</span>
+          <h2>Conquistas</h2>
+        </div>
+      </div>
+      <p>O GorvaxMC possui um sistema completo de <strong>conquistas</strong> (achievements) que recompensam a
+        progressão natural do jogador. Complete desafios de exploração, combate, economia e social para ganhar
+        <strong>títulos exclusivos</strong>, dinheiro e blocos de claim!
+      </p>
+      <img src="Imagens Ebook/banner_conquistas.png" alt="Conquistas" class="showcase-image">
+
+      <h3>Categorias de Conquistas</h3>
+
+      <h4>🎯 Exploração</h4>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Conquista</th>
+            <th>Requisito</th>
+            <th>Recompensa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🌍 <strong>Explorador</strong></td>
+            <td>Quebrar 10.000 blocos</td>
+            <td>🏷️ Título <strong>§a☆ Explorador</strong></td>
+          </tr>
+          <tr>
+            <td>🪨 <strong>Mineiro de Elite</strong></td>
+            <td>Quebrar 50.000 blocos</td>
+            <td>🏷️ Título <strong>§6⛏ Mestre Mineiro</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>⚔ Combate</h4>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Conquista</th>
+            <th>Requisito</th>
+            <th>Recompensa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>⚔️ <strong>Guerreiro</strong></td>
+            <td>50 kills PvP</td>
+            <td>🏷️ Título <strong>§c⚔ Guerreiro</strong></td>
+          </tr>
+          <tr>
+            <td>💀 <strong>Caçador de Dragões</strong></td>
+            <td>Matar 10 bosses</td>
+            <td>🏷️ Título <strong>§4🐉 Caçador de Dragões</strong></td>
+          </tr>
+          <tr>
+            <td>🛡️ <strong>Muro de Ferro</strong></td>
+            <td>Matar 50 bosses</td>
+            <td>🛡️ <strong>Escudo do Guardião</strong> (item lendário!)</td>
+          </tr>
+          <tr>
+            <td>👹 <strong>Sobrevivente</strong></td>
+            <td>Kill streak de 5</td>
+            <td>💰 <strong>$1.000</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>💰 Economia</h4>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Conquista</th>
+            <th>Requisito</th>
+            <th>Recompensa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>💵 <strong>Primeira Venda</strong></td>
+            <td>Ganhar $1.000 no mercado</td>
+            <td>💰 <strong>$500</strong></td>
+          </tr>
+          <tr>
+            <td>💰 <strong>Tycoon</strong></td>
+            <td>Ganhar $50.000 no mercado</td>
+            <td>🏷️ Título <strong>§6💰 Magnata</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>👑 Social & Reinos</h4>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Conquista</th>
+            <th>Requisito</th>
+            <th>Recompensa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>👑 <strong>Fundador</strong></td>
+            <td>Criar um reino</td>
+            <td>🧱 <strong>500 blocos de claim</strong></td>
+          </tr>
+          <tr>
+            <td>👥 <strong>Socialite</strong></td>
+            <td>Ter 10+ súditos no reino</td>
+            <td>🏷️ Título <strong>§b👑 Líder Nato</strong></td>
+          </tr>
+          <tr>
+            <td>⭐ <strong>Veterano</strong></td>
+            <td>Jogar 100 horas</td>
+            <td>🏷️ Título <strong>§e⭐ Veterano</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Menu de Conquistas</h3>
+      <p>Use <code>/conquistas</code> para abrir o menu de conquistas no jogo. Ele mostra:</p>
+      <ul>
+        <li>✅ Conquistas <strong>completas</strong> (item verde)</li>
+        <li>🟡 Conquistas <strong>em progresso</strong> (item amarelo com barra de %)</li>
+        <li>❌ Conquistas <strong>bloqueadas</strong> (item cinza)</li>
+      </ul>
+
+      <div class="tip-box">
+        <span>Conquistas são verificadas automaticamente a cada <strong>5 minutos</strong>. Quando desbloqueadas,
+          são anunciadas para todos no chat com efeito sonoro!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s16">
+      <div class="section-header">
+        <span class="icon">🏕️</span>
+        <div><span class="section-num">SEÇÃO 16</span>
+          <h2>Postos Avançados (Outposts)</h2>
+        </div>
+      </div>
+      <p>Outposts são <strong>extensões do território do reino</strong> localizadas longe da sede principal. Permitem
+        que o reino projete poder e presença em regiões distantes do mapa.</p>
+      <img src="Imagens Ebook/banner_outposts.png" alt="Postos Avançados" class="showcase-image">
+
+      <h3>Regras de Outposts</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Parâmetro</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Distância mínima do claim principal</td>
+            <td><strong>200 blocos</strong></td>
+          </tr>
+          <tr>
+            <td>Custo de blocos</td>
+            <td>Área × <strong>3.0</strong> (multiplicador)</td>
+          </tr>
+          <tr>
+            <td>Máximo por nível do reino</td>
+            <td>Nível 1-2: 0 · Nível 3-4: 1 · Nível 5-6: 2 · Nível 7+: 3</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Funcionalidades</h3>
+      <ul>
+        <li>📍 Outposts funcionam como claims normais (proteção total)</li>
+        <li>🗺️ Aparecem no mapa web como marcadores laranja (<code>#FF8800</code>)</li>
+        <li>⚔️ Podem ser <strong>capturados</strong> pelo vencedor em guerras entre reinos</li>
+        <li>🏗️ Ideal para bases de mineração, farms remotas ou posições estratégicas</li>
+      </ul>
+
+      <div class="info-box">
+        <span>Para criar um outpost, use a pá de ouro para claimar terreno longe da sede. Se estiver a mais de
+          <strong>200 blocos</strong> e o reino tiver nível suficiente, será registrado como outpost
+          automaticamente.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s17">
+      <div class="section-header">
+        <span class="icon">💀</span>
+        <div><span class="section-num">SEÇÃO 17</span>
+          <h2>Bounties</h2>
+        </div>
+      </div>
+      <p>Coloque uma <strong>recompensa na cabeça</strong> de qualquer jogador! O sistema de bounties
+        incentiva caçadas PvP e adiciona consequências para jogadores agressivos.</p>
+
+      <img src="Imagens Ebook/banner_bounties.png" alt="Bounties" class="showcase-image">
+
+      <h3>Como Funciona</h3>
+      <ul>
+        <li>Qualquer jogador pode colocar bounty em outro (exceto membros do mesmo reino)</li>
+        <li>Quem matar o alvo recebe a recompensa automaticamente</li>
+        <li>Bounties são persistentes e visíveis para todos</li>
+        <li><strong>Kill Streak de 10</strong> coloca automaticamente $500 de bounty no jogador pelo servidor!</li>
+      </ul>
+
+      <h3>Limites</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Parâmetro</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Valor mínimo</td>
+            <td><strong>$100</strong></td>
+          </tr>
+          <tr>
+            <td>Valor máximo</td>
+            <td><strong>$1.000.000</strong></td>
+          </tr>
+          <tr>
+            <td>Bounty em membros do mesmo reino</td>
+            <td><strong>Não permitido</strong></td>
+          </tr>
+          <tr>
+            <td>Bounty automática (kill streak)</td>
+            <td>10 kills → $500 automática</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/bounty &lt;nick&gt; &lt;valor&gt;</code></td>
+            <td>Coloca uma bounty num jogador</td>
+          </tr>
+          <tr>
+            <td><code>/bounty lista</code></td>
+            <td>Lista todas as bounties ativas</td>
+          </tr>
+          <tr>
+            <td><code>/bounty top</code></td>
+            <td>Mostra os jogadores mais procurados</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box">
+        <span>⚠️ A bounty é retirada do seu saldo no ato — não é possível cancelar! Se o alvo for morto por qualquer
+          jogador, o assassino recebe o valor total.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s18">
+      <div class="section-header">
+        <span class="icon">📬</span>
+        <div><span class="section-num">SEÇÃO 18</span>
+          <h2>Correio (Mailbox)</h2>
+        </div>
+      </div>
+      <p>O sistema de correio permite enviar <strong>cartas offline</strong> para qualquer jogador — mesmo que esteja
+        desconectado.</p>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/carta enviar &lt;nick&gt; &lt;mensagem&gt;</code></td>
+            <td>Envia uma carta (online ou offline)</td>
+          </tr>
+          <tr>
+            <td><code>/carta ler [página]</code></td>
+            <td>Lê suas cartas recebidas (paginado)</td>
+          </tr>
+          <tr>
+            <td><code>/carta deletar &lt;número&gt;</code></td>
+            <td>Deleta uma carta específica</td>
+          </tr>
+          <tr>
+            <td><code>/carta limpar</code></td>
+            <td>Remove todas as cartas já lidas</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Como Funciona</h3>
+      <ul>
+        <li>Ao logar, você recebe notificação se há cartas <strong>não lidas</strong></li>
+        <li>Cartas não lidas são marcadas com <code>§c[NÃO LIDA]</code></li>
+        <li>Máximo de <strong>20 cartas</strong> não lidas por jogador</li>
+        <li>Limite de <strong>200 caracteres</strong> por carta</li>
+      </ul>
+
+      <div class="tip-box">
+        <span>As cartas são persistentes — ficam salvas mesmo após o servidor reiniciar.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s19">
+      <div class="section-header">
+        <span class="icon">🗳️</span>
+        <div><span class="section-num">SEÇÃO 19</span>
+          <h2>Votação no Reino</h2>
+        </div>
+      </div>
+      <p>O Rei pode criar votações internas para consultar a opinião dos súditos sobre qualquer assunto do reino.</p>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+            <th>Quem pode</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/reino votar criar &lt;pergunta&gt;</code></td>
+            <td>Cria uma votação no reino</td>
+            <td>Apenas o Rei</td>
+          </tr>
+          <tr>
+            <td><code>/reino votar sim</code></td>
+            <td>Vota sim</td>
+            <td>Membros do reino</td>
+          </tr>
+          <tr>
+            <td><code>/reino votar nao</code></td>
+            <td>Vota não</td>
+            <td>Membros do reino</td>
+          </tr>
+          <tr>
+            <td><code>/reino votar resultado</code></td>
+            <td>Mostra resultado parcial</td>
+            <td>Membros do reino</td>
+          </tr>
+          <tr>
+            <td><code>/reino votar cancelar</code></td>
+            <td>Cancela a votação</td>
+            <td>Apenas o Rei</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Regras</h3>
+      <ul>
+        <li>Apenas <strong>uma votação ativa</strong> por reino</li>
+        <li>Cada membro só pode votar <strong>uma vez</strong></li>
+        <li>Votação expira automaticamente em <strong>24 horas</strong></li>
+        <li>Ao expirar, o resultado é enviado aos membros online</li>
+      </ul>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s20">
+      <div class="section-header">
+        <span class="icon">💬</span>
+        <div><span class="section-num">SEÇÃO 20</span>
+          <h2>Chat e Comunicação</h2>
+        </div>
+      </div>
+      <p>O GorvaxCore possui um sistema completo de canais de chat com formatação por hierarquia de reino.</p>
+
+      <h3>Canais Disponíveis</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Canal</th>
+            <th>Comando Rápido</th>
+            <th>Alcance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🌍 <strong>Global</strong></td>
+            <td><code>/g &lt;msg&gt;</code></td>
+            <td>Todos os jogadores</td>
+          </tr>
+          <tr>
+            <td>🏰 <strong>Reino</strong></td>
+            <td><code>/rc &lt;msg&gt;</code></td>
+            <td>Membros do mesmo reino</td>
+          </tr>
+          <tr>
+            <td>🤝 <strong>Aliança</strong></td>
+            <td><code>/ac &lt;msg&gt;</code></td>
+            <td>Membros de reinos aliados</td>
+          </tr>
+          <tr>
+            <td>📍 <strong>Local</strong></td>
+            <td><code>/l &lt;msg&gt;</code></td>
+            <td>Jogadores em 200 blocos</td>
+          </tr>
+          <tr>
+            <td>💰 <strong>Comércio</strong></td>
+            <td><code>/tc &lt;msg&gt;</code></td>
+            <td>Todos (negociações)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Mudar Canal Padrão</h3>
+      <p>Para mudar o canal padrão (todas as mensagens vão para ele):</p>
+      <div class="config-block">
+        <span class="val-str">/chat global</span> <span class="comment">→ Muda para Global</span><br>
+        <span class="val-str">/chat reino</span> <span class="comment">→ Muda para Reino</span><br>
+        <span class="val-str">/chat alianca</span> <span class="comment">→ Muda para Aliança</span><br>
+        <span class="val-str">/chat local</span> <span class="comment">→ Muda para Local</span><br>
+        <span class="val-str">/chat comercio</span> <span class="comment">→ Muda para Comércio</span><br>
+        <span class="val-str">/chat</span> <span class="comment">→ Mostra qual canal está ativo</span>
+      </div>
+
+      <h3>Formatação no Chat</h3>
+      <p>As mensagens são formatadas com a hierarquia do reino:</p>
+      <div class="config-block">
+        <span class="comment">[Título] [Tag do Reino] 👑 Rei NomeJogador: mensagem</span><br>
+        <span class="comment">[Título] [Tag do Reino] ⚔️ Vice NomeJogador: mensagem</span><br>
+        <span class="comment">[Título] [Tag do Reino] 🛡️ Nobre NomeJogador: mensagem</span><br>
+        <span class="comment">[Título] [Tag do Reino] 🏠 Súdito NomeJogador: mensagem</span>
+      </div>
+
+      <h3>Anti-Spam e Filtros</h3>
+      <ul>
+        <li><strong>Rate Limiter:</strong> Máximo de 3 mensagens a cada 5 segundos</li>
+        <li><strong>Mensagens duplicadas</strong> consecutivas são bloqueadas</li>
+        <li><strong>Filtro de palavras</strong> configurável (bloquear, censurar ou mutar)</li>
+      </ul>
+
+      <h3>Sistema de Ignorar</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>Aliases</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/ignore &lt;nick&gt;</code></td>
+            <td><code>/ignorar</code></td>
+            <td>Adiciona/remove da lista de ignorados (toggle)</td>
+          </tr>
+          <tr>
+            <td><code>/ignore list</code></td>
+            <td><code>/ignorar list</code></td>
+            <td>Lista todos os jogadores ignorados</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <span>Limite de <strong>50 jogadores</strong> ignorados. A lista é persistente entre sessões e abrange todos os
+          canais.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s21">
+      <div class="section-header">
+        <span class="icon">📊</span>
+        <div><span class="section-num">SEÇÃO 21</span>
+          <h2>Scoreboard / HUD</h2>
+        </div>
+      </div>
+      <p>O GorvaxCore exibe informações relevantes na <strong>sidebar</strong> e <strong>actionbar</strong>, mudando
+        automaticamente conforme o contexto.</p>
+
+      <h3>Sidebar Contextual</h3>
+      <h4>🟢 Padrão (em qualquer lugar)</h4>
+      <ul>
+        <li>Nome do reino (ou "Sem Reino")</li>
+        <li>Blocos de proteção disponíveis</li>
+        <li>Saldo (Vault)</li>
+        <li>Jogadores online</li>
+      </ul>
+
+      <h4>📍 Em Claim (ao entrar em terreno)</h4>
+      <ul>
+        <li>Nome do terreno/lote</li>
+        <li>Dono do terreno</li>
+        <li>Tipo de permissão do jogador</li>
+      </ul>
+
+      <h4>👹 Durante Boss (perto de um World Boss)</h4>
+      <ul>
+        <li>Nome do boss + barra de HP</li>
+        <li>Ranking de dano do jogador</li>
+        <li>Tempo restante do evento</li>
+      </ul>
+
+      <h3>ActionBar</h3>
+      <ul>
+        <li>Ao entrar em claim: <code>§a[Entrando] Reino Imperial</code></li>
+        <li>Ao sair de claim: <code>§c[Saindo] Zona Selvagem</code></li>
+        <li>Durante combate com boss: dano total acumulado</li>
+      </ul>
+
+      <h3>Toggle</h3>
+      <p>Ligue ou desligue o HUD com:</p>
+      <div class="config-block">
+        <span class="val-str">/gorvax hud</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s22">
+      <div class="section-header">
+        <span class="icon">📋</span>
+        <div><span class="section-num">SEÇÃO 22</span>
+          <h2>Estatísticas do Jogador</h2>
+        </div>
+      </div>
+      <p>Todo jogador possui um <strong>perfil completo de estatísticas</strong> persistês que acompanham sua
+        jornada no GorvaxMC desde o primeiro login.</p>
+
+      <h3>Dados Rastreados</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Estatística</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>⚔️ <strong>Kills PvP</strong></td>
+            <td>Total de eliminações de jogadores</td>
+          </tr>
+          <tr>
+            <td>💀 <strong>Mortes</strong></td>
+            <td>Total de mortes</td>
+          </tr>
+          <tr>
+            <td>📊 <strong>KDR</strong></td>
+            <td>Kill/Death Ratio (kills ÷ mortes)</td>
+          </tr>
+          <tr>
+            <td>⏱️ <strong>Tempo Jogado</strong></td>
+            <td>Tempo total no servidor (ex: "3d 5h")</td>
+          </tr>
+          <tr>
+            <td>👹 <strong>Bosses Mortos</strong></td>
+            <td>Total de bosses abatidos (participação)</td>
+          </tr>
+          <tr>
+            <td>🧱 <strong>Blocos Quebrados</strong></td>
+            <td>Total de blocos minerados</td>
+          </tr>
+          <tr>
+            <td>🏠 <strong>Blocos Colocados</strong></td>
+            <td>Total de blocos construídos</td>
+          </tr>
+          <tr>
+            <td>💰 <strong>Dinheiro Ganho</strong></td>
+            <td>Total ganho no mercado</td>
+          </tr>
+          <tr>
+            <td>💸 <strong>Dinheiro Gasto</strong></td>
+            <td>Total gasto no mercado</td>
+          </tr>
+          <tr>
+            <td>🏷️ <strong>Título Ativo</strong></td>
+            <td>Título exibido no chat</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comando</h3>
+      <p>Use <code>/stats</code> ou <code>/estatisticas</code> para ver seu perfil completo no chat.</p>
+
+      <h3>Ganho de Blocos de Proteção</h3>
+      <p>Jogadores ganham blocos de claim automaticamente: <strong>100 blocos a cada 60 minutos</strong> de jogo.
+        Administradores também podem dar blocos extras com <code>/reino darblocos</code>.</p>
+
+      <div class="info-box">
+        <span>Todas as estatísticas são salvas automaticamente a cada <strong>5 minutos</strong> de forma
+          assíncrona. Nenhum dado é perdido!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s23">
+      <div class="section-header">
+        <span class="icon">🛡️</span>
+        <div><span class="section-num">SEÇÃO 23</span>
+          <h2>Proteção do seu Claim</h2>
+        </div>
+      </div>
+      <p>Dentro de claims, o plugin protege <strong>automaticamente</strong> contra diversas formas de griefing e
+        exploit. Você não precisa fazer nada — tudo é ativado por padrão.</p>
+
+      <h3>Proteções Automáticas</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Proteção</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🐉 <strong>Anti-Wither</strong></td>
+            <td>Bloqueia spawn de Wither dentro de qualquer claim</td>
+          </tr>
+          <tr>
+            <td>💎 <strong>Anti-Crystal</strong></td>
+            <td>Bloqueia colocação e dano de End Crystal em claims alheios</td>
+          </tr>
+          <tr>
+            <td>💣 <strong>Anti-TNT Cannon</strong></td>
+            <td>Rastreia origem da TNT; se veio de fora, protege blocos dentro</td>
+          </tr>
+          <tr>
+            <td>🛏️ <strong>Anti-Bed/Anchor Bomb</strong></td>
+            <td>Protege contra explosões de cama (Nether) e Respawn Anchor (Overworld)</td>
+          </tr>
+          <tr>
+            <td>⚡ <strong>Limite de Redstone</strong></td>
+            <td>Limita ticks de redstone por chunk para evitar lag machines</td>
+          </tr>
+          <tr>
+            <td>🍇 <strong>Anti-Chorus Fruit</strong></td>
+            <td>Bloqueia teleporte via Chorus Fruit para dentro de claims sem permissão</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Outras Proteções</h3>
+      <ul>
+        <li>❌ Quebrar/colocar blocos sem permissão de CONSTRUÇÃO</li>
+        <li>❌ Abrir baús, fornalhas sem permissão de CONTÊINER</li>
+        <li>❌ Usar portas, botões sem permissão de ACESSO</li>
+        <li>❌ PvP (se desativado nas configurações do reino)</li>
+        <li>❌ Pisoteio de Farmland (crops protegidas)</li>
+        <li>❌ Dano de mobs em claims</li>
+        <li>❌ Explosões (TNT, Creepers, Crystal, Bed/Anchor)</li>
+        <li>❌ Fluxo de água/lava de fora do claim</li>
+      </ul>
+
+      <div class="info-box">
+        <span>Todas as proteções são <strong>automáticas</strong> — não requerem configuração do jogador.
+          Administradores podem ajustar cada proteção individualmente via <code>config.yml</code>.</span>
+      </div>
+
+      <h3>Feedback ao Cruzar Fronteiras</h3>
+      <ul>
+        <li><strong>Entrar em claim:</strong> Title suave com nome do terreno/reino + dono</li>
+        <li><strong>Sair de claim:</strong> ActionBar "Saindo de [Nome]"</li>
+        <li>Som sutil ao cruzar fronteira (configurável por jogador)</li>
+      </ul>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s24">
+      <div class="section-header">
+        <span class="icon">⚔️</span>
+        <div><span class="section-num">SEÇÃO 24</span>
+          <h2>Itens Lendários</h2>
+        </div>
+      </div>
+      <p>O GorvaxMC possui <strong>9 itens lendários</strong> com efeitos especiais exclusivos, encantamentos acima
+        do vanilla e lore única. Cada item é um drop exclusivo de um World Boss ou conquista épica — são os itens
+        mais raros e poderosos do servidor!</p>
+
+      <!-- LÂMINA DE GORVAX -->
+      <div class="item-card">
+        <img src="Imagens Ebook/gorvax_blade.png" alt="Lâmina de Gorvax" class="item-image"
+          style="image-rendering:pixelated; max-height:200px; object-fit:contain; background:rgba(0,0,0,0.4)">
+        <div class="item-name">⚔ Lâmina de Gorvax</div>
+        <div class="item-base">Base: Netherite Sword</div>
+        <div class="item-lore">
+          <p>Forjada no fogo ancestral do Rei Gorvax. A lâmina que fez impérios tombarem e reinos se ajoelharem.</p>
+        </div>
+        <div class="item-enchants">
+          <span>Sharpness VII</span>
+          <span>Fire Aspect III</span>
+          <span>Unbreaking V</span>
+          <span>Looting IV</span>
+          <span>Sweeping Edge III</span>
+        </div>
+        <div class="item-effect">☠ Efeito On-Hit: <strong>Wither</strong> por 3s (30% de chance) — +15% dano a jogadores
+        </div>
+        <p style="margin-top:8px; font-size:0.82rem"><strong>Fonte:</strong> Drop do Rei Gorvax (Top 1 em dano)</p>
+      </div>
+
+      <!-- COROA DE INDRAX -->
+      <div class="item-card">
+        <img src="Imagens Ebook/indrax_crown.png" alt="Coroa de Indrax" class="item-image"
+          style="image-rendering:pixelated; max-height:200px; object-fit:contain; background:rgba(0,0,0,0.4)">
+        <div class="item-name">👑 Coroa de Indrax</div>
+        <div class="item-base">Base: Netherite Helmet</div>
+        <div class="item-lore">
+          <p>Arrancada da cabeça do Abissal. Quem a veste enxerga além do véu que separa os mundos.</p>
+        </div>
+        <div class="item-enchants">
+          <span>Protection VI</span>
+          <span>Respiration III</span>
+          <span>Aqua Affinity</span>
+          <span>Unbreaking V</span>
+        </div>
+        <div class="item-effect">💧 Passivo: <strong>Respiração Aquática</strong> permanente — +4 HP extras</div>
+        <p style="margin-top:8px; font-size:0.82rem"><strong>Fonte:</strong> Drop do Indrax Abissal (Top 1-3 em dano)
+        </p>
+      </div>
+
+      <!-- BOTAS VELOCISTAS -->
+      <div class="item-card">
+        <img src="Imagens Ebook/speed_boots.png" alt="Botas Velocistas" class="item-image"
+          style="image-rendering:pixelated; max-height:200px; object-fit:contain; background:rgba(0,0,0,0.4)">
+        <div class="item-name">💨 Botas Velocistas</div>
+        <div class="item-base">Base: Diamond Boots</div>
+        <div class="item-lore">
+          <p>Imbuídas com a essência do vento. Quem as calça corre como o relâmpago e salta como a tempestade.</p>
+        </div>
+        <div class="item-enchants">
+          <span>Protection V</span>
+          <span>Feather Falling V</span>
+          <span>Depth Strider III</span>
+          <span>Unbreaking V</span>
+        </div>
+        <div class="item-effect">💨 Passivo: <strong>Velocidade</strong> permanente — Movimento aumentado</div>
+        <p style="margin-top:8px; font-size:0.82rem"><strong>Fonte:</strong> Conquista: 50 bosses mortos</p>
+      </div>
+
+      <!-- ARCO DO CAÇADOR -->
+      <div class="item-card">
+        <img src="Imagens Ebook/hunter_bow.png" alt="Arco do Caçador" class="item-image"
+          style="image-rendering:pixelated; max-height:200px; object-fit:contain; background:rgba(0,0,0,0.4)">
+        <div class="item-name">🏹 Arco do Caçador</div>
+        <div class="item-base">Base: Bow</div>
+        <div class="item-lore">
+          <p>Talhado nos ossos de Zarith, a Presa da Selva. Cada flecha é guiada pelo instinto predatório.</p>
+        </div>
+        <div class="item-enchants">
+          <span>Power VI</span>
+          <span>Infinity</span>
+          <span>Flame II</span>
+          <span>Punch III</span>
+          <span>Unbreaking V</span>
+        </div>
+        <div class="item-effect">☠ On-Hit: <strong>Poison</strong> 4s (25%) + <strong>Slowness</strong> 3s (40%)</div>
+        <p style="margin-top:8px; font-size:0.82rem"><strong>Fonte:</strong> Drop do Zarith (Top 1-3 em dano)</p>
+      </div>
+
+      <!-- ESCUDO DO GUARDIÃO -->
+      <div class="item-card">
+        <img src="Imagens Ebook/guardian_shield.png" alt="Escudo do Guardião" class="item-image"
+          style="image-rendering:pixelated; max-height:200px; object-fit:contain; background:rgba(0,0,0,0.4)">
+        <div class="item-name">🛡 Escudo do Guardião</div>
+        <div class="item-base">Base: Shield</div>
+        <div class="item-lore">
+          <p>Forjado com fragmentos de cada boss derrotado na história de Gorvax. Inquebrável como a vontade do herói.
+          </p>
+        </div>
+        <div class="item-enchants">
+          <span>Unbreaking VI</span>
+          <span>Mending</span>
+        </div>
+        <div class="item-effect">🛡 On-Hit: <strong>Weakness</strong> 2s (20%) — +2 HP extras — 40% Knockback Resist
+        </div>
+        <p style="margin-top:8px; font-size:0.82rem"><strong>Fonte:</strong> Conquista "Muro de Ferro"</p>
+      </div>
+
+      <!-- MANTO DE VULGATHOR -->
+      <div class="item-card">
+        <img src="Imagens Ebook/vulgathor_mantle.png" alt="Manto de Vulgathor" class="item-image"
+          style="image-rendering:pixelated; max-height:200px; object-fit:contain; background:rgba(0,0,0,0.4)">
+        <div class="item-name">🔥 Manto de Vulgathor</div>
+        <div class="item-base">Base: Netherite Chestplate</div>
+        <div class="item-lore">
+          <p>Arrancado das cinzas vivas do Arauto. Quem o veste carrega o calor eterno dos Basalt Deltas em seu peito.
+          </p>
+        </div>
+        <div class="item-enchants">
+          <span>Protection VI</span>
+          <span>Fire Protection V</span>
+          <span>Unbreaking V</span>
+          <span>Thorns III</span>
+        </div>
+        <div class="item-effect">🔥 Passivo: <strong>Resistência ao Fogo</strong> permanente — On-Hit: <strong>Dano
+            Instantâneo</strong> (35%)</div>
+        <p style="margin-top:8px; font-size:0.82rem"><strong>Fonte:</strong> Drop do Vulgathor (Top 1-3 em dano)</p>
+      </div>
+
+      <!-- LANÇA DE KALDUR -->
+      <div class="item-card">
+        <img src="Imagens Ebook/kaldur_lance.png" alt="Lança de Kaldur" class="item-image"
+          style="image-rendering:pixelated; max-height:200px; object-fit:contain; background:rgba(0,0,0,0.4)">
+        <div class="item-name">🧊 Lança de Kaldur</div>
+        <div class="item-base">Base: Trident</div>
+        <div class="item-lore">
+          <p>Cristalizada no coração congelado de Kaldur. Cada golpe carrega o frio absoluto que congela até a alma do
+            inimigo.</p>
+        </div>
+        <div class="item-enchants">
+          <span>Sharpness VI</span>
+          <span>Loyalty III</span>
+          <span>Channeling</span>
+          <span>Impaling V</span>
+          <span>Unbreaking V</span>
+        </div>
+        <div class="item-effect">❄ On-Hit: <strong>Slowness</strong> 4s (40%) + <strong>Mining Fatigue</strong> 3s (20%)
+        </div>
+        <p style="margin-top:8px; font-size:0.82rem"><strong>Fonte:</strong> Drop do Kaldur (Top 1-3 em dano)</p>
+      </div>
+
+      <!-- ELMO DE SKULKOR -->
+      <div class="item-card">
+        <img src="Imagens Ebook/skulkor_helm.png" alt="Elmo de Skulkor" class="item-image"
+          style="image-rendering:pixelated; max-height:200px; object-fit:contain; background:rgba(0,0,0,0.4)">
+        <div class="item-name">💀 Elmo de Skulkor</div>
+        <div class="item-base">Base: Netherite Helmet</div>
+        <div class="item-lore">
+          <p>Fundido dos ossos do General Reerguido. A vontade inabalável de Skulkor ecoa na mente de quem o porta.</p>
+        </div>
+        <div class="item-enchants">
+          <span>Protection VI</span>
+          <span>Unbreaking V</span>
+          <span>Respiration III</span>
+          <span>Thorns II</span>
+        </div>
+        <div class="item-effect">💀 +6 HP extras — On-Hit: <strong>Strength</strong> 3s (15%)</div>
+        <p style="margin-top:8px; font-size:0.82rem"><strong>Fonte:</strong> Drop do Skulkor (Top 1-3 em dano)</p>
+      </div>
+
+      <!-- PÉROLA DE XYLOS -->
+      <div class="item-card">
+        <img src="Imagens Ebook/xylos_pearl.png" alt="Pérola de Xylos" class="item-image"
+          style="image-rendering:pixelated; max-height:200px; object-fit:contain; background:rgba(0,0,0,0.4)">
+        <div class="item-name">🌀 Pérola de Xylos</div>
+        <div class="item-base">Base: Netherite Axe</div>
+        <div class="item-lore">
+          <p>Forjada na fenda dimensional de Xylos. A lâmina distorce o espaço ao redor, devorando a visão e o
+            equilíbrio do inimigo.</p>
+        </div>
+        <div class="item-enchants">
+          <span>Sharpness VII</span>
+          <span>Unbreaking V</span>
+          <span>Efficiency VI</span>
+        </div>
+        <div class="item-effect">🌀 On-Hit: <strong>Blindness</strong> 3s (25%) + <strong>Levitation</strong> 2s (10%)
+        </div>
+        <p style="margin-top:8px; font-size:0.82rem"><strong>Fonte:</strong> Drop do Xylos (Top 1-3 em dano)</p>
+      </div>
+
+      <div class="warning-box">
+        <span>⚠️ Itens lendários são <strong>extremamente raros</strong>. Eles são identificados internamente por
+          PersistentDataContainer — é impossível criá-los com comandos vanilla. Cuide bem deles!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s25">
+      <div class="section-header">
+        <span class="icon">🎁</span>
+        <div><span class="section-num">SEÇÃO 25</span>
+          <h2>Crates / Keys</h2>
+        </div>
+      </div>
+      <p>O sistema de crates oferece recompensas aleatórias com animação de roleta! Existem <strong>4 tipos de
+          crate</strong>, cada uma com raridade e recompensas diferentes.</p>
+
+      <h3>Tipos de Crate</h3>
+      <!-- Panorama geral das crates (imagem de seção) -->
+      <img src="Imagens Ebook/crates_panorama_1771966472546.png" alt="Crates" class="showcase-image">
+
+      <div class="grid-2">
+        <div class="crate-card common">
+          <img src="Imagens Ebook/crate_comum.png" alt="Crate Comum" class="showcase-image" style="max-height:160px">
+          <div class="crate-icon">⬜</div>
+          <div class="crate-name">Crate Comum</div>
+          <div class="crate-rewards">
+            <ul>
+              <li>💰 $200 - $500</li>
+              <li>🧱 50 - 100 blocos de claim</li>
+              <li>💎 3 Diamantes</li>
+              <li>🍎 4 Maçãs Douradas</li>
+              <li>⚛️ 8 Ferro</li>
+              <li>⭐ 10 Garrafas de XP</li>
+            </ul>
+          </div>
+        </div>
+        <div class="crate-card rare">
+          <img src="Imagens Ebook/crate_raro.png" alt="Crate Raro" class="showcase-image" style="max-height:160px">
+          <div class="crate-icon">🟦</div>
+          <div class="crate-name">Crate Raro</div>
+          <div class="crate-rewards">
+            <ul>
+              <li>💰 $750 - $2.000</li>
+              <li>🧱 200 - 500 blocos</li>
+              <li>⬛ 2 Barras de Netherite</li>
+              <li>🍏 4 God Apples</li>
+              <li>🪂 1 Elytra</li>
+              <li>🔑 1 Key Comum</li>
+              <li>🏷️ Título: §9[★ Sortudo]</li>
+            </ul>
+          </div>
+        </div>
+        <div class="crate-card legendary">
+          <img src="Imagens Ebook/crate_lendario.png" alt="Crate Lendário" class="showcase-image"
+            style="max-height:160px">
+          <div class="crate-icon">🟡</div>
+          <div class="crate-name">Crate Lendário</div>
+          <div class="crate-rewards">
+            <ul>
+              <li>💰 $2.500 - $5.000</li>
+              <li>🧱 1.000 blocos de claim</li>
+              <li>⚔️ Lâmina de Gorvax (3%!)</li>
+              <li>👑 Coroa de Indrax (3%!)</li>
+              <li>💨 Botas Velocistas (4%!)</li>
+              <li>⬛ 4 Netherite Ingots</li>
+              <li>🔑 3 Keys Raros</li>
+              <li>🏷️ Títulos: Lendário / Abençoado</li>
+            </ul>
+          </div>
+        </div>
+        <div class="crate-card seasonal">
+          <img src="Imagens Ebook/crate_sazonal.png" alt="Crate Sazonal" class="showcase-image"
+            style="max-height:160px">
+          <div class="crate-icon">🟣</div>
+          <div class="crate-name">Crate Sazonal</div>
+          <div class="crate-rewards">
+            <ul>
+              <li>💰 $1.000 - $3.000</li>
+              <li>🧱 500 blocos de claim</li>
+              <li>🧪 1 Totem of Undying</li>
+              <li>🍏 5 God Apples</li>
+              <li>🔑 1 Key Lendário</li>
+              <li>🏷️ Título: §c[🌟 Evento]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h3>Como Abrir</h3>
+      <ul>
+        <li>📦 Clique num <strong>Ender Chest</strong> na área do spawn</li>
+        <li>💬 Use <code>/crate abrir &lt;tipo&gt;</code> de qualquer lugar</li>
+        <li>🔍 Use <code>/crate preview &lt;tipo&gt;</code> para ver rewards e chances</li>
+        <li>🔑 Use <code>/crate chaves</code> para ver suas keys disponíveis</li>
+      </ul>
+
+      <h3>Como Obter Keys</h3>
+      <ul>
+        <li>🎁 Daily Rewards (Dia 7)</li>
+        <li>🏆 Conquistas difíceis</li>
+        <li>⚔️ Kill streaks (15+)</li>
+        <li>👹 Boss kill (Top 1-3)</li>
+        <li>👑 Loja VIP (keys mensais)</li>
+      </ul>
+
+      <div class="tip-box">
+        <span>Ao abrir uma crate, uma animação de roleta é exibida com som épico! Itens raros e lendários são
+          anunciados para todo o servidor.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s26">
+      <div class="section-header">
+        <span class="icon">✨</span>
+        <div><span class="section-num">SEÇÃO 26</span>
+          <h2>Cosméticos</h2>
+        </div>
+      </div>
+      <p>O sistema de cosméticos permite customizar sua aparência visual sem afetar gameplay. São <strong>25
+          cosméticos</strong> puramente estéticos em 5 categorias!</p>
+
+      <!-- Cosmetic Showcase Banner (E6 CSS-only art) -->
+      <img src="Imagens Ebook/cosmeticos_showcase_1771967104013.png" alt="Cosmeticos" class="showcase-image">
+
+      <h3>🔥 Partículas ao Caminhar (6)</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Cosmético</th>
+            <th>Partícula</th>
+            <th>Fonte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rastro de Fogo</td>
+            <td>FLAME</td>
+            <td>Conquista</td>
+          </tr>
+          <tr>
+            <td>Corações</td>
+            <td>HEART</td>
+            <td>Loja ($2.000)</td>
+          </tr>
+          <tr>
+            <td>Encantamento</td>
+            <td>ENCHANTMENT_TABLE</td>
+            <td>Crate Raro</td>
+          </tr>
+          <tr>
+            <td>Musical</td>
+            <td>NOTE</td>
+            <td>Loja ($1.500)</td>
+          </tr>
+          <tr>
+            <td>Portal do End</td>
+            <td>PORTAL</td>
+            <td>Conquista</td>
+          </tr>
+          <tr>
+            <td>Nevasca</td>
+            <td>SNOWFLAKE</td>
+            <td>Crate Sazonal</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✨ Trails de Flecha (4)</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Cosmético</th>
+            <th>Partícula</th>
+            <th>Fonte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Trilha Mágica</td>
+            <td>CRIT_MAGIC</td>
+            <td>Loja ($3.000)</td>
+          </tr>
+          <tr>
+            <td>Trilha de Fogo</td>
+            <td>FLAME</td>
+            <td>Conquista</td>
+          </tr>
+          <tr>
+            <td>Trilha das Almas</td>
+            <td>SOUL_FIRE_FLAME</td>
+            <td>Crate Lendário</td>
+          </tr>
+          <tr>
+            <td>Trilha Aquática</td>
+            <td>DRIPPING_WATER</td>
+            <td>Loja ($2.500)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>🏷️ Tags de Chat (5)</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Tag</th>
+            <th>Exibição</th>
+            <th>Fonte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VIP</td>
+            <td>§a[✦ VIP]</td>
+            <td>VIP</td>
+          </tr>
+          <tr>
+            <td>ELITE</td>
+            <td>§6[⚡ ELITE]</td>
+            <td>VIP Elite</td>
+          </tr>
+          <tr>
+            <td>LENDÁRIO</td>
+            <td>§d[🐉 LENDÁRIO]</td>
+            <td>VIP Lendário</td>
+          </tr>
+          <tr>
+            <td>GUERREIRO</td>
+            <td>§c[⚔ GUERREIRO]</td>
+            <td>Conquista (50 kills)</td>
+          </tr>
+          <tr>
+            <td>CONSTRUTOR</td>
+            <td>§e[🏗 CONSTRUTOR]</td>
+            <td>Loja ($5.000)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>💥 Efeitos de Kill (3) & Partículas de Kill (3)</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Cosmético</th>
+            <th>Efeito</th>
+            <th>Fonte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>⚡ Relâmpago</td>
+            <td>LIGHTNING</td>
+            <td>Conquista</td>
+          </tr>
+          <tr>
+            <td>🎆 Fogos</td>
+            <td>FIREWORK</td>
+            <td>Crate Raro</td>
+          </tr>
+          <tr>
+            <td>💥 Onda de Choque</td>
+            <td>EXPLOSION</td>
+            <td>Loja ($4.000)</td>
+          </tr>
+          <tr>
+            <td>✨ Totem Divino</td>
+            <td>TOTEM_OF_UNDYING</td>
+            <td>Conquistador de Dragões</td>
+          </tr>
+          <tr>
+            <td>🌋 Chuva de Lava</td>
+            <td>LAVA</td>
+            <td>Crate Lendário</td>
+          </tr>
+          <tr>
+            <td>🐉 Sopro do Dragão</td>
+            <td>DRAGON_BREATH</td>
+            <td>VIP Lendário</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/cosmetics</code></td>
+            <td>Abre o menu de cosméticos (GUI)</td>
+          </tr>
+          <tr>
+            <td><code>/cosmetics listar</code></td>
+            <td>Lista cosméticos desbloqueados</td>
+          </tr>
+          <tr>
+            <td><code>/cosmetics ativar &lt;id&gt;</code></td>
+            <td>Ativa um cosmético</td>
+          </tr>
+          <tr>
+            <td><code>/cosmetics desativar &lt;tipo&gt;</code></td>
+            <td>Desativa o cosmético do tipo</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <span>Na GUI, cosméticos aparecem como: 🟢 <strong>Verde</strong> = ativo, 🟠 <strong>Azul</strong> =
+          desbloqueado, ⚫ <strong>Cinza</strong> = bloqueado (mostra como obter).</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s27">
+      <div class="section-header">
+        <span class="icon">👑</span>
+        <div><span class="section-num">SEÇÃO 27</span>
+          <h2>VIP &amp; Ranks Premium</h2>
+        </div>
+      </div>
+      <p>O sistema VIP oferece benefícios premium para jogadores que apoiam o servidor. São <strong>4 tiers
+          progressivos</strong> com benefícios escaláveis — sem vantagem PvP direta (conformidade EULA).</p>
+
+      <img src="Imagens Ebook/vip_showcase_1771967777630.png" alt="VIP Ranks" class="showcase-image">
+
+      <h3>Tabela de Benefícios</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Blocos Extras</th>
+            <th>Homes</th>
+            <th>Keys Mensais</th>
+            <th>Desconto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>✦ <strong>VIP</strong></td>
+            <td>+500</td>
+            <td>+2</td>
+            <td>1 Raro</td>
+            <td>0%</td>
+          </tr>
+          <tr>
+            <td>✦ <strong>VIP+</strong></td>
+            <td>+1.500</td>
+            <td>+5</td>
+            <td>2 Raro + 1 Lendário</td>
+            <td>5%</td>
+          </tr>
+          <tr>
+            <td>⚡ <strong>ELITE</strong></td>
+            <td>+3.000</td>
+            <td>+10</td>
+            <td>3 Raro + 1 Lendário</td>
+            <td>10%</td>
+          </tr>
+          <tr>
+            <td>🐉 <strong>LENDÁRIO</strong></td>
+            <td>+5.000</td>
+            <td>+15</td>
+            <td>3 Raro + 2 Lendário</td>
+            <td>15%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/vip</code></td>
+            <td>Mostra tabela de benefícios VIP</td>
+          </tr>
+          <tr>
+            <td><code>/vip info</code></td>
+            <td>Tabela detalhada de todos os tiers</td>
+          </tr>
+          <tr>
+            <td><code>/vip status</code></td>
+            <td>Exibe seu rank VIP atual</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Benefícios Detalhados</h3>
+      <ul>
+        <li>🧱 <strong>Blocos extras</strong> de claim (aplicados ao logar)</li>
+        <li>🏠 <strong>Homes extras</strong> para teleportes</li>
+        <li>🔑 <strong>Keys mensais</strong> distribuídas no dia 1 de cada mês</li>
+        <li>💰 <strong>Desconto no Mercado Global</strong> em todas as compras</li>
+        <li>🏷️ <strong>Tags cosméticas exclusivas</strong> no chat</li>
+      </ul>
+
+      <div class="tip-box">
+        <span>VIPs são integrados com LuckPerms. Ao comprar na loja web, o rank é aplicado automaticamente e os
+          benefícios entram em vigor no próximo login!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s28">
+      <div class="section-header">
+        <span class="icon">🎖️</span>
+        <div><span class="section-num">SEÇÃO 28</span>
+          <h2>Battle Pass Sazonal</h2>
+        </div>
+      </div>
+      <p>O Battle Pass é um sistema de <strong>progressão sazonal com 30 níveis</strong>. Ganhe XP ao jogar
+        naturalmente e desbloqueie recompensas na track <strong>Free</strong> (todos) e <strong>Premium</strong>
+        (ativada via loja).</p>
+
+      <img src="Imagens Ebook/banner_battlepass.png" alt="Battle Pass" class="showcase-image">
+
+      <h3>Fontes de XP</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Ação</th>
+            <th>XP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>⚔️ Kill PvP</td>
+            <td><strong>50 XP</strong></td>
+          </tr>
+          <tr>
+            <td>💎 Minerar Diamante</td>
+            <td><strong>10 XP</strong></td>
+          </tr>
+          <tr>
+            <td>⬛ Minerar Ancient Debris</td>
+            <td><strong>25 XP</strong></td>
+          </tr>
+          <tr>
+            <td>📅 Login Diário</td>
+            <td><strong>30 XP</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Exemplos de Recompensas</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Nível</th>
+            <th>Free</th>
+            <th>Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>$500</td>
+            <td>1 Key Raro</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>200 Blocos</td>
+            <td>Cosmético: Rastro de Fogo</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>$2.000</td>
+            <td>Título: ⭐ Dedicado</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>500 Blocos + $1.000</td>
+            <td>2 Keys Lendários</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>$3.000</td>
+            <td>1.000 Blocos + Cosmético</td>
+          </tr>
+          <tr>
+            <td>25</td>
+            <td>5 Keys Raros</td>
+            <td>Título: 🔥 Lendário da Temporada</td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td>$5.000 + 1.000 Blocos</td>
+            <td>Item Lendário + Título Exclusivo</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/pass</code></td>
+            <td>Abre a GUI do Battle Pass (54 slots)</td>
+          </tr>
+          <tr>
+            <td><code>/pass info</code></td>
+            <td>Mostra info da temporada</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>GUI do Battle Pass</h3>
+      <ul>
+        <li>🟩 <strong>Verde</strong> = já resgatado</li>
+        <li>📦 <strong>Baú</strong> = disponível para resgate (clique!)</li>
+        <li>⬜ <strong>Cinza</strong> = nível não atingido</li>
+        <li>🚫 <strong>Barreira</strong> = premium não ativado</li>
+      </ul>
+
+      <div class="info-box">
+        <span>A temporada dura <strong>30 dias</strong>. Após o fim, o progresso reseta e uma nova temporada
+          começa com recompensas diferentes. XP base por nível: 100, com incremento de +20 por nível.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s29">
+      <div class="section-header">
+        <span class="icon">🎁</span>
+        <div><span class="section-num">SEÇÃO 29</span>
+          <h2>Daily Rewards &amp; Login Streak</h2>
+        </div>
+      </div>
+      <p>Logue todos os dias e receba recompensas progressivas! O sistema de <strong>Daily Rewards</strong> funciona
+        em um ciclo de 7 dias com mecânica de streak.</p>
+
+      <img src="Imagens Ebook/banner_daily_rewards.png" alt="Daily Rewards" class="showcase-image">
+
+      <h3>Recompensas por Dia</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Recompensa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>📅 <strong>Dia 1</strong></td>
+            <td>💰 $100</td>
+          </tr>
+          <tr>
+            <td>📅 <strong>Dia 2</strong></td>
+            <td>🧱 50 blocos de claim</td>
+          </tr>
+          <tr>
+            <td>📅 <strong>Dia 3</strong></td>
+            <td>💰 $250</td>
+          </tr>
+          <tr>
+            <td>📅 <strong>Dia 4</strong></td>
+            <td>🧱 100 blocos de claim</td>
+          </tr>
+          <tr>
+            <td>📅 <strong>Dia 5</strong></td>
+            <td>💰 $500</td>
+          </tr>
+          <tr>
+            <td>📅 <strong>Dia 6</strong></td>
+            <td>🧱 200 blocos de claim</td>
+          </tr>
+          <tr>
+            <td>⭐ <strong>Dia 7</strong></td>
+            <td>💰 $1.000 + 🏷️ Título <strong>"⭐ Fiel"</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Mecânica de Streak</h3>
+      <ul>
+        <li>✅ Login dentro de <strong>20-48h</strong> do último resgate → sequência mantida</li>
+        <li>❌ Login após <strong>48h</strong> sem resgatar → streak resetado para Dia 1</li>
+        <li>⌛ Resgate antes de 20h → "Já resgatou hoje"</li>
+      </ul>
+
+      <h3>Comando</h3>
+      <p>Use <code>/daily</code> (ou <code>/diario</code>) para abrir a GUI de recompensas diárias.
+        A GUI mostra 7 dias com ícones visuais:</p>
+      <ul>
+        <li>🟩 Vidro Verde = dia já resgatado</li>
+        <li>📦 Baú brilhante = dia atual (clique para resgatar!)</li>
+        <li>⬜ Vidro Cinza = dia futuro</li>
+      </ul>
+
+      <div class="tip-box">
+        <span>Mantenha sua streak de 7 dias para maximizar recompensas! O Dia 7 é especialmente valioso
+          com $1.000 e um título exclusivo.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s30">
+      <div class="section-header">
+        <span class="icon">📚</span>
+        <div><span class="section-num">SEÇÃO 30</span>
+          <h2>Tutorial Interativo + Welcome Kit</h2>
+        </div>
+      </div>
+      <p>Ao entrar pela <strong>primeira vez</strong> no servidor, você recebe um <strong>Tutorial em 6
+          passos</strong> com BossBar progressiva e um <strong>Welcome Kit</strong> com itens iniciais!</p>
+
+      <h3>Welcome Kit</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Qtd</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🪣 Pá de Ouro (para claims)</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>⛏ Pá de Ferro (para lotes)</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>🧭 Graveto (para inspecionar)</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>🛡️ Escudo</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>🍖 Filé Mignon (Cooked Beef)</td>
+            <td>16</td>
+          </tr>
+          <tr>
+            <td>⚔️ Armadura de Ferro completa</td>
+            <td>4 peças</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Passos do Tutorial</h3>
+      <ol>
+        <li>🌟 Boas-vindas ao Gorvax (8s automático)</li>
+        <li>🎁 Receba seu kit inicial (8s automático)</li>
+        <li>🌍 Use <code>/rtp</code> para sair do spawn (avança ao executar)</li>
+        <li>🪣 Segure a Pá de Ouro e selecione terreno</li>
+        <li>✅ Confirme com <code>/confirmar</code></li>
+        <li>📋 Use <code>/gorvax menu</code> para ver o Menu Central (10s)</li>
+      </ol>
+
+      <h3>Recompensas de Conclusão</h3>
+      <ul>
+        <li>💰 <strong>$500</strong> de bônus</li>
+        <li>🧱 <strong>200 blocos extras</strong> de claim</li>
+      </ul>
+
+      <div class="info-box">
+        <span>Use <code>/tutorial</code> para ver o passo atual. Não quer seguir? Use <code>/tutorial pular</code>
+          para pular diretamente (mas perderá as recompensas de conclusão!).</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s31">
+      <div class="section-header">
+        <span class="icon">🧭</span>
+        <div><span class="section-num">SEÇÃO 31</span>
+          <h2>Menu Central</h2>
+        </div>
+      </div>
+      <p>O Menu Central é o <strong>hub principal</strong> do GorvaxMC. Com um único comando você acessa todos
+        os sistemas do servidor organizados em um menu visual intuitivo.</p>
+
+      <h3>Como Acessar</h3>
+      <p>Use <code>/gorvax menu</code> (ou <code>/menu</code>) para abrir o menu central.</p>
+
+      <h3>Opções Disponíveis</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Slot</th>
+            <th>Ícone</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>11</td>
+            <td>💰 Ling. de Ouro</td>
+            <td>Abre o <strong>Mercado Global</strong></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>👑 Baú</td>
+            <td>Abre o <strong>Painel do Reino</strong></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>🏆 Troféu</td>
+            <td>Abre as <strong>Conquistas</strong></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>🎁 Baú do End</td>
+            <td>Abre o menu de <strong>Crates</strong></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>✨ Estrela</td>
+            <td>Abre os <strong>Cosméticos</strong></td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>📊 Papel</td>
+            <td>Mostra <strong>Estatísticas</strong></td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>🏅 Esmeralda</td>
+            <td>Abre <strong>Leaderboards</strong></td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>🎖️ A. Reflex.</td>
+            <td>Abre o <strong>Battle Pass</strong></td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>🎁 Presente</td>
+            <td>Abre <strong>Daily Rewards</strong></td>
+          </tr>
+          <tr>
+            <td>24</td>
+            <td>👑 Coroa</td>
+            <td>Abre <strong>VIP Info</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <span>O menu central é a forma mais rápida de acessar qualquer sistema. Use-o em vez de decorar
+          dezenas de comandos!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s32">
+      <div class="section-header">
+        <span class="icon">🏅</span>
+        <div><span class="section-num">SEÇÃO 32</span>
+          <h2>Leaderboards &amp; Rankings</h2>
+        </div>
+      </div>
+      <p>Confira quem são os <strong>melhores jogadores</strong> do GorvaxMC! O sistema de leaderboards rastreia
+        diversas categorias e atualiza automaticamente a cada 5 minutos.</p>
+
+      <h3>Categorias</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>Ranking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/top kills</code></td>
+            <td>⚔️ Mais kills PvP</td>
+          </tr>
+          <tr>
+            <td><code>/top mortes</code></td>
+            <td>💀 Mais mortes (hall da vergonha!)</td>
+          </tr>
+          <tr>
+            <td><code>/top kdr</code></td>
+            <td>📊 Melhor Kill/Death Ratio</td>
+          </tr>
+          <tr>
+            <td><code>/top tempo</code></td>
+            <td>⏱️ Mais tempo jogado</td>
+          </tr>
+          <tr>
+            <td><code>/top bosses</code></td>
+            <td>👹 Mais bosses mortos</td>
+          </tr>
+          <tr>
+            <td><code>/top blocos</code></td>
+            <td>⛏ Mais blocos quebrados</td>
+          </tr>
+          <tr>
+            <td><code>/top dinheiro</code></td>
+            <td>💰 Mais dinheiro ganho</td>
+          </tr>
+          <tr>
+            <td><code>/top reinos</code></td>
+            <td>👑 Reinos por nível e nº de chunks</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Configuração</h3>
+      <ul>
+        <li>⏱️ Atualização automática: <strong>a cada 5 minutos</strong></li>
+        <li>🏆 Exibe as <strong>10 primeiras posições</strong></li>
+        <li>💾 Cache <code>ConcurrentHashMap</code> thread-safe</li>
+      </ul>
+
+      <div class="info-box">
+        <span>Os placeholders <code>%gorvax_top_kills_1_name%</code> e <code>%gorvax_top_kills_1_value%</code> podem
+          ser usados em scoreboards e TAB para exibir rankings em tempo real!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s33">
+      <div class="section-header">
+        <span class="icon">💬</span>
+        <div><span class="section-num">SEÇÃO 33</span>
+          <h2>Discord Integration</h2>
+        </div>
+      </div>
+      <p>O GorvaxMC possui integração automática com <strong>Discord via webhooks</strong>. Eventos importantes
+        do servidor são enviados automaticamente para canais configurados, mantendo a comunidade informada
+        <strong>sem precisar estar online no jogo</strong>!
+      </p>
+
+      <h3>Eventos com Webhook</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Evento</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>👑 <strong>Reino Criado</strong></td>
+            <td>Nome, fundador, tamanho inicial</td>
+          </tr>
+          <tr>
+            <td>⚔️ <strong>Guerra Declarada</strong></td>
+            <td>Atacante, defensor, alvo de outpost</td>
+          </tr>
+          <tr>
+            <td>👹 <strong>Boss Spawn</strong></td>
+            <td>Nome, HP, local, agendamento</td>
+          </tr>
+          <tr>
+            <td>🏆 <strong>Boss Morto</strong></td>
+            <td>Boss, MVP, ranking de dano</td>
+          </tr>
+          <tr>
+            <td>💰 <strong>Leilão Criado</strong></td>
+            <td>Item, jogador, preço inicial</td>
+          </tr>
+          <tr>
+            <td>💀 <strong>Kill Streak 10+</strong></td>
+            <td>Jogador, número de kills, bounty</td>
+          </tr>
+          <tr>
+            <td>🌟 <strong>Conquista</strong></td>
+            <td>Jogador, nome da conquista</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Como Funciona</h3>
+      <ul>
+        <li>🔗 O administrador configura URLs de webhook no <code>config.yml</code></li>
+        <li>📨 Embeds são enviados automaticamente com cores e ícones por tipo de evento</li>
+        <li>⏱️ Envio assíncrono (não impacta performance do servidor)</li>
+        <li>🛠️ Rate limiting embutido para não violar limites do Discord</li>
+      </ul>
+
+      <div class="tip-box">
+        <span>A integração Discord é <strong>unidirecional</strong> (servidor → Discord). Não requer bot nem token
+          — apenas uma URL de webhook!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <div class="section" id="s34">
+      <div class="section-header">
+        <span class="icon">💸</span>
+        <div><span class="section-num">SEÇÃO 34</span>
+          <h2>Impostos &amp; Taxas do Reino</h2>
+        </div>
+      </div>
+      <p>O GorvaxMC possui um sistema econômico completo de <strong>impostos e taxas</strong> que funciona como dreno
+        natural de dinheiro (money sink), evitando hiperinflação e incentivando atividade econômica estratégica.</p>
+
+      <h3>Impostos do Servidor</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Imposto</th>
+            <th>Taxa</th>
+            <th>Destino</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>💰 <strong>Taxa do Mercado (venda)</strong></td>
+            <td>30% (você recebe 70%)</td>
+            <td>Removido do sistema</td>
+          </tr>
+          <tr>
+            <td>🔨 <strong>Taxa de Leilão</strong></td>
+            <td>5%</td>
+            <td>Removido do sistema</td>
+          </tr>
+          <tr>
+            <td>🏪 <strong>Taxa do Mercado Local</strong></td>
+            <td>3%</td>
+            <td>Banco do reino</td>
+          </tr>
+          <tr>
+            <td>⚔️ <strong>Taxa de Duelo</strong></td>
+            <td>5%</td>
+            <td>Removido do sistema</td>
+          </tr>
+          <tr>
+            <td>🏠 <strong>Custo de Claim</strong></td>
+            <td>100 blocos</td>
+            <td>Gasto de recurso</td>
+          </tr>
+          <tr>
+            <td>🏕️ <strong>Custo de Outpost</strong></td>
+            <td>Área × 3.0</td>
+            <td>Gasto de recurso</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Impostos do Reino</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Imposto</th>
+            <th>Taxa</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>👑 <strong>Manutenção diária</strong></td>
+            <td>Varia</td>
+            <td>Cobrada diariamente do banco do reino (proporcional ao tamanho)</td>
+          </tr>
+          <tr>
+            <td>🏪 <strong>Comércio local</strong></td>
+            <td>3%</td>
+            <td>Vai para o banco do reino em cada venda</td>
+          </tr>
+          <tr>
+            <td>⚔️ <strong>Súplica do vassalo</strong></td>
+            <td>Customizável</td>
+            <td>O Rei pode definir tributos via <code>/reino tributo</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Finalidade Econômica</h3>
+      <ul>
+        <li>💸 <strong>Money sink</strong> — remove dinheiro do sistema, evitando hiperinflação</li>
+        <li>⚖️ <strong>Balanço natural</strong> — incentiva jogadores a serem ativos para manter seus reinos</li>
+        <li>👑 <strong>Tesouro do reino</strong> — taxas do mercado local financiam o banco do reino</li>
+      </ul>
+
+      <div class="warning-box">
+        <span>⚠️ Reinos que não mantiverem saldo no banco podem perder benefícios ou ter claims reduzidos!
+          Mantenha a economia do seu reino ativa.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <!-- ==================== SEÇÃO 35 — CÓDEX DE GORVAX ==================== -->
+    <div class="section" id="s35">
+      <div class="section-header">
+        <span class="icon">📚</span>
+        <div><span class="section-num">SEÇÃO 35</span>
+          <h2>Códex de Gorvax (Enciclopédia Interativa)</h2>
+        </div>
+      </div>
+
+      <p>O Códex é uma <strong>enciclopédia in-game</strong> que os jogadores desbloqueiam progressivamente ao interagir com o mundo.
+        Cada criatura morta, bioma explorado, item encontrado ou quest completada revela novas páginas do conhecimento de Gorvax.</p>
+
+      <h3>Visão Geral</h3>
+      <ul>
+        <li>📂 <strong>Entradas organizadas por categorias</strong> — Mobs, Biomas, Itens, Lore e mais</li>
+        <li>🔓 <strong>Desbloqueio por ações</strong> — matar mobs, explorar biomas, encontrar itens, completar quests</li>
+        <li>📊 <strong>Barra de progresso</strong> por categoria e global</li>
+        <li>🎁 <strong>Recompensas</strong> ao completar categorias inteiras</li>
+      </ul>
+
+      <h3>Comando</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>Aliases</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/codex</code></td>
+            <td><code>/enciclopedia</code>, <code>/wiki</code></td>
+            <td>Abre o Códex (GUI interativa)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Interface GUI</h3>
+      <ul>
+        <li>🏠 <strong>Tela principal</strong> — lista de categorias com barra de progresso visual</li>
+        <li>📁 <strong>Por categoria</strong> — entradas desbloqueadas (iluminadas) e bloqueadas (vidro cinza escuro)</li>
+        <li>🔍 <strong>Detalhes</strong> — clique numa entrada desbloqueada para ver descrição, dicas e lore</li>
+      </ul>
+
+      <h3>Tipos de Desbloqueio</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>O que dispara</th>
+            <th>Exemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>KILL_MOB</code></td>
+            <td>Matar N mobs de um tipo específico</td>
+            <td>Matar 10 Zombies → desbloqueia "Zombi"</td>
+          </tr>
+          <tr>
+            <td><code>MINE_BLOCK</code></td>
+            <td>Minerar N blocos específicos</td>
+            <td>Minerar 5 Diamantes → desbloqueia "Diamante"</td>
+          </tr>
+          <tr>
+            <td><code>VISIT_BIOME</code></td>
+            <td>Visitar um bioma</td>
+            <td>Entrar no Nether → desbloqueia "Nether"</td>
+          </tr>
+          <tr>
+            <td><code>BOSS_PARTICIPATE</code></td>
+            <td>Participar de boss fight</td>
+            <td>Lutar contra Gorvax → desbloqueia "Rei Gorvax"</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Placeholders (PlaceholderAPI)</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Placeholder</th>
+            <th>Descrição</th>
+            <th>Exemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>%gorvax_codex_unlocked%</code></td>
+            <td>Entradas desbloqueadas</td>
+            <td><code>18</code></td>
+          </tr>
+          <tr>
+            <td><code>%gorvax_codex_total%</code></td>
+            <td>Total de entradas</td>
+            <td><code>42</code></td>
+          </tr>
+          <tr>
+            <td><code>%gorvax_codex_percent%</code></td>
+            <td>Percentual de completude</td>
+            <td><code>42</code></td>
+          </tr>
+          <tr>
+            <td><code>%gorvax_codex_category_&lt;catId&gt;%</code></td>
+            <td>Progresso por categoria</td>
+            <td><code>5/8</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <span>Explore o mundo, mate mobs, mine blocos e complete quests para desbloquear cada vez mais páginas do Códex!
+          Completar uma categoria inteira garante recompensas exclusivas.</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <!-- ==================== SEÇÃO 36 — RANKS DE PROGRESSÃO E KITS ==================== -->
+    <div class="section" id="s36">
+      <div class="section-header">
+        <span class="icon">🏅</span>
+        <div><span class="section-num">SEÇÃO 36</span>
+          <h2>Ranks de Progressão &amp; Kits</h2>
+        </div>
+      </div>
+
+      <p>O GorvaxMC possui um sistema de <strong>progressão de rank por gameplay</strong>. Quanto mais você joga, luta e conquista,
+        mais alto é seu rank — e melhores kits você desbloqueia!</p>
+
+      <h3>Ranks de Progressão</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Requisitos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>⛺ <strong>Aventureiro</strong></td>
+            <td>Início (padrão para todos)</td>
+          </tr>
+          <tr>
+            <td>⚔️ <strong>Guerreiro</strong></td>
+            <td>10h playtime, 50 kills</td>
+          </tr>
+          <tr>
+            <td>🛡️ <strong>Cavaleiro</strong></td>
+            <td>50h playtime, 200 kills, 3 bosses</td>
+          </tr>
+          <tr>
+            <td>👑 <strong>Herói</strong></td>
+            <td>100h playtime, 500 kills, 10 bosses, $50.000</td>
+          </tr>
+          <tr>
+            <td>🐉 <strong>Lendário</strong></td>
+            <td>250h playtime, 1000 kills, 25 bosses, $200.000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Kits por Rank</h3>
+      <p>Cada rank desbloqueia um kit que pode ser resgatado com <code>/kit</code>. Cada kit tem um <strong>cooldown</strong> individual:</p>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Kit</th>
+            <th>Cooldown</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>⛺ Aventureiro</td>
+            <td>Ferramentas de pedra, comida básica</td>
+            <td>24h</td>
+          </tr>
+          <tr>
+            <td>⚔️ Guerreiro</td>
+            <td>Ferramentas de ferro, poções</td>
+            <td>24h</td>
+          </tr>
+          <tr>
+            <td>🛡️ Cavaleiro</td>
+            <td>Ferramentas de diamante, golden apples</td>
+            <td>48h</td>
+          </tr>
+          <tr>
+            <td>👑 Herói</td>
+            <td>Netherite parcial, ender pearls</td>
+            <td>72h</td>
+          </tr>
+          <tr>
+            <td>🐉 Lendário</td>
+            <td>Netherite completo, totems of undying</td>
+            <td>7 dias</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Comandos</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>Aliases</th>
+            <th>O que faz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/rank</code></td>
+            <td><code>/ranks</code>, <code>/progresso</code>, <code>/rankup</code></td>
+            <td>Ver sua progressão atual e os requisitos para o próximo rank</td>
+          </tr>
+          <tr>
+            <td><code>/kit</code></td>
+            <td><code>/kits</code></td>
+            <td>Abre menu de kits disponíveis para o seu rank atual</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <span>Dica: Use <code>/rank</code> a qualquer momento para ver quanto falta para o próximo nível.
+          Seu progresso é salvo automaticamente — cada kill, boss e hora jogada contam!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <!-- ==================== SEÇÃO 37 — LORE: LIVROS, TOTEMS E QUESTS ==================== -->
+    <div class="section" id="s37">
+      <div class="section-header">
+        <span class="icon">📖</span>
+        <div><span class="section-num">SEÇÃO 37</span>
+          <h2>Lore — Livros, Totems &amp; Quests Narrativas</h2>
+        </div>
+      </div>
+
+      <p>O universo GorvaxMC é rico em história e mistério. Através de <strong>livros interativos</strong>,
+        <strong>totems de bioma</strong> e <strong>quests narrativas</strong>, você pode descobrir os segredos
+        que moldaram este mundo medieval.</p>
+
+      <h3>📕 Livros de Lore</h3>
+      <p>Espalhadas pelo mundo, <strong>estantes especiais</strong> contêm tomos antigos com a história de Gorvax.
+        Estantes de lore emitem ✨ <em>partículas de encantamento</em> para indicar que são interativas.</p>
+      <ul>
+        <li>Clique direito numa estante especial → receba o livro escrito</li>
+        <li>Se já possui o livro → mensagem de aviso</li>
+        <li>Os livros ficam no inventário como <strong>Written Books</strong> legíveis</li>
+      </ul>
+
+      <h3>🗿 Totems de Lore</h3>
+      <p>Em biomas específicos, <strong>blocos especiais</strong> (como Lodestones) servem como totems narrativos.
+        Totems emitem <em>partículas de portal do End</em> (🌀) para serem identificados.</p>
+      <ul>
+        <li>Clique direito num totem → texto narrativo aparece no chat</li>
+        <li>Cooldown de <strong>30 segundos</strong> entre interações</li>
+        <li>Cada totem conta uma parte diferente da história do mundo</li>
+      </ul>
+
+      <h3>⚔ Quests de Lore — Missões Narrativas</h3>
+      <p>Diferente das quests diárias, as <strong>Lore Quests</strong> são missões <em>permanentes</em> com
+        objetivos multi-step e diálogos narrativos a cada etapa concluída.</p>
+
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Recurso</th>
+            <th>Quests Diárias/Semanais</th>
+            <th>Lore Quests</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Reset</strong></td>
+            <td>Diário/Semanal</td>
+            <td>Nunca (permanente)</td>
+          </tr>
+          <tr>
+            <td><strong>Progresso</strong></td>
+            <td>Por quest</td>
+            <td>Por step (cadeia)</td>
+          </tr>
+          <tr>
+            <td><strong>Narrativa</strong></td>
+            <td>Sem diálogo</td>
+            <td>Diálogo a cada step</td>
+          </tr>
+          <tr>
+            <td><strong>Rewards</strong></td>
+            <td>Dinheiro, keys, blocos</td>
+            <td>Dinheiro, karma, títulos, livros de lore</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>⚒ O Ferreiro Ancestral</h4>
+      <p><strong>Steps:</strong> Mine 2× Ancient Debris → Mate 10× Wither Skeleton → Participe de 1 boss fight</p>
+      <p><strong>Rewards:</strong> $5.000 + 10 karma + título <span style="color: #d4a017;">⚒ Herdeiro de Ashvale</span> + livro "A Ascensão de Gorvax"</p>
+
+      <h4>❄ O Segredo de Glacius</h4>
+      <p><strong>Steps:</strong> Mine 16× Blue Ice → Mate 15× Stray → Mate 50 mobs quaisquer</p>
+      <p><strong>Rewards:</strong> $4.000 + 8 karma + título <span style="color: #3498db;">❄ Discípulo de Glacius</span> + livro "A Queda de Indrax"</p>
+
+      <h4>✦ Fragmentos de Étheris</h4>
+      <p><strong>Steps:</strong> Mate 10× Enderman → Mine 32× Obsidian → Participe de 2 boss fights</p>
+      <p><strong>Rewards:</strong> $7.500 + 15 karma + título <span style="color: #9b59b6;">✦ Guardião dos Fragmentos</span> + livro "A Profecia"</p>
+
+      <h3>🗣️ Diálogos de Boss</h3>
+      <p>Cada World Boss possui <strong>diálogos de lore</strong> automáticos que enriquecem a imersão:</p>
+      <ul>
+        <li><strong>No spawn</strong> — diálogo aleatório exibido para todos os jogadores próximos</li>
+        <li><strong>Ao matar um jogador</strong> — diálogo provocativo enviado à vítima</li>
+      </ul>
+
+      <div class="tip-box">
+        <span>Preste atenção às partículas! Estantes brilhantes (✨) contêm livros, e totems com partículas
+          de portal (🌀) guardam segredos narrativos. As quests de lore progridem automaticamente
+          conforme você joga — mine, mate e lute contra bosses para avançar!</span>
+      </div>
+    </div>
+
+    <div class="separator">⚔</div>
+
+    <!-- ==================== SEÇÃO 38 — RTP (TELEPORTE ALEATÓRIO) ==================== -->
+    <div class="section" id="s38">
+      <div class="section-header">
+        <span class="icon">🌍</span>
+        <div><span class="section-num">SEÇÃO 38</span>
+          <h2>RTP (Teleporte Aleatório)</h2>
+        </div>
+      </div>
+
+      <p>O comando <code>/rtp</code> teleporta você para uma <strong>localização aleatória segura</strong> no mundo.
+        Ideal para explorar novos biomas, encontrar recursos ou simplesmente começar uma aventura em terras desconhecidas.</p>
+
+      <h3>Como Funciona</h3>
+      <ul>
+        <li>🎯 Busca uma posição aleatória dentro do raio configurado</li>
+        <li>🛡️ <strong>Evita claims</strong> — nunca teleporta para dentro de terrenos protegidos</li>
+        <li>🚫 <strong>Evita blocos inseguros</strong> — lava, fogo, vazio, água profunda</li>
+        <li>⏳ <strong>Cooldown</strong> entre usos para evitar abuso</li>
+        <li>⚔️ <strong>Bloqueado em combate</strong> — não funciona se você estiver com Combat Tag ativo</li>
+      </ul>
+
+      <h3>Comando</h3>
+      <table class="command-table">
+        <thead>
+          <tr>
+            <th>Comando</th>
+            <th>O que faz</th>
+            <th>Permissão</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>/rtp</code></td>
+            <td>Teleporta para uma localização aleatória segura</td>
+            <td><code>gorvax.player</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <span>Dica: Use <code>/rtp</code> quando quiser explorar sem destino definido! O sistema garante
+          que você cairá em um local seguro, longe de claims de outros jogadores.</span>
+      </div>
+    </div>
+
+    <!-- ========== CONTRACAPA ========== -->
+    <div class="contracapa">
+      <div class="logo">⚔️</div>
+      <h3>GORVAXMC</h3>
+      <div class="credits">
+        <p><strong>Manual do Aventureiro</strong></p>
+        <p>Guia completo do servidor GorvaxMC</p>
+        <p>Versão 1.0.0</p>
+        <br>
+        <p><strong>Créditos</strong></p>
+        <p>Plugin desenvolvido pela equipe GorvaxCore</p>
+        <p>Documentação gerada a partir das configurações oficiais</p>
+        <p>Plataforma: Paper 1.21+ · Java 21</p>
+      </div>
+      <div class="version-info">
+        📋 38 seções · 7 World Bosses · 4 Mini-Bosses · 9 Itens Lendários · 25 Cosméticos · Códex Interativo · 5 Ranks
+      </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <div class="footer">
+      <div class="brand">GORVAXMC</div>
+      <p>Manual do Aventureiro — v1.0.0</p>
+      <p>Gerado automaticamente a partir da documentação oficial do plugin GorvaxCore.</p>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    title="Voltar ao topo">⬆</button>
+  <script>
+    (function () {
+      var btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 600) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

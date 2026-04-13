@@ -1,0 +1,840 @@
+market:
+  title: "§8Mercado Global"
+  categories:
+    blocks:
+      slot: 10
+      icon: BRICKS
+      name: "§aBlocos e Construção"
+      items:
+        stone:
+          material: STONE
+          name: "§fPedra"
+          buy: 10.0
+          sell: 2.0
+        cobblestone:
+          material: COBBLESTONE
+          name: "§7Pedregulho"
+          buy: 5.0
+          sell: 1.0
+        granite:
+          material: GRANITE
+          name: "§cGranito"
+          buy: 10.0
+          sell: 2.0
+        diorite:
+          material: DIORITE
+          name: "§fDiorito"
+          buy: 10.0
+          sell: 2.0
+        andesite:
+          material: ANDESITE
+          name: "§7Andesito"
+          buy: 10.0
+          sell: 2.0
+        deepslate:
+          material: DEEPSLATE
+          name: "§8Ardósia"
+          buy: 15.0
+          sell: 3.0
+        bricks:
+          material: BRICKS
+          name: "§cTijolos"
+          buy: 30.0
+          sell: 8.0
+        stone_bricks:
+          material: STONE_BRICKS
+          name: "§7Tijolos de Pedra"
+          buy: 15.0
+          sell: 3.0
+        dirt:
+          material: DIRT
+          name: "§6Terra"
+          buy: 5.0
+          sell: 1.0
+        grass:
+          material: GRASS_BLOCK
+          name: "§aBloco de Grama"
+          buy: 15.0
+          sell: 3.0
+        sand:
+          material: SAND
+          name: "§eAreia"
+          buy: 8.0
+          sell: 2.0
+        red_sand:
+          material: RED_SAND
+          name: "§cAreia Vermelha"
+          buy: 12.0
+          sell: 3.0
+        gravel:
+          material: GRAVEL
+          name: "§7Cascalho"
+          buy: 5.0
+          sell: 1.0
+        clay:
+          material: CLAY
+          name: "§9Argila"
+          buy: 20.0
+          sell: 5.0
+        obsidian:
+          material: OBSIDIAN
+          name: "§5Obsidiana"
+          buy: 2500.0
+          sell: 30.0
+        netherracks:
+          material: NETHERRACK
+          name: "§4Netherrack"
+          buy: 2500.0
+          sell: 1.0
+        soul_sand:
+          material: SOUL_SAND
+          name: "§8Areia das Almas"
+          buy: 2500.0
+          sell: 3.0
+        magma_block:
+          material: MAGMA_BLOCK
+          name: "§6Bloco de Magma"
+          buy: 2500.0
+          sell: 6.0
+        end_stone:
+          material: END_STONE
+          name: "§ePedra do Fim"
+          buy: 800.0
+          sell: 8.0
+        quartz_block:
+          material: QUARTZ_BLOCK
+          name: "§fBloco de Quartzo"
+          buy: 1200.0
+          sell: 15.0
+
+    nature:
+      slot: 12
+      icon: OAK_LOG
+      name: "§2Natureza e Flora"
+      items:
+        oak_log:
+          material: OAK_LOG
+          name: "§ATronco de Carvalho"
+          buy: 20.0
+          sell: 5.0
+        spruce_log:
+          material: SPRUCE_LOG
+          name: "§6Tronco de Pinheiro"
+          buy: 20.0
+          sell: 5.0
+        birch_log:
+          material: BIRCH_LOG
+          name: "§eTronco de Bétula"
+          buy: 20.0
+          sell: 5.0
+        jungle_log:
+          material: JUNGLE_LOG
+          name: "§2Tronco da Selva"
+          buy: 20.0
+          sell: 5.0
+        acacia_log:
+          material: ACACIA_LOG
+          name: "§6Tronco de Acácia"
+          buy: 20.0
+          sell: 5.0
+        dark_oak_log:
+          material: DARK_OAK_LOG
+          name: "§8Tronco Escuro"
+          buy: 20.0
+          sell: 5.0
+        crimson_stem:
+          material: CRIMSON_STEM
+          name: "§cCaule Carmesim"
+          buy: 25.0
+          sell: 6.0
+        warped_stem:
+          material: WARPED_STEM
+          name: "§3Caule Deformado"
+          buy: 25.0
+          sell: 6.0
+        oak_sapling:
+          material: OAK_SAPLING
+          name: "§aMuda de Carvalho"
+          buy: 10.0
+          sell: 2.0
+        spruce_sapling:
+          material: SPRUCE_SAPLING
+          name: "§aMuda de Pinheiro"
+          buy: 10.0
+          sell: 2.0
+        birch_sapling:
+          material: BIRCH_SAPLING
+          name: "§aMuda de Bétula"
+          buy: 10.0
+          sell: 2.0
+        jungle_sapling:
+          material: JUNGLE_SAPLING
+          name: "§aMuda da Selva"
+          buy: 10.0
+          sell: 2.0
+        acacia_sapling:
+          material: ACACIA_SAPLING
+          name: "§aMuda de Acácia"
+          buy: 10.0
+          sell: 2.0
+        dark_oak_sapling:
+          material: DARK_OAK_SAPLING
+          name: "§aMuda Escura"
+          buy: 10.0
+          sell: 2.0
+        bamboo:
+          material: BAMBOO
+          name: "§aBambu"
+          buy: 15.0
+          sell: 3.0
+        cactus:
+          material: CACTUS
+          name: "§2Cacto"
+          buy: 15.0
+          sell: 3.0
+        lily_pad:
+          material: LILY_PAD
+          name: "§2Vitória Régia"
+          buy: 20.0
+          sell: 4.0
+        vine:
+          material: VINE
+          name: "§2Vinhas"
+          buy: 15.0
+          sell: 3.0
+        poppy:
+          material: POPPY
+          name: "§cPoupla"
+          buy: 5.0
+          sell: 1.0
+        dandelion:
+          material: DANDELION
+          name: "§eDente-de-Leão"
+          buy: 5.0
+          sell: 1.0
+        blue_orchid:
+          material: BLUE_ORCHID
+          name: "§bOrquídea Azul"
+          buy: 10.0
+          sell: 2.0
+
+    ores:
+      slot: 14
+      icon: DIAMOND
+      name: "§bMinérios e Tesouros"
+      items:
+        coal:
+          material: COAL
+          name: "§8Carvão"
+          buy: 200.0
+          sell: 10.0
+        iron_ingot:
+          material: IRON_INGOT
+          name: "§fBarra de Ferro"
+          buy: 500.0
+          sell: 20.0
+        gold_ingot:
+          material: GOLD_INGOT
+          name: "§eBarra de Ouro"
+          buy: 1500.0
+          sell: 100.0
+        copper_ingot:
+          material: COPPER_INGOT
+          name: "§6Barra de Cobre"
+          buy: 80.0
+          sell: 15.0
+        redstone:
+          material: REDSTONE
+          name: "§cPó de Redstone"
+          buy: 300.0
+          sell: 12.0
+        lapis_lazuli:
+          material: LAPIS_LAZULI
+          name: "§9Lápis-Lazúli"
+          buy: 300.0
+          sell: 15.0
+        diamond:
+          material: DIAMOND
+          name: "§bDiamante"
+          buy: 3000.0
+          sell: 250.0
+        emerald:
+          material: EMERALD
+          name: "§aEsmeralda"
+          buy: 4000.0
+          sell: 400.0
+        netherite_scrap:
+          material: NETHERITE_SCRAP
+          name: "§8Sucata de Netherite"
+          buy: 8000.0
+          sell: 800.0
+        netherite_ingot:
+          material: NETHERITE_INGOT
+          name: "§8Barra de Netherite"
+          buy: 35000.0
+          sell: 3200.0
+        quartz:
+          material: QUARTZ
+          name: "§fQuartzo"
+          buy: 300.0
+          sell: 8.0
+        amethyst_shard:
+          material: AMETHYST_SHARD
+          name: "§dFragmento de Ametista"
+          buy: 120.0
+          sell: 30.0
+        raw_copper:
+          material: RAW_COPPER
+          name: "§6Cobre Bruto"
+          buy: 40.0
+          sell: 8.0
+        raw_iron:
+          material: RAW_IRON
+          name: "§fFerro Bruto"
+          buy: 50.0
+          sell: 10.0
+        raw_gold:
+          material: RAW_GOLD
+          name: "§eOuro Bruto"
+          buy: 250.0
+          sell: 50.0
+
+    food:
+      slot: 16
+      icon: GOLDEN_CARROT
+      name: "§eAlimentos e Agricultura"
+      items:
+        apple:
+          material: APPLE
+          name: "§cMaçã"
+          buy: 100.0
+          sell: 3.0
+        bread:
+          material: BREAD
+          name: "§ePão"
+          buy: 250.0
+          sell: 5.0
+        cooked_beef:
+          material: COOKED_BEEF
+          name: "§6Filé"
+          buy: 400.0
+          sell: 8.0
+        cooked_porkchop:
+          material: COOKED_PORKCHOP
+          name: "§dCostela de Porco"
+          buy: 400.0
+          sell: 8.0
+        cooked_chicken:
+          material: COOKED_CHICKEN
+          name: "§Frango Assado"
+          buy: 250.0
+          sell: 6.0
+        golden_carrot:
+          material: GOLDEN_CARROT
+          name: "§6Cenoura Dourada"
+          buy: 1500.0
+          sell: 25.0
+        wheat:
+          material: WHEAT
+          name: "§eTrigo"
+          buy: 12.0
+          sell: 3.0
+        carrot:
+          material: CARROT
+          name: "§6Cenoura"
+          buy: 10.0
+          sell: 2.0
+        potato:
+          material: POTATO
+          name: "§eBatata"
+          buy: 10.0
+          sell: 2.0
+        baked_potato:
+          material: BAKED_POTATO
+          name: "§eBatata Assada"
+          buy: 250.0
+          sell: 6.0
+        melon_slice:
+          material: MELON_SLICE
+          name: "§cMelancia"
+          buy: 8.0
+          sell: 2.0
+        pumpkin:
+          material: PUMPKIN
+          name: "§6Abóbora"
+          buy: 25.0
+          sell: 5.0
+        sugar_cane:
+          material: SUGAR_CANE
+          name: "§aCana de Açúcar"
+          buy: 100.0
+          sell: 3.0
+        wheat_seeds:
+          material: WHEAT_SEEDS
+          name: "§aSementes de Trigo"
+          buy: 5.0
+          sell: 1.0
+        pumpkin_seeds:
+          material: PUMPKIN_SEEDS
+          name: "§eSementes de Abóbora"
+          buy: 10.0
+          sell: 2.0
+        melon_seeds:
+          material: MELON_SEEDS
+          name: "§aSementes de Melancia"
+          buy: 10.0
+          sell: 2.0
+        egg:
+          material: EGG
+          name: "§fOvo"
+          buy: 10.0
+          sell: 2.0
+        milk_bucket:
+          material: MILK_BUCKET
+          name: "§fBalde de Leite"
+          buy: 500.0
+          sell: 8.0
+        honey_bottle:
+          material: HONEY_BOTTLE
+          name: "§6Garrafa de Mel"
+          buy: 400.0
+          sell: 6.0
+        cocoa_beans:
+          material: COCOA_BEANS
+          name: "§6Cacau"
+          buy: 20.0
+          sell: 4.0
+
+    redstone:
+      slot: 28
+      icon: PISTON
+      name: "§cRedstone e Mecânica"
+      items:
+        redstone_torch:
+          material: REDSTONE_TORCH
+          name: "§cTocha de Redstone"
+          buy: 2000.0
+          sell: 3.0
+        redstone_block:
+          material: REDSTONE_BLOCK
+          name: "§cBloco de Redstone"
+          buy: 2700.0
+          sell: 120.0
+        repeater:
+          material: REPEATER
+          name: "§cRepetidor"
+          buy: 4000.0
+          sell: 5.0
+        comparator:
+          material: COMPARATOR
+          name: "§cComparador"
+          buy: 4000.0
+          sell: 5.0
+        piston:
+          material: PISTON
+          name: "§7Pistão"
+          buy: 5000.0
+          sell: 30.0
+        sticky_piston:
+          material: STICKY_PISTON
+          name: "§aPistão Grudento"
+          buy: 7500.0
+          sell: 40.0
+        observer:
+          material: OBSERVER
+          name: "§8Observador"
+          buy: 4000.0
+          sell: 12.0
+        dispenser:
+          material: DISPENSER
+          name: "§8Ejetor"
+          buy: 4000.0
+          sell: 8.0
+        dropper:
+          material: DROPPER
+          name: "§8Liberador"
+          buy: 4000.0
+          sell: 6.0
+        hopper:
+          material: HOPPER
+          name: "§8Funil"
+          buy: 8000.0
+          sell: 50.0
+        target:
+          material: TARGET
+          name: "§cAlvo"
+          buy: 8000.0
+          sell: 10.0
+        lever:
+          material: LEVER
+          name: "§7Alavanca"
+          buy: 2000.0
+          sell: 2.0
+        rail:
+          material: RAIL
+          name: "§7Trilho"
+          buy: 2000.0
+          sell: 4.0
+        powered_rail:
+          material: POWERED_RAIL
+          name: "§6Trilho Elétrico"
+          buy: 3500.0
+          sell: 10.0
+        detector_rail:
+          material: DETECTOR_RAIL
+          name: "§cTrilho Detector"
+          buy: 3500.0
+          sell: 8.0
+        activator_rail:
+          material: ACTIVATOR_RAIL
+          name: "§aTrilho Ativador"
+          buy: 3500.0
+          sell: 8.0
+        tnt:
+          material: TNT
+          name: "§cTNT"
+          buy: 10000.0
+          sell: 100.0
+        slime_block:
+          material: SLIME_BLOCK
+          name: "§aBloco de Slime"
+          buy: 6000.0
+          sell: 35.0
+        honey_block:
+          material: HONEY_BLOCK
+          name: "§6Bloco de Mel"
+          buy: 6000.0
+          sell: 25.0
+
+    decoration:
+      slot: 30
+      icon: PAINTING
+      name: "§dDecoração e Cores"
+      items:
+        white_wool:
+          material: WHITE_WOOL
+          name: "§fLã Branca"
+          buy: 10.0
+          sell: 2.0
+        black_wool:
+          material: BLACK_WOOL
+          name: "§8Lã Preta"
+          buy: 10.0
+          sell: 2.0
+        gray_wool:
+          material: GRAY_WOOL
+          name: "§7Lã Cinza"
+          buy: 10.0
+          sell: 2.0
+        red_wool:
+          material: RED_WOOL
+          name: "§cLã Vermelha"
+          buy: 10.0
+          sell: 2.0
+        blue_wool:
+          material: BLUE_WOOL
+          name: "§9Lã Azul"
+          buy: 10.0
+          sell: 2.0
+        green_wool:
+          material: GREEN_WOOL
+          name: "§aLã Verde"
+          buy: 10.0
+          sell: 2.0
+        yellow_wool:
+          material: YELLOW_WOOL
+          name: "§eLã Amarela"
+          buy: 10.0
+          sell: 2.0
+        orange_wool:
+          material: ORANGE_WOOL
+          name: "§6Lã Laranja"
+          buy: 10.0
+          sell: 2.0
+        purple_wool:
+          material: PURPLE_WOOL
+          name: "§5Lã Roxa"
+          buy: 10.0
+          sell: 2.0
+        pink_wool:
+          material: PINK_WOOL
+          name: "§dLã Rosa"
+          buy: 10.0
+          sell: 2.0
+        glass:
+          material: GLASS
+          name: "§fVidro"
+          buy: 15.0
+          sell: 3.0
+        glass_pane:
+          material: GLASS_PANE
+          name: "§fPainel de Vidro"
+          buy: 8.0
+          sell: 1.0
+        lantern:
+          material: LANTERN
+          name: "§6Lanterna"
+          buy: 1200.0
+          sell: 8.0
+        soul_lantern:
+          material: SOUL_LANTERN
+          name: "§bLanterna das Almas"
+          buy: 1300.0
+          sell: 9.0
+        glowstone:
+          material: GLOWSTONE
+          name: "§ePedra Luminosa"
+          buy: 1500.0
+          sell: 12.0
+        sea_lantern:
+          material: SEA_LANTERN
+          name: "§bLanterna do Mar"
+          buy: 1800.0
+          sell: 15.0
+        shroomlight:
+          material: SHROOMLIGHT
+          name: "§6Coguluz"
+          buy: 1500.0
+          sell: 10.0
+        flower_pot:
+          material: FLOWER_POT
+          name: "§cVaso de Flor"
+          buy: 20.0
+          sell: 4.0
+        item_frame:
+          material: ITEM_FRAME
+          name: "§6Moldura"
+          buy: 50.0
+          sell: 10.0
+        painting:
+          material: PAINTING
+          name: "§dPintura"
+          buy: 50.0
+          sell: 10.0
+        armor_stand:
+          material: ARMOR_STAND
+          name: "§7Suporte de Armaduras"
+          buy: 100.0
+          sell: 20.0
+        bookshelf:
+          material: BOOKSHELF
+          name: "§6Estante de Livros"
+          buy: 6000.0
+          sell: 150.0
+
+    mobdrops:
+      slot: 32
+      icon: ROTTEN_FLESH
+      name: "§5Drops e Alquimia"
+      items:
+        rotten_flesh:
+          material: ROTTEN_FLESH
+          name: "§cCarne Podre"
+          buy: 150.0
+          sell: 2.0
+        bone:
+          material: BONE
+          name: "§fOsso"
+          buy: 150.0
+          sell: 3.0
+        string:
+          material: STRING
+          name: "§fLinha"
+          buy: 150.0
+          sell: 3.0
+        spider_eye:
+          material: SPIDER_EYE
+          name: "§cOlho de Aranha"
+          buy: 150.0
+          sell: 4.0
+        gunpowder:
+          material: GUNPOWDER
+          name: "§8Pólvora"
+          buy: 300.0
+          sell: 8.0
+        ender_pearl:
+          material: ENDER_PEARL
+          name: "§3Pérola do Fim"
+          buy: 4000.0
+          sell: 50.0
+        blaze_rod:
+          material: BLAZE_ROD
+          name: "§6Vara de Blaze"
+          buy: 4000.0
+          sell: 40.0
+        ghast_tear:
+          material: GHAST_TEAR
+          name: "§fLágrima de Ghast"
+          buy: 6000.0
+          sell: 40.0
+        magma_cream:
+          material: MAGMA_CREAM
+          name: "§6Creme de Magma"
+          buy: 4000.0
+          sell: 40.0
+        slime_ball:
+          material: SLIME_BALL
+          name: "§aBola de Slime"
+          buy: 300.0
+          sell: 10.0
+        leather:
+          material: LEATHER
+          name: "§cCouro"
+          buy: 150.0
+          sell: 5.0
+        feather:
+          material: FEATHER
+          name: "§fPena"
+          buy: 150.0
+          sell: 2.0
+        ink_sac:
+          material: INK_SAC
+          name: "§8Bolsa de Tinta"
+          buy: 150.0
+          sell: 4.0
+        glow_ink_sac:
+          material: GLOW_INK_SAC
+          name: "§bBolsa de Tinta Brilhante"
+          buy: 30.0
+          sell: 6.0
+        nether_wart:
+          material: NETHER_WART
+          name: "§cFungo do Nether"
+          buy: 1000.0
+          sell: 8.0
+        glass_bottle:
+          material: GLASS_BOTTLE
+          name: "§fFrasco de Vidro"
+          buy: 5.0
+          sell: 1.0
+        brewing_stand:
+          material: BREWING_STAND
+          name: "§eSuporte de Poções"
+          buy: 10000.0
+          sell: 50.0
+        blaze_powder:
+          material: BLAZE_POWDER
+          name: "§6Pó de Blaze"
+          buy: 2000.0
+          sell: 15.0
+
+    equipment:
+      slot: 34
+      icon: DIAMOND_CHESTPLATE
+      name: "§bEquipamentos"
+      items:
+        iron_sword:
+          material: IRON_SWORD
+          name: "§fEspada de Ferro"
+          buy: 1500.0
+          sell: 75.0
+        diamond_sword:
+          material: DIAMOND_SWORD
+          name: "§bEspada de Diamante"
+          buy: 25000.0
+          sell: 750.0
+        bow:
+          material: BOW
+          name: "§7Arco"
+          buy: 2500.0
+          sell: 25.0
+        crossbow:
+          material: CROSSBOW
+          name: "§7Besta"
+          buy: 4000.0
+          sell: 35.0
+        arrow:
+          material: ARROW
+          name: "§7Flecha"
+          buy: 5.0
+          sell: 1.0
+        shield:
+          material: SHIELD
+          name: "§eEscudo"
+          buy: 2500.0
+          sell: 20.0
+        iron_helmet:
+          material: IRON_HELMET
+          name: "§fCapacete de Ferro"
+          buy: 3500.0
+          sell: 180.0
+        iron_chestplate:
+          material: IRON_CHESTPLATE
+          name: "§fPeitoral de Ferro"
+          buy: 6000.0
+          sell: 300.0
+        iron_leggings:
+          material: IRON_LEGGINGS
+          name: "§fCalça de Ferro"
+          buy: 5000.0
+          sell: 260.0
+        iron_boots:
+          material: IRON_BOOTS
+          name: "§fBotas de Ferro"
+          buy: 3000.0
+          sell: 150.0
+        diamond_helmet:
+          material: DIAMOND_HELMET
+          name: "§bCapacete de Diamante"
+          buy: 25000.0
+          sell: 1800.0
+        diamond_chestplate:
+          material: DIAMOND_CHESTPLATE
+          name: "§bPeitoral de Diamante"
+          buy: 40000.0
+          sell: 3000.0
+        diamond_leggings:
+          material: DIAMOND_LEGGINGS
+          name: "§bCalça de Diamante"
+          buy: 35000.0
+          sell: 2600.0
+        diamond_boots:
+          material: DIAMOND_BOOTS
+          name: "§bBotas de Diamante"
+          buy: 20000.0
+          sell: 1500.0
+        iron_pickaxe:
+          material: IRON_PICKAXE
+          name: "§fPicareta de Ferro"
+          buy: 2500.0
+          sell: 50.0
+        iron_axe:
+          material: IRON_AXE
+          name: "§fMachado de Ferro"
+          buy: 2500.0
+          sell: 50.0
+        iron_shovel:
+          material: IRON_SHOVEL
+          name: "§fPá de Ferro"
+          buy: 2000.0
+          sell: 25.0
+        diamond_pickaxe:
+          material: DIAMOND_PICKAXE
+          name: "§bPicareta de Diamante"
+          buy: 25000.0
+          sell: 1100.0
+        diamond_axe:
+          material: DIAMOND_AXE
+          name: "§bMachado de Diamante"
+          buy: 25000.0
+          sell: 1100.0
+        diamond_shovel:
+          material: DIAMOND_SHOVEL
+          name: "§bPá de Diamante"
+          buy: 20000.0
+          sell: 350.0
+        fishing_rod:
+          material: FISHING_ROD
+          name: "§eVara de Pesca"
+          buy: 1500.0
+          sell: 15.0
+        shears:
+          material: SHEARS
+          name: "§fTesoura"
+          buy: 1000.0
+          sell: 10.0
+        flint_and_steel:
+          material: FLINT_AND_STEEL
+          name: "§cIsqueiro"
+          buy: 1000.0
+          sell: 10.0
