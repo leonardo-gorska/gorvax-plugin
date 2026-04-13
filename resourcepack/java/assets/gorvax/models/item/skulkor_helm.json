@@ -1,0 +1,7 @@
+{
+    "credit": "GorvaxCore — Elmo de Skulkor (modelo customizado)",
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "gorvax:item/skulkor_helm"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "asset_name": "gorvax_vulgathor",
+    "description": {
+        "translate": "trim_material.gorvax.vulgathor",
+        "color": "#FF6B1A"
+    },
+    "ingredient": "minecraft:blaze_powder",
+    "item_model_index": 0.3
+}

@@ -1,0 +1,36 @@
+{
+    "resource_pack_name": "GorvaxCore",
+    "texture_name": "atlas.items",
+    "texture_data": {
+        "geyser_custom.gorvax_blade": {
+            "textures": "textures/item/gorvax_blade"
+        },
+        "geyser_custom.indrax_crown": {
+            "textures": "textures/item/indrax_crown"
+        },
+        "geyser_custom.skulkor_helm": {
+            "textures": "textures/item/skulkor_helm"
+        },
+        "geyser_custom.speed_boots": {
+            "textures": "textures/item/speed_boots"
+        },
+        "geyser_custom.hunter_bow": {
+            "textures": "textures/item/hunter_bow"
+        },
+        "geyser_custom.guardian_shield": {
+            "textures": "textures/item/guardian_shield"
+        },
+        "geyser_custom.vulgathor_mantle": {
+            "textures": "textures/item/vulgathor_mantle"
+        },
+        "geyser_custom.kaldur_lance": {
+            "textures": "textures/item/kaldur_lance"
+        },
+        "geyser_custom.xylos_pearl": {
+            "textures": "textures/item/xylos_pearl"
+        },
+        "geyser_custom.gorvax_leggings": {
+            "textures": "textures/item/gorvax_leggings"
+        }
+    }
+}
