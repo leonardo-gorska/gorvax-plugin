@@ -1,0 +1,137 @@
+{
+    "item.gorvax_blade.equip": {
+        "sounds": [
+            {
+                "name": "gorvax:item/gorvax_blade_equip",
+                "stream": false
+            }
+        ],
+        "subtitle": "Lâmina de Gorvax: Equipada"
+    },
+    "item.gorvax_blade.swing": {
+        "sounds": [
+            {
+                "name": "gorvax:item/gorvax_blade_swing",
+                "stream": false
+            }
+        ],
+        "subtitle": "Lâmina de Gorvax: Golpe"
+    },
+    "item.indrax_crown.equip": {
+        "sounds": [
+            {
+                "name": "gorvax:item/indrax_crown_equip",
+                "stream": false
+            }
+        ],
+        "subtitle": "Coroa de Indrax: Equipada"
+    },
+    "item.speed_boots.equip": {
+        "sounds": [
+            {
+                "name": "gorvax:item/speed_boots_equip",
+                "stream": false
+            }
+        ],
+        "subtitle": "Botas Velocistas: Equipadas"
+    },
+    "item.hunter_bow.equip": {
+        "sounds": [
+            {
+                "name": "gorvax:item/hunter_bow_equip",
+                "stream": false
+            }
+        ],
+        "subtitle": "Arco do Caçador: Equipado"
+    },
+    "item.hunter_bow.swing": {
+        "sounds": [
+            {
+                "name": "gorvax:item/hunter_bow_swing",
+                "stream": false
+            }
+        ],
+        "subtitle": "Arco do Caçador: Disparo"
+    },
+    "item.guardian_shield.equip": {
+        "sounds": [
+            {
+                "name": "gorvax:item/guardian_shield_equip",
+                "stream": false
+            }
+        ],
+        "subtitle": "Escudo do Guardião: Equipado"
+    },
+    "item.guardian_shield.block": {
+        "sounds": [
+            {
+                "name": "gorvax:item/guardian_shield_block",
+                "stream": false
+            }
+        ],
+        "subtitle": "Escudo do Guardião: Bloqueio"
+    },
+    "item.vulgathor_mantle.equip": {
+        "sounds": [
+            {
+                "name": "gorvax:item/vulgathor_mantle_equip",
+                "stream": false
+            }
+        ],
+        "subtitle": "Manto de Vulgathor: Equipado"
+    },
+    "item.kaldur_lance.equip": {
+        "sounds": [
+            {
+                "name": "gorvax:item/kaldur_lance_equip",
+                "stream": false
+            }
+        ],
+        "subtitle": "Lança de Kaldur: Equipada"
+    },
+    "item.kaldur_lance.swing": {
+        "sounds": [
+            {
+                "name": "gorvax:item/kaldur_lance_swing",
+                "stream": false
+            }
+        ],
+        "subtitle": "Lança de Kaldur: Golpe"
+    },
+    "item.skulkor_helm.equip": {
+        "sounds": [
+            {
+                "name": "gorvax:item/skulkor_helm_equip",
+                "stream": false
+            }
+        ],
+        "subtitle": "Elmo de Skulkor: Equipado"
+    },
+    "item.xylos_pearl.equip": {
+        "sounds": [
+            {
+                "name": "gorvax:item/xylos_pearl_equip",
+                "stream": false
+            }
+        ],
+        "subtitle": "Pérola de Xylos: Equipada"
+    },
+    "item.xylos_pearl.swing": {
+        "sounds": [
+            {
+                "name": "gorvax:item/xylos_pearl_swing",
+                "stream": false
+            }
+        ],
+        "subtitle": "Pérola de Xylos: Golpe"
+    },
+    "item.gorvax_leggings.equip": {
+        "sounds": [
+            {
+                "name": "gorvax:item/gorvax_leggings_equip",
+                "stream": false
+            }
+        ],
+        "subtitle": "Pernas do Soberano: Equipadas"
+    }
+}

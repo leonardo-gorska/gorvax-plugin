@@ -1,0 +1,171 @@
+# ============================================================
+# GorvaxCore — Conquistas (achievements.yml)
+# Cada conquista define: tipo de trigger, meta, recompensa e ícone.
+# ============================================================
+
+achievements:
+  # ---- EXPLORAÇÃO ----
+  first_step:
+    name: "§a§lPrimeiro Passo"
+    description: "Reivindique seu primeiro território"
+    category: EXPLORACAO
+    type: CLAIM_CREATED
+    goal: 1
+    reward_type: BLOCKS
+    reward_value: 50
+    icon: GRASS_BLOCK
+
+  explorer:
+    name: "§a§lDesbravador"
+    description: "Quebre 10.000 blocos"
+    category: EXPLORACAO
+    type: BLOCKS_BROKEN
+    goal: 10000
+    reward_type: BLOCKS
+    reward_value: 100
+    icon: DIAMOND_PICKAXE
+
+  architect:
+    name: "§a§lArquiteto"
+    description: "Coloque 5.000 blocos"
+    category: EXPLORACAO
+    type: BLOCKS_PLACED
+    goal: 5000
+    reward_type: BLOCKS
+    reward_value: 100
+    icon: BRICKS
+
+  # ---- COMBATE ----
+  dragon_hunter:
+    name: "§c§lCaçador de Dragões"
+    description: "Participe da derrota de 5 bosses"
+    category: COMBATE
+    type: BOSSES_KILLED
+    goal: 5
+    reward_type: TITLE
+    reward_value: "§c⚔ Caçador"
+    icon: DRAGON_HEAD
+
+  warrior:
+    name: "§c§lGuerreiro"
+    description: "Derrote 50 jogadores em PvP"
+    category: COMBATE
+    type: KILLS
+    goal: 50
+    reward_type: TITLE
+    reward_value: "§4🗡 Guerreiro"
+    icon: IRON_SWORD
+
+  mvp:
+    name: "§c§lMVP"
+    description: "Fique no Top 3 de dano em 10 bosses"
+    category: COMBATE
+    type: BOSS_TOP_DAMAGE
+    goal: 10
+    reward_type: TITLE
+    reward_value: "§6★ MVP"
+    icon: GOLDEN_SWORD
+
+  # ---- ECONOMIA ----
+  tycoon:
+    name: "§6§lMagnata"
+    description: "Ganhe $50.000 no mercado"
+    category: ECONOMIA
+    type: MONEY_EARNED
+    goal: 50000
+    reward_type: TITLE
+    reward_value: "§6💰 Magnata"
+    icon: GOLD_INGOT
+
+  first_sale:
+    name: "§6§lPrimeira Venda"
+    description: "Ganhe $1.000 no mercado"
+    category: ECONOMIA
+    type: MONEY_EARNED
+    goal: 1000
+    reward_type: MONEY
+    reward_value: 500
+    icon: EMERALD
+
+  # ---- SOCIAL ----
+  socialite:
+    name: "§d§lSocialite"
+    description: "Tenha 10+ súditos no seu reino"
+    category: SOCIAL
+    type: MEMBERS_COUNT
+    goal: 10
+    reward_type: TITLE
+    reward_value: "§d♛ Líder Nato"
+    icon: PLAYER_HEAD
+
+  # ---- REINOS ----
+  king_of_kings:
+    name: "§b§lRei dos Reis"
+    description: "Funde seu primeiro reino"
+    category: REINOS
+    type: KINGDOM_CREATED
+    goal: 1
+    reward_type: MONEY
+    reward_value: 1000
+    icon: GOLDEN_HELMET
+
+  veteran:
+    name: "§e§lVeterano"
+    description: "Jogue 100 horas no servidor"
+    category: REINOS
+    type: PLAYTIME_HOURS
+    goal: 100
+    reward_type: TITLE
+    reward_value: "§7🏆 Veterano"
+    icon: CLOCK
+
+  # B28 — Códex de Gorvax
+  codex_10:
+    name: "§a§lCurioso"
+    description: "Desbloqueie 10% do Códex de Gorvax"
+    category: EXPLORAÇÃO
+    type: CODEX_PERCENT
+    goal: 10
+    reward_type: MONEY
+    reward_value: 500
+    icon: BOOK
+
+  codex_25:
+    name: "§b§lEstudioso"
+    description: "Desbloqueie 25% do Códex de Gorvax"
+    category: EXPLORAÇÃO
+    type: CODEX_PERCENT
+    goal: 25
+    reward_type: MONEY
+    reward_value: 1500
+    icon: WRITABLE_BOOK
+
+  codex_50:
+    name: "§d§lHistoriador"
+    description: "Desbloqueie 50% do Códex de Gorvax"
+    category: EXPLORAÇÃO
+    type: CODEX_PERCENT
+    goal: 50
+    reward_type: TITLE
+    reward_value: "§d📖 Historiador"
+    icon: ENCHANTED_BOOK
+
+  codex_75:
+    name: "§6§lCronista"
+    description: "Desbloqueie 75% do Códex de Gorvax"
+    category: EXPLORAÇÃO
+    type: CODEX_PERCENT
+    goal: 75
+    reward_type: MONEY
+    reward_value: 5000
+    icon: KNOWLEDGE_BOOK
+
+  codex_100:
+    name: "§c§l🏆 Enciclopedista"
+    description: "Desbloqueie 100% do Códex de Gorvax"
+    category: EXPLORAÇÃO
+    type: CODEX_PERCENT
+    goal: 100
+    reward_type: TITLE
+    reward_value: "§c§l📖 Mestre do Saber"
+    icon: DRAGON_EGG

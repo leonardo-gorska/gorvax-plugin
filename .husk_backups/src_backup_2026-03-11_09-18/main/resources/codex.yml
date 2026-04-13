@@ -1,0 +1,533 @@
+# ============================================================
+# GorvaxCore — Códex de Gorvax (B28)
+# Enciclopédia interativa do servidor.
+# Cada entrada começa bloqueada ("???") e desbloqueia quando
+# o jogador realiza a ação definida em "desbloqueio".
+# ============================================================
+
+categorias:
+
+  # ============================================================
+  # CRÔNICAS — Livros de lore encontrados no mundo
+  # ============================================================
+  cronicas:
+    nome: "§6§lCrônicas de Gorvax"
+    icone: WRITTEN_BOOK
+    descricao: "Fragmentos da história do mundo, registrados por sábios e cronistas."
+    entradas:
+      genesis:
+        nome: "Gênesis do Mundo"
+        icone: BOOK
+        lore_bloqueado:
+          - "§7§oUm antigo pergaminho desbotado..."
+          - "§8Encontre este livro no Bastião."
+        lore_desbloqueado:
+          - "§7O livro que narra a origem do mundo,"
+          - "§7os dois Pilares e o equilíbrio primordial."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: genesis
+      ascensao_gorvax:
+        nome: "A Ascensão do Rei"
+        icone: BOOK
+        lore_bloqueado:
+          - "§7§oUma crônica perdida..."
+          - "§8Encontre este livro no Bastião."
+        lore_desbloqueado:
+          - "§7A história de como Gorvax marchou"
+          - "§7até o Pilar de Chamas e se tornou Rei."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: ascensao_gorvax
+      senhor_do_vazio:
+        nome: "O Senhor do Vazio"
+        icone: BOOK
+        lore_bloqueado:
+          - "§7§oUm manuscrito misterioso..."
+          - "§8Encontre este livro no Bastião."
+        lore_desbloqueado:
+          - "§7Indrax — a entidade que é o próprio End."
+          - "§7A escuridão que apaga tudo."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: senhor_do_vazio
+      bestas_menores:
+        nome: "As Bestas do Mundo"
+        icone: BOOK
+        lore_bloqueado:
+          - "§7§oUm diário rasgado..."
+          - "§8Encontre este livro no Bastião."
+        lore_desbloqueado:
+          - "§7As criaturas despertadas pelo desequilíbrio:"
+          - "§7Zar'ith, Kaldur, Skulkor, Xylos e Vulgathor."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: bestas_menores
+      reinos_antigos:
+        nome: "Os Reinos Perdidos"
+        icone: BOOK
+        lore_bloqueado:
+          - "§7§oUm arquivo empoeirado..."
+          - "§8Encontre este livro no Bastião."
+        lore_desbloqueado:
+          - "§7Ashvale, Glacius e Étheris — os três"
+          - "§7reinos que resistiram antes dos jogadores."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: reinos_antigos
+      profecia:
+        nome: "A Profecia dos Pilares"
+        icone: BOOK
+        lore_bloqueado:
+          - "§7§oUm texto enigmático..."
+          - "§8Encontre este livro no Bastião."
+        lore_desbloqueado:
+          - "§7A profecia sobre a restauração dos Pilares."
+          - "§7Fogo sem vazio é destruição."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: profecia
+      guardioes:
+        nome: "Os Guardiões dos Biomas"
+        icone: BOOK
+        lore_bloqueado:
+          - "§7§oUm relato de explorador..."
+          - "§8Encontre este livro no Bastião."
+        lore_desbloqueado:
+          - "§7Os mini-bosses são guardiões naturais"
+          - "§7que protegem seus biomas da corrupção."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: guardioes
+      bastiao:
+        nome: "O Último Refúgio"
+        icone: BOOK
+        lore_bloqueado:
+          - "§7§oUm registro dos fundadores..."
+          - "§8Encontre este livro no Bastião."
+        lore_desbloqueado:
+          - "§7A história do Bastião dos Sobreviventes"
+          - "§7e a revelação da aliança entre Gorvax e Indrax."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: bastiao
+
+  # ============================================================
+  # BESTIÁRIO — Bosses e Mini-Bosses do mundo
+  # ============================================================
+  bestiario:
+    nome: "§c§lBestiário"
+    icone: DRAGON_HEAD
+    descricao: "Criaturas lendárias e guardiões que habitam o mundo de Gorvax."
+    entradas:
+      # World Bosses
+      rei_gorvax:
+        nome: "Rei Gorvax"
+        icone: GOLDEN_HELMET
+        lore_bloqueado:
+          - "§7§oUma presença aterrorizante..."
+          - "§8Derrote este boss para revelar."
+        lore_desbloqueado:
+          - "§6O Soberano do Nether."
+          - "§7Wither Skeleton que absorveu o fogo do"
+          - "§7Pilar de Chamas e se autoproclamou Rei."
+          - "§7HP: 15.000 | Tier: Supremo"
+        desbloqueio:
+          tipo: BOSS_KILL
+          trigger: rei_gorvax
+      indrax:
+        nome: "Indrax Abissal"
+        icone: DRAGON_HEAD
+        lore_bloqueado:
+          - "§7§oSombras se movem..."
+          - "§8Derrote este boss para revelar."
+        lore_desbloqueado:
+          - "§5O Pesadelo das Sombras."
+          - "§7Entidade que é o próprio End."
+          - "§7O Vazio personificado, aliado de Gorvax."
+          - "§7HP: 14.000 | Tier: Supremo"
+        desbloqueio:
+          tipo: BOSS_KILL
+          trigger: indrax
+      zarith:
+        nome: "Zar'ith, a Presa da Selva"
+        icone: SPIDER_EYE
+        lore_bloqueado:
+          - "§7§oTeias anciãs tremem..."
+          - "§8Derrote este boss para revelar."
+        lore_desbloqueado:
+          - "§aA Presa da Selva."
+          - "§7Aranha gigante do subsolo das selvas."
+          - "§7Despertou faminta pelo desequilíbrio."
+          - "§7HP: 3.000 | Tier: 2"
+        desbloqueio:
+          tipo: BOSS_KILL
+          trigger: zarith
+      kaldur:
+        nome: "Kaldur, o Coração de Gelo"
+        icone: PACKED_ICE
+        lore_bloqueado:
+          - "§7§oO frio se aproxima..."
+          - "§8Derrote este boss para revelar."
+        lore_desbloqueado:
+          - "§bO Coração de Gelo."
+          - "§7Antigo arqueiro Stray transformado"
+          - "§7em inverno encarnado."
+          - "§7HP: 4.000 | Tier: 2"
+        desbloqueio:
+          tipo: BOSS_KILL
+          trigger: kaldur
+      skulkor:
+        nome: "Skulkor, o General Reerguido"
+        icone: SKELETON_SKULL
+        lore_bloqueado:
+          - "§7§oOssos rangem no escuro..."
+          - "§8Derrote este boss para revelar."
+        lore_desbloqueado:
+          - "§7O General Reerguido."
+          - "§7General antigo reanimado pelo"
+          - "§7Pilar de Chamas."
+          - "§7HP: 5.000 | Tier: 2"
+        desbloqueio:
+          tipo: BOSS_KILL
+          trigger: skulkor
+      xylos:
+        nome: "Xylos, o Devorador de Éter"
+        icone: ENDER_PEARL
+        lore_bloqueado:
+          - "§7§oO espaço se distorce..."
+          - "§8Derrote este boss para revelar."
+        lore_desbloqueado:
+          - "§5O Devorador de Éter."
+          - "§7Manipulador do espaço, fragmento do"
+          - "§7próprio Pilar do Vazio."
+          - "§7HP: 6.500 | Tier: 2"
+        desbloqueio:
+          tipo: BOSS_KILL
+          trigger: xylos
+      vulgathor:
+        nome: "Vulgathor, o Arauto das Cinzas"
+        icone: BLAZE_ROD
+        lore_bloqueado:
+          - "§7§oChamas eternas ardem..."
+          - "§8Derrote este boss para revelar."
+        lore_desbloqueado:
+          - "§cO Arauto das Cinzas."
+          - "§7Blaze primordial anterior a Gorvax."
+          - "§7Jurou lealdade ao Rei... por enquanto."
+          - "§7HP: 8.000 | Tier: 2"
+        desbloqueio:
+          tipo: BOSS_KILL
+          trigger: vulgathor
+      # Mini-Bosses
+      guardiao_deserto:
+        nome: "Guardião do Deserto"
+        icone: GOLDEN_SWORD
+        lore_bloqueado:
+          - "§7§oAreia se move..."
+          - "§8Derrote este mini-boss para revelar."
+        lore_desbloqueado:
+          - "§6Guardião do Deserto."
+          - "§7Guerreiro de Ashvale reanimado"
+          - "§7pelas areias encantadas."
+          - "§7HP: 250 | Mini-Boss"
+        desbloqueio:
+          tipo: BOSS_KILL
+          trigger: guardiao_deserto
+      sentinela_gelida:
+        nome: "Sentinela Gélida"
+        icone: BOW
+        lore_bloqueado:
+          - "§7§oO frio sussurra..."
+          - "§8Derrote este mini-boss para revelar."
+        lore_desbloqueado:
+          - "§bSentinela Gélida."
+          - "§7Monge de Glacius reencarnada"
+          - "§7como guardiã das montanhas geladas."
+          - "§7HP: 300 | Mini-Boss"
+        desbloqueio:
+          tipo: BOSS_KILL
+          trigger: sentinela_gelida
+      aranha_selva:
+        nome: "Araña da Selva"
+        icone: COBWEB
+        lore_bloqueado:
+          - "§7§oTeias cobrem o caminho..."
+          - "§8Derrote este mini-boss para revelar."
+        lore_desbloqueado:
+          - "§aAraña da Selva."
+          - "§7Guardiã dos ovos de uma raça"
+          - "§7de aranhas ancestrais."
+          - "§7HP: 200 | Mini-Boss"
+        desbloqueio:
+          tipo: BOSS_KILL
+          trigger: aranha_selva
+      fantasma_nether:
+        nome: "Fantasma do Nether"
+        icone: BLAZE_POWDER
+        lore_bloqueado:
+          - "§7§oChamas vagam sem rumo..."
+          - "§8Derrote este mini-boss para revelar."
+        lore_desbloqueado:
+          - "§cFantasma do Nether."
+          - "§7Soldado amaldiçoado do exército"
+          - "§7de Gorvax. Vaga eternamente."
+          - "§7HP: 350 | Mini-Boss"
+        desbloqueio:
+          tipo: BOSS_KILL
+          trigger: fantasma_nether
+
+  # ============================================================
+  # REINOS — Facções antigas e sua história
+  # ============================================================
+  reinos:
+    nome: "§e§lReinos Antigos"
+    icone: GOLDEN_HELMET
+    descricao: "As facções que moldaram a história do mundo de Gorvax."
+    entradas:
+      ashvale:
+        nome: "Domínio de Ashvale"
+        icone: NETHERITE_SWORD
+        lore_bloqueado:
+          - "§7§oRuínas vulcânicas..."
+          - "§8Leia o livro 'Os Reinos Perdidos'."
+        lore_desbloqueado:
+          - "§6Domínio de Ashvale."
+          - "§7Ferreiros guerreiros que forjavam"
+          - "§7armas contra Gorvax. Suas ruínas ficam"
+          - "§7perto de montanhas vulcânicas."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: reinos_antigos
+      glacius:
+        nome: "Monastério de Glacius"
+        icone: BLUE_ICE
+        lore_bloqueado:
+          - "§7§oUma tumba gelada..."
+          - "§8Leia o livro 'Os Reinos Perdidos'."
+        lore_desbloqueado:
+          - "§bMonastério de Glacius."
+          - "§7Monges que estudavam o frio de Kaldur."
+          - "§7Congelou quando Kaldur despertou."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: reinos_antigos
+      etheris:
+        nome: "Biblioteca de Étheris"
+        icone: ENCHANTING_TABLE
+        lore_bloqueado:
+          - "§7§oDimensões instáveis..."
+          - "§8Leia o livro 'Os Reinos Perdidos'."
+        lore_desbloqueado:
+          - "§5Biblioteca de Étheris."
+          - "§7Sábios que tentaram compreender Xylos"
+          - "§7e o Vazio. A biblioteca dimensional"
+          - "§7agora jaz em ruínas."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: reinos_antigos
+      bastiao_sobreviventes:
+        nome: "Bastião dos Sobreviventes"
+        icone: SHIELD
+        lore_bloqueado:
+          - "§7§oUm refúgio distante..."
+          - "§8Leia o livro 'O Último Refúgio'."
+        lore_desbloqueado:
+          - "§6Bastião dos Sobreviventes."
+          - "§7O último farol da humanidade, erguido"
+          - "§7onde a corrupção dos Pilares é mais fraca."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: bastiao
+      alianca_sombria:
+        nome: "A Aliança Sombria"
+        icone: WITHER_SKELETON_SKULL
+        lore_bloqueado:
+          - "§7§oUma verdade oculta..."
+          - "§8Leia o livro 'O Último Refúgio'."
+        lore_desbloqueado:
+          - "§4A Aliança Sombria."
+          - "§7Gorvax e Indrax não são dois males"
+          - "§7separados — são aliados. A guerra"
+          - "§7nunca foi contra dois inimigos."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: bastiao
+
+  # ============================================================
+  # RELÍQUIAS — Itens lendários do mundo
+  # ============================================================
+  reliquias:
+    nome: "§d§lRelíquias Lendárias"
+    icone: NETHER_STAR
+    descricao: "Artefatos de poder inimaginável, forjados pelos seres mais poderosos."
+    entradas:
+      lamina_gorvax:
+        nome: "Lâmina de Gorvax"
+        icone: NETHERITE_SWORD
+        lore_bloqueado:
+          - "§7§oUma arma de poder supremo..."
+          - "§8Obtenha este item para revelar."
+        lore_desbloqueado:
+          - "§4⚔ Lâmina de Gorvax."
+          - "§7Forjada no fogo ancestral do Rei."
+          - "§7Efeito: Wither ao hit."
+          - "§8Drop: Rei Gorvax (Top 1)"
+        desbloqueio:
+          tipo: ITEM_OBTAIN
+          trigger: lamina_gorvax
+      coroa_indrax:
+        nome: "Coroa de Indrax"
+        icone: NETHERITE_HELMET
+        lore_bloqueado:
+          - "§7§oUma coroa das sombras..."
+          - "§8Obtenha este item para revelar."
+        lore_desbloqueado:
+          - "§5👑 Coroa de Indrax."
+          - "§7Arrancada do Abissal. Concede"
+          - "§7visão além do véu entre mundos."
+          - "§8Drop: Indrax Abissal (Top 1-3)"
+        desbloqueio:
+          tipo: ITEM_OBTAIN
+          trigger: coroa_indrax
+      arco_cacador:
+        nome: "Arco do Caçador"
+        icone: BOW
+        lore_bloqueado:
+          - "§7§oUm arco predatório..."
+          - "§8Obtenha este item para revelar."
+        lore_desbloqueado:
+          - "§a🏹 Arco do Caçador."
+          - "§7Talhado nos ossos de Zar'ith."
+          - "§7Cada flecha é guiada pelo instinto."
+          - "§8Drop: Zarith (Top 1-3)"
+        desbloqueio:
+          tipo: ITEM_OBTAIN
+          trigger: arco_cacador
+      lanca_kaldur:
+        nome: "Lança de Kaldur"
+        icone: TRIDENT
+        lore_bloqueado:
+          - "§7§oUma arma gélida..."
+          - "§8Obtenha este item para revelar."
+        lore_desbloqueado:
+          - "§b🧊 Lança de Kaldur."
+          - "§7Cristalizada no coração congelado."
+          - "§7Congela até a alma do inimigo."
+          - "§8Drop: Kaldur (Top 1-3)"
+        desbloqueio:
+          tipo: ITEM_OBTAIN
+          trigger: lanca_kaldur
+      manto_vulgathor:
+        nome: "Manto de Vulgathor"
+        icone: NETHERITE_CHESTPLATE
+        lore_bloqueado:
+          - "§7§oUma armadura ardente..."
+          - "§8Obtenha este item para revelar."
+        lore_desbloqueado:
+          - "§6🔥 Manto de Vulgathor."
+          - "§7Arrancado das cinzas vivas do Arauto."
+          - "§7Resistência ao Fogo permanente."
+          - "§8Drop: Vulgathor (Top 1-3)"
+        desbloqueio:
+          tipo: ITEM_OBTAIN
+          trigger: manto_vulgathor
+
+  # ============================================================
+  # LOCAIS — Estruturas e pontos de interesse
+  # ============================================================
+  locais:
+    nome: "§2§lLocais Notáveis"
+    icone: FILLED_MAP
+    descricao: "Lugares lendários espalhados pelo mundo de Gorvax."
+    entradas:
+      bastiao_local:
+        nome: "Bastião dos Sobreviventes"
+        icone: COBBLESTONE_WALL
+        lore_bloqueado:
+          - "§7§oUma fortaleza distante..."
+          - "§8Visite este local para revelar."
+        lore_desbloqueado:
+          - "§6⚔ Bastião dos Sobreviventes."
+          - "§7O último refúgio da humanidade."
+          - "§7Abriga a biblioteca com os livros"
+          - "§7resgatados de Étheris."
+        desbloqueio:
+          tipo: LOCATION_VISIT
+          trigger: bastiao
+      cidade_valheim:
+        nome: "Cidade de Valheim"
+        icone: STONE_BRICKS
+        lore_bloqueado:
+          - "§7§oUma cidade medieval..."
+          - "§8Visite este local para revelar."
+        lore_desbloqueado:
+          - "§e🏰 Cidade de Valheim."
+          - "§7Uma cidade medieval construída"
+          - "§7como ponto de comércio e defesa."
+        desbloqueio:
+          tipo: LOCATION_VISIT
+          trigger: cidade_valheim
+
+  # ============================================================
+  # FIGURAS — Personagens importantes da Lore
+  # ============================================================
+  figuras:
+    nome: "§b§lFiguras Históricas"
+    icone: PLAYER_HEAD
+    descricao: "Personagens que moldaram o destino do mundo de Gorvax."
+    entradas:
+      rei_gorvax_fig:
+        nome: "Rei Gorvax"
+        icone: GOLDEN_HELMET
+        lore_bloqueado:
+          - "§7§oUm soberano temido..."
+          - "§8Leia 'A Ascensão do Rei'."
+        lore_desbloqueado:
+          - "§6Rei Gorvax — O Soberano do Nether."
+          - "§7Wither Skeleton que absorveu o fogo"
+          - "§7primordial e se autoproclamou Rei."
+          - "§7Aliado secreto de Indrax."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: ascensao_gorvax
+      indrax_fig:
+        nome: "Indrax, o Abissal"
+        icone: ENDER_EYE
+        lore_bloqueado:
+          - "§7§oUma sombra antiga..."
+          - "§8Leia 'O Senhor do Vazio'."
+        lore_desbloqueado:
+          - "§5Indrax — O Senhor do Vazio."
+          - "§7Entidade que existia antes dos blocos."
+          - "§7O Vazio personificado, corrói em silêncio."
+          - "§7Aliado secreto de Gorvax."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: senhor_do_vazio
+      sabio_etheris:
+        nome: "Último Sábio de Étheris"
+        icone: ENCHANTED_BOOK
+        lore_bloqueado:
+          - "§7§oUm estudioso esquecido..."
+          - "§8Leia 'A Profecia dos Pilares'."
+        lore_desbloqueado:
+          - "§dÚltimo Sábio de Étheris."
+          - "§7Autor da Profecia dos Pilares."
+          - "§7Suas últimas páginas foram rasgadas."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: profecia
+      fundadores_bastiao:
+        nome: "Fundadores do Bastião"
+        icone: SHIELD
+        lore_bloqueado:
+          - "§7§oSobreviventes corajosos..."
+          - "§8Leia 'O Último Refúgio'."
+        lore_desbloqueado:
+          - "§eFundadores do Bastião."
+          - "§7Sobreviventes de Ashvale, Glacius e Étheris"
+          - "§7que ergueram o último refúgio da humanidade."
+        desbloqueio:
+          tipo: BOOK_READ
+          trigger: bastiao

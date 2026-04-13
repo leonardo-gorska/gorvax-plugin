@@ -1,0 +1,20 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "minecraft:item/netherite_helmet"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "custom_model_data": 1001
+            },
+            "model": "gorvax:item/indrax_crown"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 1002
+            },
+            "model": "gorvax:item/skulkor_helm"
+        }
+    ]
+}

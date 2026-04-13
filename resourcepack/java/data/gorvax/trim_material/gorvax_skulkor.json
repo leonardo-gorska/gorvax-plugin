@@ -1,0 +1,9 @@
+{
+    "asset_name": "gorvax_skulkor",
+    "description": {
+        "translate": "trim_material.gorvax.skulkor",
+        "color": "#A8A8A8"
+    },
+    "ingredient": "minecraft:bone_block",
+    "item_model_index": 0.2
+}

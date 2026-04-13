@@ -1,0 +1,2043 @@
+# ============================================================
+# GorvaxCore — Arquivo de Mensagens (messages.yml)
+# Gerado automaticamente. Todas as mensagens podem ser editadas.
+# Placeholders: {0}, {1}, {2}...
+# ============================================================
+
+# ---- GERAL ----
+general:
+  no_permission: "§cVocê não tem permissão."
+  player_only: "§cApenas jogadores podem usar este comando."
+  player_never_played: "§cJogador nunca jogou antes."
+  player_not_found: "§cJogador não encontrado."
+  invalid_value: "§cValor inválido."
+  operation_cancelled: "§aOperação cancelada."
+  error: "§c§lERRO §8»"
+  player_not_found: "§cJogador não encontrado."
+
+# ---- ADMIN / GORVAX COMMAND ----
+admin:
+  reload_success: "§a[Gorvax] Configurações recarregadas com sucesso!"
+  autosave_complete: "§b[Gorvax] §aAutosave concluído em {0}ms."
+  reset_usage: "§cUse: /gorvax reset <dragon|end>"
+  reset_dragon_sent: "§aComando de reset do dragão enviado."
+  reset_dragon_error: "§cErro ao resetar: {0}"
+  reset_end_starting: "§eIniciando reset do End..."
+  reset_end_sent: "§aComando de reset do End enviado."
+  reset_end_error: "§cErro ao resetar: {0}"
+  reset_manager_null: "§cErro: Manager não inicializado."
+  reset_invalid_option: "§cOpção inválida. Use dragon ou end."
+  help_header: "§8§m---------------------------------------"
+  help_title: "  §6§lAJUDA GORVAX §7(Página {0}/{1})"
+  help_subtitle: "  §7Comandos de vida e glória:"
+  help_entry: "  §e{0} §b» §f{1}"
+  help_next_page: "  §e/gorvax help {0} §7para ver a próxima página."
+
+# ---- PROTEÇÃO ----
+protection:
+  deny_build: "§c§lACESSO NEGADO §8» §7Sem permissão de §econstrução §7neste terreno."
+  deny_container: "§c§lACESSO NEGADO §8» §7Sem permissão de §econtainer §7neste terreno."
+  deny_access: "§c§lACESSO NEGADO §8» §7Sem permissão de §eacesso §7neste terreno."
+  deny_general: "§c§lACESSO NEGADO §8» §7Sem permissão §egeral §7neste terreno."
+  deny_actionbar: "§c§lACESSO NEGADO"
+  pvp_disabled: "§c§lPVP DESATIVADO §8» §7PvP está desativado neste território."
+  teleport_redirected: "§c§lPROTEÇÃO §8» §7Teleporte desviado para a fronteira do reino/terreno."
+  teleport_cancelled: "§c§lPROTEÇÃO §8» §7Teleporte cancelado (Área Restrita)."
+  # B1 — Anti-Exploit
+  wither_blocked: "§c§lPROTEÇÃO §8» §7Não é possível invocar Withers em terrenos protegidos."
+  crystal_blocked: "§c§lPROTEÇÃO §8» §7Não é possível colocar Cristais em terrenos protegidos."
+  tnt_blocked: "§c§lPROTEÇÃO §8» §7Explosão de TNT bloqueada (origem externa)."
+  bed_blocked: "§c§lPROTEÇÃO §8» §7Explosão de cama/âncora bloqueada neste terreno."
+  redstone_limit: "§c§lPROTEÇÃO §8» §7Limite de redstone atingido neste chunk! Redstone desativada temporariamente."
+  chorus_blocked: "§c§lPROTEÇÃO §8» §7Teleporte via Chorus Fruit bloqueado em terreno protegido."
+
+# ---- REINO ----
+kingdom:
+  # Erros Gerais
+  error_no_permission: "§c§lERRO §8» §7Apenas administradores podem fazer isto."
+  error_not_king: "§c§lERRO §8» §7Apenas o Rei pode fazer isto."
+  error_no_kingdom: "§c§lERRO §8» §7Você não pertence a nenhum reino."
+  error_no_territory: "§c§lERRO §8» §7Você primeiro precisa reivindicar um território."
+  error_no_territory_hint: "§7Use a pá de ouro para criar sua fundação."
+  error_not_owner: "§c§lERRO §8» §7Apenas o dono do território pode nomeá-lo."
+  error_not_in_territory: "§c§lERRO §8» §7Você não está em um território protegido."
+  error_self_action: "§c§lERRO §8» §7Você não pode fazer isso consigo mesmo."
+  error_target_not_member: "§c§lERRO §8» §7Este jogador não é membro do seu reino."
+  error_already_member: "§c§lERRO §8» §7Este jogador já é membro."
+
+  # Nomeação
+  name_usage: "§e§lGUIA §8» §7Use: §f/reinonome <Nome do Reino>"
+  name_invalid_chars: "§c§lERRO §8» §7Use apenas letras e números sem espaços."
+  name_invalid_length: "§c§lERRO §8» §7O nome deve ter entre 3 e 16 caracteres."
+  name_already_exists: "§c§lERRO §8» §7Já existe um reino com este nome."
+  name_success: "§a§lSUCESSO §8» §fReino batizado como §b{0}"
+  name_title: "§e§lReino de {0}"
+  name_subtitle: "§7Seu reinado começa agora!"
+  name_broadcast: "§b[GorvaxReinos] §eUm novo poder surge: O Reino de §f{0}§e!"
+  name_restricted: "§c§lRESTRITO §8» §7Você precisa do título de §eRei §7para fundar um reino."
+  name_restricted_hint: "§7Acesse §b/reino §7e clique na coroa para comprar seu título."
+
+  # Convites
+  invite_sent: "§a§lCONVITE §8» §fConvite enviado para §e{0}§f! Expira em §e{1}s§f."
+  invite_received: "§a§lCONVITE §8» §fO Rei §e{0} §fconvidou você para o reino §b{1}§f!"
+  invite_received_hint: "§7Clique aqui ou use §e/reino aceitar §7para aceitar."
+  invite_none: "§c§lERRO §8» §7Nenhum convite pendente."
+  invite_accepted: "§a§lBEM-VINDO §8» §fAgora você é súdito do reino §b{0}§f!"
+  invite_accepted_notify: "§a§lSÚDITO §8» §f{0} §faceitou o convite e agora é seu súdito!"
+  invite_declined: "§c§lRECUSADO §8» §fVocê recusou o convite."
+  invite_declined_notify: "§c§lRECUSADO §8» §f{0} §frecusou o convite."
+  invite_expired: "§cConvite expirado."
+  invite_target_offline: "§c§lERRO §8» §7Jogador offline."
+
+  # Visita
+  visit_usage: "§e§lGUIA §8» §7Use: §f/reino visitar <nomeDoReino>"
+  visit_not_found: "§c§lERRO §8» §7Reino não encontrado."
+  visit_no_spawn: "§c§lERRO §8» §7este reino não tem spawn definido."
+  visit_private: "§c§lERRO §8» §7Este reino não aceita visitas."
+  visit_teleporting: "§a§lVISITA §8» §fTeleportando para §b{0}§f..."
+  visit_title: "§e§lBem-vindo a {0}"
+  visit_subtitle: "§7Visitando..."
+
+  # Spawn
+  setspawn_success: "§a§lSUCESSO §8» §fMarco Zero do reino definido aqui."
+  setspawn_not_in_claim: "§cVocê só pode definir o spawn no seu próprio reino."
+  spawn_teleport: "§a§lTELEPORTE §8» §fBem-vindo à sede real."
+  spawn_no_kingdom: "§cVocê não pertence a um reino."
+  spawn_no_spawn: "§cO reino ainda não tem um ponto de spawn definido."
+
+  # Criar
+  criar_hint: "§b§lGORVAX §8» §fUse uma §ePá de Ouro §fpara marcar 2 cantos e digite §e/confirmar §fou §e/c§f."
+
+  # Transferir
+  transfer_success: "§a§lSUCESSO §8» §fVocê transferiu a coroa para {0}"
+  transfer_received: "§a§lCOROAÇÃO §8» §fVocê agora é o novo Rei!"
+  transfer_not_king: "§cApenas o Rei pode transferir a coroa."
+  transfer_not_member: "§cO jogador precisa ser um súdito do reino primeiro."
+  transfer_usage: "§cUse: /reino transferir <jogador>"
+
+  # Deletar
+  delete_confirm: "§c§lPERIGO §8» §7Isso apagará TODO o reino e construções."
+  delete_confirm_hint: "§7Digite §c/reino deletar confirmar §7para prosseguir."
+  delete_success: "§4§lREINO DISSOLVIDO §8» §7Seu reinado chegou ao fim."
+  delete_refund: "§a§lREEMBOLSO §8» §fSeus blocos de proteção foram devolvidos."
+  delete_not_king: "§cApenas o Rei pode dissolver o reino."
+  delete_broadcast: "§c[GorvaxReinos] §7O Reino de {0} caiu em ruínas."
+  delete_title: "§c§lReino Dissolvido"
+  delete_subtitle: "§7Suas terras agora são história"
+
+  # Lista
+  list_header: "§8§m-------------------------------------"
+  list_title: "  §6§lSEU REINO"
+  list_name: "  §fNome: §b{0}"
+  list_king: "  §fRei: §7{0}"
+  list_members: "  §fSúditos: §e{0}"
+  list_area: "  §fÁrea: §a{0} blocos"
+
+  # PvP
+  pvp_usage: "§cUse: /reino pvp <on/off>"
+  pvp_state: "§aPvP definido para: {0}"
+  pvp_no_permission: "§cSem permissão."
+  pvp_staff_warning: "§7[Staff] Você está editando as permissões de um território de terceiros."
+
+  # Dar Blocos (Admin)
+  givblocks_usage: "§e§lUSO §8» §f/reino darblocos <jogador> <quantia>"
+  givblocks_invalid: "§cQuantia inválida."
+  givblocks_success: "§a§lSUCESSO §8» §fDeu §e{0} blocos §fpara {1}"
+  givblocks_received: "§a§lRECEBEU §8» §fVocê recebeu §e{0} blocos de proteção§f!"
+  givblocks_offline: "§cJogador offline."
+
+  # Convites
+  invite_sent: "§a§lCONVITE §8» §fConvite enviado para §e{0}§f! Expira em §e{1}s§f."
+  invite_received: "§a§lCONVITE §8» §fVocê foi convidado para o reino §b{0}§f!"
+  invite_received_hint: "§7Use §a/reino aceitar §7ou §c/reino recusar§7. Expira em §e{0}s§7."
+  invite_usage: "§e§lGUIA §8» §7Use: §f/reino convidar <jogador>"
+  invite_not_king: "§c§lERRO §8» §7Apenas o Rei pode convidar súditos."
+  invite_target_offline: "§c§lERRO §8» §7Jogador não encontrado ou está offline."
+  invite_self: "§c§lERRO §8» §7Você não pode se convidar."
+  invite_already_member: "§c§lERRO §8» §7Este jogador já é membro do seu reino."
+  invite_accepted: "§a§lBEM-VINDO §8» §fVocê agora é súdito do reino §b{0}§f!"
+  invite_accepted_title: "§a§lBem-vindo!"
+  invite_accepted_subtitle: "§7Você é súdito de §b{0}"
+  invite_accepted_notify: "§a§lSUCESSO §8» §e{0} §faceitou o convite e agora é súdito!"
+  invite_none: "§c§lERRO §8» §7Você não tem convites pendentes ou o convite expirou."
+  invite_error: "§c§lERRO §8» §7Não foi possível aceitar o convite."
+  invite_declined: "§c§lRECUSADO §8» §fVocê recusou o convite para §b{0}§f."
+  invite_declined_notify: "§c§lRECUSADO §8» §e{0} §frecusou o convite."
+  invite_none_deny: "§c§lERRO §8» §7Você não tem convites pendentes."
+
+  # Visita
+  visit_usage: "§e§lGUIA §8» §7Use: §f/reino visitar <nome do reino>"
+  visit_not_found: "§c§lERRO §8» §7Reino '§f{0}§7' não encontrado."
+  visit_no_claim: "§c§lERRO §8» §7O terreno desse reino não existe mais."
+  visit_private: "§c§lERRO §8» §7Este reino não aceita visitantes."
+  visit_no_spawn: "§c§lERRO §8» §7O reino não tem ponto de spawn definido."
+  visit_cooldown: "§c§lERRO §8» §7Aguarde §e{0}s §7para visitar outro reino."
+  visit_no_money: "§c§lERRO §8» §7Você precisa de §e${0} §7para visitar."
+  visit_cost: "§e§lCUSTO §8» §fPagou §e${0} §fpelo teleporte."
+  visit_warmup: "§b§lTELEPORTE §8» §fTeleportando em §e{0}s§f... Não se mova!"
+  visit_cancelled: "§c§lCANCELADO §8» §7Você se moveu! Teleporte cancelado."
+  visit_refund: "§a§lREEMBOLSO §8» §fSeus §e${0} §fforam devolvidos."
+  visit_success: "§a§lTELEPORTE §8» §fBem-vindo ao reino §b{0}§f!"
+  visit_title: "§b§l{0}"
+  visit_subtitle: "§7Visitando o reino"
+
+  # Administração
+  admin_maintenance: "§a§l[STAFF] §fVarredura de manutenção iniciada manualmente."
+  unknown_command: "§cComando desconhecido. Use /reino."
+
+  # Expulsar (duplicados por MenuListener)
+  kick_not_mayor: "§c§lERRO §8» §7Apenas o Prefeito pode expulsar membros."
+  kick_success: "§a§lSUCESSO §8» §fJogador expulso da cidade."
+  kick_notify: "§c§lCIDADE §8» §7Você foi expulso da cidade §e{0}"
+
+  # Reload
+  reload_success: "§a§lSUCESSO §8» §fConfigurações de reinos recarregadas!"
+
+  # Chat
+  chat_player_only: "§cSomente jogadores podem usar o chat do reino."
+  chat_usage: "§c§lERRO §8» §7Use: §f/rc <mensagem>"
+  chat_not_member: "§c§lERRO §8» §7Você precisa ser súdito de um reino para usar o /rc."
+  chat_no_kingdom: "§c§lERRO §8» §7Você não pertence a nenhum reino no momento."
+
+  # Entrada/Saída de Território (KingdomListener)
+  enter_private_title: "§fTerritório de"
+  enter_private_subtitle: "§7{0}"
+  exit_wild_title: "§c§lTerras Bárbaras \U0001F480"
+  exit_wild_subtitle: "§7Cuidado: PvP e Invasões liberadas"
+
+  # ActionBar contextual (KingdomListener)
+  actionbar_wilderness: "§c§l⚠ TERRAS BÁRBARAS \U0001F480"
+  actionbar_private: "§fTerritório de: §7{0}"
+  actionbar_kingdom: "§b{0}{1} §8| {2}"
+  actionbar_for_sale: "§a§lÀ VENDA: §e${0}"
+  actionbar_for_rent: "§a§lPARA ARRENDAR: §e${0}"
+  actionbar_rented: "§fArrendado por: §e{0}"
+  actionbar_owner: "§fSenhor: §e{0}"
+  actionbar_vacant: "§7Lote Vago"
+  actionbar_headquarters: "§eSede do Reino"
+  actionbar_check: " §a§l✔"
+
+  # B5.3 — Banco do Reino
+  bank_deposit_usage: "§e§lGUIA §8» §7Use: §f/reino depositar <valor>"
+  bank_withdraw_usage: "§e§lGUIA §8» §7Use: §f/reino sacar <valor>"
+  bank_insufficient_personal: "§c§lERRO §8» §7Saldo pessoal insuficiente."
+  bank_insufficient: "§c§lERRO §8» §7Saldo do banco do reino insuficiente."
+  bank_withdraw_only_king: "§c§lERRO §8» §7Apenas o Rei pode sacar do banco real."
+  bank_deposit_success: "§a§lBANCO §8» §fDepositou §6${0} §fno banco real. Saldo: §6${1}"
+  bank_withdraw_success: "§a§lBANCO §8» §fSacou §6${0} §fdo banco real. Saldo: §6${1}"
+  bank_header: "§8§m--------- §6§lBANCO REAL §8§m---------"
+  bank_balance: "  §fSaldo: §6${0}"
+  bank_tax_info: "  §fImposto: §e${0}/dia §7× §e{1} súditos §7= §a+${2}/dia"
+  bank_upkeep_info: "  §fManutenção: §c-${0}/dia §7({1} chunks)"
+  bank_level_info: "  §fNível: §b{0} §8| §fMembros: §e{1}/{2}"
+  bank_decaying_warning: "  §c§l⚠ DECADÊNCIA §8» §7Buffs desativados! Pague a manutenção para recuperar."
+  bank_footer: "§8§m-----------------------------------------"
+  member_limit_reached: "§c§lERRO §8» §7O reino atingiu o limite de membros ({0}/{1}). Compre mais slots ou faça upgrades."
+
+# ---- LOTE / FEUDO ----
+plot:
+  error_not_in_territory: "§c§lERRO §8» §7Você não está em um território protegido."
+  error_not_in_subplot: "§c§lERRO §8» §7Você não está em um feudo."
+  error_not_owner: "§c§lERRO §8» §7Você não é dono deste feudo."
+  error_not_kingdom_owner: "§c§lERRO §8» §7Você não é o rei desta cidade."
+  error_no_permission: "§c§lERRO §8» §7Você não tem permissão para gerenciar este lote."
+  error_already_for_sale: "§c§lERRO §8» §7Este feudo já está à venda."
+  error_already_rented: "§cEste feudo já está arrendado por {0}"
+  error_not_for_sale: "§c§lERRO §8» §7Este feudo não está à venda."
+  error_not_for_rent: "§c§lERRO §8» §7Este feudo não está disponível para aluguel."
+  error_insufficient_funds: "§c§lERRO §8» §7Você não tem dinheiro suficiente. Preço: §e${0}"
+  error_cannot_buy_own: "§c§lERRO §8» §7Você não pode comprar seu próprio feudo."
+  error_already_owned: "§c§lERRO §8» §7Este feudo já possui um dono."
+  already_crown: "§c§lERRO §8» §7Este feudo já pertence à Coroa."
+
+  # Dicas de uso
+  criar_hint: "§b§lGORVAX §8» §fUse uma §bPá de Ferro §fpara marcar 2 cantos e digite §e/confirmar §fou §e/c§f."
+  price_usage: "§cUse: /lote preco <valor>"
+  friend_usage: "§e§lGUIA §8» §7Use: §f/lote amigo <nick>"
+  expand_hint: "§b§lDICA §8» §7Para ajustar feudos, você precisará recriá-los por enquanto."
+  rent_usage: "§cUse: /lote aluguel <valor>"
+  unknown_command: "§cSubcomando não encontrado. Use /lote info"
+
+  # Informações
+  info_header: "§8§m--------- §e§lINFO DO FEUDO §8§m---------"
+  info_owner: "§7Dono: §f{0}"
+  info_area: "§7Área: §f{0} blocos"
+  info_price: "§7Preço: §a${0}"
+  info_rent: "§7Aluguel: §a${0}/dia"
+  info_renter: "§7Arrendatário: §f{0}"
+
+  # Venda
+  sell_set: "§a§lVENDA §8» §fFeudo colocado à venda por §e${0}"
+  sell_removed: "§a§lVENDA §8» §fFeudo removido da venda."
+
+  # Compra
+  buy_success: "§a§lSUCESSO §8» §fVocê comprou este feudo por §e${0}§f!"
+  buy_notify_seller: "§a§lVENDA §8» §fSeu feudo foi vendido para §e{0} §fpor §a${1}§f!"
+  buy_title: "§a§lFeudo Adquirido"
+  buy_subtitle: "§7Você agora é o Senhor destas terras"
+
+  # Aluguel
+  rent_set: "§a§lALUGUEL §8» §fAluguel diário definido para §e${0}"
+  rent_success: "§a§lSUCESSO §8» §fVocê alugou este feudo! Aluguel: §e${0}/dia§f."
+  rent_notify_owner: "§a§lALUGUEL §8» §f{0} §falugou seu feudo."
+
+  # Abandonar
+  abandon_success: "§a§lSUCESSO §8» §fFeudo abandonado."
+
+  # Confiscar
+  confiscate_success: "§a§lSUCESSO §8» §fFeudo confiscado de volta à coroa."
+
+  # Preço
+  price_set: "§a§lSUCESSO §8» §fPreço de venda definido para §a${0}"
+  rent_price_set: "§a§lSUCESSO §8» §fAluguel diário definido para §a${0}"
+
+  # Amigo
+  friend_success: "§aPermissão GERAL dada a {0} neste feudo."
+
+  # Info (PlotCommand)
+  info_header: "§b§lINFORMAÇÕES DO LOCAL"
+  info_type_lot: "§f Tipo: §eFeudo (Lote)"
+  info_rented: "§f Status: §eArrendado"
+  info_renter: "§f Arrendatário: §7{0}"
+  info_expires: "§f Expira em: §b{0} horas"
+  info_processing: "§f Expira em: §cProcessando..."
+  info_owner: "§f Senhor: §7{0}"
+  info_available: "§f Senhor: §7Coroa (Disponível)"
+  info_sale_price: "§f Preço Venda: §a${0}"
+  info_sale_hint: "§7 Use /lote comprar para adquirir."
+  info_rent_price: "§f Valor Arrendamento: §a${0}/dia"
+  info_rent_hint: "§7 Use /lote arrendar para alugar."
+  info_id: "§f ID: §b#{0}"
+  info_type_kingdom: "§f Tipo: §6Sede Real/Área Comum"
+  info_king: "§f Rei: §7{0}"
+  info_kingdom_name: "§f Reino: §b{0}"
+
+# ---- TRUST / PERMISSÕES ----
+trust:
+  usage_permit: "§e§lGUIA §8» §7Use: §f/permitir <jogador> [categoria]\n§7Categorias: §eGERAL §7(tudo), §eCONSTRUCAO, CONTEINER, ACESSO, VICE"
+  usage_remove: "§e§lGUIA §8» §7Use: §f/remover <jogador>"
+  error_invalid_category: "§c§lERRO §8» §7Categoria inválida! Use: GERAL, CONSTRUCAO, CONTEINER, ACESSO ou VICE."
+  error_not_in_territory: "§cVocê precisa estar no seu território."
+  staff_warning: "§7[Staff] Você está editando as permissões de um território de terceiros."
+  added_plot: "§aPermissão {0} dada a {1} neste feudo."
+  added_kingdom: "§aPermissão {0} dada a {1} no reino/terreno."
+  removed_plot: "§cPermissões de {0} removidas deste feudo."
+  removed_kingdom: "§cPermissões de {0} removidas do reino/terreno."
+  usage: "§e§lGUIA §8» §7Use: §f/permitir <nick> [geral|construcao|conteiner|acesso|vice]"
+  remove_usage: "§e§lGUIA §8» §7Use: §f/remover <nick>"
+  added: "§aPermissão {0} dada a {1} neste terreno."
+  added_subplot: "§aPermissão {0} dada a {1} neste feudo."
+  removed: "§cPermissões de {0} removidas neste terreno."
+  removed_subplot: "§cPermissões de {0} removidas neste feudo."
+  error_not_in_claim: "§c§lERRO §8» §7Você não está em um território protegido."
+  error_no_permission: "§c§lERRO §8» §7Você não tem permissão para modificar trust."
+
+# ---- CONFIRMAÇÃO ----
+confirm:
+  no_pending: "§c§lERRO §8» §7Você não tem nenhuma seleção pendente. Use a pá de ouro (reino) ou ferro (feudo)!"
+  claim_success: "§a§lSUCESSO §8» §fTerras reivindicadas! Use §e/reino nome <Nome> §fpara fundar seu reino."
+  claim_success_title: "§a✔ Território Reivindicado"
+  claim_success_subtitle: "§fUse /reinonome <Nome> para fundar!"
+  claim_cost: "§7Custo: §e{0} blocos §8(Restante: §f{1}§8)"
+  resize_success: "§a§lSUCESSO §8» §fTerritório redimensionado!"
+  resize_cost: "§7Custo: §e{0} blocos §8(Restante: §f{1}§8)"
+  resize_refund: "§a§lSUCESSO §8» §fTerritório reduzido! §e{0} blocos §fdevolvidos."
+  subplot_success: "§a§lSUCESSO §8» §fFeudo criado!"
+  subplot_resize_success: "§a§lSUCESSO §8» §fFeudo redimensionado!"
+  error_insufficient_blocks: "§c§lERRO §8» §7Blocos insuficientes! Necessário: §e{0} §7(Você tem: §f{1}§7)"
+  error_overlap: "§c§lERRO §8» §7A seleção colide com outro terreno!"
+  error_too_small: "§c§lERRO §8» §7O terreno deve ter no mínimo §e10x10 §7blocos."
+  error_not_in_kingdom: "§c§lERRO §8» §7O feudo deve estar totalmente dentro do reino."
+  error_max_area: "§c§lERRO §8» §7Tamanho máximo permitido: §e{0} §7blocos. Sua seleção: §f{1} §7blocos."
+  error_already_has_kingdom: "§c§lERRO §8» §7Você já possui um reino ou território ativo.\n§7Use §e/reino deletar §7se quiser começar um novo."
+  error_claim_not_found: "§c§lERRO §8» §7Reino/Terreno original não encontrado."
+  error_protected_area: "§c§lERRO §8» §7Operação cancelada! Área protegida ou mundo bloqueado."
+  error_subplot_not_found: "§c§lERRO §8» §7Feudo não encontrado."
+  error_no_permission_subplot: "§c§lERRO §8» §7Apenas o Rei ou Duque podem criar feudos."
+  error_needs_king_rank: "§c§lRESTRITO §8» §7Você precisa do título de §eRei §7para criar feudos.\n§7Adquira no menu §b/reino§7."
+  error_needs_kingdom_name: "§c§lRESTRITO §8» §7Seu reino precisa ser fundado oficialmente.\n§7Use §e/reino nome <Nome> §7para fundar."
+
+# ---- SELEÇÃO ----
+selection:
+  point_a: "§e§lMARCAÇÃO §8» §fPonto A definido! Clique no §ePonto B §7(canto oposto)."
+  point_a_actionbar: "§a✔ Ponto A Definido"
+  selection_valid: "§a§lSUCESSO §8» §fÁrea de §b{0}x{1} ({2} blocos) §fselecionada."
+  selection_valid_title: "§a✔ Seleção Válida"
+  selection_valid_subtitle: "§7Use /confirmar ou /c"
+  selection_confirm_hint: "§7Use §e/confirmar §fou §e/c §7para confirmar."
+  selection_cancelled: "§e§lMARCAÇÃO §8» §cSeleção cancelada (ferramenta trocada)."
+  selection_cancelled_subplot: "§e§lMARCAÇÃO §8» §cSeleção de lote cancelada."
+  resize_mode: "§e§lEXPANSÃO §8» §fModo de redimensionamento ativado!"
+  resize_hint: "§7Você está movendo a quina selecionada. O ponto oposto está fixo."
+  resize_subplot: "§e§lEXPANSÃO §8» §fRedimensionando Lote..."
+  resize_cost: "§e§lEXPANSÃO §8» {0}"
+  error_size: "§7O terreno deve ter no mínimo §e10x10 §7blocos. (Atual: {0}x{1})"
+  error_funds: "§7Blocos insuficientes! Requer: §e{0} §7extras."
+  error_overlap: "§7Esta área colide com outra propriedade!"
+  error_not_in_city: "§7Lote deve estar totalmente dentro da cidade."
+  cancelled_tool: "§e§lMARCAÇÃO §8» §cSeleção cancelada (ferramenta trocada)."
+  cancelled_lot: "§e§lMARCAÇÃO §8» §cSeleção de lote cancelada."
+  point_a_set: "§e§lMARCAÇÃO §8» §fPonto A definido! Clique no §ePonto B §7(canto oposto)."
+  area_selected: "§a§lSUCESSO §8» §fÁrea de §b{0}x{1} ({2} blocos) §fselecionada."
+  confirm_hint: "§7Use §e/confirmar §fou §e/c §7para confirmar."
+  resize_mode: "§e§lEXPANSÃO §8» §fModo de redimensionamento ativado!"
+  resize_hint: "§7Você está movendo a quina selecionada. O ponto oposto está fixo."
+  resizing_lot: "§e§lEXPANSÃO §8» §fRedimensionando Lote..."
+
+
+# ---- MERCADO ----
+market:
+  no_permission: "§cSem permissão."
+  reload_success: "§a[GorvaxCore] Configurações de mercado recarregadas!"
+  error_not_in_kingdom: "§c§lERRO §8» §7Você precisa estar dentro de um Reino para acessar o mercado local."
+  error_no_economy: "§cErro: Sistema de economia não encontrado."
+  error_not_for_sale: "§cEste item não está a venda."
+  error_insufficient_funds: "§cVocê não tem dinheiro suficiente! Necessário: ${0}"
+  error_inventory_full: "§cSeu inventário está cheio."
+  error_cannot_sell: "§cEste item não pode ser vendido."
+  error_no_vanilla_item: "§cVocê não possui este item em sua forma básica (sem encantamentos/nomes/lore) para vender."
+  error_transaction: "§cErro na transação: {0}"
+  buy_success: "§aVocê comprou §f1x {0} §apor §f${1}"
+  sell_success: "§aVocê vendeu §f1x {0} §apor §f${1}"
+  error_invalid_name: "§cNome inválido."
+  search_searching: "§eBuscando jogador..."
+  search_not_found: "§cEste jogador nunca entrou no servidor."
+
+
+
+# ---- INPUT MANAGER ----
+input:
+  bedrock_header: "§b§lENTRADA DE TEXTO §8» §f{0}"
+  bedrock_instruction: "§7Você está no Bedrock. Digite o valor diretamente no §e§lCHAT§7."
+  bedrock_cancel_hint: "§7Para cancelar, digite §c'cancelar'§7."
+  bedrock_timeout_hint: "§8(Aguardando resposta por 60 segundos...)"
+  bedrock_title: "§e§lDIGITE NO CHAT"
+  bedrock_subtitle: "§f{0}"
+  actionbar_waiting: "§7Aguardando entrada de texto..."
+  timeout_expired: "§cO tempo de entrada de texto expirou."
+  timeout_title: "§c§lEXPIROU"
+  timeout_subtitle: "§fTempo esgotado."
+  fallback_header: "§b§lENTRADA DE TEXTO §8» §f{0}"
+  fallback_error: "§c(Erro ao abrir menu) §7Digite o valor diretamente no §e§lCHAT§7."
+  invalid_value: "§cValor inválido. Tente novamente."
+  # B4.1 — Labels para Forms nativos do Floodgate
+  bedrock_form_label: "Digite o valor:"
+  bedrock_numeric_label: "Digite o número:"
+  bedrock_select_player: "§7Selecione um jogador da lista:"
+
+# ---- MENU / GUI ----
+menu:
+  error_no_territory: "§c§lERRO §8» §7Você precisa estar em um território para abrir o menu."
+  error_self_add: "§c§lERRO §8» §7Você não pode adicionar a si mesmo."
+  friend_added: "§a§lSUCESSO §8» §fJogador §e{0} §fadicionado como amigo."
+  error_crown_only: "§c§lERRO §8» §7Apenas a Coroa pode alterar as leis."
+  staff_edit_warning: "§7[Staff] Você está editando as permissões de um território de terceiros."
+  error_no_plot_permission: "§c§lERRO §8» §7Você não tem permissão para gerenciar este lote."
+  blocks_purchased: "§a§lSUCESSO §8» §fVocê comprou §e100 blocos de proteção§f!"
+  blocks_purchased_discount: "§a§lOFERTA §8» §fVocê comprou §e100 blocos §fcom §b50% de desconto§f!"
+  error_economy: "§c§lERRO §8» §7{0}"
+  crown_purchased: "§a§lVIDA LONGA AO REI! §fVocê agora detém a Coroa."
+  crown_purchased_hint_1: "§7(Tag [Rei] e permissões reais adicionadas)"
+  crown_purchased_hint_2: "§ePróximo passo: §fUse §b/reino nome <Nome> §fpara batizar seu reino!"
+  crown_already_owned: "§cVocê já possui este título!"
+  tag_invalid: "§cTAG inválida (3 caracteres, apenas letras/números)."
+  tag_success: "§a§lSUCESSO! §fTAG definida para: §e[{0}]"
+  demoted: "§e§lCARGO §8» §fJogador rebaixado para Morador."
+  promoted_vice: "§e§lCARGO §8» §fJogador promovido a §6Vice-Prefeito§f."
+  msg_entry_too_long: "§cMuito longo!"
+  msg_entry_set: "§aMsg Entrada definida."
+  msg_exit_too_long: "§cMuito longo!"
+  msg_exit_set: "§aMsg Saída definida."
+  error_not_owner: "§c§lERRO §8» §7Você não é dono deste terreno."
+  abandon_success: "§c§lTERRENO §8» §fVocê abandonou este terreno."
+  abandon_hint: "§7Os blocos agora estão desprotegidos."
+  error_terrain_not_found: "§c§lERRO §8» §7Terreno não encontrado."
+  error_active_residents: "§c§lERRO §8» §7Você não pode apagar uma cidade com moradores ativos."
+  error_mayor_only: "§c§lERRO §8» §7Apenas o Prefeito pode fazer isso."
+  refund_blocks: "§a§lREEMBOLSO §8» §fSeus blocos de proteção foram devolvidos."
+  delete_broadcast: "§c§lMUNDO §8» §7A cidade §e{0} §7caiu em ruínas."
+  error_city_not_found: "§c§lERRO §8» §7Cidade não encontrada."
+  error_mayor_upgrade: "§c§lERRO §8» §7Apenas o Prefeito pode evoluir a cidade."
+  upgrade_success: "§a§lUPGRADE! §f{0} evoluiu para o nível {1}"
+  upgrade_no_money: "§c§lFALTA DINHEIRO §8» §7{0}"
+  teleport_plot: "§a§lTELEPORTE §8» §fChegou ao lote {0}"
+  error_plot_not_found: "§c§lERRO §8» §7Lote não encontrado."
+
+
+# ---- EFEITOS DE REINO ----
+kingdom_effects:
+  effect_applied: "§a§lRECOMPENSA §8» §fVocê recebeu §e{0} §fblocos de proteção por jogar!"
+
+# ---- MERCADO LOCAL (P2P) ----
+local_market:
+  hold_item: "§cVocê precisa segurar um item para vender."
+  invalid_price: "§cPreço inválido. O valor deve ser maior que zero."
+  price_too_high: "§cPreço muito alto! Máximo permitido: §e$1,000,000,000"
+  price_invalid: "§cPreço inválido detectado."
+  must_be_in_city: "§cVocê precisa estar na cidade para vender."
+  wrong_city: "§cVocê deve estar na cidade onde iniciou a venda."
+  item_not_in_inventory: "§cERRO: Você não possui mais o item no inventário."
+  remove_error: "§cErro ao remover item. Operação cancelada."
+  sell_success: "§a§lSUCESSO §8» §fItem colocado à venda por §a${0}"
+  no_items: "§cEsta cidade não possui itens à venda."
+  item_unavailable: "§cEste item não está mais disponível."
+  cannot_buy_own: "§cVocê não pode comprar seu próprio item!"
+  invalid_item: "§cErro: Este item é inválido e foi removido."
+  insufficient_funds: "§cVocê não tem dinheiro suficiente (Faltam ${0})"
+  inventory_full: "§cSeu inventário está cheio."
+  transaction_error: "§cErro na transação bancária: {0}"
+  critical_error: "§cERRO CRÍTICO: Falha ao salvar transação. Operação cancelada e dinheiro devolvido."
+  item_dropped: "§e§lAVISO §8» §7Seu inventário encheu! O item foi §fdropado no chão§7."
+  buy_success: "§a§lSUCESSO §8» §fVocê comprou §b{0} §fpor §a${1}"
+  item_sold: "§a§lVENDAS §8» §fSeu item foi vendido por §a${0}"
+  tax_info: "§7(Taxa de {0}% descontada. Recebido: ${1})"
+  city_not_found: "§cCidade não encontrada ou sem itens."
+  listing_not_found: "§cItem não encontrado ou já vendido."
+  cancel_own_only: "§cVocê só pode cancelar seus próprios itens."
+  cancel_inv_full: "§cSeu inventário está cheio! O item caiu no chão."
+  cancel_success: "§aItem removido do mercado e devolvido."
+
+# ---- RENOMEAR REINO ----
+rename:
+  usage: "§e§lGUIA §8» §7Use: §f/reinonome <Nome do Reino>"
+  invalid_chars: "§c§lERRO §8» §7Use apenas letras e números sem espaços."
+  invalid_length: "§c§lERRO §8» §7O nome deve ter entre 3 e 16 caracteres."
+  name_taken: "§c§lERRO §8» §7Já existe um reino com este nome."
+  no_territory: "§c§lERRO §8» §7Você primeiro precisa reivindicar um território."
+  no_territory_hint: "§7Use a pá de ouro para criar sua fundação."
+  not_owner: "§c§lERRO §8» §7Apenas o dono do território pode nomeá-lo."
+  needs_king_rank: "§c§lRESTRITO §8» §7Você precisa do título de §eRei §7para fundar um reino."
+  needs_king_rank_hint: "§7Acesse §b/reino §7e clique na coroa para comprar seu título."
+  success: "§a§lSUCESSO §8» §fReino batizado como §b{0}"
+  title: "§e§lReino de {0}"
+  subtitle: "§7Seu reinado começa agora!"
+  broadcast: "§b[GorvaxReinos] §eUm novo poder surge: O Reino de §f{0}§e!"
+
+# ---- PVP ----
+pvp:
+  pvp_disabled: "§c§lPVP §8» §7O PvP está desativado nesta área."
+  residents_disabled: "§c§lPVP §8» §7Duelos internos desativados aqui."
+  residents_outside_disabled: "§c§lPVP §8» §7Combate entre súditos desativado fora do reino."
+
+# ---- BOSS COMMANDS ----
+boss:
+  no_permission: "§c§lERRO §8» §7Você não tem permissão para gerenciar bosses."
+  reload_success: "§a§lSUCESSO §8» §fConfigurações recarregadas e cache de loots limpo!"
+  start_success: "§a§lBOSS §8» §fEvento de spawn global iniciado!"
+  spawn_player_only: "§cComando apenas para jogadores."
+  spawn_success: "§a§lBOSS §8» §fBoss §e{0} §finvocado na sua posição!"
+  spawn_not_found: "§cBoss não encontrado. Bosses disponíveis:"
+  spawn_available_list: "§7rei_gorvax, indrax_abissal, vulgathor, xylos, skulkor, kaldur, zarith, rei_indrax"
+  spawn_random_success: "§a§lBOSS §8» §fBoss aleatório invocado na sua posição!"
+  next_imminent: "§e[!] §fO boss está para nascer a qualquer momento!"
+  next_title: "§6§lPRÓXIMO BOSS"
+  next_time: "§fO boss nascerá em: §e{0}m {1}s"
+  next_hint: "§7(Se houver jogadores online)"
+  kill_broadcast: "§a[GorvaxCore] O Boss {0} foi derrotado!"
+  kill_success: "§a§lBOSS §8» §fForam removidos §e{0} §fbosses ativos."
+  list_empty: "§c§lBOSS §8» §7Não há bosses vivos no momento."
+  list_header: "§6§lBosses Ativos:"
+  list_entry: "§8- §e{0} §f(HP: {1}) §7Loc: {2}, {3}"
+  testloot_player_only: "§c§lERRO §8» §7Apenas jogadores podem testar o loot."
+  testloot_usage: "§6§lBOSS §8» §7Use: §e/boss testloot <nome do boss> <rank>"
+  testloot_rank_nan: "§c§lERRO §8» §7O rank deve ser um número."
+  testloot_boss_not_found: "§c§lERRO §8» §7Boss '{0}' não encontrado na configuração de recompensas."
+  testloot_participation: "§e[Debug] §7Gerando loot de participação (Rank > 5) para boss: {0}"
+  testloot_participation_hint: "§7Nota: Itens lendários têm apenas 2% de chance."
+  testloot_success: "§a§lSUCESSO §8» §fGerando loot de §e{0}º lugar §fpara boss §e{1}..."
+  help_header: "§6§lSISTEMA DE BOSS §7- Administração:"
+  help_next: "§e/boss next §7- Vê quanto tempo falta para o próximo spawn."
+  help_reload: "§e/boss reload §7- Recarrega recompensas e limpa cache."
+  help_start: "§e/boss start §7- Inicia evento global (Aleatório)."
+  help_spawn: "§e/boss spawn [boss] §7- Invoca boss na sua posição."
+  help_spawn_list: "§7  Bosses: §frei_gorvax, indrax_abissal, vulgathor, xylos, skulkor, kaldur, zarith, rei_indrax"
+  help_kill: "§e/boss kill §7- Remove todos os bosses ativos."
+  help_status: "§e/boss status §7- Lista bosses e HP atual."
+  help_testloot: "§e/boss testloot <boss> <rank> §7- Testa as recompensas de um rank."
+  help_schedule: "§e/boss schedule §8— §7Próximos eventos agendados"
+  help_raid: "§e/boss raid <start|stop> §8— §7Gerenciar raids"
+  help_seasonal: "§e/boss seasonal §8— §7Bosses sazonais ativos"
+
+# ---- BOSS MANAGER (Broadcasts) ----
+boss_event:
+  spawn_header: "§6§l⚔ UM BOSS LENDÁRIO APARECEU ⚔"
+  spawn_name: "§c§l{0}"
+  spawn_world: "§fMundo: §e{0}"
+  spawn_coords: "§fLocalização: §eX: {0} Y: {1} Z: {2}"
+  spawn_message: "§7{0}"
+  double_spawn_header: "§4§l☠ RUPTURA TEMPORAL DETECTADA! ☠"
+  double_spawn_subtitle: "§cDuas forças ancestrais emergem simultaneamente!"
+  death_header: "§6§l⚔ {0} FOI DERROTADO! ⚔"
+  death_ranking_header: "§e§lRANKING GERAL DE COMBATENTES:"
+  death_ranking_entry_medal: "{0} §f{1} §7- §c{2} HP"
+  death_ranking_entry_extra: "§7#{0} §f{1} §7- §c{2} HP"
+  death_ranking_separator: "§8§m                              "
+  reward_rank_money: "§6§l[BOSS] §a+${0} §7(Rank #{1})"
+  reward_participation_money: "§6§l[BOSS] §a+${0} §7(Participação)"
+  ranking_hologram_title: "§6§lRANKING DE DANO: {0}"
+  ranking_hologram_entry: "§f{0}. §e{1} §7- §c{2} HP"
+  ranking_hologram_footer: "§e(O tesouro some após 5 minutos)"
+
+# ---- BOSS LISTENER ----
+boss_listener:
+  gorvax_reflect: "§6§lREI GORVAX: §cSeu golpe ecoa de volta, traidor!"
+  lore_crown_shadow: "§8§o...você sente um sussurro antigo... a coroa e a sombra reconhecem um ao outro."
+  treasure_no_break: "§c§lERRO §8» §7Você não pode destruir o tesouro real!"
+  treasure_no_participation: "§c§lBAÚ §8» §7Você não participou desta batalha ou não causou dano suficiente para ganhar recompensas."
+  treasure_tip_damage: "§7Dica: Cause pelo menos §e1 de dano §7para ser elegível."
+  treasure_items_remain: "§e§lTESOURO §8» §7Seus itens continuam no baú! Você tem §e{0}m {1}s §7para coletá-los."
+  treasure_reopen_hint: "§7Interaja com o §6Baú Real §7novamente para reabri-lo."
+  treasure_all_collected: "§a§lTESOURO §8» §7Todos os itens foram coletados! Parabéns!"
+  treasure_expired: "§e§lTESOURO §8» §7O tempo do baú expirou! Os itens restantes foram dropados no chão."
+
+# ---- BOSS DIALOGUES ----
+boss_dialogue:
+  # King Gorvax
+  gorvax_pull: "§6§lREI GORVAX: §eOnde você pensa que vai?"
+  gorvax_close: "§6§lREI GORVAX: §eFicou perto... esperto. Mas ainda vai arder."
+  gorvax_flee: "§6§lREI GORVAX: §cFugir só alimenta as chamas!"
+  gorvax_traitor: "§6§lREI GORVAX: §cTraidor! Cada golpe que me der será devolvido em dobro!"
+  gorvax_ally_warn: "§6§lREI GORVAX: §eAfastem-se do traidor, ou partilharão de seu destino."
+  # Xylos
+  xylos_ripped: "§5§lXYLOS: §dVocê foi arrancado da realidade!"
+  xylos_bend: "§5§lXYLOS: §dO espaço se curvou ao seu redor!"
+  xylos_void: "§5§lXYLOS: §dO vazio é inescapável..."
+  # Zarith
+  zarith_prey: "§a§lZAR'ITH: §2A presa nunca escapa..."
+  # Skulkor
+  skulkor_stalk: "§7§lSKULKOR: §8A morte caminha atrás de você..."
+  skulkor_death_start: "§7§lSKULKOR §8» §8A morte é apenas... o início... General..."
+  skulkor_army: "§7§lSKULKOR §8» §8Meu exército... marchará de novo... pelo Rei..."
+  # Indrax
+  indrax_damage: "§5§lINDRAX §8» §dOnde a luz toca, ela cega. Na minha escuridão, finalmente você verá a verdade."
+  # Death Greetings
+  gorvax_death_1: "§6§lREI GORVAX §8» §eIndrax, meu velho amigo... o reino agora está em suas mãos..."
+  gorvax_death_2: "§6§lREI GORVAX §8» §eCuidem do que construímos juntos..."
+  indrax_death_1: "§5§lINDRAX §8» §dGorvax, meu Rei... o abismo cuidará do seu legado até nosso retorno..."
+  indrax_death_2: "§5§lINDRAX §8» §dA sombra jamais abandona o trono..."
+  zarith_death_1: "§a§lZAR'ITH §8» §2A selva... reclamará o que é seu..."
+  zarith_death_2: "§a§lZAR'ITH §8» §2Meus irmãos... avancem... pelo Trono..."
+  kaldur_death_1: "§b§lKALDUR §8» §3O frio... jamais se extingue... ele retornará..."
+  kaldur_death_2: "§b§lKALDUR §8» §3Gorvax... o gelo protege... o que o fogo não pode..."
+  skulkor_death_1: "§7§lSKULKOR §8» §8A morte é apenas... o início... General..."
+  skulkor_death_2: "§7§lSKULKOR §8» §8Meu exército... marchará de novo... pelo Rei..."
+  xylos_death_1: "§5§lXYLOS §8» §dO éter... não esquece... quem o desafiou..."
+  xylos_death_2: "§5§lXYLOS §8» §dAs dimensões... tremem... com minha queda..."
+  vulgathor_death_1: "§c§lVULGATHOR §8» §4As chamas... nunca se apagam... Arauto..."
+  vulgathor_death_2: "§c§lVULGATHOR §8» §4Das cinzas... do meu corpo... nascerá... a furia final..."
+
+# ---- BOSS LORE (WorldBoss) ----
+boss_lore:
+  log_prefix: "§8[Boss Log - {0}] {1}"
+  lore_shadow_abyss: "§8§o[A sombra do abismo ressoa com o trono de Gorvax...]"
+  lore_throne_abyss: "§8§o[O trono de Gorvax reconhece o abismo de Indrax...]"
+
+# ---- KINGDOM CHAT ----
+kingdom_chat:
+  player_only: "§cSomente jogadores podem usar o chat do reino."
+  usage: "§c§lERRO §8» §7Use: §f/rc <mensagem>"
+  not_resident: "§c§lERRO §8» §7Você precisa ser súdito de um reino para usar o /rc."
+  no_kingdom: "§c§lERRO §8» §7Você não pertence a nenhum reino no momento."
+
+# ---- END RESET ----
+end_reset:
+  kick_message: "§cVocê escapou do colapso do The End!"
+  title_reset: "§4§lO FIM DO FIM"
+  subtitle_reset: "§cResetando dimensão..."
+  title_dragon_return: "§5§lO REI RETORNOU"
+  subtitle_dragon_return: "§dO Ender Dragon renasceu!"
+  title_flee: "§4§lFUGAAAA!"
+  subtitle_flee: "§c2 minutos para o colapso!"
+
+# ---- VISUALIZATION ----
+visualization:
+  inspecting: "§e§lVISUALIZANDO §8» §fMostrando terrenos próximos por 10 segundos..."
+
+
+# ---- KINGDOM MAINTENANCE ----
+maintenance:
+  rent_paid: "§a§lARRENDAMENTO §8» §fPago §a${0} §fpelo feudo §e{1}"
+  eviction: "§c§lDESPEJO §8» §fVocê foi removido do feudo §e{0} §fpor falta de pagamento."
+  evicted: "§c§lDESPEJO §8» §fVocê foi removido do feudo §e{0} §fpor falta de pagamento."
+  eviction_warning: "§c§lATENÇÃO §8» §7Você perdeu sua cidadania e a TAG do reino."
+  succession_absent: "§b[GorvaxReinos] §eO Rei de §f{0} §eestá ausente."
+  succession_new_king: "§b[GorvaxReinos] §f{0} §eestá assumindo o trono por ser o súdito mais leal!"
+
+  # B5.1 — Impostos
+  tax_paid: "§e§lIMPOSTO §8» §7Imposto diário de §6${0} §7cobrado do seu saldo."
+  tax_warning: "§c§lIMPOSTO §8» §7Saldo insuficiente! Dia {0}/{1} sem pagar. Será expulso se não pagar!"
+  tax_expelled: "§c§lEXPULSO §8» §7Você foi expulso do reino §b{0} §7por falta de pagamento de impostos."
+
+  # B5.2 — Upkeep
+  upkeep_warning: "§e§lMANUTENÇÃO §8» §7Banco do reino sem saldo para manutenção (§6${0}§7). Dia {1}/{2} de dívida."
+  upkeep_decaying: "§c§lDECADÊNCIA §8» §7O reino está sem pagar manutenção há §c{0} dias§7. Buffs desativados!"
+  upkeep_dissolved: "§4§lREINO DISSOLVIDO §8» §7O Reino de §b{0} §7caiu por falta de manutenção!"
+
+  # B36 — Upkeep de Claims Pessoais
+  claim_upkeep_paid: "§a§lMANUTENÇÃO §8» §7Taxa de manutenção de §6${0} §7cobrada pelo seu terreno."
+  claim_upkeep_warning: "§e§lMANUTENÇÃO §8» §7Saldo insuficiente para manutenção (§6${0}§7). Dia {1}/{2} de dívida."
+  claim_upkeep_expiring: "§c§lATENÇÃO §8» §7Seu terreno será removido em §c{0} dias §7se não pagar a manutenção!"
+  claim_upkeep_removed: "§4§lTERRENO REMOVIDO §8» §7Seu terreno em §e{0} §7foi removido por falta de manutenção."
+
+# ---- MARKET COMMAND ----
+market_cmd:
+  reload_console: "§a[GorvaxCore] Mercado recarregado via console."
+
+# ---- ESTATÍSTICAS (B3) ----
+statistics:
+  header: "§8§m--------- §6§lESTATÍSTICAS §8§m---------"
+  playtime: "§f Tempo jogado: §e{0}"
+  first_join: "§f Primeiro login: §7{0}"
+  last_login: "§f Último login: §7{0}"
+  blocks_broken: "§f Blocos quebrados: §a{0}"
+  blocks_placed: "§f Blocos colocados: §a{0}"
+  kills: "§f Kills PvP: §c{0}"
+  deaths: "§f Mortes: §c{0}"
+  kdr: "§f KDR: §e{0}"
+  bosses_killed: "§f Bosses derrotados: §d{0}"
+  boss_top_damage: "§f Top 3 boss damage: §d{0}x"
+  money_earned: "§f Dinheiro ganho: §a${0}"
+  money_spent: "§f Dinheiro gasto: §c${0}"
+  title_active: "§f Título ativo: §b{0}"
+  title_none: "§f Título ativo: §7Nenhum"
+
+# ---- SCOREBOARD / HUD (B6) ----
+scoreboard:
+  title: "§6§lGORVAX"
+  separator: "§8§m                    "
+  separator_bottom: "§8§m                    "
+
+  # Sidebar Padrão
+  kingdom_label: "§e⚔ Reino"
+  kingdom_value: "§f {0} {1}"
+  no_kingdom: "§7 Sem Reino"
+  blocks_label: "§b◼ Blocos"
+  blocks_value: "§f {0}"
+  balance_label: "§a$ Saldo"
+  balance_value: "§f ${0}"
+  online_label: "§d♦ Online: §f{0}"
+
+  # Sidebar de Claim
+  claim_kingdom: "§e⚔ {0} {1}"
+  claim_private: "§7◼ Terreno de §f{0}"
+  subplot_owner: "§f Lote de §e{0}"
+  subplot_sale: "§a À venda: §f${0}"
+  subplot_rent: "§e Aluguel: §f${0}/dia"
+  subplot_vacant: "§7 Lote vago"
+
+  # Sidebar de Boss
+  boss_header: "§c§l⚠ BOSS ATIVO"
+  boss_name: "§c {0}"
+  boss_hp: "§f HP: §a{0}% {1}"
+  boss_your_damage: "§e Seu dano: §f{0}"
+  boss_rank: "§d Rank: §f#{0}/{1}"
+
+  # Toggle HUD
+  hud_enabled: "§a§lHUD §8» §fScoreboard §aativada§f."
+  hud_disabled: "§c§lHUD §8» §fScoreboard §cdesativada§f."
+
+# B7 — Diplomacia
+diplomacy:
+  # Propostas de Aliança
+  alliance_proposed: "§a§lALIANÇA §8» §fProposta de aliança enviada para o reino §b{0}§f!"
+  alliance_received: "§a§lALIANÇA §8» §fO reino §b{0} §fpropôs uma aliança!"
+  alliance_received_hint: "§7Use §a/reino aceitaralianca §7ou §c/reino recusaralianca§7."
+  alliance_accepted: "§a§lALIANÇA §8» §fAliança formada com o reino §b{0}§f! ⚔"
+  alliance_accepted_broadcast: "§a[Diplomacia] §fOs reinos §b{0} §fe §b{1} §fformaram uma aliança!"
+  alliance_denied: "§c§lALIANÇA §8» §fVocê recusou a aliança do reino §b{0}§f."
+  alliance_denied_notify: "§c§lRECUSADO §8» §fO reino §b{0} §frecusou sua proposta de aliança."
+  alliance_no_pending: "§c§lERRO §8» §7Nenhuma proposta de aliança pendente."
+  alliance_already: "§c§lERRO §8» §7Vocês já são aliados."
+  alliance_max: "§c§lERRO §8» §7Limite de alianças atingido ({0}/{1})."
+  alliance_expired: "§cProposta de aliança expirada."
+
+  # Inimizade
+  enemy_declared: "§c§lGUERRA §8» §fVocê declarou inimizade contra o reino §c{0}§f! ☠"
+  enemy_declared_target: "§c§lGUERRA §8» §fO reino §c{0} §fdeclarou inimizade contra vocês!"
+  enemy_already: "§c§lERRO §8» §7Vocês já são inimigos."
+  enemy_max: "§c§lERRO §8» §7Limite de inimizades atingido ({0}/{1})."
+  enemy_cooldown: "§c§lERRO §8» §7Aguarde §e{0}s §7para alterar relações com esse reino."
+
+  # Neutro
+  neutral_set: "§e§lPAZ §8» §fRelação com o reino §e{0} §fvoltou ao neutro."
+  neutral_notify: "§e§lPAZ §8» §fO reino §e{0} §fdesfez a relação com vocês."
+
+  # PvP
+  pvp_ally_disabled: "§a§lALIADOS §8» §7PvP desativado entre reinos aliados."
+  pvp_enemy_forced: "§c§lINIMIGOS §8» §7PvP forçado contra reino inimigo!"
+
+  # Território
+  enter_enemy_territory: "§c§l⚠ TERRITÓRIO INIMIGO §8» §7Cuidado! Você está em terras do reino §c{0}§7."
+  enter_ally_territory: "§a§l✦ TERRITÓRIO ALIADO §8» §7Terras do reino aliado §a{0}§7."
+
+  # Erros
+  error_not_king_diplomacy: "§c§lERRO §8» §7Apenas o Rei pode gerenciar relações diplomáticas."
+  error_same_kingdom: "§c§lERRO §8» §7Você não pode alterar relação com seu próprio reino."
+  error_kingdom_not_found: "§c§lERRO §8» §7Reino '§f{0}§7' não encontrado."
+
+  # Chat de Aliança
+  alliance_chat_no_allies: "§c§lERRO §8» §7Seu reino não possui aliados para usar o /ac."
+  alliance_chat_usage: "§c§lERRO §8» §7Use: §f/ac <mensagem>"
+
+# ---- B15: SISTEMA DE GUERRA ----
+war:
+  # Declaração
+  declared: "§4§l⚔ GUERRA ⚔ §8» §fO reino §c{0} §fdeclarou guerra contra §c{1}§f!"
+  declared_broadcast: "§4§l⚔ GUERRA DECLARADA ⚔ §8» §c{0} §7vs §c{1}§7! A batalha começa em §e{2}h§7."
+  declared_attacker: "§4§lGUERRA §8» §fVocê declarou guerra contra o reino §c{0}§f! Preparação: §e{1}h§f."
+  declared_defender: "§4§lGUERRA §8» §fO reino §c{0} §fdeclarou guerra contra vocês! Preparação: §e{1}h§f."
+
+  # Preparação → Ativa
+  war_started: "§4§l⚔ A GUERRA COMEÇOU! ⚔ §8» §c{0} §7vs §c{1}§7! PvP total ativado!"
+  war_started_title: "§4§l⚔ GUERRA!"
+  war_started_subtitle: "§c{0} §7vs §c{1}"
+
+  # Combate
+  kill_point: "§c§l☠ KILL §8» §f{0} §7matou §f{1}§7! §e+{2}pt §7para §c{3}§7."
+  score_broadcast: "§6§l⚔ PLACAR §8» §c{0} §f{1}pts §7vs §c{2} §f{3}pts §8| §7Restam §e{4}§7."
+
+  # Rendição
+  surrender: "§e§l🏳 RENDIÇÃO §8» §fO reino §e{0} §fse rendeu para §c{1}§f!"
+  surrender_confirm: "§c§lATENÇÃO §8» §7Seu reino perderá §c{0}% §7do banco e sofrerá debuffs por §c{1} dias§7."
+  surrender_confirm_hint: "§7Digite §c/reino guerra renderse confirmar §7para prosseguir."
+
+  # Fim da guerra
+  war_ended: "§6§l⚔ FIM DA GUERRA ⚔ §8» §a{0} §fvenceu contra §c{1}§f! §7Placar: §e{2}§7-§e{3}§7."
+  war_ended_draw: "§6§l⚔ EMPATE ⚔ §8» §7A guerra entre §e{0} §7e §e{1} §7terminou em empate."
+  spoils_winner: "§a§lESPÓLIOS §8» §fSeu reino recebeu §6${0} §fdo banco inimigo!"
+  spoils_loser: "§c§lDERROTA §8» §fSeu reino perdeu §6${0} §fdo banco. Debuff por §c{1} dias§f."
+  outpost_captured: "§a§lCONQUISTA §8» §fSeu reino capturou o outpost §e{0} §fdo inimigo!"
+  outpost_lost: "§c§lPERDA §8» §fSeu outpost §e{0} §ffoi capturado pelo inimigo!"
+
+  # Status
+  status_header: "§8§m--------- §4§l⚔ GUERRAS ATIVAS §8§m---------"
+  status_entry: "  §c{0} §7vs §c{1} §8| §fPlacar: §e{2}§7-§e{3} §8| §7Fase: §e{4} §8| §7Restam: §e{5}"
+  status_no_wars: "  §7Nenhuma guerra ativa no momento."
+  status_footer: "§8§m-----------------------------------------"
+
+  # Erros
+  error_not_king: "§c§lERRO §8» §7Apenas o Rei pode declarar guerra ou se render."
+  error_already_at_war: "§c§lERRO §8» §7Seu reino já está em guerra com §c{0}§7."
+  error_target_at_war: "§c§lERRO §8» §7O reino §c{0} §7já está em guerra."
+  error_self: "§c§lERRO §8» §7Você não pode declarar guerra contra seu próprio reino."
+  error_allied: "§c§lERRO §8» §7Você não pode declarar guerra contra um aliado. Rompa a aliança primeiro."
+  error_insufficient_funds: "§c§lERRO §8» §7Banco do reino insuficiente. Custo: §6${0}§7."
+  error_cooldown: "§c§lERRO §8» §7Cooldown ativo! Aguarde §e{0} dias §7antes de declarar guerra a este reino."
+  error_min_level: "§c§lERRO §8» §7Seu reino precisa ser nível §e{0}+ §7para declarar guerra."
+  error_min_members: "§c§lERRO §8» §7Seu reino precisa ter §e{0}+ membros §7para declarar guerra."
+  error_not_at_war: "§c§lERRO §8» §7Seu reino não está em guerra."
+  error_disabled: "§c§lERRO §8» §7O sistema de guerra está desativado."
+  usage: "§e§lGUIA §8» §7Use: §f/reino guerra <declarar|renderse|status>"
+  usage_declare: "§e§lGUIA §8» §7Use: §f/reino guerra declarar <nome do reino>"
+
+  # Debuff
+  debuff_active: "§c§l⚠ DEBUFF §8» §7Seu reino perdeu a última guerra. Buffs desativados por §c{0} dias§7."
+
+# ---- CHAT EXPANDIDO (B8) ----
+chat:
+  channel_switched: "§a§lCHAT §8» §fCanal alterado para §e{0}§f."
+  channel_current: "§a§lCHAT §8» §fSeu canal atual é §e{0}§f."
+  channel_usage: "§e§lGUIA §8» §7Use: §f/chat <global|reino|alianca|local|comercio|nacao>"
+  channel_invalid: "§c§lERRO §8» §7Canal inválido. Use: global, reino, alianca, local, comercio, nacao"
+  channel_no_kingdom: "§c§lERRO §8» §7Você precisa de um reino para usar este canal."
+  channel_no_allies: "§c§lERRO §8» §7Seu reino não tem aliados."
+  channel_no_nation: "§c§lERRO §8» §7Seu reino não pertence a nenhuma nação."
+  local_prefix: "§e§l[LOCAL] "
+  trade_prefix: "§6§l[COMÉRCIO] "
+  global_prefix: "§f§l[GLOBAL] "
+  kingdom_prefix: "§b§l[REINO] "
+  alliance_prefix: "§a§l[ALIANÇA] "
+  nation_prefix: "§d§l[NAÇÃO] "
+
+# ---- SISTEMA DE NAÇÕES (B19) ----
+nation:
+  # Criação
+  created: "§d§l🏛 NAÇÃO §8» §fA nação §d{0} §ffoi fundada com sucesso!"
+  created_broadcast: "§d§l🏛 NAÇÃO §8» §fA nação §d{0} §ffoi fundada por §e{1}§f!"
+  create_usage: "§e§lGUIA §8» §7Use: §f/nacao criar <nome>"
+  error_no_kingdom: "§c§lERRO §8» §7Você precisa de um reino para usar este comando."
+  error_not_king: "§c§lERRO §8» §7Apenas o Rei pode executar esta ação."
+  error_already_in_nation: "§c§lERRO §8» §7Seu reino já pertence a uma nação."
+  error_invalid_name: "§c§lERRO §8» §7Nome inválido. Use 3-20 caracteres (letras, números, _)."
+  error_name_taken: "§c§lERRO §8» §7Uma nação com esse nome já existe."
+  error_no_money: "§c§lERRO §8» §7Você precisa de §e${0} §7para criar uma nação."
+  error_disabled: "§c§lERRO §8» §7O sistema de nações está desativado."
+
+  # Dissolução
+  disbanded: "§c§l🏛 NAÇÃO §8» §fA nação §d{0} §ffoi dissolvida."
+  disbanded_broadcast: "§c§l🏛 NAÇÃO §8» §fA nação §d{0} §ffoi dissolvida!"
+  error_not_in_nation: "§c§lERRO §8» §7Seu reino não pertence a nenhuma nação."
+  error_not_emperor: "§c§lERRO §8» §7Apenas o Imperador (fundador) pode executar esta ação."
+
+  # Convites
+  invite_sent: "§d§l🏛 NAÇÃO §8» §fConvite enviado para o reino §e{0}§f. Expira em §e{1}s§f."
+  invite_usage: "§e§lGUIA §8» §7Use: §f/nacao convidar <nome do reino>"
+  invite_received: "§d§l🏛 NAÇÃO §8» §fVocê recebeu um convite para a nação §d{0}§f! Use §e/nacao aceitar §fou §c/nacao recusar§f."
+  invite_accepted: "§d§l🏛 NAÇÃO §8» §fSeu reino entrou na nação §d{0}§f!"
+  invite_accepted_notify: "§d§l🏛 NAÇÃO §8» §fO reino §e{0} §faceitou o convite e entrou na nação!"
+  invite_denied: "§c§l🏛 NAÇÃO §8» §fConvite da nação §d{0} §frecusado."
+  error_max_kingdoms: "§c§lERRO §8» §7A nação já atingiu o limite de §e{0} §7reinos."
+  error_kingdom_not_found: "§c§lERRO §8» §7Reino não encontrado."
+  error_target_in_nation: "§c§lERRO §8» §7Este reino já pertence a uma nação."
+  error_invite_pending: "§c§lERRO §8» §7Já existe um convite pendente para este reino."
+  error_no_invite: "§c§lERRO §8» §7Você não tem convites pendentes."
+  error_nation_disbanded: "§c§lERRO §8» §7A nação que te convidou foi dissolvida."
+
+  # Saída e Expulsão
+  left: "§c§l🏛 NAÇÃO §8» §fSeu reino saiu da nação §d{0}§f."
+  left_notify: "§c§l🏛 NAÇÃO §8» §fO reino §e{0} §fsaiu da nação."
+  error_emperor_cannot_leave: "§c§lERRO §8» §7O Imperador não pode sair. Use §f/nacao dissolver §7para dissolver a nação."
+  kicked: "§c§l🏛 NAÇÃO §8» §fO reino §e{0} §ffoi expulso da nação."
+  kicked_notify: "§c§l🏛 NAÇÃO §8» §fSeu reino foi expulso da nação §d{0}§f."
+  kick_usage: "§e§lGUIA §8» §7Use: §f/nacao expulsar <nome do reino>"
+  error_kingdom_not_in_nation: "§c§lERRO §8» §7Este reino não pertence à sua nação."
+  error_cannot_kick_self: "§c§lERRO §8» §7O Imperador não pode se expulsar."
+
+  # Banco
+  bank_deposit_success: "§d§l🏛 BANCO §8» §fVocê depositou §a${0} §fno banco da nação. Saldo: §a${1}§f."
+  bank_withdraw_success: "§d§l🏛 BANCO §8» §fVocê sacou §a${0} §fdo banco da nação. Saldo: §a${1}§f."
+  bank_header: "§d§l════════ BANCO DA NAÇÃO ════════"
+  bank_balance: "§d§l🏛 BANCO §8» §fSaldo: §a${0}"
+  bank_footer: "§d§l══════════════════════════════"
+  error_invalid_value: "§c§lERRO §8» §7Valor inválido."
+  error_insufficient_funds: "§c§lERRO §8» §7Saldo pessoal insuficiente."
+  error_bank_insufficient: "§c§lERRO §8» §7Saldo do banco da nação insuficiente."
+  deposit_usage: "§e§lGUIA §8» §7Use: §f/nacao depositar <valor>"
+  withdraw_usage: "§e§lGUIA §8» §7Use: §f/nacao sacar <valor>"
+
+  # Info
+  info_header: "§d§l════════ INFO DA NAÇÃO ════════"
+  info_name: "§d§l🏛 §7Nome: §f{0}"
+  info_emperor: "§d§l🏛 §7Imperador: §f{0}"
+  info_level: "§d§l🏛 §7Nível: §f{0}"
+  info_kingdoms: "§d§l🏛 §7Reinos: §f{0}"
+  info_members_list: "§d§l🏛 §7Membros: §f{0}"
+  info_bank: "§d§l🏛 §7Banco: §a${0}"
+  info_footer: "§d§l══════════════════════════════"
+
+  # Lista
+  list_header: "§d§l════════ NAÇÕES ════════"
+  list_entry: "§d§l {0}. §f{1} §8— §7Imperador: §f{2} §8| §7Reinos: §f{3}"
+  list_empty: "§d§l🏛 NAÇÃO §8» §7Nenhuma nação foi fundada ainda."
+  list_footer: "§d§l══════════════════════════"
+
+  # Ajuda
+  help_header: "§d§l════════ AJUDA — NAÇÕES ════════"
+  help_create: "§e/nacao criar <nome> §7— Funda uma nação"
+  help_disband: "§e/nacao dissolver §7— Dissolve a nação"
+  help_invite: "§e/nacao convidar <reino> §7— Convida um reino"
+  help_accept: "§e/nacao aceitar §7— Aceita convite"
+  help_deny: "§e/nacao recusar §7— Recusa convite"
+  help_leave: "§e/nacao sair §7— Sai da nação"
+  help_kick: "§e/nacao expulsar <reino> §7— Expulsa um reino"
+  help_deposit: "§e/nacao depositar <valor> §7— Deposita no banco"
+  help_withdraw: "§e/nacao sacar <valor> §7— Saca do banco"
+  help_bank: "§e/nacao banco §7— Ver saldo do banco"
+  help_info: "§e/nacao info §7— Informações da nação"
+  help_list: "§e/nacao lista §7— Lista todas as nações"
+  help_footer: "§d§l════════════════════════════════"
+
+# ---- VISUALIZAÇÃO DE CLAIMS (B9) ----
+visualization:
+  inspecting: "§e§l🔍 INSPECIONANDO §8» §fAnalisando terrenos próximos..."
+  leaving: "§7Saindo de §f{0}§7..."
+  sound_enabled: "§a§lSOM §8» §fSom de fronteira §aativado§f."
+  sound_disabled: "§c§lSOM §8» §fSom de fronteira §cdesativado§f."
+  map_header: "§6§l✦ MAPA DE CLAIMS ✦"
+  map_legend: "§a█§f=Seu §b▓§f=Aliado §c░§f=Inimigo §e▒§f=Outros §7·§f=Livre §f✦§f=Você"
+  map_coords: "§7Centro: §f{0}, {1} §7| Chunks: §f15x15"
+
+# ---- LOG DE AUDITORIA (B10) ----
+audit:
+  separator: "§8§m-----------------------------------------"
+  header_recent: "§6§l📋 LOG DE AUDITORIA §8» §7Entradas recentes"
+  header_player: "§6§l📋 LOG DE AUDITORIA §8» §7Jogador: §f{0}"
+  header_market: "§6§l📋 LOG DE AUDITORIA §8» §7Transações do mercado"
+  header_search: "§6§l📋 LOG DE AUDITORIA §8» §7Busca: §f{0}"
+  footer: "§7Mostrando §f{0} §7entradas."
+  usage_player: "§e§lAUDITORIA §8» §7Use: §f/gorvax audit player <nick>"
+  no_entries_player: "§7Nenhuma entrada encontrada para §f{0}§7."
+  no_entries_market: "§7Nenhuma transação de mercado registrada."
+  no_results: "§7Nenhum resultado encontrado para §f{0}§7."
+  player_not_found: "§cJogador não encontrado."
+  not_available: "§c[Auditoria] Sistema de auditoria não disponível."
+
+# ---- HISTÓRICO DO MERCADO (B10) ----
+market_history:
+  header: "§6§l📦 HISTÓRICO DE TRANSAÇÕES"
+  empty: "§e§lMERCADO §8» §7Você ainda não possui transações."
+  more: "§7...e mais §f{0} §7transações anteriores."
+  footer: "§8§m-----------------------------------------"
+
+# ---- BOSS SCHEDULE (B11.1) ----
+boss_schedule:
+  warning_30: "§6§l📅 AGENDA §8» §fO boss {0} §festá agendado para §e{1} {2}§f! §7(~30min)"
+  warning_10: "§e§l⚠ ATENÇÃO §8» §fO boss {0} §faparecerá em §e{1} minutos§f!"
+  warning_5: "§c§l⚠ ALERTA §8» §fO boss {0} §festá chegando em §c{1} minutos§f! Prepare-se!"
+  warning_1: "§4§l☠ IMINENTE §8» §fO boss {0} §festá prestes a aparecer em §4{1} minuto§f!"
+  event_starting: "§c§l⚔ EVENTO §8» §fUm boss agendado está aparecendo: {0}§f!"
+  list_header: "§6§l📅 PRÓXIMOS EVENTOS DE BOSS"
+  list_entry: "§e {0}. §f{1} §8— §7{2} §8(em §e{3}§8)"
+  list_empty: "§7Nenhum evento agendado."
+  disabled: "§c§lERRO §8» §7O sistema de agendamento está desativado."
+
+# ---- BOSS RAID (B11.2) ----
+boss_raid:
+  started: "§4§l☠ BOSS RAID INICIADA! §8» §fSobrevivam §e{0} ondas §fpara obter recompensas épicas!"
+  wave_start: "§c§l⚔ ONDA {0}/{1} §8» §fO boss {2} §fentra na arena!"
+  wave_complete: "§a§l✦ ONDA {0}/{1} COMPLETA! §8» §fPrepare-se para a próxima..."
+  wave_cooldown: "§e§l⏳ §8» §fPróxima onda em §e{0} segundos§f..."
+  victory: "§a§l🏆 RAID VITORIOSA! §8» §fTodas as §e{0} ondas §fcompletadas! Loot: §a{1}§f do normal!"
+  failed: "§c§l💀 RAID FRACASSADA! §8» §fEliminados na onda §c{0}§f/§e{1}§f."
+  personal_reward: "§a§l⚔ RECOMPENSA §8» §fRank §e#{0} §8| §fDano Total: §c{1} §8| §fBônus: §a{2}"
+  not_enough_players: "§c§lERRO §8» §7Mínimo de §e{0} §7jogadores necessário para iniciar a raid."
+  already_active: "§c§lERRO §8» §7Já existe uma raid em andamento."
+  disabled: "§c§lERRO §8» §7O sistema de raids está desativado."
+  stopped: "§e§l⚠ §8» §7Raid interrompida manualmente por um admin."
+  status_header: "§c§l⚔ RAID STATUS"
+  status_active: "§f Onda atual: §e{0}§f/§e{1}"
+  status_participants: "§f Participantes: §e{0}"
+  help_start: "§e/boss raid start §8— §7Inicia uma raid na sua posição"
+  help_stop: "§e/boss raid stop  §8— §7Para a raid em andamento"
+  no_active: "§7Nenhuma raid ativa."
+  help_usage: "§e/boss raid start §8| §e/boss raid stop"
+
+# ---- BOSS SEASONAL (B11.3) ----
+boss_seasonal:
+  active_header: "§6§l🎄 BOSSES SAZONAIS ATIVOS"
+  active_entry: "§e {0}. §f{1} §8— §7({2} até {3})"
+  none_active: "§7Nenhum boss sazonal ativo no momento."
+  disabled: "§c§lERRO §8» §7O sistema de bosses sazonais está desativado."
+
+# ---- CONQUISTAS (B12) ----
+achievements:
+  menu_title: "§6§l✦ CONQUISTAS ✦"
+  unlock_title: "§a§l✦ CONQUISTA DESBLOQUEADA! ✦"
+  unlock_subtitle: "§f{0}"
+  reward_blocks: "§a§lRECOMPENSA §8» §f+§a{0} blocos §fde proteção!"
+  reward_money: "§a§lRECOMPENSA §8» §f+§6${0} §fno seu saldo!"
+  reward_title: "§a§lRECOMPENSA §8» §fNovo título desbloqueado: {0}"
+  broadcast: "§e§l⭐ §8» §f{0} §edesbloqueou a conquista {1}§e!"
+  progress: "§e§lPROGRESSO §8» §f{0}§7: §e{1}§7/§e{2}"
+
+# ---- TÍTULOS (B12) ----
+titles:
+  menu_title: "§b§l✦ SEUS TÍTULOS ✦"
+  selected: "§a§lTÍTULO §8» §fTítulo selecionado: {0}"
+  removed: "§c§lTÍTULO §8» §fTítulo removido."
+  no_titles: "§e§lTÍTULO §8» §7Você ainda não desbloqueou nenhum título."
+  help: "§e§lTÍTULOS §8» §7Use §f/titulos §7para gerenciar seus títulos."
+
+# ---- B13: OUTPOSTS (POSTOS AVANÇADOS) ----
+outpost:
+  usage: "§e§lOUTPOST §8» §7Uso: §f/reino outpost <criar|setspawn|spawn|listar|deletar>"
+  create_hint: "§a§lOUTPOST §8» §7Agora demarque a área usando a §fpá de ouro§7 e confirme com §f/confirmar§7."
+  create_success: "§a§lOUTPOST §8» §aPosto avançado criado com sucesso!"
+  create_title: "§a§l⚔ POSTO AVANÇADO ⚔"
+  create_subtitle: "§7Área demarcada com sucesso!"
+  limit_reached: "§c§lOUTPOST §8» §cVocê já atingiu o limite de outposts ({0}/{1})."
+  too_close: "§c§lOUTPOST §8» §cVocê está muito perto do claim principal. Distância mínima: §f{0} blocos§c."
+  not_in_outpost: "§c§lOUTPOST §8» §cVocê precisa estar dentro de um outpost do seu reino."
+  setspawn_success: "§a§lOUTPOST §8» §aSpawn do outpost §f{0} §adefinido com sucesso!"
+  teleport_success: "§a§lOUTPOST §8» §aTeleportado para o outpost §f{0}§a!"
+  none: "§e§lOUTPOST §8» §7Seu reino não possui outposts."
+  not_found: "§c§lOUTPOST §8» §cOutpost não encontrado."
+  list_header: "§e§l⚔ OUTPOSTS §8» §7{0}/{1} outposts"
+  list_empty: "§7  Nenhum outpost criado. Use §f/reino outpost criar§7 para criar um."
+  list_entry: "§e  {0}. §f{1} §8— §7Área: §f{2} §8| §7Centro: §f{3}, {4}"
+  delete_success: "§a§lOUTPOST §8» §aOutpost §f{0} §adeletado com sucesso! Blocos reembolsados."
+
+# ---- B14: LEILÃO GLOBAL ----
+auction:
+  disabled: "§c§lLEILÃO §8» §7O sistema de leilão está desativado."
+  price_too_low: "§c§lLEILÃO §8» §7Preço mínimo é §6${0}§7."
+  max_active: "§c§lLEILÃO §8» §7Você já tem §c{0} §7leilões ativos (máximo)."
+  created: "§a§lLEILÃO §8» §aLeilão §f{0} §acriado com sucesso! Duração: §f{1}§a."
+  not_found: "§c§lLEILÃO §8» §7Leilão não encontrado."
+  cannot_bid_own: "§c§lLEILÃO §8» §7Você não pode dar lance no próprio leilão."
+  expired: "§c§lLEILÃO §8» §7Este leilão já expirou."
+  bid_too_low: "§c§lLEILÃO §8» §7Lance mínimo: §6${0}§7."
+  insufficient_funds: "§c§lLEILÃO §8» §7Saldo insuficiente. Necessário: §6${0}§7."
+  outbid: "§e§lLEILÃO §8» §c{0} §7cobriu seu lance com §6${1} §7no leilão §f{2}§7! Seu dinheiro foi devolvido."
+  bid_placed: "§a§lLEILÃO §8» §aLance de §6${0} §aregistrado no leilão §f{1}§a!"
+  not_owner: "§c§lLEILÃO §8» §7Você não é dono deste leilão."
+  cannot_cancel_with_bids: "§c§lLEILÃO §8» §7Não é possível cancelar um leilão que já tem lances."
+  cancelled: "§a§lLEILÃO §8» §aLeilão §f{0} §acancelado com sucesso."
+  cancelled_refund: "§e§lLEILÃO §8» §7Leilão §f{1} §7cancelado pelo admin. §aDevolvidos §6${0}§a."
+  nothing_to_collect: "§e§lLEILÃO §8» §7Você não tem pendências para coletar."
+  inventory_full_collect: "§c§lLEILÃO §8» §7Inventário cheio! Libere espaço e tente novamente."
+  money_collected: "§a§lLEILÃO §8» §aRecebidos §6${0}§a!"
+  collected_success: "§a§lLEILÃO §8» §a{0} pendência(s) coletada(s) com sucesso!"
+  pending_collect: "§e§lLEILÃO §8» §7Você tem pendências! Use §f/leilao coletar§7."
+  sold: "§a§lLEILÃO §8» §aSeu item §f{0} §afoi vendido por §6${1}§a! Taxa: §c${2}§a. Líquido: §6${3}§a."
+  won: "§a§lLEILÃO §8» §aVocê arrematou §f{0} §apor §6${1}§a! Use §f/leilao coletar§a."
+  expired_no_bids: "§e§lLEILÃO §8» §7Seu leilão de §f{0} §7expirou sem lances. Use §f/leilao coletar§7 para resgatar."
+  none_active: "§e§lLEILÃO §8» §7Nenhum leilão ativo no momento."
+  broadcast_start: "§e§l⚡ LEILÃO §8» §f{0} §ecolocou §6{1} §eem leilão por §6${2}§e! Duração: §f{3}§e."
+  broadcast_bid: "§e§l⚡ LEILÃO §8» §f{0} §edeu lance de §6${1} §eem §6{2}§e!"
+  broadcast_end: "§a§l⚡ LEILÃO §8» §f{0} §aarrematou §6{1} §apor §6${2}§a!"
+  broadcast_ending: "§c§l⚡ LEILÃO §8» §6{0} §centra em §c{1}s§c! Lance atual: §6${2} §c(por §f{3}§c)"
+  unknown_command: "§c§lLEILÃO §8» §7Subcomando desconhecido."
+  usage_create: "§e§lLEILÃO §8» §7Uso: §f/leilao iniciar <preçoMínimo> [duração_segundos]"
+  usage_bid: "§e§lLEILÃO §8» §7Uso: §f/leilao lance <valor> [ID]"
+  usage_cancel: "§e§lLEILÃO §8» §7Uso: §f/leilao cancelar <ID>"
+  invalid_price: "§c§lLEILÃO §8» §7Valor inválido. Use um número válido."
+  invalid_duration: "§c§lLEILÃO §8» §7Duração inválida. Use um número em segundos."
+  hold_item: "§c§lLEILÃO §8» §7Segure o item que deseja leiloar na mão."
+  gui_title: "§8§lLeilões Ativos §7(Pág §f{0}§7/§f{1}§7)"
+  gui_my_title: "§8§lMeus Leilões"
+  help_header: "§8§m─────── §e§lLEILÃO - AJUDA §8§m───────"
+  help_create: "§e /leilao iniciar <preço> [duração] §8— §7Cria um leilão"
+  help_bid: "§e /leilao lance <valor> [ID] §8— §7Dá um lance"
+  help_list: "§e /leilao listar §8— §7Lista leilões ativos"
+  help_collect: "§e /leilao coletar §8— §7Coleta itens e dinheiro"
+  help_cancel: "§e /leilao cancelar <ID> §8— §7Cancela leilão próprio"
+  help_footer: "§8§m────────────────────────────"
+
+# ---- B14: HISTÓRICO DE PREÇOS ----
+price_history:
+  not_available: "§c§lPREÇOS §8» §7O sistema de histórico de preços não está disponível."
+  usage: "§e§lPREÇOS §8» §7Uso: §f/market preco <nome_do_item>"
+  item_not_found: "§c§lPREÇOS §8» §7Item '§f{0}§7' não encontrado no mercado global."
+  header: "§8§m─────── §6§lHISTÓRICO: {0} §8§m───────"
+  footer: "§8§m────────────────────────────"
+
+# ---- B16: INTEGRAÇÃO COM MAPA WEB ----
+webmap:
+  dynmap_detected: "§b[Gorvax] §fDynmap detectado! Reinos visíveis no mapa web."
+  bluemap_detected: "§b[Gorvax] §fBlueMap detectado! Reinos visíveis no mapa web."
+  no_map_detected: "§b[Gorvax] §7Nenhum plugin de mapa web encontrado. Integração desativada."
+  markers_updated: "§b[Gorvax] §fMarcadores do mapa atualizados ({0} reinos)."
+
+# ---- B17: CORREIO (MAILBOX) ----
+mail:
+  not_available: "§c§l✉ CORREIO §8» §7O sistema de correio não está disponível."
+  unknown_command: "§c§l✉ CORREIO §8» §7Subcomando inválido. Use §f/carta ajuda§7."
+  usage_send: "§e§l✉ CORREIO §8» §7Uso: §f/carta enviar <nick> <mensagem>"
+  player_not_found: "§c§l✉ CORREIO §8» §7Jogador não encontrado."
+  cannot_self: "§c§l✉ CORREIO §8» §7Você não pode enviar carta para si mesmo."
+  too_long: "§c§l✉ CORREIO §8» §7Mensagem muito longa! Máximo: {0} caracteres."
+  sent: "§a§l✉ CORREIO §8» §7Carta enviada para §f{0}§7!"
+  received_notification: "§a§l✉ CORREIO §8» §7Você recebeu uma carta de §f{0}§7! Use §e/carta ler"
+  target_full: "§c§l✉ CORREIO §8» §7A caixa de correio deste jogador está cheia!"
+  empty: "§7§l✉ CORREIO §8» §7Sua caixa de correio está vazia."
+  header: "§8§m──── §6§l✉ CORREIO §8(Página {0}/{1}) §8§m────"
+  separator: "§8§m────────────────────────────"
+  entry: "  {0} §f#{1} §7de §b{2} §8({3})"
+  entry_message: "    §f{0}"
+  next_page: "§e§l✉ §7Use §f/carta ler {0} §7para a próxima página."
+  usage_delete: "§e§l✉ CORREIO §8» §7Uso: §f/carta deletar <numero>"
+  invalid_index: "§c§l✉ CORREIO §8» §7Número inválido."
+  deleted: "§a§l✉ CORREIO §8» §7Carta deletada."
+  cleared: "§a§l✉ CORREIO §8» §7{0} carta(s) lida(s) removidas."
+  login_notification: "§a§l✉ CORREIO §8» §7Você tem §e{0}§7 carta(s) não lida(s)! Use §f/carta ler"
+  help_header: "§8§m──── §6§l✉ CORREIO §8§m────"
+  help_send: "§e /carta enviar <nick> <msg> §8— §7Envia uma carta"
+  help_read: "§e /carta ler [pagina] §8— §7Lê suas cartas"
+  help_delete: "§e /carta deletar <numero> §8— §7Deleta uma carta"
+  help_clear: "§e /carta limpar §8— §7Limpa cartas lidas"
+  help_footer: "§8§m────────────────────────────"
+
+# ---- B17: VOTAÇÃO NO REINO ----
+vote:
+  not_available: "§c§l⚑ VOTAÇÃO §8» §7O sistema de votação não está disponível."
+  usage: "§e§l⚑ VOTAÇÃO §8» §7Use: §f/reino votar <criar|sim|nao|resultado|cancelar>"
+  usage_create: "§e§l⚑ VOTAÇÃO §8» §7Uso: §f/reino votar criar <pergunta>"
+  only_king: "§c§l⚑ VOTAÇÃO §8» §7Apenas o Rei pode executar esta ação."
+  created: "§a§l⚑ VOTAÇÃO §8» §7Votação criada: §f{0}"
+  new_vote: "§e§l⚑ VOTAÇÃO §8» §7Seu Rei criou uma votação: §f{0}§7. Use §a/reino votar sim §7ou §c/reino votar nao"
+  already_active: "§c§l⚑ VOTAÇÃO §8» §7Já existe uma votação ativa no seu reino."
+  no_active: "§7§l⚑ VOTAÇÃO §8» §7Não há votação ativa no seu reino."
+  voted_yes: "§a§l⚑ VOTAÇÃO §8» §7Voto registrado: §aSIM ✔"
+  voted_no: "§c§l⚑ VOTAÇÃO §8» §7Voto registrado: §cNÃO ✘"
+  already_voted: "§c§l⚑ VOTAÇÃO §8» §7Você já votou nesta votação."
+  expired: "§7§l⚑ VOTAÇÃO §8» §7Esta votação já expirou."
+  expired_result: "§e§l⚑ VOTAÇÃO §8» §7A votação '§f{0}§7' expirou! Resultado: §a{1} SIM §8/ §c{2} NÃO"
+  cancelled: "§a§l⚑ VOTAÇÃO §8» §7Votação cancelada."
+  result_header: "§8§m──── §6§l⚑ RESULTADO DA VOTAÇÃO §8§m────"
+  result_question: "  §7Pergunta: §f{0}"
+  result_yes: "  §aSIM: §f{0} voto(s)"
+  result_no: "  §cNÃO: §f{0} voto(s)"
+  result_total: "  §7Total: §f{0} voto(s)"
+  result_remaining: "  §7Tempo restante: §e{0}"
+  result_footer: "§8§m────────────────────────────"
+
+# ---- B17: BOUNTIES ----
+bounty:
+  disabled: "§c§l☠ BOUNTY §8» §7O sistema de bounties está desabilitado."
+  unknown_command: "§c§l☠ BOUNTY §8» §7Subcomando inválido. Use §f/bounty ajuda§7."
+  usage_place: "§e§l☠ BOUNTY §8» §7Uso: §f/bounty colocar <nick> <valor>"
+  usage_remove: "§e§l☠ BOUNTY §8» §7Uso: §f/bounty remover <nick>"
+  invalid_value: "§c§l☠ BOUNTY §8» §7Valor inválido."
+  value_too_low: "§c§l☠ BOUNTY §8» §7Valor mínimo: §f${0}"
+  value_too_high: "§c§l☠ BOUNTY §8» §7Valor máximo: §f${0}"
+  player_not_found: "§c§l☠ BOUNTY §8» §7Jogador não encontrado."
+  insufficient_funds: "§c§l☠ BOUNTY §8» §7Saldo insuficiente! Necessário: §f${0}"
+  cannot_self: "§c§l☠ BOUNTY §8» §7Você não pode colocar bounty em si mesmo."
+  same_kingdom: "§c§l☠ BOUNTY §8» §7Não pode colocar bounty em membros do mesmo reino."
+  error: "§c§l☠ BOUNTY §8» §7Ocorreu um erro ao processar o comando."
+  placed: "§a§l☠ BOUNTY §8» §7Bounty de §f${1} §7colocada em §f{0}§7! Total: §e${2}"
+  placed_broadcast: "§c§l☠ BOUNTY §8» §f{0} §7colocou uma recompensa de §e${2} §7na cabeça de §c{1}§7!"
+  target_notification: "§c§l☠ §7Há uma bounty de §e${0} §7na sua cabeça! Cuidado!"
+  none_active: "§7§l☠ BOUNTY §8» §7Não há bounties ativas no momento."
+  list_header: "§8§m──── §c§l☠ BOUNTIES ATIVAS §8§m────"
+  separator: "§8§m────────────────────────────"
+  list_entry: "  §f#{0} §7{1} — §e${2} §8(§7{3} caçadores, {4}§8)"
+  list_more: "§7  ... e mais {0} bounties."
+  removed: "§a§l☠ BOUNTY §8» §7Sua contribuição na bounty de §f{0} §7foi removida (sem reembolso)."
+  not_contributor: "§c§l☠ BOUNTY §8» §7Você não tem contribuição na bounty de §f{0}§7."
+  collected: "§a§l☠ BOUNTY COBRADA! §8» §7Você matou §f{0} §7e recebeu §e${1}§7!"
+  head_claimed: "§c§l☠ BOUNTY §8» §7{0} §7cobrou a bounty de §e${1} §7da sua cabeça!"
+  resolved_broadcast: "§c§l☠ BOUNTY §8» §f{0} §7cobrou a bounty de §e${2} §7matando §c{1}§7!"
+  help_header: "§8§m──── §c§l☠ BOUNTY §8§m────"
+  help_place: "§e /bounty colocar <nick> <valor> §8— §7Coloca bounty"
+  help_list: "§e /bounty listar §8— §7Lista bounties ativas"
+  help_remove: "§e /bounty remover <nick> §8— §7Remove sua contribuição"
+  help_footer: "§8§m────────────────────────────"
+
+# ---- B3: SISTEMA DE DUELOS ----
+duel:
+  # Desafio
+  challenge_sent: "§e§l⚔ DUELO §8» §fDesafio enviado para §b{0}§f! Aposta: §6${1}§f. Expira em 30s."
+  challenge_received: "§e§l⚔ DUELO §8» §b{0} §fte desafiou para um duelo!"
+  challenge_received_bet: "§e§l⚔ DUELO §8» §b{0} §fte desafiou para um duelo! Aposta: §6${1}§f."
+  challenge_expired: "§c§l⚔ DUELO §8» §7O desafio de duelo expirou."
+  challenge_refused: "§c§l⚔ DUELO §8» §7Você recusou o desafio."
+  challenge_refused_notify: "§c§l⚔ DUELO §8» §e{0} §7recusou seu desafio."
+
+  # Erros
+  disabled: "§c§l⚔ DUELO §8» §7O sistema de duelos está desativado."
+  self_challenge: "§c§l⚔ DUELO §8» §7Você não pode se desafiar."
+  already_in_duel: "§c§l⚔ DUELO §8» §7Você já está em um duelo."
+  target_in_duel: "§c§l⚔ DUELO §8» §7Este jogador já está em um duelo."
+  challenger_in_combat: "§c§l⚔ DUELO §8» §7Você está em combate! Espere sair do combat tag."
+  target_in_combat: "§c§l⚔ DUELO §8» §7O jogador alvo está em combate."
+  too_far: "§c§l⚔ DUELO §8» §7O jogador está muito longe! Distância máxima: §e{0} blocos§7."
+  player_not_found: "§c§l⚔ DUELO §8» §7Jogador §f{0} §7não encontrado ou offline."
+  player_offline: "§c§l⚔ DUELO §8» §7O desafiante ficou offline."
+  no_pending: "§c§l⚔ DUELO §8» §7Você não tem desafios pendentes."
+  insufficient_funds: "§c§l⚔ DUELO §8» §7Saldo insuficiente! Necessário: §6${0}§7."
+  target_insufficient_funds: "§c§l⚔ DUELO §8» §7O alvo não tem saldo suficiente (§6${0}§7)."
+  challenger_insufficient: "§c§l⚔ DUELO §8» §7O desafiante não tem mais saldo suficiente."
+  bet_too_low: "§c§l⚔ DUELO §8» §7Aposta mínima: §6${0}§7."
+  bet_too_high: "§c§l⚔ DUELO §8» §7Aposta máxima: §6${0}§7."
+  invalid_bet: "§c§l⚔ DUELO §8» §7Valor de aposta inválido. Use um número."
+
+  # Duelo ativo
+  blocked_command: "§c§l⚔ DUELO §8» §7Você não pode usar §e/{0} §7durante um duelo!"
+  gui_blocked: "§c§l⚔ DUELO §8» §7Você não pode abrir menus durante um duelo!"
+
+  # Resultado
+  duel_win: "§a§l⚔ VITÓRIA! §8» §fVocê venceu o duelo contra §e{0} §fe ganhou §6${1}§f!"
+  duel_lose: "§c§l⚔ DERROTA §8» §fVocê perdeu o duelo contra §e{0}§f. Perdeu §6${1}§f."
+  duel_win_no_bet: "§a§l⚔ VITÓRIA! §8» §fVocê venceu o duelo contra §e{0}§f!"
+  duel_lose_no_bet: "§c§l⚔ DERROTA §8» §fVocê perdeu o duelo contra §e{0}§f."
+  duel_draw: "§e§l⚔ EMPATE §8» §fO duelo terminou em empate! Apostas devolvidas."
+  duel_win_broadcast: "§e§l⚔ DUELO §8» §a{0} §fvenceu o duelo contra §c{1}§f! {2}"
+  duel_disconnect: "§a§l⚔ DUELO §8» §e{0} §7desconectou durante o duelo! Você venceu!"
+
+  # Ajuda
+  help_header: "§8§m──── §e§l⚔ DUELO §8§m────"
+  help_challenge: "§e /duel <nick> [valor] §8— §7Desafia um jogador"
+  help_accept: "§e /duel aceitar §8— §7Aceita um desafio"
+  help_refuse: "§e /duel recusar §8— §7Recusa um desafio"
+  help_footer: "§8§m────────────────────────────"
+
+# ---- B2: SISTEMA DE COMBATE ----
+combat:
+  tagged: "§c§l⚔ COMBATE §8» §7Você entrou em modo de combate! Não desconecte."
+  tag_expired: "§a§l✔ SEGURO §8» §7Você saiu do modo de combate."
+  actionbar_combat: "§c⚔ Em Combate ({0}s)"
+  command_blocked: "§c§l⚔ COMBATE §8» §7Você não pode usar §e/{0} §7durante combate!"
+  gui_blocked: "§c§l⚔ COMBATE §8» §7Você não pode abrir menus durante combate!"
+  logger_spawned: "§c§l☠ COMBAT LOG §8» §e{0} §7desconectou durante combate! NPC gerado."
+  logger_death: "§c§l☠ COMBAT LOG §8» §7Você foi morto ao fugir do combate!"
+  logger_killed_broadcast: "§c§l☠ §e{0} §7matou o NPC de §e{1} §7(combat logger)!"
+  spawn_protection_active: "§a§l✦ PROTEÇÃO §8» §7Você tem {0}s de invulnerabilidade."
+  actionbar_spawn_protection: "§a✦ Proteção ({0}s)"
+  spawn_protection_cancelled: "§e§l✦ PROTEÇÃO §8» §7Proteção cancelada (você atacou)."
+  killstreak_broadcast: "§c§l🔥 §e{0} §7está com §c{1} kills §7seguidas!"
+  killstreak_title_earned: "§6§l⚔ TÍTULO §8» §7Você ganhou o título: {0}"
+  killstreak_bounty: "§c§l💰 BOUNTY §8» §7Bounty automática de §6${0} §7colocada em §e{1}§7!"
+  killstreak_reset: "§7Sua sequência de §c{0} kills §7foi encerrada."
+
+# ---- B4: TUTORIAL INTERATIVO + WELCOME KIT ----
+tutorial:
+  # Mensagens de chat para cada passo
+  step_1: "§b§l🐉 BEM-VINDO AO GORVAX! §8» §fEste é um servidor de sobrevivência com §eReinos§f, §eBosses§f, §eMercado§f e muito mais! Siga o tutorial para começar."
+  step_2: "§a§l📦 KIT INICIAL! §8» §fVocê recebeu um §ekit de boas-vindas§f! Use a §ePá de Ouro §fpara criar seu território."
+  step_3: "§e§l🌍 FUJA DO SPAWN! §8» §fUse §b/rtp §fpara teleportar aleatoriamente e encontrar um lugar seguro."
+  step_4: "§6§l🏠 CRIE SEU TERRITÓRIO! §8» §fSegure a §ePá de Ouro §fe clique em §e2 cantos §fdiagonais para selecionar a área."
+  step_5: "§d§l✅ CONFIRME! §8» §fDigite §e/confirmar §fou §e/c §fpara criar seu território e protegê-lo!"
+  step_6: "§a§l🎉 QUASE LÁ! §8» §fUse §e/gorvax menu §fpara ver tudo que o Gorvax tem a oferecer. Boa sorte, aventureiro!"
+
+  # Textos da BossBar para cada passo
+  bossbar_1: "§b🐉 Bem-vindo ao Gorvax! — Passo 1/6"
+  bossbar_2: "§a📦 Receba seu kit! — Passo 2/6"
+  bossbar_3: "§e🌍 Fuja do spawn! /rtp — Passo 3/6"
+  bossbar_4: "§6🏠 Selecione terreno com Pá de Ouro — Passo 4/6"
+  bossbar_5: "§d✅ Confirme com /confirmar — Passo 5/6"
+  bossbar_6: "§a🎉 Explore! /gorvax menu — Passo 6/6"
+
+  # Mensagens de sistema
+  kit_received: "§a§l📦 KIT §8» §fVocê recebeu seu §eKit de Boas-Vindas§f! Confira seu inventário."
+  completed: "§a§l🎉 TUTORIAL COMPLETO! §8» §fParabéns! Você recebeu §6${0} §fe §a{1} blocos §fde proteção como recompensa!"
+  skipped: "§e§l⏭ TUTORIAL §8» §7Você pulou o tutorial. Use §f/gorvax menu §7para explorar as funcionalidades."
+  not_in_tutorial: "§c§lTUTORIAL §8» §7Você não está em um tutorial ativo."
+
+# ---- B5: DAILY REWARDS & LOGIN STREAK ----
+daily:
+  available: "§a§l🎁 RECOMPENSA DIÁRIA §8» §fDia {0}/7 disponível! Use §e/daily §fpara resgatar!"
+  claimed: "§a§l🎁 RESGATADO! §8» §fDia {0}/7 — {1}"
+  already_claimed: "§c§l🎁 DAILY §8» §7Você já resgatou hoje! Volte em {0}h."
+  streak_reset: "§e§l🎁 DAILY §8» §7Sua sequência foi resetada. Dia 1/7."
+  reward_money: "§6+${0}"
+  reward_blocks: "§a+{0} blocos"
+  reward_title: "§dTítulo: {0}"
+  reward_crate_key: "§e+{0} chave(s) de crate §b{1}"
+  gui_title: "§8§l🎁 Recompensas Diárias"
+  gui_completed: "§a✅ Dia {0} — Resgatado!"
+  gui_current: "§e§l🎁 Dia {0} — CLIQUE PARA RESGATAR!"
+  gui_future: "§7⏳ Dia {0} — Em breve"
+  gui_reward_lore: "§7Recompensa: {0}\n§7\n§e💡 Continue logando para não perder a sequência!"
+  not_available: "§c§l🎁 DAILY §8» §7Nenhuma recompensa disponível agora."
+
+# ---- B6: MENU CENTRAL GUI ----
+main_menu:
+  title: "§8§l✦ GORVAX §8— §7Menu Principal"
+  bedrock_content: "§7Selecione uma opção abaixo:"
+
+  # B39 — Ícones com lore multi-line (linhas separadas por \n)
+  kingdom_name: "§6§l🏰 Meu Reino"
+  kingdom_lore: "§7Gerencie seu reino, membros e terrenos.\n§7\n§e📋 Como acessar: §f/reino\n§e🛠 O que fazer: §fConvidar membros, definir spawn,\n§f   configurar PvP, criar lotes, diplomacia\n§e💡 Dica: §fUse a §ePá de Ouro §fpara expandir!"
+  market_name: "§a§l💰 Mercado Global"
+  market_lore: "§7Compre e venda itens com outros jogadores.\n§7\n§a💰 Oferta/Demanda: §fPreços dinâmicos!\n§a🛒 Comprar: §fClique esquerdo no item\n§a💵 Vender: §fClique direito no item\n§e💡 Dica: §fShift+clique para lotes de 64!"
+  auction_name: "§e§l🏪 Leilão"
+  auction_lore: "§7Participe de leilões e faça ofertas.\n§7\n§e🏷 Como usar: §f/leilao iniciar <preço>\n§e💰 Lance: §f/leilao lance <valor>\n§e📋 Listar: §f/leilao listar\n§e💡 Dica: §fLeilões duram até 24h!"
+  bosses_name: "§c§l👹 World Bosses"
+  bosses_lore: "§7Bosses épicos que spawnam automaticamente!\n§7\n§c⚔ Como funciona: §fDerrote bosses para loot\n§c🏆 Loot: §fDistribuído por ranking de dano\n§c📅 Agenda: §fBosses spawnam a cada 3-7h\n§e💡 Dica: §fUse §e/boss next §fpara ver o timer"
+  achievements_name: "§b§l🏆 Conquistas"
+  achievements_lore: "§7Complete desafios e desbloqueie títulos!\n§7\n§b🏆 Categorias: §fExploração, Combate, Social\n§b🏷 Títulos: §fDesbloqueie e equipe com §e/titulos\n§e💡 Dica: §fCada conquista dá blocos ou dinheiro!"
+  stats_name: "§d§l📊 Estatísticas"
+  stats_lore: "§7Veja suas kills, mortes, KDR e playtime.\n§7\n§d📊 Dados: §fKills, mortes, KDR, tempo jogado\n§d🧱 Blocos: §fVeja seus blocos de proteção\n§e💡 Dica: §fCompare com outros via §e/top§f!"
+  daily_name: "§a§l🎁 Recompensa Diária"
+  daily_lore: "§7Resgate sua recompensa diária.\n§7\n§a📅 Sequência: §f7 dias com prêmios crescentes\n§a🎁 Tipos: §fDinheiro, blocos, chaves, títulos\n§e💡 Dica: §fNão perca um dia para manter o streak!"
+  mail_name: "§f§l✉ Correio"
+  mail_lore: "§7Envie e receba cartas de outros jogadores.\n§7\n§f✉ Enviar: §f/carta enviar <nick> <msg>\n§f📬 Ler: §f/carta ler\n§e💡 Dica: §fVocê recebe aviso ao entrar com cartas novas!"
+  settings_name: "§e§l⚙ Configurações"
+  settings_lore: "§7Personalize sua experiência!\n§7\n§e📊 HUD: §fAtiva/desativa o scoreboard\n§e🔊 Som: §fToggle do som de fronteira\n§e💡 Dica: §fClique para abrir as opções!"
+  rankings_name: "§e§l📋 Rankings"
+  rankings_lore: "§7Veja os melhores jogadores do servidor.\n§7\n§e🏆 Categorias: §fKills, riqueza, bosses, KDR\n§e📋 Comando: §f/top <categoria>\n§e💡 Dica: §fUse §e/top §fpara ver todas as categorias!"
+
+  # Ações auxiliares
+  bosses_unavailable: "§c§lBOSSES §8» §7Sistema de bosses indisponível no momento."
+  stats_unavailable: "§c§lSTATS §8» §7Seus dados ainda não foram carregados."
+  stats_header: "§8§m━━━━━━━━━━━━━━━━━━━━━━━"
+  stats_kills: "  §c⚔ Kills: §f{0}"
+  stats_deaths: "  §4☠ Mortes: §f{0}"
+  stats_kdr: "  §6⚡ KDR: §f{0}"
+  stats_playtime: "  §b⏰ Tempo online: §f{0}h {1}m"
+  stats_blocks: "  §a🧱 Blocos de claim: §f{0}"
+  stats_footer: "§8§m━━━━━━━━━━━━━━━━━━━━━━━"
+  rankings_header: "§8§m━━━━━━━━━━━━━━━━━━━━━━━"
+  rankings_coming_soon: "  §e📋 Rankings §8» §7Use §f/top §7para ver os leaderboards!"
+  rankings_footer: "§8§m━━━━━━━━━━━━━━━━━━━━━━━"
+
+  # B38 — Paginação
+  title_page2: "§8§l✦ GORVAX §8— §7Página 2"
+  page_next_name: "§a§l▶ Próxima Página"
+  page_next_lore: "§7Clique para ver mais sistemas."
+  page_prev_name: "§c§l◀ Página Anterior"
+  page_prev_lore: "§7Voltar aos sistemas principais."
+
+  # B39 — Botões da Página 2 com lore multi-line
+  duel_name: "§c§l⚔ Duelos"
+  duel_lore: "§7Desafie outros jogadores para PvP 1v1!\n§7\n§c⚔ Como usar: §f/duel <nick> [aposta]\n§c💰 Aposta: §fOpcional, de $100 a $100.000\n§c⏱ Duração: §fMáx 5 minutos, inventário mantido\n§e💡 Dica: §fAceite desafios com §e/duel aceitar"
+  bounty_name: "§4§l💀 Bounties"
+  bounty_lore: "§7Coloque preço na cabeça de outro jogador!\n§7\n§4💀 Colocar: §f/bounty colocar <nick> <valor>\n§4📋 Ver ativas: §f/bounty listar\n§4💰 Prêmio: §fMate o alvo e receba tudo!\n§e💡 Dica: §fBounties são cumulativas!"
+  cosmetics_name: "§d§l✨ Cosméticos"
+  cosmetics_lore: "§7Customize sua aparência visual!\n§7\n§d✨ Tipos: §fPartículas, Trails, Tags, Kill Effects\n§d📦 Fontes: §fConquistas, Crates, VIP\n§d🎨 Menu: §f/cosmetics para ver e ativar\n§e💡 Dica: §fTags aparecem no chat!"
+  codex_name: "§5§l📚 Códex"
+  codex_lore: "§7Enciclopédia interativa do mundo Gorvax!\n§7\n§5📖 Como desbloquear: §fMate mobs, explore biomas\n§5📊 Progresso: §fBarra por categoria\n§5🎁 Recompensas: §fComplete categorias inteiras\n§e💡 Dica: §fUse §e/codex §fpara abrir!"
+  crate_name: "§6§l🎰 Crates"
+  crate_lore: "§7Abra caixas de recompensa com chaves!\n§7\n§6🎰 Tipos: §fComum, Raro, Lendário, Sazonal\n§6🔑 Chaves: §fVia Daily, Conquistas, Bosses, VIP\n§6📦 Abrir: §f/crate abrir <tipo> ou no Spawn\n§e💡 Dica: §f/crate preview para ver chances!"
+  battlepass_name: "§d§l⭐ Battle Pass"
+  battlepass_lore: "§7Progressão sazonal com recompensas!\n§7\n§d⭐ XP: §fKills, mineração, login diário\n§d🎁 Rewards: §fTrack Free + Premium (30 níveis)\n§d📅 Duração: §f30 dias por temporada\n§e💡 Dica: §f/pass info para ver detalhes!"
+  ranks_name: "§a§l🏅 Ranks & Kits"
+  ranks_lore: "§7Suba de rank jogando naturalmente!\n§7\n§a🏅 Ranks: §fAventureiro → Guerreiro → ... → Lendário\n§a📋 Requis.: §fPlaytime, kills, bosses, saldo\n§a📦 Kits: §fCada rank desbloqueia um kit com cooldown\n§e💡 Dica: §f/rank para ver progresso, /kit para kits!"
+  karma_name: "§e§l⚖ Karma"
+  karma_lore: "§7Sua reputação afeta gameplay!\n§7\n§e⚖ Ações: §fKills perdem, bosses e vendas ganham\n§e👑 Herói: §fDesconto de 5% no mercado\n§e💀 Procurado: §fBounty auto, localização revelada\n§e💡 Dica: §f/karma para ver seu status!"
+  vip_name: "§b§l💎 VIP"
+  vip_lore: "§7Apoie o servidor e ganhe benefícios!\n§7\n§b💎 Tiers: §fVIP → VIP+ → Elite → Lendário\n§b🎁 Bônus: §fBlocos, homes, keys, descontos\n§b📋 Detalhes: §f/vip info para tabela completa\n§e💡 Dica: §fKeys mensais no dia 1!"
+  nation_name: "§6§l🏛 Nações"
+  nation_lore: "§7Una reinos em uma super-aliança!\n§7\n§6🏛 O que é: §fMeta-reinos com banco e buffs\n§6👑 Criar: §f/nacao criar <nome> ($50.000)\n§6🎁 Buffs: §fVelocidade e Resistência por nível\n§e💡 Dica: §fAntes precisas ser Rei de um reino!"
+  quests_name: "§a§l📜 Quests"
+  quests_lore: "§7Missões diárias, semanais e de lore!\n§7\n§a📜 Diárias/Semanais: §fMatar, minerar, vender\n§a⚔ Lore Quests: §fHistórias permanentes multi-step\n§a🎁 Rewards: §fDinheiro, karma, títulos, livros\n§e💡 Dica: §f/quests para ver progresso!"
+  titles_name: "§b§l🏷 Títulos"
+  titles_lore: "§7Equipe títulos desbloqueados no chat!\n§7\n§b🏷 Como ganhar: §fConquistas, quests, battle pass\n§b💬 No chat: §fExibido antes do nome\n§b🔄 Trocar: §f/titulos para selecionar\n§e💡 Dica: §fTítulos exclusivos via lore quests!"
+  hub_name: "§b§l🧭 Hub de Teleportes"
+  hub_lore: "§7Acesse todos os teleportes do servidor!\n§7\n§b🧭 Destinos: §fSpawn, RTP, Reinos, Cidades\n§b🏰 Visitas: §fVisite reinos públicos por $500\n§e💡 Dica: §fUse a §eBússola §fna hotbar!"
+  events_name: "§6§l🎄 Eventos Sazonais"
+  events_lore: "§7Multiplicadores, bosses e prêmios especiais!\n§7\n§6🎄 Ativo: §fMultiplicadores de XP, Loot e Money\n§6👹 Boss Sazonal: §fBosses exclusivos por temporada\n§6📅 Calendário: §f/evento lista\n§e💡 Dica: §f/evento info para ver o evento ativo!"
+  chat_name: "§e§l💬 Chat & Social"
+  chat_lore: "§7Canais de chat e controles sociais!\n§7\n§e💬 Canais: §fGlobal, Reino, Aliança, Local, Comércio\n§e🔇 Ignorar: §f/ignore <nick> para ocultar alguém\n§e🔄 Trocar canal: §f/chat <canal>\n§e💡 Dica: §fMsgs rápidas: /g, /rc, /l, /tc"
+
+  # B41 — Menu de Configurações Expandido (Submenu)
+  settings_title: "§8§l⚙ Configurações"
+  settings_hud_name: "§f§l📊 HUD / Scoreboard"
+  settings_hud_on: "§aAtivado §7— Clique para desativar"
+  settings_hud_off: "§cDesativado §7— Clique para ativar"
+  settings_sound_name: "§f§l🔊 Som de Fronteira"
+  settings_sound_on: "§aAtivado §7— Clique para desativar"
+  settings_sound_off: "§cDesativado §7— Clique para ativar"
+  settings_chat_name: "§f§l💬 Canal de Chat"
+  settings_chat_current: "§7Canal atual: §e{0}"
+  settings_chat_info: "§7Clique para trocar de canal."
+  settings_back_name: "§7◀ Voltar ao Menu"
+  settings_bedrock_content: "§7Suas configurações pessoais:"
+
+  # B38 — Info do Chat (exibido ao clicar no botão Chat & Social)
+  chat_info_header: "§8§m──── §e§l💬 CANAIS DE CHAT §8§m────"
+  chat_info_global: "  §f/g <msg> §8— §7Global (todos)"
+  chat_info_kingdom: "  §f/rc <msg> §8— §7Reino (membros)"
+  chat_info_alliance: "  §f/ac <msg> §8— §7Aliança (aliados)"
+  chat_info_local: "  §f/l <msg> §8— §7Local (200 blocos)"
+  chat_info_trade: "  §f/tc <msg> §8— §7Comércio (negociações)"
+  chat_info_footer: "§8§m────────────────────────────"
+
+# ---- B7: LEADERBOARDS & RANKINGS (/top) ----
+top:
+  header: "§8§m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  title: "  §6§l🏆 RANKING — {0}"
+  entry: "  §e#{0} §f{1} §7— §a{2}"
+  footer: "§8§m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  your_position: "  §7Sua posição: §e#{0}"
+  no_data: "§c§lRANKING §8» §7Nenhum dado disponível ainda. Aguarde a próxima atualização."
+  invalid_category: "§c§lRANKING §8» §7Categoria '{0}' inválida. Use §f/top §7para ver as categorias."
+  categories_title: "  §6§l🏆 CATEGORIAS DISPONÍVEIS"
+  category_entry: "  §e/top {0} §7— {1}"
+  categories_hint: "  §7Use §f/top <categoria> §7para ver o ranking."
+  category:
+    kills: "§c⚔ Kills"
+    mortes: "§4☠ Mortes"
+    kdr: "§6⚡ KDR (Kill/Death Ratio)"
+    riqueza: "§a💰 Riqueza (Saldo)"
+    playtime: "§b⏰ Tempo Online"
+    bosses: "§d👹 Bosses Abatidos"
+    reinos: "§e🏰 Reinos (Poder)"
+    streak: "§c🔥 Maior Kill Streak"
+
+# ---- B8: INTEGRAÇÃO DISCORD ----
+discord:
+  chat_format: "**[{0}] {1}**: {2}"
+  boss_spawn: "🐉 **{0}** surgiu no {1}! {2} HP"
+  boss_death: "💀 **{0}** foi derrotado!"
+  war_declared: "⚔️ **{0}** declarou guerra contra **{1}**!"
+  killstreak: "🔥 **{0}** está com {1} kills seguidas!"
+  achievement: "🏆 **{0}** desbloqueou a conquista **{1}**!"
+  raid_started: "💀 Raid iniciada! {0} ondas — mínimo {1} jogadores"
+  enabled: "§a[GorvaxCore] Integração Discord ativada."
+  disabled: "§7[GorvaxCore] Integração Discord desativada."
+  error_no_url: "§c[GorvaxCore] Discord webhook URL não configurada."
+
+# ---- B9: ANTI-SPAM, FILTRO DE PALAVRAS & /IGNORE ----
+chat:
+  # Anti-Spam
+  spam_rate_limited: "§c§lSPAM §8» §7Você está enviando mensagens rápido demais! Aguarde um momento."
+  spam_duplicate: "§c§lSPAM §8» §7Não repita a mesma mensagem consecutivamente."
+  spam_muted: "§c§lMUTADO §8» §7Você está temporariamente mutado. Aguarde §e{0}s§7."
+
+  # Filtro de Palavras
+  filter_blocked: "§c§lFILTRO §8» §7Sua mensagem contém conteúdo proibido e foi bloqueada."
+  filter_muted: "§c§lFILTRO §8» §7Uso de linguagem proibida! Você foi mutado por §e{0}s§7."
+
+# Sistema de Ignorar
+ignore:
+  added: "§a§lIGNORE §8» §fVocê está ignorando §c{0}§f. Mensagens deste jogador serão ocultadas."
+  removed: "§a§lIGNORE §8» §fVocê parou de ignorar §a{0}§f."
+  list_header: "§6§lIGNORE §8» §fJogadores ignorados (§e{0}§f):"
+  list_entry: "  §7- §f{0}"
+  list_empty: "§6§lIGNORE §8» §7Você não está ignorando ninguém."
+  self: "§c§lIGNORE §8» §7Você não pode ignorar a si mesmo."
+  limit_reached: "§c§lIGNORE §8» §7Limite de jogadores ignorados atingido (máx. 50)."
+
+# ---- B10: CUSTOM ITEMS (ITENS LENDÁRIOS) ----
+custom_items:
+  usage: "§e§lGUIA §8» §7Use: §f/customitem give <jogador> <item_id> [qtd] §7ou §f/customitem list"
+  item_not_found: "§c§lERRO §8» §7Item não encontrado. Use §e/customitem list §7para ver os disponíveis."
+  player_not_found: "§c§lERRO §8» §7Jogador não encontrado ou offline."
+  list_empty: "§c§lERRO §8» §7Nenhum item lendário configurado."
+
+# ---- B11: MINI-BOSSES POR BIOMA ----
+miniboss:
+  spawn_success: "§a§lMINI-BOSS §8» §fMini-boss {0} §finvocado com sucesso!"
+  list_header: "§6§l⚔ Mini-Bosses Ativos:"
+  list_empty: "§c§lMINI-BOSS §8» §7Não há mini-bosses ativos no momento."
+  kill_success: "§a§lMINI-BOSS §8» §fForam removidos §e{0} §fmini-bosses ativos."
+  reload_success: "§a§lMINI-BOSS §8» §fConfigurações de mini-bosses recarregadas!"
+  reward_money: "§6§l[MINI-BOSS] §a+${0} §7(Recompensa por dano)"
+
+# ---- B12: SISTEMA DE CRATES / KEYS ----
+crate:
+  # Comandos
+  no_permission: "§c§lCRATE §8» §7Você não tem permissão para isto."
+  player_only: "§cApenas jogadores podem usar este comando."
+  reload_success: "§a§lCRATE §8» §fConfigurações de crates recarregadas!"
+  unknown_command: "§c§lCRATE §8» §7Subcomando desconhecido. Use §f/crate ajuda§7."
+  disabled: "§c§lCRATE §8» §7O sistema de crates está desativado."
+
+  # Abrir
+  no_keys: "§c§lCRATE §8» §7Você não possui chaves do tipo §e{0}§7."
+  opening: "§e§l🎰 CRATE §8» §fAbrindo crate §b{0}§f..."
+  reward_received: "§a§l🎁 CRATE §8» §fVocê recebeu: §e{0}"
+  reward_broadcast: "§e§l⭐ CRATE §8» §f{0} §eabriu uma §b{1} §ee recebeu §a{2}§e!"
+  type_not_found: "§c§lCRATE §8» §7Tipo de crate '{0}' não encontrado."
+
+  # Keys
+  keys_header: "§8§m──── §e§l🔑 SUAS CHAVES §8§m────"
+  keys_entry: "  §e{0}: §f{1} chave(s)"
+  keys_empty: "§e§l🔑 CHAVES §8» §7Você não possui nenhuma chave."
+  keys_footer: "§8§m────────────────────────────"
+
+  # Give (admin)
+  give_success: "§a§lCRATE §8» §fDeu §e{0} §fchave(s) §b{1} §fpara §e{2}§f."
+  give_received: "§a§l🔑 CHAVE §8» §fVocê recebeu §e{0} §fchave(s) de §b{1}§f!"
+  give_usage: "§e§lCRATE §8» §7Uso: §f/crate give <jogador> <tipo> [qtd]"
+
+  # GUI
+  gui_title: "§8§l🎰 Selecione uma Crate"
+  select_title: "§8§l🎰 Selecione uma Crate"
+  preview_title: "§8§l📦 Recompensas: {0}"
+  gui_preview_title: "§8§l📦 Recompensas: {0}"
+  gui_roulette_title: "§8§l🎰 Abrindo..."
+  gui_keys_count: "§7Suas chaves: §e{0}"
+  gui_click_to_open: "§a§lClique para abrir!\n§7Dir. para preview de recompensas"
+  gui_no_keys: "§c§lSem chaves"
+  gui_click_preview: "§7Clique direito para preview"
+  gui_reward_weight: "§7Chance: §e{0}%"
+  invalid_type: "§c§lCRATE §8» §7Tipo de crate inválido."
+  error: "§c§lCRATE §8» §7Erro ao processar crate. Tente novamente."
+  broadcast_reward: "§e§l⭐ CRATE §8» §f{0} §eabriu uma §b{1} §ee recebeu §a{2}§e!"
+
+  # Rewards por tipo
+  reward_money_desc: "§6${0}"
+  reward_blocks_desc: "§a{0} blocos de claim"
+  reward_item_desc: "§f{0}"
+  reward_title_desc: "§dTítulo: {0}"
+  reward_key_desc: "§e{0}x chave {1}"
+
+  # Listener (bloco)
+  block_not_spawn: "§c§lCRATE §8» §7As crates só podem ser abertas na área do spawn."
+
+  # Help
+  help_header: "§8§m──── §e§l🎰 CRATE §8§m────"
+  help_open: "§e /crate abrir <tipo> §8— §7Abre uma crate"
+  help_preview: "§e /crate preview <tipo> §8— §7Visualiza recompensas"
+  help_keys: "§e /crate chaves §8— §7Lista suas chaves"
+  help_list: "§e /crate lista §8— §7Lista crates disponíveis"
+  help_give: "§e /crate give <nick> <tipo> [qtd] §8— §7[Admin] Dá chaves"
+  help_footer: "§8§m────────────────────────────"
+
+# ---- B13: SISTEMA DE COSMÉTICOS ----
+cosmetics:
+  # Ativação / Desativação
+  activated: "§d§l✨ COSMÉTICO §8» §fCosmético {0} §fativado!"
+  deactivated: "§7§l✨ COSMÉTICO §8» §fCosmético do tipo §e{0} §fdesativado."
+  activate_failed: "§c§l✨ COSMÉTICO §8» §7Falha ao ativar o cosmético."
+
+  # Erros
+  not_found: "§c§l✨ COSMÉTICO §8» §7Cosmético não encontrado."
+  locked: "§c§l✨ COSMÉTICO §8» §7Você não desbloqueou este cosmético ainda."
+  invalid_type: "§c§l✨ COSMÉTICO §8» §7Tipo de cosmético inválido."
+  none_unlocked: "§7§l✨ COSMÉTICO §8» §7Você não possui cosméticos desbloqueados."
+
+  # Unlock
+  unlocked: "§a§l✨ DESBLOQUEADO! §8» §fVocê desbloqueou o cosmético {0}§f!"
+
+  # Lista
+  list_header: "§8§m──── §d§l✨ COSMÉTICOS §8§m────"
+  list_footer: "§8§m────────────────────────────"
+
+  # Usage
+  usage: "§e§lGUIA §8» §7Use: §f/cosmetics §7para abrir o menu, ou §f/cosmetics <ativar|desativar|listar>"
+  usage_activate: "§e§lGUIA §8» §7Use: §f/cosmetics ativar <id>"
+  usage_deactivate: "§e§lGUIA §8» §7Use: §f/cosmetics desativar <tipo>"
+
+# ---- B14-VIP: SISTEMA DE VIP & RANKS PREMIUM ----
+vip:
+  disabled: "§c§lVIP §8» §7O sistema VIP está desativado no momento."
+  unknown_command: "§c§lVIP §8» §7Comando desconhecido. Use §e/vip §7ou §e/vip info§7."
+
+  # Aplicação de benefícios
+  blocks_applied: "§a§l✦ VIP §8» §fVocê recebeu §e+{0} blocos de proteção §fdo seu rank {1}§f!"
+  monthly_key_received: "§a§l✦ VIP §8» §fVocê recebeu §e{0}x chave {1} §fdo seu rank {2}§f!"
+
+  # Admin — Set / Remove
+  set_usage: "§e§lGUIA §8» §7Use: §f/vip set <jogador> <tier>"
+  remove_usage: "§e§lGUIA §8» §7Use: §f/vip remove <jogador>"
+  set_success: "§a§l✦ VIP §8» §fRank VIP de §e{0} §fdefinido para {1}§f."
+  remove_success: "§a§l✦ VIP §8» §fRank VIP de §e{0} §fremovido."
+  set_error: "§c§l✦ VIP §8» §7Erro ao definir rank VIP. LuckPerms disponível?"
+  invalid_tier: "§c§l✦ VIP §8» §7Tier '§f{0}§7' inválido. Use: §evip, vip_plus, elite, lendario, none"
+  tier_changed: "§a§l✦ VIP §8» §fSeu rank VIP foi alterado para {0}§f!"
+  tier_removed: "§c§l✦ VIP §8» §7Seu rank VIP foi removido."
+
+  # Admin — Keys / Reload
+  keys_distributed: "§a§l✦ VIP §8» §fKeys mensais distribuídas para todos os VIPs online."
+  reload_success: "§a§l✦ VIP §8» §fConfigurações VIP recarregadas com sucesso!"
+
+# ---- B15: BATTLE PASS SAZONAL ----
+battle_pass:
+  disabled: "§c§lPASS §8» §7O sistema de Battle Pass está desativado."
+  unknown_command: "§c§lPASS §8» §7Comando desconhecido. Use §e/pass §7para abrir o menu."
+
+  # XP e Level-up
+  xp_gained: "§d§l⭐ PASS §8» §f+{0} XP §7({1})"
+  level_up_title: "§d§l⭐ NÍVEL {0}!"
+  level_up_subtitle: "§7Battle Pass — Temporada {1}"
+  level_up: "§d§l⭐ PASS §8» §fVocê atingiu o §enível {0} §fdo Battle Pass!"
+
+  # Rewards
+  reward_claimed: "§a§l🎁 PASS §8» §fRecompensa do nível {0} ({1}) resgatada!"
+  reward_already_claimed: "§e§l🎁 PASS §8» §7Você já resgatou essa recompensa."
+  reward_locked: "§c§l🎁 PASS §8» §7Você precisa atingir o nível {0} primeiro."
+  reward_premium_locked: "§c§l🎁 PASS §8» §7Essa recompensa requer o §dTrack Premium§7."
+
+  # Premium
+  premium_set: "§a§l✦ PASS §8» §fTrack Premium ativado para §e{0}§f!"
+  premium_already: "§e§l✦ PASS §8» §7Este jogador já possui o Track Premium."
+
+  # Info
+  info_header: "§8§m──── §d§l⭐ BATTLE PASS §8§m────"
+  info_season: "  §7Temporada: §f{0}"
+  info_level: "  §7Nível: §e{0}§7/§e{1}"
+  info_xp: "  §7XP: §e{0}§7/§e{1}"
+  info_premium: "  §7Track: {0}"
+  info_days: "  §7Dias restantes: §e{0}"
+  info_footer: "§8§m────────────────────────────"
+  premium_yes: "§d✦ Premium"
+  premium_no: "§7Gratuito"
+
+  # Reset (admin)
+  reset_success: "§a§l⭐ PASS §8» §fBattle Pass de §e{0} §fresetado!"
+
+  # Reload
+  reload_success: "§a§l⭐ PASS §8» §fConfigurações recarregadas!"
+
+  # GUI
+  gui_title: "§8§l⭐ Battle Pass — Temporada {0}"
+
+  # Uso
+  usage_premium: "§e§lGUIA §8» §7Use: §f/pass premium <jogador>"
+  usage_reset: "§e§lGUIA §8» §7Use: §f/pass reset <jogador>"
+
+# ---- B16: QUESTS DIÁRIAS E SEMANAIS ----
+quests:
+  # Progresso
+  quest_completed: "§a§l✦ QUEST §8» §fMissão {0} §fcompleta! Use §e/quests §fpara resgatar."
+
+  # Claim
+  reward_claimed: "§a§l✦ QUEST §8» §fRecompensa resgatada de {0}§f! §7({1})"
+
+  # Info (chat)
+  info_header: "§8§m──── §e§l✦ SUAS QUESTS §8§m────"
+  info_daily_title: "  §e§lDiárias:"
+  info_weekly_title: "  §6§lSemanal:"
+  info_entry: "  §8▸ {0} §8— {1}"
+  info_footer: "§8§m────────────────────────────"
+
+  # Reload
+  reload_success: "§a§l✦ QUESTS §8» §fConfigurações recarregadas!"
+
+  # Quests de Lore (Narrativas Permanentes)
+  lore_quest_completed: "§6§l⚔ LORE QUEST COMPLETA §8» §fVocê finalizou §e{0}§f! Recompensas entregues."
+  lore_step_completed: "§a§l📜 PASSO CONCLUÍDO §8» §f{0} §7— Passo §e{1}§7/§e{2}§7 completo. Continue a jornada!"
+
+# ---- B17: EVENTOS SAZONAIS ----
+seasonal_event:
+  # Info
+  info_header: "§8§m──── §6§l⚡ EVENTO SAZONAL §8§m────"
+  info_footer: "§8§m──────────────────────────────"
+  no_active_event: "  §7Nenhum evento ativo no momento."
+  next_event: "  §fPróximo evento: §e{0} §7— §f{1}"
+  active_name: "  §fEvento: §e{0}"
+  active_description: "  §fDescrição: §7{0}"
+  active_days_remaining: "  §fDias restantes: §b{0}"
+
+  # Multiplicadores
+  multiplier_xp: "  §bXP: §f{0}"
+  multiplier_loot: "  §dLoot: §f{0}"
+  multiplier_money: "  §aMoney: §f{0}"
+  boss_info: "  §c§lBoss Sazonal: §f{0}"
+
+  # Lista
+  list_header: "§8§m──── §6§l⚡ CALENDÁRIO DE EVENTOS §8§m────"
+  list_footer: "§8§m───────────────────────────────────"
+
+  # Admin
+  start_usage: "§e§lGUIA §8» §7Use: §f/evento iniciar <id>"
+  start_success: "§a§lSUCESSO §8» §fEvento §e{0} §finiciado manualmente!"
+  event_not_found: "§c§lERRO §8» §7Evento '{0}' não encontrado. Use §e/evento lista§7."
+  stop_success: "§a§lSUCESSO §8» §fEvento sazonal parado."
+  reload_success: "§a§l⚡ EVENTO §8» §fConfigurações de eventos sazonais recarregadas!"
+
+  # Login
+  login_notify: "§6§l⚡ EVENTO ATIVO §8» §e{0} §f— §b{1} dias restantes!"
+  login_multipliers: "  §fMultiplicadores: {0}"
+
+# ---- B18: SISTEMA DE REPUTAÇÃO / KARMA ----
+karma:
+  # Header/Footer
+  header: "§8§m──── §e§l⚖ REPUTAÇÃO §8§m────"
+  footer: "§8§m────────────────────────────"
+
+  # Consulta
+  self: "  §7Seu karma: §f{0} §8(§r{1}§8)"
+  other: "  §7Karma de §f{0}§7: §f{1} §8(§r{2}§8)"
+  player_not_found: "§c§lERRO §8» §7Jogador não encontrado."
+
+  # Mudança de karma
+  gained: "§a§l⚖ KARMA §8» §f+{0} karma §7({1}). Total: §f{2}"
+  lost: "§c§l⚖ KARMA §8» §f-{0} karma §7({1}). Total: §f{2}"
+  rank_changed: "§e§l⚖ REPUTAÇÃO §8» §fSeu status mudou para: {0}"
+
+  # Motivos
+  reason_kill: "Matar jogador"
+  reason_boss: "Ajudar em boss"
+  reason_market: "Venda no mercado"
+  reason_quest: "Missão completa"
+
+  # Leaderboard
+  top_header: "§8§m──── §e§l⚖ TOP KARMA §8§m────"
+  top_entry: "  §e#{0} §f{1} §7— §f{2} §8(§r{3}§8)"
+  top_empty: "  §7Nenhum dado disponível."
+  top_footer: "§8§m────────────────────────────"
+
+  # Admin
+  admin_set: "§a§l⚖ ADMIN §8» §fKarma de §e{0} §fdefinido para §e{1}§f."
+  admin_add: "§a§l⚖ ADMIN §8» §fAdicionado §e{0} §fkarma a §e{1}§f. Total: §e{2}§f."
+  usage: "§e§lGUIA §8» §7Use: §f/karma §7para ver seu karma, ou §f/karma ajuda§7."
+  usage_set: "§e§lGUIA §8» §7Uso: §f/karma set <nick> <valor>"
+  usage_add: "§e§lGUIA §8» §7Uso: §f/karma add <nick> <valor>"
+
+  # Efeitos
+  bounty_auto: "§c§l☠ BOUNTY §8» §7Sua reputação é tão baixa que uma §ebounty automática §7foi colocada na sua cabeça!"
+  reveal_broadcast: "§c§l⚠ PROCURADO §8» §f{0} §7foi avistado(a) em §e{1}§7!"
+
+  # Ajuda
+  help_header: "§8§m──── §e§l⚖ KARMA — AJUDA §8§m────"
+  help_view: "§e /karma §8— §7Ver seu karma"
+  help_other: "§e /karma <nick> §8— §7Ver karma de outro jogador"
+  help_top: "§e /karma top §8— §7Ver ranking de karma"
+  help_set: "§e /karma set <nick> <valor> §8— §7[Admin] Define karma"
+  help_add: "§e /karma add <nick> <valor> §8— §7[Admin] Altera karma"
+  help_footer: "§8§m────────────────────────────"
+
+# ---- BATTLE PASS (B15) ----
+battlepass:
+  # Level-Up
+  levelup_title: "§6§l⬆ NÍVEL {0}!"
+  levelup_subtitle: "§eBattle Pass — Continue evoluindo!"
+  levelup_chat: "§b§l[BattlePass] §fVocê subiu para o §eNível {0}§f! Resgate suas recompensas."
+
+  # XP
+  xp_gained: "§b§l[BattlePass] §f+§e{0} XP §7({1})"
+
+  # Claim Rewards
+  already_claimed: "§c§lERRO §8» §7Você já resgatou esta recompensa."
+  reward_claimed: "§a§lBATTLE PASS §8» §fRecompensa do nível §e{0} §f({1}§f) resgatada!"
+  invalid_level: "§c§lERRO §8» §7Nível inválido."
+  level_too_low: "§c§lERRO §8» §7Você precisa atingir o nível §e{0} §7antes."
+  no_premium: "§c§lERRO §8» §7Você precisa do §dBattle Pass Premium §7para resgatar esta recompensa."
+  no_reward: "§c§lERRO §8» §7Nenhuma recompensa configurada para este nível."
+
+  # GUI
+  gui_title: "§6§lBattle Pass §8(Pág. {0}/{1})"
+  gui_season_title: "§e{0}"
+  gui_season_number: "§7Temporada: §f{0}"
+  gui_days_remaining: "§7Dias restantes: §f{0}"
+  gui_your_level: "§7Seu nível: §e{0}§7/§e{1}"
+  gui_your_xp: "§7Seu XP: §e{0}§7/§e{1}"
+
+  # Info Command
+  info_header: "§8§m──── §6§lBATTLE PASS §8§m────"
+  info_season: "§f Temporada: §e{0}"
+  info_season_number: "§f Número: §e{0}"
+  info_days: "§f Dias restantes: §e{0}"
+  info_active: "§f Ativa: {0}"
+  info_levels: "§f Níveis: §e{0}"
+  info_your_level: "§f Seu nível: §e{0}"
+  info_your_xp: "§f Seu XP: §e{0}"
+  info_your_premium: "§f Premium: {0}"
+  level_info: "§f Nível §e{0}§f/§e{1} §8| §fXP: §e{2}§f/§e{3}"
+
+  # Claim Command
+  claim_usage: "§e§lGUIA §8» §7Use: §f/bp claim <nível> [free|premium]"
+
+  # Premium
+  premium_usage: "§e§lGUIA §8» §7Use: §f/bp premium <jogador>"
+  premium_activated: "§a§lBATTLE PASS §8» §fPremium ativado para §e{0}§f!"
+  premium_received: "§d§lBATTLE PASS §8» §fSeu Battle Pass foi ativado para §dPremium§f! ⭐"
+
+  # Reset
+  reset_usage: "§e§lGUIA §8» §7Use: §f/bp reset <jogador>"
+  reset_done: "§a§lBATTLE PASS §8» §fProgresso de §e{0} §freiniciado."
+
+  # Reload
+  reloaded: "§a§lBATTLE PASS §8» §fConfiguração do Battle Pass recarregada!"
+
+  # Help
+  help_header: "§8§m──── §6§lBATTLE PASS — AJUDA §8§m────"
+
+# ---- SISTEMA DE LORE (Livros e Totems) ----
+lore:
+  book_received: "§a§l📖 LORE §8» §fVocê encontrou um tomo antigo! Abra o livro para lê-lo."
+  already_has_book: "§e§l📖 LORE §8» §7Você já possui este livro de lore."
+  inventory_full: "§c§lERRO §8» §7Seu inventário está cheio! Libere espaço para o livro."
+  totem_cooldown: "§e§l🗿 TOTEM §8» §7Aguarde §e{0}s §7para interagir novamente."
+
+
+# ---- B25: TELEPORTE ALEATÓRIO (/rtp) ----
+rtp:
+  searching: "§b§lRTP §8» §fProcurando um local seguro..."
+  success: "§a§lRTP §8» §fTeleportado para §eX: {0} §fZ: §e{1}§f. Boa exploração!"
+  cooldown: "§c§lRTP §8» §7Aguarde §e{0}m {1}s §7para usar novamente."
+  no_safe_location: "§c§lRTP §8» §7Não foi possível encontrar um local seguro. Tente novamente!"
+  in_combat: "§c§lRTP §8» §7Você não pode teleportar durante combate!"
+  wrong_world: "§c§lRTP §8» §7O /rtp só funciona no Overworld."
+
+# ---- B28: CÓDEX DE GORVAX (Enciclopédia) ----
+codex:
+  unlocked: "§6§l📖 CÓDEX §8» §fNova entrada desbloqueada: §a{entry} §7({category})"
+  already_unlocked: "§e§l📖 CÓDEX §8» §7Esta entrada já foi desbloqueada."
+  not_found: "§c§lERRO §8» §7Entrada do Códex não encontrada: §c{key}"
+  give_usage: "§c§lUSO §8» §7/codex give <player> <categoria.entry>"
+  give_success: "§a§l📖 CÓDEX §8» §fEntrada §e{entry} §fdesbloqueada para §a{player}§f."
+  reset_usage: "§c§lUSO §8» §7/codex reset <player>"
+  reset_success: "§a§l📖 CÓDEX §8» §fProgresso do Códex de §a{player} §fzerado."
+  progress_header: "§6§l═══ 📖 Códex de Gorvax ═══\n§7Desbloqueados: §e{unlocked}§7/§e{total} §8(§b{percent}%§8)\n§7\n§e💡 Explore o mundo para desbloquear entradas!"
+  progress_category: "  §8▸ §f{category}: §e{unlocked}§7/§e{total} §8(§b{percent}%§8)"
+
+# ---- B33: MIGRAÇÃO DE CONFIGURAÇÕES ----
+config_migration:
+  migrateconfig_success: "§a[Gorvax] ✓ Re-migração concluída! {0} step(s) aplicado(s)."
+  migrateconfig_uptodate: "§e[Gorvax] Configurações já estão atualizadas (v{0})."
+  backup_created: "§7[ConfigMigrator] Backup criado: {0}"
+  migration_applied: "§a[ConfigMigrator] Migração {0} aplicada com sucesso."
+
+# ---- B37: HUB DE TELEPORTES & BÚSSOLA ----
+teleport_hub:
+  # Título da GUI
+  title: "§8§l✦ HUB DE TELEPORTES ✦"
+  bedrock_content: "§7Selecione um destino:"
+
+  # Bússola
+  compass_name: "§b§l🧭 Hub de Teleportes"
+  compass_hint: "§7Clique direito para abrir o menu de teleportes."
+
+  # Botões da GUI principal
+  spawn_name: "§c§l🛏 Spawn"
+  spawn_lore: "§7Teleporte ao spawn do servidor.\n§7\n§e⏱ Warmup: §f5s | §eCooldown: §f30s\n§e💡 Dica: §fNão se mova durante o warmup!"
+  rtp_name: "§a§l🌍 Teleporte Aleatório"
+  rtp_lore: "§7Encontre um local seguro no mapa.\n§7\n§a🌍 Como funciona: §fTP para coordenada aleatória\n§e⏱ Cooldown: §f5 minutos\n§e💡 Dica: §fSó funciona no Overworld!"
+  kingdoms_name: "§6§l👑 Reinos Públicos"
+  kingdoms_lore: "§7Visite reinos de outros jogadores.\n§7\n§6👑 Lista: §fReinos com visita habilitada\n§e💰 Custo: §f$500 | §e⏱ Cooldown: §f60s\n§e💡 Dica: §fConheça os reinos antes de se aliar!"
+  structures_name: "§e§l🗺 Cidades & POIs"
+  structures_lore: "§7Visite cidades e pontos de interesse.\n§7\n§e🗺 Locais: §fEstruturas registradas no servidor\n§e📍 Info: §fDistância e descrição de cada local\n§e💡 Dica: §fDescubra locais épicos!"
+  my_kingdom_name: "§d§l🏠 Meu Reino"
+  my_kingdom_lore: "§7Teleporte ao spawn do seu reino.\n§7\n§d🏠 Rápido: §fVolte ao seu reino em segundos\n§e⏱ Warmup: §f3s | §eCooldown: §f30s\n§e💡 Dica: §fDefina o spawn com §e/reino setspawn"
+  my_kingdom_none: "§cVocê não possui um reino."
+  close_name: "§c§lFechar"
+
+  # Sub-GUIs
+  kingdoms_title: "§8§l👑 Reinos Públicos"
+  structures_title: "§8§l🗺 Cidades & POIs"
+
+  # Feedback de teleporte
+  spawn_tp: "§a§l🛏 SPAWN §8» §fTeleportado ao spawn!"
+  kingdom_tp: "§a§l🏠 REINO §8» §fTeleportado ao seu reino!"
+  kingdom_none: "§c§l🏠 ERRO §8» §7Você não possui um reino."
+
+  # Warmup e Cooldown
+  warmup: "§e§l⏳ TP §8» §fTeleportando em §e{0}s§f... Não se mova!"
+  warmup_cancelled: "§c§l✖ TP §8» §7Teleporte cancelado (você se moveu)."
+  cooldown: "§c§lTP §8» §7Aguarde §e{0}s §7para teleportar novamente."
+
+  # Combat check
+  combat_blocked: "§c§l⚔ TP §8» §7Você não pode teleportar durante combate!"
+
+# ---- B40: GUIA DO REI ----
+king_guide:
+  header: "§6§l━━━━ 👑 GUIA DO REI ━━━━"
+  management_header: "§e🏰 Gerenciamento:"
+  management_rename: "§f  • §e/reinonome <nome> §7— Renomear reino"
+  management_spawn: "§f  • §e/reino setspawn §7— Definir ponto de spawn"
+  management_invite: "§f  • §e/reino convidar <nick> §7— Convidar membros"
+  management_kick: "§f  • §e/reino expulsar <nick> §7— Remover súdito"
+  pvp_header: "§e⚔ PvP:"
+  pvp_global: "§f  • §e/reino pvp global <on/off> §7— PvP geral"
+  pvp_residents: "§f  • §e/reino pvp moradores <on/off> §7— PvP entre membros"
+  pvp_external: "§f  • §e/reino pvp externo <on/off> §7— PvP fora do reino"
+  visit_header: "§e🌍 Visitas:"
+  visit_info: "§f  • §7O reino é público por padrão (toggle no menu)"
+  visit_command: "§f  • §7Jogadores visitam via §e/reino visitar <nome>"
+  economy_header: "§e💰 Economia:"
+  economy_info: "§f  • §7Ajuste impostos diários no menu admin"
+  economy_deposit: "§f  • §e/reino depositar <valor> §7— Depositar no banco"
+  economy_withdraw: "§f  • §e/reino sacar <valor> §7— Sacar do banco"
+  lots_header: "§e🏘 Lotes:"
+  lots_tool: "§f  • §7Use a §ePá de Ferro §7dentro do reino"
+  lots_price: "§f  • §7Defina preço/aluguel para súditos"
+  lots_create: "§f  • §e/lote criar §7— Criar lote na seleção"
+  diplomacy_header: "§e🤝 Diplomacia:"
+  diplomacy_alliance: "§f  • §e/reino alianca <reino> §7— Propor aliança"
+  diplomacy_enemy: "§f  • §e/reino inimigo <reino> §7— Declarar inimizade"
+  diplomacy_war: "§f  • §e/reino guerra declarar <reino> §7— Guerra"
+  vote_header: "§e🗳 Votação:"
+  vote_create: "§f  • §e/reino votar criar <pergunta> §7— Criar votação"
+  footer: "§6§l━━━━━━━━━━━━━━━━━━━"
+
+# ---- B40: VISITAR REINOS ----
+visit_kingdoms:
+  header: "§6§l🌍 REINOS PÚBLICOS"
+  info: "§7Para visitar um reino, use:"
+  command: "§e  /reino visitar <nome>"
+  list_info: "§7Para ver a lista de reinos:"
+  list_command: "§e  /reino lista"
+  cost_info: "§7💰 Custo: §f$500 §7| ⏱ Cooldown: §f60s"
+
+# ---- B43: MIGRAÇÃO DE STRINGS HARDCODED ----
+
+# ---- VIP (showInfo / showStatus) ----
+vip:
+  info_header: "§8§m─────────────── §6§l✦ RANKS VIP ✦ §8§m───────────────"
+  info_tier_blocks: "    §7Blocos extras: §a+{0}"
+  info_tier_homes: "    §7Homes extras: §a+{0}"
+  info_tier_discount: "    §7Desconto mercado: §a{0}%"
+  info_tier_keys: "    §7Keys mensais: {0}"
+  info_tier_key_entry: "§e{0}x {1}"
+  info_footer: "§8§m─────────────── §7Use §e/vip status §8§m──────────────"
+  status_header: "§8§m──────────── §6§l✦ SEU STATUS VIP ✦ §8§m────────────"
+  status_none_rank: "  §7Seu rank atual: §cNenhum"
+  status_none_hint_shop: "  §7Adquira um rank VIP na §eloja do servidor§7!"
+  status_none_hint_info: "  §7Use §e/vip info §7para ver os benefícios."
+  status_rank: "  §7Seu rank: {0}"
+  status_benefits_header: "  §a§lBENEFÍCIOS ATIVOS:"
+  status_blocks: "    §7✦ Blocos extras: §a+{0} §7(já aplicados)"
+  status_homes: "    §7✦ Homes extras: §a+{0}"
+  status_discount: "    §7✦ Desconto mercado: §a{0}%"
+  status_keys_header: "    §7✦ Keys mensais:"
+  status_key_entry: "      §e{0}x §f{1}"
+  status_footer: "§8§m──────────────────────────────────────────────"
+
+# ---- ESTRUTURAS ----
+structure:
+  player_only: "§c[Estruturas] Apenas jogadores podem criar estruturas."
+  player_only_tp: "§c[Estruturas] Apenas jogadores podem teleportar."
+  usage_create: "§c[Estruturas] Uso: /estrutura criar <id> <nome> <tema> <raio>"
+  usage_create_example: "§7Exemplo: /estrutura criar reino_deserto §6Reino_do_Deserto §7deserto §7150"
+  usage_create_hint: "§7Use _ no lugar de espaços no nome (serão convertidos)."
+  invalid_radius: "§c[Estruturas] Raio inválido. Use um número inteiro (ex: 150)."
+  radius_out_of_range: "§c[Estruturas] Raio deve ser entre 10 e 1000 blocos."
+  already_exists: "§c[Estruturas] Já existe uma estrutura com o ID '§e{0}§c'."
+  created_success: "§a§l[Estruturas] §aEstrutura criada com sucesso!"
+  created_details: "§7ID: §e{0} §7| Nome: §f{1} §7| Tema: §f{2}"
+  created_location: "§7Centro: §f{0}, {1}, {2} §7| Raio: §f{3} blocos"
+  create_error: "§c[Estruturas] Erro ao criar estrutura."
+  usage_delete: "§c[Estruturas] Uso: /estrutura deletar <id>"
+  not_found: "§c[Estruturas] Estrutura '§e{0}§c' não encontrada."
+  deleted: "§a[Estruturas] Estrutura '§e{0}§a' deletada com sucesso."
+  list_empty: "§e[Estruturas] Nenhuma estrutura registrada ainda."
+  list_empty_hint: "§7Use /estrutura criar para mapear uma build."
+  list_header: "§6§l══════ Estruturas do Mundo ══════"
+  list_entry: "  {0} §e{1} §7- §f{2}{3}"
+  list_dist: " §7(§f{0} blocos§7)"
+  list_other_world: " §7(outro mundo)"
+  list_footer: "§6§l══════════════════════════"
+  list_total: "§7Total: §f{0} estrutura(s)"
+  list_hint: "§7Use §e/estrutura tp <id> §7para teleportar."
+  usage_tp: "§c[Estruturas] Uso: /estrutura tp <id>"
+  world_not_loaded: "§c[Estruturas] Mundo '§e{0}§c' não está carregado."
+  tp_success: "§a[Estruturas] Teleportado para §f{0}§a!"
+  usage_info: "§c[Estruturas] Uso: /estrutura info <id>"
+  info_not_found: "§e[Estruturas] Nenhuma estrutura encontrada nesta posição."
+  info_not_found_hint: "§7Dica: use /estrutura info <id> para ver uma específica."
+  info_header: "§6§l══════ Informações da Estrutura ══════"
+  info_id: "§7ID: §e{0}"
+  info_name: "§7Nome: §f{0}"
+  info_theme: "§7Tema: {0} §f{1}"
+  info_world: "§7Mundo: §f{0}"
+  info_center: "§7Centro: §f{0}, {1}, {2}"
+  info_radius: "§7Raio: §f{0} blocos"
+  info_creator: "§7Criado por: §f{0}"
+  info_date: "§7Data: §f{0}"
+  info_footer: "§6§l═══════════════════════════════"
+  reload_success: "§a[Estruturas] Configuração recarregada com sucesso."
+  help_header: "§6§l══════ Estruturas ══════"
+  help_list: "§e/estrutura lista §7— Lista todas as estruturas"
+  help_tp: "§e/estrutura tp <id> §7— Teleporta ao centro"
+  help_info: "§e/estrutura info [id] §7— Informações da estrutura"
+  help_create: "§c/estrutura criar <id> <nome> <tema> <raio> §7— Cria"
+  help_delete: "§c/estrutura deletar <id> §7— Remove"
+  help_reload: "§c/estrutura reload §7— Recarrega YAML"
+  help_footer: "§6§l════════════════════"
+
+# ---- RANK ----
+rank:
+  player_only: "§cApenas jogadores podem usar este comando."
+  disabled: "§c§lRANK §8» §7Sistema de ranks está desativado."
+  info_header: "§8§m━━━━━━━━━━━━━━━━━━━━━━━"
+  info_title: "§6§l  ⬆ SEU RANK"
+  info_current: "§7  Rank atual: {0}"
+  info_next: "§7  Próximo: {0}"
+  info_use_rank: "§7  Use §f/rank §7para ver os requisitos."
+  info_max: "§a  ★ Você está no rank máximo!"
+  no_permission: "§cSem permissão."
+  check_not_ready: "§6§lRANK §8» §7Você ainda não atinge os requisitos para o próximo rank."
+  unknown_command: "§6§lRANK §8» §7Use §f/rank §7para abrir o menu ou §f/rank info §7para ver seu rank."
+
+# ---- KIT ----
+kit:
+  player_only: "§cApenas jogadores podem usar este comando."
+  disabled: "§c§lKIT §8» §7Sistema de kits está desativado."
+
+# ---- COSMÉTICOS (admin give) ----
+cosmetics:
+  not_initialized: "§c[Cosméticos] Sistema não inicializado."
+  admin_give_usage: "§b[Cosméticos] §fUso: §e/cosmetics give <nick> <id>"
+  admin_give_success: "§a[Cosméticos] ✓ {0} §adesbloqueado para §f{1}"
+
+# ---- KARMA (hardcoded) ----
+karma:
+  disabled: "§b[Gorvax] §cSistema de karma desabilitado."
+  data_unavailable: "§c[Gorvax] Dados indisponíveis."
+  top_heroes: "§a§l  ✦ Top 10 Heróis"
+  top_villains: "§c§l  ☠ Top 10 Vilões"
+
+# ---- EVENTOS SAZONAIS (hardcoded) ----
+events:
+  not_initialized: "§c[Gorvax] Sistema de eventos sazonais não inicializado."
+  list_none: "  §7Nenhum evento sazonal configurado."
+
+# ---- ADMIN (migrate / migrateconfig) ----
+admin_migrate:
+  usage: "§b[Gorvax] §fUso: §e/gorvax migrate <origem> <destino>"
+  usage_types: "§7Tipos válidos: §fyaml§7, §fsqlite§7, §fmysql"
+  usage_example: "§7Exemplo: §f/gorvax migrate yaml sqlite"
+  invalid_type: "§c[Gorvax] Tipo inválido! Use: yaml, sqlite ou mysql"
+  same_type: "§c[Gorvax] Origem e destino não podem ser iguais."
+  starting: "§b[Gorvax] §eIniciando migração: §f{0} §e→ §f{1}"
+  starting_hint: "§7Isso pode levar alguns segundos..."
+  success: "§a[Gorvax] ✓ Migração concluída com sucesso!"
+  success_hint: "§7Para usar o novo backend, altere §fstorage.type§7 no §fconfig.yml§7 e reinicie."
+  error: "§c[Gorvax] ✗ Erro na migração: {0}"
+
+admin_migrateconfig:
+  already_updated: "§e[Gorvax] Configurações já estão atualizadas (v{0})."
+  forcing: "§7Forçando re-migração..."
+  success: "§a[Gorvax] ✓ Re-migração concluída! {0} step(s) aplicado(s)."
+  current_version: "§7Versão atual do config: v{0}"
+  no_pending: "§e[Gorvax] Nenhuma migração pendente."
+
+admin_audit:
+  not_initialized: "§c[Auditoria] Sistema de auditoria não inicializado."

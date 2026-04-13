@@ -1,0 +1,25 @@
+# Build
+build/
+.gradle/
+out/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime / Plugin state
+.gorvax-state.json
+
+# Gradle wrapper (already committed, but just in case)
+!gradle/wrapper/gradle-wrapper.jar

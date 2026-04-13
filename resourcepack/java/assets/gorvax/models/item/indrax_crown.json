@@ -1,0 +1,328 @@
+{
+    "credit": "GorvaxCore — Coroa de Indrax (modelo customizado)",
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "gorvax:item/indrax_crown"
+    },
+    "elements": [
+        {
+            "__comment": "Base da coroa — anel",
+            "from": [
+                3,
+                0,
+                3
+            ],
+            "to": [
+                13,
+                3,
+                13
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        2,
+                        10,
+                        12,
+                        13
+                    ],
+                    "texture": "#layer0"
+                },
+                "south": {
+                    "uv": [
+                        2,
+                        10,
+                        12,
+                        13
+                    ],
+                    "texture": "#layer0"
+                },
+                "east": {
+                    "uv": [
+                        2,
+                        10,
+                        12,
+                        13
+                    ],
+                    "texture": "#layer0"
+                },
+                "west": {
+                    "uv": [
+                        2,
+                        10,
+                        12,
+                        13
+                    ],
+                    "texture": "#layer0"
+                },
+                "up": {
+                    "uv": [
+                        2,
+                        2,
+                        12,
+                        12
+                    ],
+                    "texture": "#layer0"
+                },
+                "down": {
+                    "uv": [
+                        2,
+                        2,
+                        12,
+                        12
+                    ],
+                    "texture": "#layer0"
+                }
+            }
+        },
+        {
+            "__comment": "Ponta central — destaque",
+            "from": [
+                7,
+                3,
+                7
+            ],
+            "to": [
+                9,
+                8,
+                9
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        6,
+                        4,
+                        8,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "south": {
+                    "uv": [
+                        6,
+                        4,
+                        8,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "east": {
+                    "uv": [
+                        6,
+                        4,
+                        8,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "west": {
+                    "uv": [
+                        6,
+                        4,
+                        8,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "up": {
+                    "uv": [
+                        6,
+                        4,
+                        8,
+                        6
+                    ],
+                    "texture": "#layer0"
+                }
+            }
+        },
+        {
+            "__comment": "Ponta esquerda",
+            "from": [
+                4,
+                3,
+                7
+            ],
+            "to": [
+                6,
+                6,
+                9
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        3,
+                        6,
+                        5,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "south": {
+                    "uv": [
+                        3,
+                        6,
+                        5,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "east": {
+                    "uv": [
+                        3,
+                        6,
+                        5,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "west": {
+                    "uv": [
+                        3,
+                        6,
+                        5,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "up": {
+                    "uv": [
+                        3,
+                        6,
+                        5,
+                        8
+                    ],
+                    "texture": "#layer0"
+                }
+            }
+        },
+        {
+            "__comment": "Ponta direita",
+            "from": [
+                10,
+                3,
+                7
+            ],
+            "to": [
+                12,
+                6,
+                9
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        9,
+                        6,
+                        11,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "south": {
+                    "uv": [
+                        9,
+                        6,
+                        11,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "east": {
+                    "uv": [
+                        9,
+                        6,
+                        11,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "west": {
+                    "uv": [
+                        9,
+                        6,
+                        11,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "up": {
+                    "uv": [
+                        9,
+                        6,
+                        11,
+                        8
+                    ],
+                    "texture": "#layer0"
+                }
+            }
+        }
+    ],
+    "display": {
+        "gui": {
+            "rotation": [
+                0,
+                0,
+                0
+            ],
+            "translation": [
+                0,
+                0,
+                0
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ]
+        },
+        "ground": {
+            "rotation": [
+                0,
+                0,
+                0
+            ],
+            "translation": [
+                0,
+                2,
+                0
+            ],
+            "scale": [
+                0.5,
+                0.5,
+                0.5
+            ]
+        },
+        "fixed": {
+            "rotation": [
+                0,
+                0,
+                0
+            ],
+            "translation": [
+                0,
+                0,
+                0
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ]
+        },
+        "head": {
+            "rotation": [
+                0,
+                0,
+                0
+            ],
+            "translation": [
+                0,
+                0,
+                0
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ]
+        }
+    }
+}
