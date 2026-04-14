@@ -29,3 +29,7 @@ bin/
 
 # Backup artifacts
 .husk_backups/
+
+# Agent config
+.agent/
+.agents/
