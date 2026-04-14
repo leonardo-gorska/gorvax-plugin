@@ -1,0 +1,7 @@
+{
+    "credit": "GorvaxCore — Pernas do Soberano (modelo customizado)",
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "gorvax:item/gorvax_leggings"
+    }
+}

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GorvaxCore — Galeria de Texturas</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #0a0a0f;
+    color: #e0e0e0;
+    min-height: 100vh;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(180deg, #1a0a2e 0%, #0a0a0f 100%);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #f97316, #ef4444, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+  }
+
+  .hero p {
+    color: #888;
+    font-size: 1.1rem;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 24px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #a855f7;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(255,255,255,0.06);
+  }
+
+  .section-icon { font-size: 1.8rem; }
+
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .section-count {
+    background: rgba(139, 92, 246, 0.15);
+    color: #a855f7;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: #12121a;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.15);
+  }
+
+  .card-img-container {
+    position: relative;
+    background: #1a1a24;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    overflow: hidden;
+  }
+
+  .card-img-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(45deg, #1e1e2a 25%, transparent 25%),
+      linear-gradient(-45deg, #1e1e2a 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #1e1e2a 75%),
+      linear-gradient(-45deg, transparent 75%, #1e1e2a 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+    opacity: 0.3;
+  }
+
+  .card-img-container img {
+    position: relative;
+    max-width: 100%;
+    max-height: 300px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    z-index: 1;
+  }
+
+  .card-info {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #fff;
+  }
+
+  .card-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .badge-boss {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+  }
+
+  .badge-mini {
+    background: rgba(249, 115, 22, 0.15);
+    color: #fb923c;
+  }
+
+  .badge-item {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+  }
+
+  .lightbox.active { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 80vh;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    border-radius: 8px;
+    box-shadow: 0 0 60px rgba(139,92,246,0.3);
+  }
+
+  .lightbox-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .lightbox-hint {
+    color: #666;
+    font-size: 0.85rem;
+  }
+
+  .divider {
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.3), transparent);
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>⚔️ GorvaxCore Texturas</h1>
+  <p>Galeria completa — Bosses, Mini Bosses & Itens Customizados</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number">4</div>
+      <div class="stat-label">World Bosses</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">7</div>
+      <div class="stat-label">Mini Bosses</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">5</div>
+      <div class="stat-label">Itens</div>
+    </div>
+  </div>
+</div>
+
+<!-- WORLD BOSSES -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">👑</span>
+    <span class="section-title">World Bosses</span>
+    <span class="section-count">4 texturas</span>
+  </div>
+  <div class="grid">
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/minecraft/optifine/cit/gorvax_bosses/king_gorvax.png" alt="King Gorvax">
+      </div>
+      <div class="card-info">
+        <span class="card-name">King Gorvax</span>
+        <span class="card-badge badge-boss">World Boss</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/minecraft/optifine/cit/gorvax_bosses/skulkor.png" alt="Skulkor">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Skulkor</span>
+        <span class="card-badge badge-boss">World Boss</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/minecraft/optifine/cit/gorvax_bosses/indrax_abissal.png" alt="Indrax Abissal">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Indrax Abissal</span>
+        <span class="card-badge badge-boss">World Boss</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/minecraft/optifine/cit/gorvax_bosses/vulgathor.png" alt="Vulgathor">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Vulgathor</span>
+        <span class="card-badge badge-boss">World Boss</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MINI BOSSES -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚡</span>
+    <span class="section-title">Mini Bosses</span>
+    <span class="section-count">7 texturas</span>
+  </div>
+  <div class="grid">
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/minecraft/optifine/cit/gorvax_bosses/zarith.png" alt="Zarith">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Zarith</span>
+        <span class="card-badge badge-mini">Mini Boss</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/minecraft/optifine/cit/gorvax_bosses/xylos.png" alt="Xylos">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Xylos</span>
+        <span class="card-badge badge-mini">Mini Boss</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/minecraft/optifine/cit/gorvax_bosses/kaldur.png" alt="Kaldur">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Kaldur</span>
+        <span class="card-badge badge-mini">Mini Boss</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/minecraft/optifine/cit/gorvax_bosses/sentinela_gelida.png" alt="Sentinela Gélida">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Sentinela Gélida</span>
+        <span class="card-badge badge-mini">Mini Boss</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/minecraft/optifine/cit/gorvax_bosses/guardiao_deserto.png" alt="Guardião do Deserto">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Guardião do Deserto</span>
+        <span class="card-badge badge-mini">Mini Boss</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/minecraft/optifine/cit/gorvax_bosses/fantasma_nether.png" alt="Fantasma do Nether">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Fantasma do Nether</span>
+        <span class="card-badge badge-mini">Mini Boss</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/minecraft/optifine/cit/gorvax_bosses/aranha_selva.png" alt="Aranha da Selva">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Aranha da Selva</span>
+        <span class="card-badge badge-mini">Mini Boss</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ITENS CUSTOMIZADOS -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🗡️</span>
+    <span class="section-title">Itens Customizados</span>
+    <span class="section-count">5 texturas</span>
+  </div>
+  <div class="grid">
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/gorvax/textures/item/gorvax_blade.png" alt="Gorvax Blade">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Gorvax Blade</span>
+        <span class="card-badge badge-item">Item</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/gorvax/textures/item/guardian_shield.png" alt="Guardian Shield">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Guardian Shield</span>
+        <span class="card-badge badge-item">Item</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/gorvax/textures/item/hunter_bow.png" alt="Hunter Bow">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Hunter Bow</span>
+        <span class="card-badge badge-item">Item</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/gorvax/textures/item/indrax_crown.png" alt="Indrax Crown">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Indrax Crown</span>
+        <span class="card-badge badge-item">Item</span>
+      </div>
+    </div>
+    <div class="card" onclick="openLightbox(this)">
+      <div class="card-img-container">
+        <img src="java/assets/gorvax/textures/item/speed_boots.png" alt="Speed Boots">
+      </div>
+      <div class="card-info">
+        <span class="card-name">Speed Boots</span>
+        <span class="card-badge badge-item">Item</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height: 60px;"></div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-title" id="lb-title"></div>
+  <img id="lb-img" src="" alt="">
+  <div class="lightbox-hint">Clique em qualquer lugar para fechar</div>
+</div>
+
+<script>
+  function openLightbox(card) {
+    const img = card.querySelector('img');
+    const name = card.querySelector('.card-name').textContent;
+    document.getElementById('lb-img').src = img.src;
+    document.getElementById('lb-title').textContent = name;
+    document.getElementById('lightbox').classList.add('active');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+</body>
+</html>

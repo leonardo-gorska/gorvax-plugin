@@ -1,0 +1,148 @@
+# ============================================================
+# GorvaxCore — B17: Eventos Sazonais Expandidos
+# Cada evento temático mensal com multiplicadores e boss sazonal.
+# ============================================================
+
+events:
+
+  # --- Janeiro: Torneio de Duelos ---
+  torneio_duelos:
+    name: "§6§l⚔ Torneio de Duelos"
+    description: "Bracket eliminatório! Duele e prove seu valor."
+    month: 1
+    start_day: 10
+    end_day: 25
+    boss_id: ""
+    xp_multiplier: 1.5
+    loot_multiplier: 1.0
+    money_multiplier: 1.5
+    achievement_ids:
+      - "seasonal_duels_winner"
+      - "seasonal_duels_10_wins"
+    broadcast_start: "§6§l⚔ TORNEIO DE DUELOS §8» §fO torneio começou! Use §e/duel §fpara desafiar outros guerreiros!"
+    broadcast_end: "§6§l⚔ TORNEIO DE DUELOS §8» §fO torneio terminou! Parabéns aos campeões!"
+    icon: DIAMOND_SWORD
+
+  # --- Fevereiro: Corrida de Reinos ---
+  corrida_reinos:
+    name: "§b§l🏰 Corrida de Reinos"
+    description: "Qual reino cresce mais rápido? Recrute e expanda!"
+    month: 2
+    start_day: 1
+    end_day: 28
+    boss_id: ""
+    xp_multiplier: 1.0
+    loot_multiplier: 1.0
+    money_multiplier: 1.0
+    achievement_ids:
+      - "seasonal_kingdom_growth"
+    broadcast_start: "§b§l🏰 CORRIDA DE REINOS §8» §fA competição começou! Recrute súditos e expanda seu território!"
+    broadcast_end: "§b§l🏰 CORRIDA DE REINOS §8» §fA competição terminou! Verifique §e/top reinos §fpara ver os resultados!"
+    icon: GOLDEN_HELMET
+
+  # --- Março: Caça ao Tesouro ---
+  caca_tesouro:
+    name: "§e§l💎 Caça ao Tesouro"
+    description: "Itens escondidos pelo mapa! Explore e colete."
+    month: 3
+    start_day: 5
+    end_day: 25
+    boss_id: ""
+    xp_multiplier: 1.0
+    loot_multiplier: 2.0
+    money_multiplier: 1.5
+    achievement_ids:
+      - "seasonal_treasure_hunter"
+      - "seasonal_treasure_all_found"
+    broadcast_start: "§e§l💎 CAÇA AO TESOURO §8» §fTesouros foram espalhados pelo mundo! Explore e colete!"
+    broadcast_end: "§e§l💎 CAÇA AO TESOURO §8» §fA caça terminou! Boa sorte na próxima temporada!"
+    icon: CHEST
+
+  # --- Abril: Boss Rush ---
+  boss_rush:
+    name: "§c§l👹 Arena de Bosses"
+    description: "Boss rush — todos os bosses em sequência!"
+    month: 4
+    start_day: 1
+    end_day: 20
+    boss_id: ""
+    xp_multiplier: 2.0
+    loot_multiplier: 1.5
+    money_multiplier: 1.0
+    achievement_ids:
+      - "seasonal_boss_rush_complete"
+      - "seasonal_boss_rush_no_death"
+    broadcast_start: "§c§l👹 ARENA DE BOSSES §8» §fO boss rush começou! Bosses spawnarão com mais frequência!"
+    broadcast_end: "§c§l👹 ARENA DE BOSSES §8» §fA arena fechou! Até a próxima temporada, guerreiros!"
+    icon: WITHER_SKELETON_SKULL
+
+  # --- Maio: Competição de Construção ---
+  competicao_build:
+    name: "§a§l🏗 Competição de Construção"
+    description: "Construa algo incrível! Votação da comunidade."
+    month: 5
+    start_day: 1
+    end_day: 30
+    boss_id: ""
+    xp_multiplier: 1.0
+    loot_multiplier: 1.0
+    money_multiplier: 1.0
+    achievement_ids:
+      - "seasonal_build_winner"
+    broadcast_start: "§a§l🏗 COMPETIÇÃO DE CONSTRUÇÃO §8» §fMostre seus talentos! Construa algo incrível e ganhe prêmios!"
+    broadcast_end: "§a§l🏗 COMPETIÇÃO DE CONSTRUÇÃO §8» §fA competição terminou! Votação em breve!"
+    icon: BRICKS
+
+  # --- Junho: Guerra de Nações ---
+  guerra_nacoes:
+    name: "§4§l⚔ Guerra de Nações"
+    description: "Evento PvP em escala! Nações em guerra total."
+    month: 6
+    start_day: 5
+    end_day: 25
+    boss_id: ""
+    xp_multiplier: 2.0
+    loot_multiplier: 1.5
+    money_multiplier: 2.0
+    achievement_ids:
+      - "seasonal_war_winner"
+      - "seasonal_war_20_kills"
+    broadcast_start: "§4§l⚔ GUERRA DE NAÇÕES §8» §fA guerra começou! Todas as nações podem atacar! PvP realçado!"
+    broadcast_end: "§4§l⚔ GUERRA DE NAÇÕES §8» §fA guerra chegou ao fim! Verifique os vencedores com §e/top kills§f!"
+    icon: NETHERITE_SWORD
+
+  # --- Outubro: Halloween ---
+  halloween:
+    name: "§5§l🎃 Noite Sombria"
+    description: "Monstros mais fortes, loot especial, boss sazonal!"
+    month: 10
+    start_day: 20
+    end_day: 31
+    boss_id: "halloween_boss"
+    xp_multiplier: 1.5
+    loot_multiplier: 2.0
+    money_multiplier: 1.0
+    achievement_ids:
+      - "seasonal_halloween_boss"
+      - "seasonal_halloween_collector"
+    broadcast_start: "§5§l🎃 NOITE SOMBRIA §8» §fA escuridão tomou conta do mundo! Monstros mais fortes, loot especial!"
+    broadcast_end: "§5§l🎃 NOITE SOMBRIA §8» §fA escuridão recuou... até o próximo ano!"
+    icon: CARVED_PUMPKIN
+
+  # --- Dezembro: Natal ---
+  natal:
+    name: "§c§l🎄 Festival de Inverno"
+    description: "Presentes especiais, boss natalino, neve por todo lado!"
+    month: 12
+    start_day: 15
+    end_day: 31
+    boss_id: "natal_boss"
+    xp_multiplier: 2.0
+    loot_multiplier: 2.0
+    money_multiplier: 1.5
+    achievement_ids:
+      - "seasonal_natal_boss"
+      - "seasonal_natal_gift_collector"
+    broadcast_start: "§c§l🎄 FESTIVAL DE INVERNO §8» §fBoas festas! Presentes especiais e um boss natalino esperam por você!"
+    broadcast_end: "§c§l🎄 FESTIVAL DE INVERNO §8» §fO festival terminou! Feliz ano novo, guerreiros!"
+    icon: SNOW_BLOCK

@@ -1,0 +1,18 @@
+{
+    "serialize_name": "GorvaxCoreSkins",
+    "localization_name": "GorvaxCoreSkins",
+    "skins": [
+        {
+            "localization_name": "DarkKnight",
+            "geometry": "geometry.humanoid.custom",
+            "texture": "dark_knight.png",
+            "type": "free"
+        },
+        {
+            "localization_name": "RGBMage",
+            "geometry": "geometry.humanoid.custom",
+            "texture": "rgb_mage.png",
+            "type": "free"
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "asset_id": "gorvax:gorvax_full",
+    "description": {
+        "translate": "trim_pattern.gorvax.gorvax_full"
+    },
+    "template_item": "minecraft:netherite_upgrade_smithing_template",
+    "decal": false
+}

@@ -1,0 +1,2497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GorvaxMC — Manual da Staff</title>
+    <meta name="description"
+        content="Manual técnico da Staff do GorvaxCore: configuração, comandos admin, permissões, infraestrutura e troubleshooting.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=MedievalSharp&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --obsidian: #1a1a2e;
+            --obsidian-light: #16213e;
+            --bedrock: #0f0f1a;
+            --nether-gold: #d4a017;
+            --nether-gold-dim: #a67c00;
+            --ender-purple: #9b59b6;
+            --ender-purple-deep: #6c3483;
+            --blood-red: #c0392b;
+            --blood-red-dim: #922b21;
+            --diamond-blue: #3498db;
+            --diamond-blue-dim: #2176ad;
+            --emerald: #2ecc71;
+            --emerald-dim: #1e8449;
+            --netherite: #4a4a4a;
+            --stone-gray: #7f8c8d;
+            --parchment: #f5e6c8;
+            --text-primary: #e8e8e8;
+            --text-secondary: #b0b0b0;
+            --text-gold: #ffd700;
+            --enchant-glow: rgba(155, 89, 182, 0.4);
+            --font-pixel: 'Press Start 2P', monospace;
+            --font-medieval: 'MedievalSharp', cursive;
+            --font-body: 'Inter', sans-serif;
+            --staff-accent: #e74c3c;
+            --staff-accent-dim: #c0392b;
+            --admin-blue: #2980b9;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(180deg, var(--bedrock) 0%, var(--obsidian) 40%, var(--obsidian-light) 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        ::selection {
+            background: var(--staff-accent);
+            color: #fff;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bedrock);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--staff-accent-dim);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--staff-accent);
+        }
+
+        @keyframes enchantPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(231, 76, 60, 0.3), 0 0 40px rgba(231, 76, 60, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(231, 76, 60, 0.5), 0 0 60px rgba(231, 76, 60, 0.2);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-8px)
+            }
+        }
+
+        @keyframes pulse-badge {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(ellipse at center, rgba(231, 76, 60, 0.12) 0%, transparent 70%), linear-gradient(180deg, var(--bedrock), var(--obsidian));
+            position: relative;
+            overflow: hidden;
+            padding: 40px 24px;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='60' height='60' fill='none'/%3E%3Crect x='0' y='0' width='30' height='30' fill='rgba(231,76,60,0.03)'/%3E%3Crect x='30' y='30' width='30' height='30' fill='rgba(231,76,60,0.03)'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .cover-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+            animation: float 4s ease-in-out infinite;
+            position: relative;
+        }
+
+        .cover h1 {
+            font-family: var(--font-pixel);
+            font-size: clamp(1.2rem, 3.5vw, 2rem);
+            color: var(--staff-accent);
+            text-shadow: 0 0 30px rgba(231, 76, 60, 0.5), 0 2px 4px rgba(0, 0, 0, 0.8);
+            margin-bottom: 16px;
+            position: relative;
+            letter-spacing: 2px;
+        }
+
+        .cover h2 {
+            font-family: var(--font-medieval);
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            color: var(--nether-gold);
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .cover .version {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--stone-gray);
+            border: 1px solid var(--staff-accent-dim);
+            padding: 6px 18px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .staff-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.2), rgba(192, 57, 43, 0.3));
+            border: 1px solid var(--staff-accent-dim);
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: var(--font-pixel);
+            color: var(--staff-accent);
+            margin-bottom: 24px;
+            position: relative;
+            animation: pulse-badge 3s ease-in-out infinite;
+        }
+
+        .toc {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95));
+            border-radius: 8px;
+            padding: 32px;
+            margin: 48px auto;
+            max-width: 700px;
+            border: 1px solid rgba(231, 76, 60, 0.15);
+        }
+
+        .toc h2 {
+            font-family: var(--font-pixel);
+            font-size: 0.85rem;
+            color: var(--staff-accent);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc;
+            padding: 0;
+        }
+
+        .toc li {
+            counter-increment: toc;
+            margin-bottom: 6px;
+        }
+
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 0.92rem;
+        }
+
+        .toc a::before {
+            content: counter(toc, decimal-leading-zero) '.';
+            font-family: var(--font-pixel);
+            font-size: 0.6rem;
+            color: var(--staff-accent);
+            margin-right: 12px;
+            min-width: 32px;
+        }
+
+        .toc a:hover {
+            background: rgba(231, 76, 60, 0.1);
+            color: var(--text-gold);
+            transform: translateX(6px);
+        }
+
+        .section {
+            padding: 64px 0 48px;
+            animation: fadeInUp 0.6s ease-out;
+            border-top: 1px solid rgba(231, 76, 60, 0.15);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--staff-accent-dim);
+        }
+
+        .section-header .icon {
+            font-size: 32px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-medieval);
+            font-size: 1.8rem;
+            color: var(--staff-accent);
+            text-shadow: 0 0 12px rgba(231, 76, 60, 0.3);
+        }
+
+        .section-header .section-num {
+            font-family: var(--font-pixel);
+            font-size: 0.55rem;
+            color: var(--nether-gold);
+            opacity: 0.7;
+        }
+
+        h3 {
+            font-family: var(--font-medieval);
+            font-size: 1.3rem;
+            color: var(--diamond-blue);
+            margin: 28px 0 14px;
+        }
+
+        h4 {
+            font-size: 1.05rem;
+            color: var(--ender-purple);
+            margin: 20px 0 10px;
+        }
+
+        p {
+            margin-bottom: 14px;
+            color: var(--text-secondary);
+        }
+
+        ul,
+        ol {
+            margin: 0 0 14px 20px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        a {
+            color: var(--diamond-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--nether-gold);
+            text-decoration: underline;
+        }
+
+        .command-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.88rem;
+        }
+
+        .command-table thead th {
+            background: var(--obsidian-light);
+            color: var(--staff-accent);
+            font-family: var(--font-pixel);
+            font-size: 0.6rem;
+            text-align: left;
+            padding: 12px 14px;
+            border-bottom: 2px solid var(--staff-accent-dim);
+        }
+
+        .command-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(127, 140, 141, 0.15);
+            vertical-align: top;
+        }
+
+        .command-table tr:hover td {
+            background: rgba(231, 76, 60, 0.06);
+        }
+
+        .command-table code {
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--emerald);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        .config-block {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 18px;
+            margin: 16px 0;
+            overflow-x: auto;
+            font-size: 0.82rem;
+            font-family: 'Consolas', 'Courier New', monospace;
+            line-height: 1.6;
+            color: #c9d1d9;
+        }
+
+        .config-block .key {
+            color: #79c0ff;
+        }
+
+        .config-block .val-str {
+            color: #a5d6ff;
+        }
+
+        .config-block .val-num {
+            color: #56d364;
+        }
+
+        .config-block .comment {
+            color: #8b949e;
+            font-style: italic;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.08), rgba(192, 57, 43, 0.08));
+            border-left: 4px solid var(--staff-accent);
+            border-radius: 0 8px 8px 0;
+            padding: 18px 24px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .warning-box .warning-title {
+            font-family: var(--font-pixel);
+            font-size: 0.6rem;
+            color: var(--staff-accent);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.08), rgba(41, 128, 185, 0.08));
+            border-left: 4px solid var(--diamond-blue);
+            border-radius: 0 8px 8px 0;
+            padding: 18px 24px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .info-box .info-title {
+            font-family: var(--font-pixel);
+            font-size: 0.6rem;
+            color: var(--diamond-blue);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.08), rgba(30, 132, 73, 0.08));
+            border-left: 4px solid var(--emerald);
+            border-radius: 0 8px 8px 0;
+            padding: 18px 24px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .tip-box .tip-title {
+            font-family: var(--font-pixel);
+            font-size: 0.6rem;
+            color: var(--emerald);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 48px 0;
+            color: var(--stone-gray);
+            font-size: 1.2rem;
+            opacity: 0.5;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--stone-gray), transparent);
+        }
+
+        .file-card {
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(15, 15, 26, 0.95));
+            border-radius: 10px;
+            padding: 20px;
+            margin: 16px 0;
+            border: 1px solid rgba(231, 76, 60, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .file-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(231, 76, 60, 0.15);
+        }
+
+        .file-card .file-name {
+            font-family: 'Consolas', monospace;
+            font-size: 0.95rem;
+            color: var(--emerald);
+            margin-bottom: 8px;
+        }
+
+        .file-card .file-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .perm-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.82rem;
+        }
+
+        .perm-table thead th {
+            background: rgba(231, 76, 60, 0.1);
+            color: var(--staff-accent);
+            font-family: var(--font-pixel);
+            font-size: 0.55rem;
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 2px solid var(--staff-accent-dim);
+        }
+
+        .perm-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(127, 140, 141, 0.1);
+            vertical-align: top;
+            font-size: 0.82rem;
+        }
+
+        .perm-table tr:hover td {
+            background: rgba(231, 76, 60, 0.04);
+        }
+
+        .perm-table code {
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--emerald);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.78rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 48px 24px;
+            margin-top: 64px;
+            border-top: 1px solid rgba(231, 76, 60, 0.15);
+            color: var(--stone-gray);
+            font-size: 0.8rem;
+        }
+
+        .footer .brand {
+            font-family: var(--font-pixel);
+            font-size: 0.65rem;
+            color: var(--staff-accent);
+            margin-bottom: 8px;
+        }
+
+        /* --- Back to Top Button --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--staff-accent-dim), var(--staff-accent));
+            color: #fff;
+            border: 2px solid rgba(231, 76, 60, 0.5);
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            z-index: 1000;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 20px rgba(231, 76, 60, 0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 6px 24px rgba(231, 76, 60, 0.4);
+        }
+
+        /* --- Contracapa --- */
+        .contracapa {
+            text-align: center;
+            padding: 64px 24px;
+            margin-top: 48px;
+            border-top: 2px solid var(--staff-accent-dim);
+            background: linear-gradient(180deg, transparent, rgba(231, 76, 60, 0.05));
+        }
+
+        .contracapa .logo {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .contracapa h3 {
+            font-family: var(--font-pixel);
+            font-size: 0.8rem;
+            color: var(--staff-accent);
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+        }
+
+        .contracapa .credits {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 2;
+        }
+
+        .contracapa .credits strong {
+            color: var(--staff-accent);
+        }
+
+        .contracapa .version-info {
+            margin-top: 32px;
+            padding: 16px 24px;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 0.8rem;
+            color: var(--stone-gray);
+        }
+
+        /* --- Print Styles --- */
+        @media print {
+            body {
+                background: #fff;
+                color: #222;
+                font-size: 11pt;
+            }
+
+            .cover {
+                min-height: auto;
+                padding: 60px 20px;
+                page-break-after: always;
+                background: #fff;
+            }
+
+            .cover h1 {
+                color: #333;
+                text-shadow: none;
+            }
+
+            .cover h2 {
+                color: #666;
+            }
+
+            .toc {
+                page-break-after: always;
+                background: #f9f9f9;
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+
+            .toc a {
+                color: #333;
+            }
+
+            .toc a::before {
+                color: #666;
+            }
+
+            .section {
+                page-break-before: always;
+                padding: 24px 0;
+                border-top: 1px solid #ccc;
+            }
+
+            .section-header h2 {
+                color: #333;
+                text-shadow: none;
+            }
+
+            .command-table thead th {
+                background: #eee;
+                color: #333;
+                border-bottom: 2px solid #999;
+            }
+
+            .command-table td {
+                border-bottom: 1px solid #ddd;
+            }
+
+            .command-table code {
+                background: #eee;
+                color: #333;
+            }
+
+            .config-block {
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+                color: #333;
+            }
+
+            .warning-box {
+                background: #ffeaea;
+                border-left-color: #c0392b;
+                color: #333;
+            }
+
+            .info-box {
+                background: #e8f4fd;
+                border-left-color: #2980b9;
+                color: #333;
+            }
+
+            .tip-box {
+                background: #fffbe6;
+                border-left-color: #b8860b;
+                color: #333;
+            }
+
+            .file-card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                background: #fafafa;
+            }
+
+            .file-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .footer {
+                border-top: 1px solid #ccc;
+                color: #999;
+            }
+
+            .back-to-top {
+                display: none !important;
+            }
+
+            .contracapa {
+                page-break-before: always;
+                border-top: 1px solid #ccc;
+                background: none;
+            }
+
+            .contracapa h3 {
+                color: #333;
+            }
+
+            .separator {
+                opacity: 1;
+                color: #999;
+            }
+
+            a {
+                color: #333;
+                text-decoration: underline;
+            }
+
+            h3 {
+                color: #2c3e50;
+            }
+
+            h4 {
+                color: #555;
+            }
+
+            p,
+            ul,
+            ol,
+            li {
+                color: #333;
+            }
+
+            strong {
+                color: #111;
+            }
+
+            .staff-badge {
+                background: none;
+                border: 1px solid #999;
+                color: #333;
+                animation: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ████ COVER ████ -->
+    <div class="cover">
+        <div class="cover-icon">🛡️</div>
+        <div class="staff-badge">⚙️ DOCUMENTO RESTRITO — STAFF ONLY</div>
+        <h1>MANUAL DA STAFF</h1>
+        <h2>GorvaxCore — Guia Técnico de Administração</h2>
+        <div class="version">v1.0.0 · Paper 1.21+</div>
+    </div>
+
+    <div class="container">
+
+        <!-- ████ TABLE OF CONTENTS ████ -->
+        <nav class="toc">
+            <h2>📋 ÍNDICE</h2>
+            <ol>
+                <li><a href="#s01">Painel Admin — Comandos Exclusivos</a></li>
+                <li><a href="#s02">Configuração Principal (config.yml)</a></li>
+                <li><a href="#s03">Arquivos de Config de Conteúdo</a></li>
+                <li><a href="#s04">Sistema de Mensagens (messages.yml)</a></li>
+                <li><a href="#s05">Storage &amp; Infraestrutura</a></li>
+                <li><a href="#s06">Arquivos de Dados Runtime</a></li>
+                <li><a href="#s07">Referência de Permissões</a></li>
+                <li><a href="#s08">Referência de Placeholders</a></li>
+                <li><a href="#s09">Proteção Anti-Exploit</a></li>
+                <li><a href="#s10">Web Map (Dynmap / BlueMap)</a></li>
+                <li><a href="#s11">Reset do End</a></li>
+                <li><a href="#s12">Audit Logs</a></li>
+                <li><a href="#s13">Compatibilidade Bedrock</a></li>
+                <li><a href="#s14">Dependências e Plugins Externos</a></li>
+                <li><a href="#s15">Troubleshooting &amp; Conflitos</a></li>
+                <li><a href="#s16">Métricas Anônimas (bStats)</a></li>
+                <li><a href="#s17">Migração Automática de Configs</a></li>
+                <li><a href="#s18">Códex de Gorvax (Admin)</a></li>
+            </ol>
+        </nav>
+
+        <!-- ████ SECTION 01 — PAINEL ADMIN ████ -->
+        <div class="section" id="s01">
+            <div class="section-header">
+                <span class="icon">⚙️</span>
+                <div>
+                    <span class="section-num">SEÇÃO 01</span>
+                    <h2>Painel Admin — Comandos Exclusivos</h2>
+                </div>
+            </div>
+
+            <p>Comandos disponíveis exclusivamente para a equipe administrativa. Todos requerem permissão
+                <code>gorvax.admin</code> ou <code>op</code>.
+            </p>
+
+            <h3>Comandos Gerais de Admin</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>COMANDO</th>
+                        <th>DESCRIÇÃO</th>
+                        <th>PERMISSÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/gorvax reload</code></td>
+                        <td>Recarrega todas as configurações (config, mensagens, bosses, itens, crates, quests,
+                            battlepass, cosméticos, conquistas)</td>
+                        <td><code>gorvax.admin</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>/gorvax debug</code></td>
+                        <td>Ativa/desativa modo debug com logging detalhado</td>
+                        <td><code>gorvax.admin</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>/gorvax version</code></td>
+                        <td>Exibe versão do plugin e dependências carregadas</td>
+                        <td><code>gorvax.admin</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Comandos de Boss</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>COMANDO</th>
+                        <th>DESCRIÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/boss spawn &lt;nome&gt;</code></td>
+                        <td>Invoca um World Boss na posição do admin. Nomes: <code>rei_gorvax</code>,
+                            <code>indrax</code>, <code>zarith</code>, <code>kaldur</code>, <code>skulkor</code>,
+                            <code>xylos</code>, <code>vulgathor</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>/boss reload</code></td>
+                        <td>Recarrega <code>boss_settings.yml</code>, <code>boss_rewards.yml</code> e limpa cache de
+                            loots</td>
+                    </tr>
+                    <tr>
+                        <td><code>/boss testloot &lt;boss&gt; &lt;rank&gt;</code></td>
+                        <td>Testa a loot table de um boss para um rank específico (1–10) sem precisar matá-lo</td>
+                    </tr>
+                    <tr>
+                        <td><code>/boss kill</code></td>
+                        <td>Remove o boss ativo à força (caso esteja bugado)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Comandos de Economia</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>COMANDO</th>
+                        <th>DESCRIÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/eco give &lt;player&gt; &lt;valor&gt;</code></td>
+                        <td>Adiciona dinheiro à conta do jogador (Vault)</td>
+                    </tr>
+                    <tr>
+                        <td><code>/eco take &lt;player&gt; &lt;valor&gt;</code></td>
+                        <td>Remove dinheiro da conta do jogador</td>
+                    </tr>
+                    <tr>
+                        <td><code>/eco set &lt;player&gt; &lt;valor&gt;</code></td>
+                        <td>Define o saldo exato de um jogador</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Comandos de Reino (Admin)</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>COMANDO</th>
+                        <th>DESCRIÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/reino admin delete &lt;reino&gt;</code></td>
+                        <td>Remove um reino forçadamente (inclui claims e dados)</td>
+                    </tr>
+                    <tr>
+                        <td><code>/reino admin setking &lt;reino&gt; &lt;player&gt;</code></td>
+                        <td>Transfere liderança de um reino</td>
+                    </tr>
+                    <tr>
+                        <td><code>/reino admin addblocks &lt;player&gt; &lt;qtd&gt;</code></td>
+                        <td>Adiciona blocos de claim a um jogador</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Comandos de Crate</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>COMANDO</th>
+                        <th>DESCRIÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/crate give &lt;player&gt; &lt;tipo&gt; &lt;qtd&gt;</code></td>
+                        <td>Dá chaves de crate ao jogador. Tipos: <code>comum</code>, <code>raro</code>,
+                            <code>lendario</code>, <code>sazonal</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>/crate giveall &lt;tipo&gt; &lt;qtd&gt;</code></td>
+                        <td>Dá chaves para todos os jogadores online</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Comandos de Battle Pass</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>COMANDO</th>
+                        <th>DESCRIÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/bp addxp &lt;player&gt; &lt;amount&gt;</code></td>
+                        <td>Adiciona XP do Battle Pass ao jogador</td>
+                    </tr>
+                    <tr>
+                        <td><code>/bp setpremium &lt;player&gt;</code></td>
+                        <td>Ativa o track Premium para o jogador</td>
+                    </tr>
+                    <tr>
+                        <td><code>/bp reset &lt;player&gt;</code></td>
+                        <td>Reseta progresso do Battle Pass do jogador</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Outros Comandos Admin</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>COMANDO</th>
+                        <th>DESCRIÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/endresetdragao</code></td>
+                        <td>Força o reset do End imediatamente (mata dragão, limpa chunks)</td>
+                    </tr>
+                    <tr>
+                        <td><code>/bounty set &lt;player&gt; &lt;valor&gt;</code></td>
+                        <td>Define uma recompensa pela cabeça de um jogador</td>
+                    </tr>
+                    <tr>
+                        <td><code>/duel force &lt;p1&gt; &lt;p2&gt;</code></td>
+                        <td>Força um duelo entre dois jogadores</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ ATENÇÃO</div>
+                Após usar <code>/gorvax reload</code>, o plugin exibirá: <strong>"§a[Gorvax] Configurações recarregadas
+                    com sucesso!"</strong>. Se houver erros no YAML, o console mostrará o arquivo e a linha com
+                problema. Sempre verifique o console após reload.
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 02 — CONFIG PRINCIPAL ████ -->
+        <div class="section" id="s02">
+            <div class="section-header">
+                <span class="icon">📄</span>
+                <div>
+                    <span class="section-num">SEÇÃO 02</span>
+                    <h2>Configuração Principal (config.yml)</h2>
+                </div>
+            </div>
+
+            <p>O arquivo <code>config.yml</code> é o coração do GorvaxCore. Contém todas as configurações gerais do
+                servidor, divididas nas seguintes seções:</p>
+
+            <h3>Storage (Armazenamento)</h3>
+            <div class="config-block">
+                <span class="key">storage</span>:<br>
+                &nbsp;&nbsp;<span class="key">type</span>: <span class="val-str">yaml</span> <span class="comment">#
+                    Opções: yaml, sqlite, mysql</span><br>
+                &nbsp;&nbsp;<span class="key">sqlite</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">file</span>: <span class="val-str">gorvax.db</span><br>
+                &nbsp;&nbsp;<span class="key">mysql</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">host</span>: <span class="val-str">localhost</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">port</span>: <span class="val-num">3306</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">database</span>: <span class="val-str">gorvax</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">pool_size</span>: <span class="val-num">10</span>
+            </div>
+
+            <h3>Economia &amp; Reinos</h3>
+            <div class="config-block">
+                <span class="key">kingdoms</span>:<br>
+                &nbsp;&nbsp;<span class="key">creation_cost</span>: <span class="val-num">5000.0</span> <span
+                    class="comment"># Custo para criar um reino</span><br>
+                &nbsp;&nbsp;<span class="key">upkeep_enabled</span>: <span class="val-num">true</span><br>
+                &nbsp;&nbsp;<span class="key">upkeep_per_chunk</span>: <span class="val-num">50.0</span><br>
+                &nbsp;&nbsp;<span class="key">tax_rate</span>: <span class="val-num">0.05</span> <span class="comment">#
+                    5% de taxa do banco</span><br>
+                &nbsp;&nbsp;<span class="key">max_members</span>: <span class="val-num">30</span><br>
+                &nbsp;&nbsp;<span class="key">max_claims</span>: <span class="val-num">100</span><br>
+                &nbsp;&nbsp;<span class="key">visit_cost</span>: <span class="val-num">500.0</span><br>
+                &nbsp;&nbsp;<span class="key">visit_cooldown</span>: <span class="val-num">60</span> <span
+                    class="comment"># segundos</span>
+            </div>
+
+            <h3>Chat &amp; Comunicação</h3>
+            <div class="config-block">
+                <span class="key">chat</span>:<br>
+                &nbsp;&nbsp;<span class="key">local_radius</span>: <span class="val-num">200</span> <span
+                    class="comment"># Alcance do canal local em blocos</span><br>
+                &nbsp;&nbsp;<span class="key">format</span>: <span class="val-str">"{kingdom_tag} {rank} {player}:
+                    {message}"</span><br>
+                &nbsp;&nbsp;<span class="key">rank_icons</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">king</span>: <span class="val-str">"👑"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">vice</span>: <span class="val-str">"⚔️"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">noble</span>: <span class="val-str">"🛡️"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">resident</span>: <span class="val-str">"🏠"</span><br>
+                &nbsp;&nbsp;<span class="key">anti_spam</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">cooldown_ms</span>: <span class="val-num">1500</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">max_caps_percent</span>: <span class="val-num">60</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">block_links</span>: <span class="val-num">true</span>
+            </div>
+
+            <h3>Combate</h3>
+            <div class="config-block">
+                <span class="key">combat</span>:<br>
+                &nbsp;&nbsp;<span class="key">tag_duration</span>: <span class="val-num">15</span> <span
+                    class="comment"># segundos de combat tag</span><br>
+                &nbsp;&nbsp;<span class="key">logger_enabled</span>: <span class="val-num">true</span> <span
+                    class="comment"># NPC ao deslogar em combate</span><br>
+                &nbsp;&nbsp;<span class="key">logger_duration</span>: <span class="val-num">15</span><br>
+                &nbsp;&nbsp;<span class="key">killstreak</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">enabled</span>: <span class="val-num">true</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">rewards</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val-num">3</span>: <span class="val-num">150.0</span>
+                <span class="comment"># 3 kills = $150</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val-num">5</span>: <span
+                    class="val-num">400.0</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val-num">10</span>: <span class="val-num">1000.0</span>
+            </div>
+
+            <h3>VIP &amp; Ranks Premium</h3>
+            <div class="config-block">
+                <span class="key">vip</span>:<br>
+                &nbsp;&nbsp;<span class="key">enabled</span>: <span class="val-num">true</span><br>
+                &nbsp;&nbsp;<span class="key">tiers</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">vip</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">display_name</span>: <span class="val-str">"§a[✦
+                    VIP]"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">extra_claim_blocks</span>: <span
+                    class="val-num">500</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">extra_homes</span>: <span
+                    class="val-num">2</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">vip_plus</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">extra_claim_blocks</span>: <span
+                    class="val-num">1500</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">extra_homes</span>: <span
+                    class="val-num">4</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">market_discount_percent</span>: <span
+                    class="val-num">5</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">elite</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">extra_claim_blocks</span>: <span
+                    class="val-num">3000</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">extra_homes</span>: <span
+                    class="val-num">6</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">market_discount_percent</span>: <span
+                    class="val-num">10</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">lendario</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">extra_claim_blocks</span>: <span
+                    class="val-num">5000</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">extra_homes</span>: <span
+                    class="val-num">10</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">market_discount_percent</span>: <span
+                    class="val-num">15</span>
+            </div>
+
+            <h3>Outras Configurações Importantes</h3>
+            <ul>
+                <li><strong>Boss Events:</strong> <code>boss_events.schedule_enabled: true</code> — Invocação automática
+                    via cron</li>
+                <li><strong>Scoreboard:</strong> <code>scoreboard.enabled: true</code>, <code>update_interval: 20</code>
+                    ticks</li>
+                <li><strong>Duelos:</strong> <code>duel.expiration: 60s</code>, <code>bet_enabled: true</code>,
+                    <code>max_bet: 10000.0</code>
+                </li>
+                <li><strong>Tutorial:</strong> <code>tutorial.enabled: true</code> — Sistema de onboarding com welcome
+                    kit</li>
+                <li><strong>Daily Rewards:</strong> <code>daily_rewards.enabled: true</code> — 7 dias de recompensas
+                    progressivas</li>
+                <li><strong>Battle Pass:</strong> <code>battle_pass.enabled: true</code> — Temporadas de 30 dias, 30
+                    níveis</li>
+                <li><strong>Leaderboards:</strong> <code>leaderboards.enabled: true</code>,
+                    <code>update_interval: 300s</code>
+                </li>
+                <li><strong>Discord:</strong> <code>discord.enabled: false</code> — Webhook para chat e boss kills</li>
+            </ul>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 03 — ARQUIVOS DE CONFIG ████ -->
+        <div class="section" id="s03">
+            <div class="section-header">
+                <span class="icon">📁</span>
+                <div>
+                    <span class="section-num">SEÇÃO 03</span>
+                    <h2>Arquivos de Configuração de Conteúdo</h2>
+                </div>
+            </div>
+
+            <p>Além do <code>config.yml</code>, o GorvaxCore utiliza diversos arquivos YAML para definir conteúdo do
+                jogo. Todos ficam em <code>plugins/GorvaxCore/</code>.</p>
+
+            <div class="file-card">
+                <div class="file-name">📄 boss_settings.yml</div>
+                <div class="file-desc">Configurações de stats, skills e efeitos visuais dos 7 World Bosses: Rei Gorvax
+                    (1200 HP), Indrax (1100 HP), Zar'ith (800 HP), Kaldur (900 HP), Skulkor (1000 HP), Xylos (950 HP) e
+                    Vulgathor (1050 HP). Cada boss possui habilidades únicas com dano, raio, duração e cooldown
+                    configuráveis, além de efeitos visuais como partículas, auras e eventos atmosféricos.</div>
+            </div>
+
+            <div class="file-card">
+                <div class="file-name">📄 boss_rewards.yml</div>
+                <div class="file-desc">Loot tables completas por boss e rank. Cada boss oferece: armas lendárias
+                    (espada, arco, machado), set lendário (capacete, peitoral, calça, botas, escudo), ferramentas
+                    lendárias (picareta, machado) e itens comuns. MVP (Top 1) recebe 1 arma lendária aleatória. Top 1–3
+                    recebem peças do set. Todos recebem itens comuns baseados no rank de dano.</div>
+            </div>
+
+            <div class="file-card">
+                <div class="file-name">📄 custom_items.yml</div>
+                <div class="file-desc">Define 5 itens lendários: Lâmina de Gorvax (NETHERITE_SWORD, Sharpness 7, Fire
+                    Aspect 3, Wither on-hit 30%), Coroa de Indrax (NETHERITE_HELMET, +4 HP, Water Breathing), Botas
+                    Velocistas (NETHERITE_BOOTS, Speed 1 permanente), Arco do Caçador (BOW, Power 6, Infinity, Arrow
+                    Trail), Escudo do Guardião (SHIELD, +20% knockback resist). Cada item tem base, enchants, atributos,
+                    efeitos e source.</div>
+            </div>
+
+            <div class="file-card">
+                <div class="file-name">📄 crates.yml</div>
+                <div class="file-desc">4 tipos de crates com reward tables: Comum (dinheiro $100–$250, blocos 50–100,
+                    itens básicos), Raro (dinheiro $500–$1000, blocos 200–500, Netherite, Elytra 2%), Lendário (dinheiro
+                    $2500–$5000, custom items 3–4%, Netherite x4, broadcast ativado), Sazonal (dinheiro $1000–$3000,
+                    Totem, God Apples, títulos exclusivos). Cada reward tem peso (weight) que define probabilidade.
+                </div>
+            </div>
+
+            <div class="file-card">
+                <div class="file-name">📄 cosmetics.yml</div>
+                <div class="file-desc">Cosméticos organizados em 5 categorias: Walk Particles (rastros ao caminhar),
+                    Kill Particles (efeitos ao matar), Arrow Trails (trails de flechas), Chat Tags (prefixos no chat),
+                    Kill Effects (efeitos na morte da vítima). Cada cosmético tem source: <code>achievement</code>,
+                    <code>shop</code>, <code>crate</code> ou <code>vip</code>.
+                </div>
+            </div>
+
+            <div class="file-card">
+                <div class="file-name">📄 achievements.yml</div>
+                <div class="file-desc">10 conquistas em 4 categorias: Exploração (Primeiro Passo, Desbravador,
+                    Arquiteto), Combate (Caçador de Dragões, Guerreiro, MVP), Economia (Magnata, Primeira Venda), Social
+                    (Socialite), Reinos (Rei dos Reis, Veterano). Recompensas incluem blocos, títulos, dinheiro. Tipos
+                    de trigger: CLAIM_CREATED, BLOCKS_BROKEN, KILLS, BOSSES_KILLED, MONEY_EARNED, etc.</div>
+            </div>
+
+            <div class="file-card">
+                <div class="file-name">📄 battlepass.yml</div>
+                <div class="file-desc">Battle Pass sazonal com 30 níveis, tracks Free e Premium. XP por ação: kill
+                    player (50), kill mob (5), mine block (1), boss kill (200), daily claim (30), login (20), quest
+                    daily (40), quest weekly (150), duel win (75). XP por nível: base 100 + 20 por nível. Temporada de
+                    30 dias. Recompensas premium incluem cosméticos e títulos exclusivos.</div>
+            </div>
+
+            <div class="file-card">
+                <div class="file-name">📄 quests.yml</div>
+                <div class="file-desc">Sistema de quests com 3 diárias (de pool de 20+) e 1 semanal (de pool de 5).
+                    Reset diário à meia-noite, semanal na segunda. Tipos: KILL_MOB, MINE_BLOCK, KILL_PLAYER,
+                    SELL_MARKET, BOSS_PARTICIPATE, DAILY_COMPLETE. Recompensas: dinheiro ($100–$800), claim blocks,
+                    crate keys.</div>
+            </div>
+
+            <div class="file-card">
+                <div class="file-name">📄 mini_bosses.yml</div>
+                <div class="file-desc">4 mini-bosses por bioma: Guardião do Deserto (HUSK, 300 HP, deserto/badlands),
+                    Sentinela Gélida (STRAY, 400 HP, neve/gelo), Araña da Selva (CAVE_SPIDER, 250 HP, jungle), Fantasma
+                    do Nether (BLAZE, 500 HP, nether). Spawn natural a cada 2 min, máx 8 ativos, distância mínima 100
+                    blocos de claims, chance 35%.</div>
+            </div>
+
+            <div class="file-card">
+                <div class="file-name">📄 market_global.yml</div>
+                <div class="file-desc">Mercado global com 7 categorias: Blocos (20 itens), Natureza (20 itens), Minérios
+                    (15 itens), Alimentos (20 itens), Redstone (18 itens), Decoração (20 itens), Drops/Alquimia (18
+                    itens), Equipamentos (16 itens). Cada item tem preço de compra e venda configuráveis.</div>
+            </div>
+
+            <div class="file-card">
+                <div class="file-name">📄 messages.yml</div>
+                <div class="file-desc">Todas as mensagens do plugin (800+ linhas). Categorias: admin, proteção, reinos,
+                    plots, trust, confirmação, mercado, bosses, menus, manutenção. Usa códigos de cor Minecraft (§).
+                    Suporta placeholders como <code>{0}</code>, <code>{1}</code> para valores dinâmicos.</div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-title">💡 DICA</div>
+                Todos os arquivos YAML suportam <code>/gorvax reload</code> para hot-reload sem reiniciar o servidor.
+                Verifique sempre o console após o reload para detectar erros de sintaxe.
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 04 — MENSAGENS ████ -->
+        <div class="section" id="s04">
+            <div class="section-header">
+                <span class="icon">💬</span>
+                <div>
+                    <span class="section-num">SEÇÃO 04</span>
+                    <h2>Sistema de Mensagens (messages.yml)</h2>
+                </div>
+            </div>
+
+            <p>O <code>messages.yml</code> centraliza <strong>todas</strong> as mensagens do plugin. Usa códigos de cor
+                Minecraft (<code>§a</code> = verde, <code>§c</code> = vermelho, <code>§e</code> = amarelo,
+                <code>§6</code> = dourado, <code>§f</code> = branco, <code>§7</code> = cinza, <code>§8</code> = cinza
+                escuro, <code>§l</code> = negrito).
+            </p>
+
+            <h3>Categorias de Mensagens</h3>
+
+            <h4>Admin</h4>
+            <div class="config-block">
+                <span class="key">admin</span>:<br>
+                &nbsp;&nbsp;<span class="key">reload_success</span>: <span class="val-str">"§a[Gorvax] Configurações
+                    recarregadas com sucesso!"</span><br>
+                &nbsp;&nbsp;<span class="key">reset_dragon_sent</span>: <span class="val-str">"§aComando de reset do
+                    dragão enviado."</span><br>
+                &nbsp;&nbsp;<span class="key">help_title</span>: <span class="val-str">" §6§lAJUDA GORVAX §7(Página
+                    {0}/{1})"</span>
+            </div>
+
+            <h4>Proteção</h4>
+            <div class="config-block">
+                <span class="key">protection</span>:<br>
+                &nbsp;&nbsp;<span class="key">deny_build</span>: <span class="val-str">"§c§lACESSO NEGADO §8» §7Sem
+                    permissão de §econstrução..."</span><br>
+                &nbsp;&nbsp;<span class="key">deny_interact</span>: <span class="val-str">"§c§lACESSO NEGADO §8» §7Sem
+                    permissão de §einteração..."</span><br>
+                &nbsp;&nbsp;<span class="key">wither_blocked</span>: <span class="val-str">"§c§lPROTEÇÃO §8» §7Não é
+                    possível invocar Withers..."</span><br>
+                &nbsp;&nbsp;<span class="key">crystal_blocked</span>: <span class="val-str">"§c§lPROTEÇÃO §8» §7Não é
+                    possível colocar End Crystal..."</span>
+            </div>
+
+            <h4>Reinos</h4>
+            <div class="config-block">
+                <span class="key">kingdom</span>:<br>
+                &nbsp;&nbsp;<span class="key">created</span>: <span class="val-str">"§a§lREINO §8» §fReino §e{0}
+                    §fcriado com sucesso!"</span><br>
+                &nbsp;&nbsp;<span class="key">invite_sent</span>: <span class="val-str">"§a§lCONVITE §8» §fConvite
+                    enviado para §e{0}§f!"</span><br>
+                &nbsp;&nbsp;<span class="key">bank_deposit_success</span>: <span class="val-str">"§a§lBANCO §8»
+                    §fDepositou §6${0}. Saldo: §6${1}"</span>
+            </div>
+
+            <h4>Bosses</h4>
+            <div class="config-block">
+                <span class="key">boss</span>:<br>
+                &nbsp;&nbsp;<span class="key">spawn_success</span>: <span class="val-str">"§a§lBOSS §8» §fBoss §e{0}
+                    §finvocado na sua posição!"</span><br>
+                &nbsp;&nbsp;<span class="key">testloot_usage</span>: <span class="val-str">"§6§lBOSS §8» §7Use: §e/boss
+                    testloot &lt;nome&gt; &lt;rank&gt;"</span><br>
+                &nbsp;&nbsp;<span class="key">broadcast_spawn</span>: <span class="val-str">"§4§l⚔ BOSS EVENT §8» §c{0}
+                    §7surgiu em §e{1}§7!"</span><br>
+                &nbsp;&nbsp;<span class="key">broadcast_kill</span>: <span class="val-str">"§a§l⚔ VITÓRIA §8» §e{0}
+                    §7caiu! MVP: §6{1}"</span>
+            </div>
+
+            <div class="info-box">
+                <div class="info-title">ℹ️ PLACEHOLDERS</div>
+                Nas mensagens, <code>{0}</code>, <code>{1}</code>, <code>{2}</code> representam valores dinâmicos
+                inseridos pelo código. Os valores variam conforme o contexto: nomes de jogadores, valores monetários,
+                nomes de reinos, etc. Não altere a posição dos placeholders.
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 05 — STORAGE ████ -->
+        <div class="section" id="s05">
+            <div class="section-header">
+                <span class="icon">🗄️</span>
+                <div>
+                    <span class="section-num">SEÇÃO 05</span>
+                    <h2>Storage &amp; Infraestrutura</h2>
+                </div>
+            </div>
+
+            <p>O GorvaxCore suporta 3 modos de armazenamento configuráveis em <code>config.yml → storage.type</code>:
+            </p>
+
+            <h3>YAML (Padrão)</h3>
+            <ul>
+                <li><strong>Vantagem:</strong> Zero dependências, funciona imediatamente</li>
+                <li><strong>Desvantagem:</strong> Mais lento para servidores com 50+ jogadores simultâneos</li>
+                <li><strong>Quando usar:</strong> Servidores pequenos e médios (&lt; 50 jogadores)</li>
+                <li><strong>Arquivos:</strong> <code>kingdoms.yml</code>, <code>claims.yml</code>,
+                    <code>playerdata.yml</code>, <code>market_global.yml</code>, <code>boss_data.yml</code>
+                </li>
+            </ul>
+
+            <h3>SQLite</h3>
+            <ul>
+                <li><strong>Vantagem:</strong> Mais rápido que YAML, arquivo único (<code>gorvax.db</code>)</li>
+                <li><strong>Desvantagem:</strong> Não suporta acesso multi-servidor</li>
+                <li><strong>Quando usar:</strong> Servidores médios (50–100 jogadores)</li>
+            </ul>
+
+            <h3>MySQL</h3>
+            <ul>
+                <li><strong>Vantagem:</strong> Suporta multi-servidor (BungeeCord/Velocity), melhor performance</li>
+                <li><strong>Desvantagem:</strong> Requer servidor MySQL externo</li>
+                <li><strong>Quando usar:</strong> Redes de servidores, servers com 100+ jogadores</li>
+                <li><strong>Pool Size:</strong> Recomendado <code>10</code> para maioria dos servidores</li>
+            </ul>
+
+            <div class="config-block">
+                <span class="comment"># Configurar MySQL:</span><br>
+                <span class="key">storage</span>:<br>
+                &nbsp;&nbsp;<span class="key">type</span>: <span class="val-str">mysql</span><br>
+                &nbsp;&nbsp;<span class="key">mysql</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">host</span>: <span class="val-str">localhost</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">port</span>: <span class="val-num">3306</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">database</span>: <span class="val-str">gorvax</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">username</span>: <span class="val-str">gorvax_user</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">password</span>: <span
+                    class="val-str">sua_senha_segura</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">pool_size</span>: <span class="val-num">10</span>
+            </div>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ MIGRAÇÃO</div>
+                Ao trocar de storage type, é necessário migrar manualmente os dados. Não há ferramenta de migração
+                automática — planeje com antecedência e faça backup antes de alterar.
+            </div>
+
+            <h3>Padrão de I/O Assíncrono</h3>
+            <p>O GorvaxCore usa um padrão de <strong>Main Thread snapshot → Async I/O</strong>:</p>
+            <ul>
+                <li>Dados são lidos na thread principal (snapshot)</li>
+                <li>Escrita (save) acontece de forma assíncrona para não bloquear o tick</li>
+                <li>Cache em memória usa <code>ConcurrentHashMap</code> para thread-safety</li>
+                <li>Claims usam cache por chunk para lookup O(1)</li>
+            </ul>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 06 — DADOS RUNTIME ████ -->
+        <div class="section" id="s06">
+            <div class="section-header">
+                <span class="icon">💾</span>
+                <div><span class="section-num">SEÇÃO 06</span>
+                    <h2>Arquivos de Dados Runtime</h2>
+                </div>
+            </div>
+            <p>Estes arquivos são gerados automaticamente pelo plugin. <strong>Não edite manualmente</strong> com o
+                servidor online.</p>
+            <div class="file-card">
+                <div class="file-name">💾 kingdoms.yml</div>
+                <div class="file-desc">Dados de todos os reinos: nome, líder, membros com ranks, banco, claims,
+                    diplomacia, PvP interno, nível e histórico de upkeep.</div>
+            </div>
+            <div class="file-card">
+                <div class="file-name">💾 claims.yml</div>
+                <div class="file-desc">Mapa de claims por chunk. Cada entry: reino dono, subplots, permissões de trust
+                    (BUILD, INTERACT, CONTAINER, ACCESS), flags e data de criação.</div>
+            </div>
+            <div class="file-card">
+                <div class="file-name">💾 playerdata.yml</div>
+                <div class="file-desc">Dados de cada jogador: reino, blocos de claim, homes, títulos, cosméticos ativos,
+                    conquistas, estatísticas, battle pass, quests e daily rewards.</div>
+            </div>
+            <div class="file-card">
+                <div class="file-name">💾 boss_data.yml</div>
+                <div class="file-desc">Estado dos bosses: último spawn, cooldowns, eventos atmosféricos, estatísticas
+                    globais (mortes por boss, participações).</div>
+            </div>
+            <div class="warning-box">
+                <div class="warning-title">⚠️ BACKUP</div>Faça backup diário! Em caso de corrupção, dados de jogadores,
+                reinos e claims podem ser perdidos. Recomendação: backup a cada 6h com rotação de 7 dias.
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 07 — PERMISSÕES ████ -->
+        <div class="section" id="s07">
+            <div class="section-header">
+                <span class="icon">🔑</span>
+                <div><span class="section-num">SEÇÃO 07</span>
+                    <h2>Referência de Permissões</h2>
+                </div>
+            </div>
+            <p>Permissões gerenciadas pelo <strong>LuckPerms</strong> (recomendado) ou qualquer plugin compatível com
+                Vault.</p>
+            <h3>Permissões Admin</h3>
+            <table class="perm-table">
+                <thead>
+                    <tr>
+                        <th>PERMISSÃO</th>
+                        <th>DESCRIÇÃO</th>
+                        <th>PADRÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>gorvax.admin</code></td>
+                        <td>Todos os comandos admin (/gorvax reload, /boss spawn, etc.)</td>
+                        <td>OP</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.admin.economy</code></td>
+                        <td>Comandos /eco give/take/set</td>
+                        <td>OP</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.admin.kingdom</code></td>
+                        <td>Admin de reino (delete, setking, addblocks)</td>
+                        <td>OP</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.admin.crate</code></td>
+                        <td>Comandos /crate give/giveall</td>
+                        <td>OP</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.admin.battlepass</code></td>
+                        <td>Comandos /bp addxp/setpremium/reset</td>
+                        <td>OP</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.boss.spawn</code></td>
+                        <td>Invocar bosses manualmente</td>
+                        <td>OP</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Permissões de Jogador</h3>
+            <table class="perm-table">
+                <thead>
+                    <tr>
+                        <th>PERMISSÃO</th>
+                        <th>DESCRIÇÃO</th>
+                        <th>PADRÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>gorvax.player.claim</code></td>
+                        <td>Criar e gerenciar claims</td>
+                        <td>Todos</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.player.kingdom</code></td>
+                        <td>Comandos de reino</td>
+                        <td>Todos</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.player.market</code></td>
+                        <td>Usar o mercado</td>
+                        <td>Todos</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.player.duel</code></td>
+                        <td>Enviar e aceitar duelos</td>
+                        <td>Todos</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.player.cosmetic</code></td>
+                        <td>Usar cosméticos desbloqueados</td>
+                        <td>Todos</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.player.quest</code></td>
+                        <td>Ver e completar quests</td>
+                        <td>Todos</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Permissões VIP</h3>
+            <table class="perm-table">
+                <thead>
+                    <tr>
+                        <th>PERMISSÃO</th>
+                        <th>DESCRIÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>gorvax.vip</code></td>
+                        <td>VIP (+500 blocos, +2 homes, 1 key raro/mês)</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.vip.plus</code></td>
+                        <td>VIP+ (+1500 blocos, +4 homes, 5% desconto, 2 keys raro/mês)</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.vip.elite</code></td>
+                        <td>Elite (+3000 blocos, +6 homes, 10% desconto, 1 key raro + 1 lendário/mês)</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.vip.lendario</code></td>
+                        <td>Lendário (+5000 blocos, +10 homes, 15% desconto, 2 keys raro + 1 lendário/mês)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Permissões de Cosméticos</h3>
+            <table class="perm-table">
+                <thead>
+                    <tr>
+                        <th>PERMISSÃO</th>
+                        <th>DESCRIÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>gorvax.cosmetic.tag.vip</code></td>
+                        <td>Tag [✦ VIP] no chat</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.cosmetic.tag.vip_plus</code></td>
+                        <td>Tag [✦✦ VIP+] no chat</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.cosmetic.tag.elite</code></td>
+                        <td>Tag [★ Elite] no chat</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.cosmetic.tag.lendario</code></td>
+                        <td>Tag [♛ Lendário] no chat</td>
+                    </tr>
+                    <tr>
+                        <td><code>gorvax.cosmetic.tag.guerreiro</code></td>
+                        <td>Tag ⚔ Guerreiro (conquista: 50 kills PvP)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 08 — PLACEHOLDERS ████ -->
+        <div class="section" id="s08">
+            <div class="section-header">
+                <span class="icon">🏷️</span>
+                <div><span class="section-num">SEÇÃO 08</span>
+                    <h2>Referência de Placeholders</h2>
+                </div>
+            </div>
+            <p>Placeholders compatíveis com <strong>PlaceholderAPI (PAPI)</strong>. Usáveis em scoreboards, hologramas,
+                tab lists.</p>
+            <h3>Jogador</h3>
+            <table class="perm-table">
+                <thead>
+                    <tr>
+                        <th>PLACEHOLDER</th>
+                        <th>RETORNO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>%gorvax_kingdom%</code></td>
+                        <td>Nome do reino (ou "Sem Reino")</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_rank%</code></td>
+                        <td>Rank no reino (King, Vice, Noble, Resident)</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_rank_icon%</code></td>
+                        <td>Ícone do rank (👑, ⚔️, 🛡️, 🏠)</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_claims%</code></td>
+                        <td>Chunks claimados</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_kills%</code></td>
+                        <td>Total de kills PvP</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_deaths%</code></td>
+                        <td>Total de mortes</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_kdr%</code></td>
+                        <td>Kill/Death Ratio</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_killstreak%</code></td>
+                        <td>Killstreak atual</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_title%</code></td>
+                        <td>Título ativo</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_balance%</code></td>
+                        <td>Saldo (via Vault)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Reino &amp; Battle Pass</h3>
+            <table class="perm-table">
+                <thead>
+                    <tr>
+                        <th>PLACEHOLDER</th>
+                        <th>RETORNO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>%gorvax_kingdom_bank%</code></td>
+                        <td>Saldo do banco do reino</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_kingdom_members%</code></td>
+                        <td>Membros do reino</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_kingdom_tag%</code></td>
+                        <td>Tag formatada do reino</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_bp_level%</code></td>
+                        <td>Nível do Battle Pass</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_bp_xp%</code></td>
+                        <td>XP atual no nível</td>
+                    </tr>
+                    <tr>
+                        <td><code>%gorvax_bp_premium%</code></td>
+                        <td>Track Premium (true/false)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tip-box">
+                <div class="tip-title">💡 SCOREBOARD</div>Exemplo:
+                <code>"%gorvax_rank_icon% %gorvax_kingdom% §7| §e$%gorvax_balance%"</code>
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 09 — PROTEÇÃO ████ -->
+        <div class="section" id="s09">
+            <div class="section-header">
+                <span class="icon">🛡️</span>
+                <div><span class="section-num">SEÇÃO 09</span>
+                    <h2>Proteção Anti-Exploit</h2>
+                </div>
+            </div>
+            <p>Proteções integradas contra griefing e exploits em <code>config.yml → protection</code>:</p>
+            <div class="config-block">
+                <span class="key">protection</span>:<br>
+                &nbsp;&nbsp;<span class="key">block_wither_spawn</span>: <span class="val-num">true</span> <span
+                    class="comment"># Impede Wither em claims</span><br>
+                &nbsp;&nbsp;<span class="key">block_crystal_placement</span>: <span class="val-num">true</span> <span
+                    class="comment"># Bloqueia End Crystal</span><br>
+                &nbsp;&nbsp;<span class="key">block_tnt_from_outside</span>: <span class="val-num">true</span> <span
+                    class="comment"># Rastreia TNT de fora</span><br>
+                &nbsp;&nbsp;<span class="key">block_bed_explosions</span>: <span class="val-num">true</span> <span
+                    class="comment"># Protege camas/âncoras</span>
+            </div>
+            <h3>Trust por Claim</h3>
+            <ul>
+                <li><strong>BUILD:</strong> Colocar e quebrar blocos</li>
+                <li><strong>INTERACT:</strong> Portas, botões, alavancas</li>
+                <li><strong>CONTAINER:</strong> Baús, fornos, dispensers</li>
+                <li><strong>ACCESS:</strong> Entrar no claim (se restrito)</li>
+            </ul>
+            <h3>Anti-Cheat Integrado</h3>
+            <ul>
+                <li><strong>Combat Logger:</strong> NPC ao deslogar em combate (15s)</li>
+                <li><strong>Anti-Spam:</strong> Cooldown 1.5s, bloqueio caps 60%+, bloqueio links</li>
+                <li><strong>Validação de Saldo:</strong> Verifica antes de transações</li>
+                <li><strong>Overlap Check:</strong> Impede claims sobrepostos</li>
+                <li><strong>Input Validation:</strong> Sanitização contra injection</li>
+            </ul>
+            <div class="info-box">
+                <div class="info-title">ℹ️ CACHE</div>Sistema usa cache por chunks para lookup O(1):
+                <code>Chunk Hash → Claim → Subplot → Trust Check</code>
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 10 — WEB MAP ████ -->
+        <div class="section" id="s10">
+            <div class="section-header">
+                <span class="icon">🗺️</span>
+                <div><span class="section-num">SEÇÃO 10</span>
+                    <h2>Web Map (Dynmap / BlueMap)</h2>
+                </div>
+            </div>
+            <p>Integração opcional com Dynmap ou BlueMap para exibir claims e reinos no mapa web.</p>
+            <div class="config-block">
+                <span class="key">web_map</span>:<br>
+                &nbsp;&nbsp;<span class="key">enabled</span>: <span class="val-num">false</span><br>
+                &nbsp;&nbsp;<span class="key">provider</span>: <span class="val-str">dynmap</span> <span
+                    class="comment"># dynmap ou bluemap</span><br>
+                &nbsp;&nbsp;<span class="key">show_claims</span>: <span class="val-num">true</span><br>
+                &nbsp;&nbsp;<span class="key">show_kingdoms</span>: <span class="val-num">true</span><br>
+                &nbsp;&nbsp;<span class="key">update_interval</span>: <span class="val-num">300</span> <span
+                    class="comment"># segundos</span>
+            </div>
+            <ul>
+                <li><strong>Claims:</strong> Polígono colorido com a cor do reino</li>
+                <li><strong>Reinos:</strong> Labels com nome e membros</li>
+                <li><strong>Boss Events:</strong> Marcador temporário quando boss spawna</li>
+            </ul>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 11 — RESET DO END ████ -->
+        <div class="section" id="s11">
+            <div class="section-header">
+                <span class="icon">🐉</span>
+                <div><span class="section-num">SEÇÃO 11</span>
+                    <h2>Reset do End</h2>
+                </div>
+            </div>
+            <p>O GorvaxCore inclui reset automático do End para renovar recursos e gerar novos desafios.</p>
+            <div class="config-block">
+                <span class="key">end_reset</span>:<br>
+                &nbsp;&nbsp;<span class="key">enabled</span>: <span class="val-num">true</span><br>
+                &nbsp;&nbsp;<span class="key">interval_days</span>: <span class="val-num">7</span> <span
+                    class="comment"># A cada 7 dias</span><br>
+                &nbsp;&nbsp;<span class="key">warning_minutes</span>: <span class="val-num">30</span> <span
+                    class="comment"># Aviso 30 min antes</span><br>
+                &nbsp;&nbsp;<span class="key">teleport_players_out</span>: <span class="val-num">true</span> <span
+                    class="comment"># Teleporta jogadores ao spawn</span><br>
+                &nbsp;&nbsp;<span class="key">regenerate_dragon</span>: <span class="val-num">true</span>
+            </div>
+            <h3>Processo de Reset</h3>
+            <ol>
+                <li>Broadcast de aviso 30 min antes: <em>"§4§l⚠ O End será resetado em 30 minutos!"</em></li>
+                <li>Avisos periódicos (15 min, 5 min, 1 min)</li>
+                <li>Teleporte forçado de todos os jogadores no End</li>
+                <li>Deleção e regeneração dos chunks do End</li>
+                <li>Re-spawn do Ender Dragon</li>
+                <li>Broadcast: <em>"§a§l✔ O End foi resetado com sucesso!"</em></li>
+            </ol>
+            <h3>Comando Manual</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>COMANDO</th>
+                        <th>DESCRIÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/endresetdragao</code></td>
+                        <td>Força o reset imediatamente (requer <code>gorvax.admin</code>)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="warning-box">
+                <div class="warning-title">⚠️ CUIDADO</div>O reset apaga TODOS os blocos no End (incluindo construções
+                de jogadores). Avise com antecedência e considere desativar claims no End.
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 12 — AUDIT LOGS ████ -->
+        <div class="section" id="s12">
+            <div class="section-header">
+                <span class="icon">📋</span>
+                <div><span class="section-num">SEÇÃO 12</span>
+                    <h2>Audit Logs</h2>
+                </div>
+            </div>
+            <p>O GorvaxCore registra eventos administrativos automaticamente no console e em arquivos de log para
+                rastreabilidade.</p>
+            <h3>Eventos Registrados</h3>
+            <ul>
+                <li><strong>Economia:</strong> Todas as transações de <code>/eco give/take/set</code> com jogador, valor
+                    e admin</li>
+                <li><strong>Reinos:</strong> Criação, deleção forçada, transferência de liderança</li>
+                <li><strong>Claims:</strong> Remoção forçada de claims por admin</li>
+                <li><strong>Bosses:</strong> Spawns manuais e kills forçados</li>
+                <li><strong>Crates:</strong> Keys distribuídas via admin (<code>/crate give/giveall</code>)</li>
+                <li><strong>Battle Pass:</strong> XP adicionado, Premium ativado, resets</li>
+                <li><strong>Punições:</strong> Bans, mutes e warnings com motivo</li>
+            </ul>
+            <h3>Formato de Log</h3>
+            <div class="config-block">
+                <span class="comment"># Exemplo de log entry:</span><br>
+                <span class="val-str">[2024-01-15 14:32:18] [ADMIN] StaffPlayer: /eco give Jogador1 5000.0</span><br>
+                <span class="val-str">[2024-01-15 14:35:42] [BOSS] StaffPlayer: /boss spawn rei_gorvax (x:100,
+                    z:-200)</span><br>
+                <span class="val-str">[2024-01-15 15:01:03] [CRATE] StaffPlayer: /crate give Jogador2 lendario 3</span>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">💡 DICA</div>Os logs ficam em <code>plugins/GorvaxCore/logs/</code> com rotação
+                diária. Mantenha pelo menos 30 dias de histórico para auditorias.
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 13 — BEDROCK ████ -->
+        <div class="section" id="s13">
+            <div class="section-header">
+                <span class="icon">📱</span>
+                <div><span class="section-num">SEÇÃO 13</span>
+                    <h2>Compatibilidade Bedrock</h2>
+                </div>
+            </div>
+            <p>O GorvaxCore é compatível com jogadores Bedrock via <strong>Geyser + Floodgate</strong>.</p>
+            <h3>Funcionamento</h3>
+            <ul>
+                <li><strong>AnvilGUI Fallback:</strong> Menus que usam AnvilGUI (renomear itens, inserir valores)
+                    automaticamente abrem em modo chat para jogadores Bedrock, pois AnvilGUI não é compatível com
+                    Bedrock Edition</li>
+                <li><strong>Detecção Automática:</strong> O plugin detecta jogadores Bedrock via Floodgate API
+                    (<code>FloodgateApi.getInstance().isFloodgatePlayer(uuid)</code>)</li>
+                <li><strong>Prefixo:</strong> Jogadores Bedrock são identificados pelo prefixo <code>.</code> (ponto) no
+                    username</li>
+            </ul>
+            <h3>Requisitos</h3>
+            <table class="perm-table">
+                <thead>
+                    <tr>
+                        <th>PLUGIN</th>
+                        <th>VERSÃO</th>
+                        <th>FUNÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>Geyser</code></td>
+                        <td>2.0+</td>
+                        <td>Traduz protocolo Bedrock → Java</td>
+                    </tr>
+                    <tr>
+                        <td><code>Floodgate</code></td>
+                        <td>2.0+</td>
+                        <td>Autentica jogadores Bedrock sem conta Java</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Limitações Conhecidas</h3>
+            <ul>
+                <li>Partículas de cosméticos podem não renderizar corretamente no Bedrock</li>
+                <li>Alguns emojis de rank no chat podem não aparecer</li>
+                <li>Menus GUI podem ter layout diferente</li>
+            </ul>
+            <div class="info-box">
+                <div class="info-title">ℹ️ SOFT DEPENDENCY</div>Floodgate é uma dependência <strong>opcional</strong>.
+                Se não estiver instalado, o fallback é desativado e jogadores Bedrock sem AnvilGUI receberão mensagem de
+                erro.
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 14 — DEPENDÊNCIAS ████ -->
+        <div class="section" id="s14">
+            <div class="section-header">
+                <span class="icon">🔌</span>
+                <div><span class="section-num">SEÇÃO 14</span>
+                    <h2>Dependências e Plugins Externos</h2>
+                </div>
+            </div>
+            <p>O GorvaxCore tem dependências obrigatórias e opcionais:</p>
+            <h3>Obrigatórias</h3>
+            <table class="perm-table">
+                <thead>
+                    <tr>
+                        <th>PLUGIN</th>
+                        <th>VERSÃO</th>
+                        <th>FUNÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>Vault</code></td>
+                        <td>1.7+</td>
+                        <td>API de economia (saldo, transações, permissões de grupo)</td>
+                    </tr>
+                    <tr>
+                        <td><code>WorldGuard</code></td>
+                        <td>7.0+</td>
+                        <td>Proteção de regiões, flags de PvP, integração com claims</td>
+                    </tr>
+                    <tr>
+                        <td><code>PlaceholderAPI</code></td>
+                        <td>2.11+</td>
+                        <td>Placeholders em scoreboards, hologramas, tab lists</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Opcionais (Soft Dependencies)</h3>
+            <table class="perm-table">
+                <thead>
+                    <tr>
+                        <th>PLUGIN</th>
+                        <th>FUNÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>LuckPerms</code></td>
+                        <td>Gerenciamento de permissões e grupos VIP (recomendado)</td>
+                    </tr>
+                    <tr>
+                        <td><code>Floodgate</code></td>
+                        <td>Compatibilidade Bedrock (detecção e fallback de menus)</td>
+                    </tr>
+                    <tr>
+                        <td><code>Dynmap</code> / <code>BlueMap</code></td>
+                        <td>Mapa web com visualização de claims e reinos</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Bibliotecas Embarcadas</h3>
+            <table class="perm-table">
+                <thead>
+                    <tr>
+                        <th>LIB</th>
+                        <th>FUNÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>AnvilGUI</code></td>
+                        <td>Menus de input via anvil (já incluída no JAR, não precisa instalar separado)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Provedor de Economia</h3>
+            <p>O Vault requer um plugin de economia backend. Recomendados:</p>
+            <ul>
+                <li><strong>EssentialsX:</strong> Solução completa com economia, spawn, homes, warps</li>
+                <li><strong>CMI:</strong> Alternativa all-in-one com economia integrada</li>
+                <li><strong>iConomy:</strong> Plugin leve focado em economia</li>
+            </ul>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 15 — TROUBLESHOOTING ████ -->
+        <div class="section" id="s15">
+            <div class="section-header">
+                <span class="icon">🔧</span>
+                <div><span class="section-num">SEÇÃO 15</span>
+                    <h2>Troubleshooting &amp; Conflitos</h2>
+                </div>
+            </div>
+
+            <h3>Problemas Comuns</h3>
+
+            <h4>❌ Plugin não carrega</h4>
+            <ul>
+                <li>Verifique se <strong>Java 21+</strong> está instalado: <code>java -version</code></li>
+                <li>Verifique se <strong>Paper 1.21+</strong> é o server JAR (não Spigot/Bukkit)</li>
+                <li>Verifique se Vault, WorldGuard e PlaceholderAPI estão instalados</li>
+                <li>Confira o console para stack traces de erros</li>
+            </ul>
+
+            <h4>❌ Economia não funciona</h4>
+            <ul>
+                <li>Vault precisa de um plugin de economia backend (EssentialsX, CMI, etc.)</li>
+                <li>Verifique <code>/vault-info</code> para confirmar que o provedor está ativo</li>
+            </ul>
+
+            <h4>❌ Boss não spawna</h4>
+            <ul>
+                <li>Verifique se não há outro boss ativo (apenas 1 por vez)</li>
+                <li>Verifique se o mundo não está com <code>doMobSpawning: false</code></li>
+                <li>Use <code>/boss spawn &lt;nome&gt;</code> para teste manual</li>
+            </ul>
+
+            <h4>❌ Erro de YAML após edição</h4>
+            <ul>
+                <li>Nunca use TABs — YAML só aceita espaços</li>
+                <li>Strings com caracteres especiais devem estar entre aspas</li>
+                <li>Use um validador YAML online antes de salvar</li>
+                <li>O console mostrará o arquivo e a linha exata do erro</li>
+            </ul>
+
+            <h4>❌ Placeholders não funcionam</h4>
+            <ul>
+                <li>Verifique se PlaceholderAPI está instalado e ativo</li>
+                <li>Execute <code>/papi ecloud download GorvaxCore</code> se necessário</li>
+                <li>Teste com <code>/papi parse me %gorvax_kingdom%</code></li>
+            </ul>
+
+            <h3>Conflitos Conhecidos</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>PLUGIN</th>
+                        <th>CONFLITO</th>
+                        <th>SOLUÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GriefPrevention</td>
+                        <td>Sistema de claims conflita com o GorvaxCore</td>
+                        <td>Desative o GP; o GorvaxCore já tem sistema próprio</td>
+                    </tr>
+                    <tr>
+                        <td>Towny</td>
+                        <td>Sistema de cidades/nações sobrepõe reinos</td>
+                        <td>Não usar ambos — são sistemas mutuamente exclusivos</td>
+                    </tr>
+                    <tr>
+                        <td>mcMMO</td>
+                        <td>Pode interferir com XP de battle pass</td>
+                        <td>Sem conflito grave, mas monitore XP rates</td>
+                    </tr>
+                    <tr>
+                        <td>CMI Economy</td>
+                        <td>Formato de saldo pode conflitar</td>
+                        <td>Configure ambos com a mesma precisão decimal</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ REGRA GERAL</div>Evite instalar plugins que replicam funcionalidades do
+                GorvaxCore (claims, reinos, economia customizada, partículas). Isso causa conflitos de listeners, dupla
+                execução de eventos e comportamento imprevisível.
+            </div>
+
+            <h3>Debug Mode</h3>
+            <div class="config-block">
+                <span class="comment"># Ativar debug para diagnósticos detalhados:</span><br>
+                <span class="val-str">/gorvax debug</span><br><br>
+                <span class="comment"># O console exibirá:</span><br>
+                <span class="val-str">[GorvaxCore] DEBUG: Claim check at chunk (5, -12) — Owner: ReinoAlpha</span><br>
+                <span class="val-str">[GorvaxCore] DEBUG: Trust check for Player1 — BUILD: true, INTERACT:
+                    true</span><br>
+                <span class="val-str">[GorvaxCore] DEBUG: Boss phase transition: 2 → 3 (HP: 450/1200)</span>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">💡 SUPORTE</div>Para suporte técnico, envie: versão do GorvaxCore
+                (<code>/gorvax version</code>), versão do Java e Paper, lista de plugins (<code>/plugins</code>), e o
+                arquivo de log relevante da pasta <code>plugins/GorvaxCore/logs/</code>.
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 16 — bStats ████ -->
+        <div class="section" id="s16">
+            <div class="section-header">
+                <span class="icon">📊</span>
+                <div>
+                    <span class="section-num">SEÇÃO 16</span>
+                    <h2>Métricas Anônimas (bStats)</h2>
+                </div>
+            </div>
+
+            <p>O GorvaxCore coleta <strong>métricas anônimas e agregadas</strong> de uso do plugin via
+                <a href="https://bstats.org/" target="_blank">bStats</a>. Nenhum dado pessoal é coletado.
+            </p>
+
+            <h3>O que é coletado</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>Métrica</th>
+                        <th>Tipo</th>
+                        <th>Exemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Versão do servidor</td>
+                        <td>Texto</td>
+                        <td><code>Paper 1.21</code></td>
+                    </tr>
+                    <tr>
+                        <td>Bedrock habilitado</td>
+                        <td>Sim/Não</td>
+                        <td><code>Sim</code></td>
+                    </tr>
+                    <tr>
+                        <td>Plugin de economia</td>
+                        <td>Texto</td>
+                        <td><code>EssentialsX Economy</code></td>
+                    </tr>
+                    <tr>
+                        <td>Total de jogadores</td>
+                        <td>Número</td>
+                        <td><code>42</code></td>
+                    </tr>
+                    <tr>
+                        <td>Total de reinos</td>
+                        <td>Número</td>
+                        <td><code>8</code></td>
+                    </tr>
+                    <tr>
+                        <td>Total de claims</td>
+                        <td>Número</td>
+                        <td><code>15</code></td>
+                    </tr>
+                    <tr>
+                        <td>Bosses ativos</td>
+                        <td>Número</td>
+                        <td><code>2</code></td>
+                    </tr>
+                    <tr>
+                        <td>Battle Pass</td>
+                        <td>Ativa/Inativa</td>
+                        <td><code>Ativa</code></td>
+                    </tr>
+                    <tr>
+                        <td>Features habilitadas</td>
+                        <td>Lista</td>
+                        <td><code>Crates, Quests, Códex...</code></td>
+                    </tr>
+                    <tr>
+                        <td>Distribuição de bosses</td>
+                        <td>World/Mini</td>
+                        <td><code>3 World, 1 Mini</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>O que NÃO é coletado</h3>
+            <ul>
+                <li>❌ Nomes de jogadores</li>
+                <li>❌ IPs de jogadores</li>
+                <li>❌ Dados pessoais de qualquer tipo</li>
+                <li>❌ Inventários, saldos ou itens</li>
+            </ul>
+
+            <h3>Como desabilitar</h3>
+            <p>Edite <code>plugins/bStats/config.yml</code>:</p>
+            <div class="config-block">
+                <span class="key">enabled</span>: <span class="val-str">false</span>
+            </div>
+
+            <div class="info-box">
+                <div class="info-title">💡 NOTA</div>
+                Este arquivo é gerenciado pelo bStats e não pelo GorvaxCore. O opt-out é global para todos os plugins do
+                servidor. As métricas podem ser visualizadas publicamente no
+                <a href="https://bstats.org/" target="_blank">dashboard do bStats</a>.
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 17 — MIGRAÇÃO DE CONFIGS ████ -->
+        <div class="section" id="s17">
+            <div class="section-header">
+                <span class="icon">🔄</span>
+                <div>
+                    <span class="section-num">SEÇÃO 17</span>
+                    <h2>Migração Automática de Configs</h2>
+                </div>
+            </div>
+
+            <p>O GorvaxCore inclui um sistema de <strong>migração automática</strong> que garante compatibilidade ao atualizar o
+                plugin. Configs antigos são migrados automaticamente, preservando valores customizados.</p>
+
+            <h3>Como Funciona</h3>
+            <ol>
+                <li>Ao iniciar, verifica <code>config_version</code> no <code>config.yml</code></li>
+                <li>Se a versão é menor que a mais recente, cria <strong>backup automático</strong>
+                    (<code>config.yml.backup-YYYY-MM-DD</code>)</li>
+                <li>Aplica <strong>migrações sequenciais</strong> (V0→V1, V1→V2, etc.) sem sobrescrever valores existentes</li>
+                <li>Atualiza <code>config_version</code> e salva</li>
+                <li>Também migra <code>messages.yml</code> com novas mensagens</li>
+            </ol>
+
+            <h3>Backup Automático</h3>
+            <ul>
+                <li>Backup criado antes de qualquer alteração: <code>config.yml.backup-2026-03-10</code></li>
+                <li>Se já existe backup do dia, sufixo numérico: <code>config.yml.backup-2026-03-10-1</code></li>
+                <li>Se o backup falha, a migração é <strong>cancelada por segurança</strong></li>
+            </ul>
+
+            <h3>Comando Admin</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>Comando</th>
+                        <th>Descrição</th>
+                        <th>Permissão</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/gorvax migrateconfig</code></td>
+                        <td>Força re-migração de configurações</td>
+                        <td><code>gorvax.admin</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Mensagens no Console</h3>
+            <div class="config-block">
+                <span class="val-str">[ConfigMigrator] config.yml está na v0, versão mais recente é v1.</span><br>
+                <span class="val-str">[ConfigMigrator] Backup criado: config.yml.backup-2026-03-10</span><br>
+                <span class="val-str">[ConfigMigrator] Aplicando migração: V0 → V1</span><br>
+                <span class="val-str">[ConfigMigrator] Migração concluída! 1 step(s) aplicado(s).</span>
+            </div>
+
+            <h3>Extensibilidade</h3>
+            <p>Para adicionar novas migrações em versões futuras:</p>
+            <ol>
+                <li>Criar nova classe em <code>migration/migrations/</code> (ex: <code>V1_to_V2.java</code>)</li>
+                <li>Implementar <code>MigrationStep</code> com <code>fromVersion()</code>, <code>toVersion()</code> e
+                    <code>apply()</code>
+                </li>
+                <li>Registrar no <code>ConfigMigrator.registerSteps()</code></li>
+                <li>Incrementar <code>LATEST_VERSION</code> no <code>ConfigMigrator</code></li>
+            </ol>
+
+            <h3>Arquivos</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>Arquivo</th>
+                        <th>Função</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>MigrationStep.java</code></td>
+                        <td>Interface para cada patch de migração</td>
+                    </tr>
+                    <tr>
+                        <td><code>ConfigMigrator.java</code></td>
+                        <td>Motor principal (backup, sequência, save)</td>
+                    </tr>
+                    <tr>
+                        <td><code>V0_to_V1.java</code></td>
+                        <td>Primeira migração (config_version + chaves B32+)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip-box">
+                <div class="tip-title">💡 DICA</div>
+                Use <code>/gorvax migrateconfig</code> após restaurar um backup antigo para
+                re-aplicar automaticamente todas as migrações necessárias.
+            </div>
+        </div>
+
+        <div class="separator">⚔</div>
+
+        <!-- ████ SECTION 18 — CÓDEX ADMIN ████ -->
+        <div class="section" id="s18">
+            <div class="section-header">
+                <span class="icon">📚</span>
+                <div>
+                    <span class="section-num">SEÇÃO 18</span>
+                    <h2>Códex de Gorvax — Configuração Admin</h2>
+                </div>
+            </div>
+
+            <p>O Códex de Gorvax é configurado via <code>codex.yml</code>. Cada entrada é organizada em categorias com
+                tipo de desbloqueio, alvo e quantidade necessária.</p>
+
+            <h3>Estrutura do <code>codex.yml</code></h3>
+            <div class="config-block">
+                <span class="key">categories</span>:<br>
+                &nbsp;&nbsp;<span class="key">mobs</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">name</span>: <span class="val-str">"§c⚔ Bestiário"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">icon</span>: <span class="val-str">ZOMBIE_HEAD</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">entries</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">zombie</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">name</span>: <span class="val-str">"§fZombi"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">description</span>: <span class="val-str">"O morto-vivo mais comum..."</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">unlock_type</span>: <span class="val-str">KILL_MOB</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">unlock_target</span>: <span class="val-str">ZOMBIE</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">unlock_amount</span>: <span class="val-num">10</span>
+            </div>
+
+            <h3>Tipos de <code>unlock_type</code></h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Disparo</th>
+                        <th>unlock_target</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>KILL_MOB</code></td>
+                        <td>Matar N mobs</td>
+                        <td>EntityType (ex: <code>ZOMBIE</code>, <code>ENDERMAN</code>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>MINE_BLOCK</code></td>
+                        <td>Minerar N blocos</td>
+                        <td>Material (ex: <code>DIAMOND_ORE</code>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>VISIT_BIOME</code></td>
+                        <td>Visitar bioma</td>
+                        <td>Biome ID (ex: <code>DESERT</code>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>BOSS_PARTICIPATE</code></td>
+                        <td>Participar de boss</td>
+                        <td>Boss ID ou <code>ANY</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Como Adicionar Novas Entradas</h3>
+            <ol>
+                <li>Abra <code>codex.yml</code> na pasta do plugin</li>
+                <li>Adicione uma entrada dentro de uma categoria existente ou crie nova categoria</li>
+                <li>Defina <code>name</code>, <code>description</code>, <code>unlock_type</code>, <code>unlock_target</code> e <code>unlock_amount</code></li>
+                <li>Use <code>/gorvax reload</code> para recarregar</li>
+            </ol>
+
+            <h3>Persistência</h3>
+            <p>Entradas desbloqueadas são salvas no <code>playerdata.yml</code> sob a chave <code>unlockedCodex</code>:</p>
+            <div class="config-block">
+                <span class="key">&lt;uuid&gt;</span>:<br>
+                &nbsp;&nbsp;<span class="key">unlockedCodex</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- <span class="val-str">"mobs.zombie"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- <span class="val-str">"mobs.enderman"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;- <span class="val-str">"biomes.desert"</span>
+            </div>
+
+            <h3>Arquivos</h3>
+            <table class="command-table">
+                <thead>
+                    <tr>
+                        <th>Arquivo</th>
+                        <th>Função</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>codex.yml</code></td>
+                        <td>Definição de categorias e entradas</td>
+                    </tr>
+                    <tr>
+                        <td><code>CodexManager.java</code></td>
+                        <td>Lógica de unlock, progresso e recompensas</td>
+                    </tr>
+                    <tr>
+                        <td><code>CodexGUI.java</code></td>
+                        <td>Interface gráfica do Códex</td>
+                    </tr>
+                    <tr>
+                        <td><code>CodexCommand.java</code></td>
+                        <td>Comando <code>/codex</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>CodexListener.java</code></td>
+                        <td>Hooks automáticos (kills, mining, etc.)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ████ CONTRACAPA ████ -->
+        <div class="contracapa">
+            <div class="logo">🛡️</div>
+            <h3>GORVAXMC — STAFF</h3>
+            <div class="credits">
+                <p><strong>Manual da Staff</strong></p>
+                <p>Guia técnico de administração do GorvaxCore</p>
+                <p>Versão 1.0.0</p>
+                <br>
+                <p><strong>Créditos</strong></p>
+                <p>Plugin desenvolvido pela equipe GorvaxCore</p>
+                <p>Documentação técnica para uso exclusivo da Staff</p>
+                <p>Plataforma: Paper 1.21+ · Java 21</p>
+            </div>
+            <div class="version-info">
+                📋 18 seções · 14 arquivos de config · Guia completo de permissões, placeholders, bStats e migração
+            </div>
+        </div>
+
+        <!-- ████ FOOTER ████ -->
+        <div class="footer">
+            <div class="brand">⚙️ GORVAXMC — STAFF MANUAL</div>
+            <p>GorvaxCore v1.0.0 · Paper 1.21+</p>
+            <p>Documento confidencial — uso exclusivo da equipe administrativa</p>
+            <p style="margin-top: 16px; font-size: 0.7rem; opacity: 0.6;">Gerado automaticamente a partir das
+                configurações do plugin</p>
+        </div>
+
+    </div> <!-- /container -->
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+        title="Voltar ao topo">⬆</button>
+    <script>
+        (function () {
+            var btn = document.getElementById('backToTop');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 600) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

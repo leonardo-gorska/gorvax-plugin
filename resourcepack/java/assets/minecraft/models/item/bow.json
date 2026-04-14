@@ -1,0 +1,69 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "minecraft:item/bow"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "pulling": 0,
+                "custom_model_data": 0
+            },
+            "model": "minecraft:item/bow"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0,
+                "custom_model_data": 0
+            },
+            "model": "minecraft:item/bow_pulling_0"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.65,
+                "custom_model_data": 0
+            },
+            "model": "minecraft:item/bow_pulling_1"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.9,
+                "custom_model_data": 0
+            },
+            "model": "minecraft:item/bow_pulling_2"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 1001
+            },
+            "model": "gorvax:item/hunter_bow"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0,
+                "custom_model_data": 1001
+            },
+            "model": "gorvax:item/hunter_bow_pulling_0"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.65,
+                "custom_model_data": 1001
+            },
+            "model": "gorvax:item/hunter_bow_pulling_1"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.9,
+                "custom_model_data": 1001
+            },
+            "model": "gorvax:item/hunter_bow_pulling_2"
+        }
+    ]
+}

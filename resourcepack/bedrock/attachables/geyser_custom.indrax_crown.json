@@ -1,0 +1,25 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "geometry": {
+                "default": "geometry.gorvax.indrax_crown"
+            },
+            "identifier": "geyser_custom:indrax_crown",
+            "materials": {
+                "default": "armor",
+                "enchanted": "armor_enchanted"
+            },
+            "render_controllers": [
+                "controller.render.armor"
+            ],
+            "scripts": {
+                "parent_setup": "v.helmet_layer_visible = 0.0;"
+            },
+            "textures": {
+                "default": "textures/models/armor/indrax_crown",
+                "enchanted": "textures/misc/enchanted_actor_glint"
+            }
+        }
+    }
+}
