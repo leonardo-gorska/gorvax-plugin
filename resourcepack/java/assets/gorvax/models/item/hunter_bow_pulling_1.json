@@ -1,0 +1,6 @@
+{
+    "parent": "gorvax:item/hunter_bow",
+    "textures": {
+        "layer0": "gorvax:item/hunter_bow_pulling_1"
+    }
+}

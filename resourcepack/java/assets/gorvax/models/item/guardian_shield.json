@@ -1,0 +1,308 @@
+{
+    "credit": "GorvaxCore — Escudo do Guardião (modelo customizado)",
+    "parent": "minecraft:builtin/entity",
+    "textures": {
+        "layer0": "gorvax:item/guardian_shield",
+        "particle": "gorvax:item/guardian_shield"
+    },
+    "elements": [
+        {
+            "__comment": "Corpo principal do escudo — forma ampla",
+            "from": [
+                3,
+                1,
+                7
+            ],
+            "to": [
+                13,
+                14,
+                9
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        2,
+                        1,
+                        12,
+                        14
+                    ],
+                    "texture": "#layer0"
+                },
+                "south": {
+                    "uv": [
+                        2,
+                        1,
+                        12,
+                        14
+                    ],
+                    "texture": "#layer0"
+                },
+                "east": {
+                    "uv": [
+                        12,
+                        1,
+                        14,
+                        14
+                    ],
+                    "texture": "#layer0"
+                },
+                "west": {
+                    "uv": [
+                        0,
+                        1,
+                        2,
+                        14
+                    ],
+                    "texture": "#layer0"
+                },
+                "up": {
+                    "uv": [
+                        2,
+                        0,
+                        12,
+                        2
+                    ],
+                    "texture": "#layer0"
+                },
+                "down": {
+                    "uv": [
+                        2,
+                        14,
+                        12,
+                        16
+                    ],
+                    "texture": "#layer0"
+                }
+            }
+        },
+        {
+            "__comment": "Centro — emblema do guardião",
+            "from": [
+                6,
+                5,
+                6.5
+            ],
+            "to": [
+                10,
+                10,
+                7
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        5,
+                        5,
+                        9,
+                        10
+                    ],
+                    "texture": "#layer0"
+                }
+            }
+        },
+        {
+            "__comment": "Borda superior — reforço metálico",
+            "from": [
+                4,
+                13,
+                6.5
+            ],
+            "to": [
+                12,
+                15,
+                9.5
+            ],
+            "faces": {
+                "north": {
+                    "uv": [
+                        3,
+                        0,
+                        11,
+                        2
+                    ],
+                    "texture": "#layer0"
+                },
+                "south": {
+                    "uv": [
+                        3,
+                        0,
+                        11,
+                        2
+                    ],
+                    "texture": "#layer0"
+                },
+                "up": {
+                    "uv": [
+                        3,
+                        0,
+                        11,
+                        2
+                    ],
+                    "texture": "#layer0"
+                }
+            }
+        },
+        {
+            "__comment": "Alça traseira",
+            "from": [
+                6,
+                5,
+                9
+            ],
+            "to": [
+                10,
+                10,
+                10
+            ],
+            "faces": {
+                "south": {
+                    "uv": [
+                        5,
+                        5,
+                        9,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "east": {
+                    "uv": [
+                        5,
+                        5,
+                        6,
+                        10
+                    ],
+                    "texture": "#layer0"
+                },
+                "west": {
+                    "uv": [
+                        5,
+                        5,
+                        6,
+                        10
+                    ],
+                    "texture": "#layer0"
+                }
+            }
+        }
+    ],
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [
+                0,
+                90,
+                0
+            ],
+            "translation": [
+                10,
+                6,
+                -4
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [
+                0,
+                90,
+                0
+            ],
+            "translation": [
+                10,
+                6,
+                12
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ]
+        },
+        "firstperson_righthand": {
+            "rotation": [
+                0,
+                180,
+                5
+            ],
+            "translation": [
+                -10,
+                2,
+                -10
+            ],
+            "scale": [
+                1.25,
+                1.25,
+                1.25
+            ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [
+                0,
+                180,
+                5
+            ],
+            "translation": [
+                10,
+                0,
+                -10
+            ],
+            "scale": [
+                1.25,
+                1.25,
+                1.25
+            ]
+        },
+        "gui": {
+            "rotation": [
+                15,
+                -25,
+                -5
+            ],
+            "translation": [
+                2,
+                3,
+                0
+            ],
+            "scale": [
+                0.65,
+                0.65,
+                0.65
+            ]
+        },
+        "fixed": {
+            "rotation": [
+                0,
+                180,
+                0
+            ],
+            "translation": [
+                -2,
+                4,
+                -5
+            ],
+            "scale": [
+                0.5,
+                0.5,
+                0.5
+            ]
+        },
+        "ground": {
+            "rotation": [
+                0,
+                0,
+                0
+            ],
+            "translation": [
+                4,
+                4,
+                2
+            ],
+            "scale": [
+                0.25,
+                0.25,
+                0.25
+            ]
+        }
+    }
+}

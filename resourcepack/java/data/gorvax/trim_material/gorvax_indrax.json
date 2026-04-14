@@ -1,0 +1,9 @@
+{
+    "asset_name": "gorvax_indrax",
+    "description": {
+        "translate": "trim_material.gorvax.indrax",
+        "color": "#6B2FA3"
+    },
+    "ingredient": "minecraft:amethyst_shard",
+    "item_model_index": 0.1
+}

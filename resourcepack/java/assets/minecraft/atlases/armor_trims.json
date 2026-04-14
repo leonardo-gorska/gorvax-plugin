@@ -1,0 +1,19 @@
+{
+    "sources": [
+        {
+            "type": "paletted_permutations",
+            "textures": [
+                "gorvax:trims/models/armor/gorvax_full",
+                "gorvax:trims/models/armor/gorvax_full_leggings"
+            ],
+            "palette_key": "trims/color_palettes/trim_palette",
+            "permutations": {
+                "gorvax_indrax": "gorvax:trims/color_palettes/indrax",
+                "gorvax_skulkor": "gorvax:trims/color_palettes/skulkor",
+                "gorvax_vulgathor": "gorvax:trims/color_palettes/vulgathor",
+                "gorvax_gorvax": "gorvax:trims/color_palettes/gorvax",
+                "gorvax_speed": "gorvax:trims/color_palettes/speed"
+            }
+        }
+    ]
+}

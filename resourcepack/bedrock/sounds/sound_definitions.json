@@ -1,0 +1,95 @@
+{
+    "format_version": "1.14.0",
+    "sound_definitions": {
+        "gorvax.item.gorvax_blade.equip": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/gorvax_blade_equip"
+            ]
+        },
+        "gorvax.item.gorvax_blade.swing": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/gorvax_blade_swing"
+            ]
+        },
+        "gorvax.item.indrax_crown.equip": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/indrax_crown_equip"
+            ]
+        },
+        "gorvax.item.speed_boots.equip": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/speed_boots_equip"
+            ]
+        },
+        "gorvax.item.hunter_bow.equip": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/hunter_bow_equip"
+            ]
+        },
+        "gorvax.item.hunter_bow.swing": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/hunter_bow_swing"
+            ]
+        },
+        "gorvax.item.guardian_shield.equip": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/guardian_shield_equip"
+            ]
+        },
+        "gorvax.item.guardian_shield.block": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/guardian_shield_block"
+            ]
+        },
+        "gorvax.item.vulgathor_mantle.equip": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/vulgathor_mantle_equip"
+            ]
+        },
+        "gorvax.item.kaldur_lance.equip": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/kaldur_lance_equip"
+            ]
+        },
+        "gorvax.item.kaldur_lance.swing": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/kaldur_lance_swing"
+            ]
+        },
+        "gorvax.item.skulkor_helm.equip": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/skulkor_helm_equip"
+            ]
+        },
+        "gorvax.item.xylos_pearl.equip": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/xylos_pearl_equip"
+            ]
+        },
+        "gorvax.item.xylos_pearl.swing": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/xylos_pearl_swing"
+            ]
+        },
+        "gorvax.item.gorvax_leggings.equip": {
+            "category": "player",
+            "sounds": [
+                "sounds/item/gorvax_leggings_equip"
+            ]
+        }
+    }
+}

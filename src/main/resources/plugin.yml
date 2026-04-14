@@ -1,0 +1,172 @@
+name: GorvaxCore
+version: '2.2.0'
+main: br.com.gorvax.core.GorvaxCore
+api-version: '1.21'
+authors: [Gorska]
+depend: [WorldGuard, Vault, PlaceholderAPI]
+softdepend: [floodgate, LuckPerms, dynmap, BlueMap]
+
+commands:
+  reino:
+    description: Comandos principais do reino.
+    aliases: [kingdom, k, cidade, city, town]
+  lote:
+    description: Comandos de gerenciamento de feudos/lotes.
+    aliases: [plot, subplot, terreno, feudo]
+  reinonome:
+    description: Renomeia o reino.
+    permission: gorvax.reino.nome
+    aliases: [cidadenome]
+  boss:
+    description: Gerenciamento de Bosses.
+    permission: gorvax.admin
+  market:
+    description: Mercado Global e Local.
+    aliases: [loja, mercado]
+  permitir:
+    description: "Dá permissão no terreno"
+    aliases: [trust]
+  remover:
+    description: "Remove permissão no terreno"
+    aliases: [untrust]
+  confirmar:
+    description: "Confirma a seleção de terreno"
+    aliases: [c]
+  gorvax:
+    description: "Comando principal e administrativo"
+    aliases: [gcore, gorvaxcore]
+  rc:
+    description: "Chat privado para súditos do reino."
+    usage: /rc <mensagem>
+    aliases: [cc]
+  ac:
+    description: "Chat entre reinos aliados."
+    usage: /ac <mensagem>
+    aliases: [alliancechat]
+  g:
+    description: "Chat global."
+    usage: /g <mensagem>
+    aliases: [global]
+  l:
+    description: "Chat local (raio configurável)."
+    usage: /l <mensagem>
+    aliases: [local]
+  tc:
+    description: "Chat de comércio."
+    usage: /tc <mensagem>
+    aliases: [trade, comercio]
+  chat:
+    description: "Alterna canais de chat."
+    aliases: [ "canal" ]
+    permission: gorvax.chat
+  conquistas:
+    description: "Abre o menu de conquistas."
+    aliases: [ "achievements", "ach" ]
+    permission: gorvax.conquistas
+  titulos:
+    description: "Abre o menu de seleção de títulos."
+    aliases: [ "titles" ]
+    permission: gorvax.titulos
+  leilao:
+    description: "Sistema de leilão global."
+    aliases: [ "auction", "leilão" ]
+    permission: gorvax.leilao
+  carta:
+    description: "Sistema de correio entre jogadores."
+    aliases: [ "mail", "correio" ]
+    permission: gorvax.carta
+  bounty:
+    description: "Sistema de recompensas por PvP."
+    aliases: [ "recompensa" ]
+    permission: gorvax.bounty
+  nacao:
+    description: "Sistema de nações (meta-reinos)."
+    aliases: [ "nation", "nação" ]
+    permission: gorvax.nacao
+  duel:
+    description: "Sistema de duelos PvP 1v1."
+    aliases: [ "duelo", "pvp1v1" ]
+    permission: gorvax.duel
+  tutorial:
+    description: "Gerencia o tutorial do jogador."
+    aliases: [ "tuto" ]
+    permission: gorvax.tutorial
+  daily:
+    description: "Recompensas diárias de login."
+    aliases: [ "diario", "dailyreward" ]
+    permission: gorvax.daily
+  nc:
+    description: "Chat de nação."
+    permission: gorvax.chat
+  menu:
+    description: "Menu central do GorvaxCore."
+    aliases: [ "gorvaxmenu" ]
+    permission: gorvax.menu
+  top:
+    description: "Rankings e leaderboards do servidor."
+    aliases: [ "ranking", "rankings" ]
+    permission: gorvax.top
+  ignore:
+    description: Ignorar um jogador no chat.
+    aliases: [ignorar]
+    permission: gorvax.player
+  customitem:
+    description: Gerenciamento de itens customizados lendários.
+    aliases: [ci, customitems]
+    permission: gorvax.admin
+  miniboss:
+    description: "Sistema de mini-bosses por bioma."
+    aliases: [ "mb", "minibosses" ]
+    permission: gorvax.player
+  crate:
+    description: "Sistema de crates e chaves."
+    aliases: [ "crates", "chave", "chaves" ]
+    permission: gorvax.player
+  cosmetics:
+    description: "Sistema de cosméticos (partículas, trails, tags)."
+    aliases: [ "cosmeticos", "cosmetic" ]
+    permission: gorvax.player
+  vip:
+    description: "Sistema de VIP e ranks premium."
+    aliases: [ "premium" ]
+    permission: gorvax.player
+  pass:
+    description: "Battle Pass sazonal com rewards."
+    aliases: [ "battlepass", "bp" ]
+    permission: gorvax.player
+  quests:
+    description: "Quests diárias e semanais."
+    aliases: [ "missoes", "quest", "missao" ]
+    permission: gorvax.player
+  evento:
+    description: "Eventos sazonais temáticos do servidor."
+    aliases: [ "event", "eventos" ]
+    permission: gorvax.player
+  karma:
+    description: "Sistema de reputação e karma do jogador."
+    aliases: [ "reputacao", "rep" ]
+    permission: gorvax.player
+  estrutura:
+    description: "Gerencia estruturas (reinos pré-construídos) mapeadas no mundo."
+    aliases: [ "structure", "estruturas", "poi" ]
+    permission: gorvax.player
+  rank:
+    description: "Ver progressão de ranks e requisitos de avanço."
+    aliases: [ "ranks", "progresso", "rankup" ]
+    permission: gorvax.player
+  kit:
+    description: "Abre menu de kits disponíveis por rank."
+    aliases: [ "kits" ]
+    permission: gorvax.player
+  rtp:
+    description: "Teleporte aleatório para uma localização segura."
+    aliases: [ "wild", "aleatorio" ]
+    permission: gorvax.player
+  codex:
+    description: "Abre o Códex de Gorvax (enciclopédia interativa)."
+    aliases: [ "enciclopedia", "encyclopedia", "wiki" ]
+    permission: gorvax.player
+  tp-hub:
+    description: "Abre o Hub de Teleportes."
+    aliases: [ "hub", "tphub", "teleportes" ]
+    permission: gorvax.player

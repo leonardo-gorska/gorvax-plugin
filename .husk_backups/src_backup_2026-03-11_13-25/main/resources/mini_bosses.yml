@@ -1,0 +1,194 @@
+# ============================================================
+# GorvaxCore — Mini-Bosses por Bioma (B11)
+# Bosses menores que spawnam naturalmente em biomas específicos.
+# ============================================================
+
+# Configurações globais
+settings:
+  enabled: true
+  spawn_interval: 2400           # Intervalo de tentativa de spawn em ticks (2400 = 2 minutos)
+  max_active: 3                  # Máximo de mini-bosses ativos simultâneos
+  distance_from_claims: 100      # Distância mínima de claims para spawn natural (blocos)
+  player_spawn_radius: 80        # Raio de spawn ao redor de jogadores (blocos)
+  player_min_radius: 30          # Distância mínima do jogador para spawn (blocos)
+  despawn_time: 6000             # Ticks sem combate antes de despawnar (6000 = 5 minutos)
+  spawn_chance: 0.08             # Chance de spawn por tentativa (0.0 a 1.0) — era 0.35
+
+# Definições de mini-bosses
+mini_bosses:
+
+  guardiao_deserto:
+    nome: "§6§lGuardião do Deserto"
+    entity_type: HUSK
+    hp: 250.0                       # era 300.0
+    damage: 10.0                     # era 8.0
+    scale: 1.4                       # era 1.5
+    movement_speed: 0.30             # era 0.28
+    money_reward: 500.0
+    xp_reward: 150
+    biomes:
+      - DESERT
+      - BADLANDS
+      - ERODED_BADLANDS
+      - WOODED_BADLANDS
+    equipment:
+      helmet: GOLDEN_HELMET
+      chestplate: GOLDEN_CHESTPLATE
+      leggings: GOLDEN_LEGGINGS
+      boots: GOLDEN_BOOTS
+      mainhand: GOLDEN_SWORD
+    effects_on_hit:
+      - "SLOWNESS:40:1"             # era 60:1
+      - "HUNGER:60:1"               # era 100:1
+    passive_effects:
+      - "FIRE_RESISTANCE:999999:0"
+    skills:
+      sand_storm:
+        radius: 8.0                  # era 10.0
+        damage: 5.0                  # era 4.0
+        cooldown: 10000              # era 8000
+        message: "§6§lGUARDIÃO §8» §eA tempestade de areia consome tudo!"
+      summon_minions:
+        count: 2                     # era 3
+        type: HUSK
+        name: "§6Servo do Deserto"
+        hp_threshold: 0.4            # era 0.5
+    loot:
+      - "GOLDEN_APPLE:2:0.6"     # Item:Quantidade:Chance
+      - "GOLD_INGOT:5:0.8"
+      - "SAND:32:1.0"
+      - "TOTEM_OF_UNDYING:1:0.05"
+    spawn_message: "§6§l⚔ §eUm Guardião do Deserto emergiu das areias!"
+    death_message: "§6§l⚔ §eO Guardião do Deserto foi derrotado por §f{0}§e!"
+
+  sentinela_gelida:
+    nome: "§b§lSentinela Gélida"
+    entity_type: STRAY
+    hp: 300.0                        # era 400.0
+    damage: 9.0                      # era 7.0
+    scale: 1.5                       # era 1.6
+    movement_speed: 0.30
+    money_reward: 600.0              # era 650.0
+    xp_reward: 175                   # era 200
+    biomes:
+      - SNOWY_PLAINS
+      - SNOWY_TAIGA
+      - FROZEN_RIVER
+      - ICE_SPIKES
+      - SNOWY_BEACH
+      - FROZEN_OCEAN
+      - GROVE
+      - SNOWY_SLOPES
+    equipment:
+      helmet: DIAMOND_HELMET
+      chestplate: CHAINMAIL_CHESTPLATE
+      leggings: CHAINMAIL_LEGGINGS
+      boots: DIAMOND_BOOTS
+      mainhand: BOW
+    effects_on_hit:
+      - "SLOWNESS:60:1"             # era 80:2 (nível reduzido!)
+      - "MINING_FATIGUE:40:1"       # era 60:1
+    passive_effects:
+      - "FIRE_RESISTANCE:999999:0"
+      # REMOVIDO: RESISTANCE:999999:0 (muito tanky pro solo)
+    skills:
+      frost_nova:
+        radius: 8.0                  # era 12.0
+        damage: 4.0                  # era 5.0
+        cooldown: 12000              # era 10000
+        message: "§b§lSENTINELA §8» §3O frio absoluto se espalha!"
+      ice_arrows:
+        count: 3                     # era 5
+        damage: 3.0                  # era 4.0
+        cooldown: 8000               # era 6000
+        message: "§b§lSENTINELA §8» §3Flechas de gelo perfurantes!"
+    loot:
+      - "DIAMOND:2:0.4"
+      - "PACKED_ICE:16:0.8"
+      - "BLUE_ICE:8:0.5"
+      - "BOW:1:0.3"
+      - "ENCHANTED_GOLDEN_APPLE:1:0.03"
+    spawn_message: "§b§l⚔ §3Uma Sentinela Gélida emergiu da nevasca!"
+    death_message: "§b§l⚔ §3A Sentinela Gélida foi derrotada por §f{0}§3!"
+
+  aranha_selva:
+    nome: "§a§lAraña da Selva"
+    entity_type: CAVE_SPIDER
+    hp: 200.0                        # era 250.0
+    damage: 8.0                      # era 10.0
+    scale: 1.8                       # era 2.0
+    movement_speed: 0.34             # era 0.35
+    money_reward: 400.0              # era 450.0
+    xp_reward: 120
+    biomes:
+      - JUNGLE
+      - BAMBOO_JUNGLE
+      - SPARSE_JUNGLE
+    equipment:
+      # Aranhas não usam equipamento normalmente
+    effects_on_hit:
+      - "POISON:80:1"               # era 100:1
+      - "WEAKNESS:40:0"             # era 60:0
+    passive_effects:
+      - "SPEED:999999:1"
+    skills:
+      web_trap:
+        radius: 6.0                  # era 8.0
+        web_count: 8                 # era 12
+        cooldown: 14000              # era 12000
+        message: "§a§lARAÑA §8» §2Teias capturam tudo ao redor!"
+      poison_cloud:
+        radius: 5.0                  # era 6.0
+        damage: 3.0
+        cooldown: 10000              # era 8000
+        message: "§a§lARAÑA §8» §2Nuvem venenosa!"
+    loot:
+      - "STRING:16:1.0"
+      - "SPIDER_EYE:4:0.7"
+      - "FERMENTED_SPIDER_EYE:2:0.4"
+      - "EMERALD:3:0.5"
+      - "ENCHANTED_GOLDEN_APPLE:1:0.03"
+    spawn_message: "§a§l⚔ §2Uma Araña da Selva gigante apareceu na floresta!"
+    death_message: "§a§l⚔ §2A Araña da Selva foi derrotada por §f{0}§2!"
+
+  fantasma_nether:
+    nome: "§c§lFantasma do Nether"
+    entity_type: BLAZE
+    hp: 350.0                        # era 500.0
+    damage: 10.0                     # era 12.0
+    scale: 1.6                       # era 1.8
+    movement_speed: 0.26             # era 0.25
+    money_reward: 700.0              # era 800.0
+    xp_reward: 200                   # era 250
+    biomes:
+      - NETHER_WASTES
+      - SOUL_SAND_VALLEY
+      - CRIMSON_FOREST
+      - WARPED_FOREST
+      - BASALT_DELTAS
+    equipment:
+      # Blazes não usam equipamento
+    effects_on_hit:
+      - "WITHER:40:1"               # era 60:1
+    passive_effects:
+      - "FIRE_RESISTANCE:999999:0"
+      # REMOVIDO: RESISTANCE:999999:1 (muito tanky pro solo)
+    skills:
+      fire_rain:
+        radius: 10.0                 # era 14.0
+        fireball_count: 5            # era 8
+        cooldown: 10000              # era 7000
+        message: "§c§lFANTASMA §8» §4Chuva de fogo!"
+      flame_shield:
+        duration: 80                 # era 100
+        resistance_level: 1          # era 2
+        cooldown: 18000              # era 15000
+        message: "§c§lFANTASMA §8» §4Chamas eternas me protegem!"
+    loot:
+      - "BLAZE_ROD:4:0.8"
+      - "NETHER_STAR:1:0.02"
+      - "NETHERITE_SCRAP:1:0.10"
+      - "GOLD_BLOCK:2:0.4"
+      - "GHAST_TEAR:2:0.3"
+    spawn_message: "§c§l⚔ §4Um Fantasma do Nether surgiu das chamas!"
+    death_message: "§c§l⚔ §4O Fantasma do Nether foi derrotado por §f{0}§4!"
