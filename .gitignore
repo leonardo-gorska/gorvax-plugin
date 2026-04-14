@@ -23,3 +23,9 @@ Thumbs.db
 
 # Gradle wrapper (already committed, but just in case)
 !gradle/wrapper/gradle-wrapper.jar
+
+# Build output
+bin/
+
+# Backup artifacts
+.husk_backups/
