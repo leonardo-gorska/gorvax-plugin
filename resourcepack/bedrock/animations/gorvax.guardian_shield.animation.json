@@ -1,0 +1,25 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.gorvax.guardian_shield.hold": {
+            "loop": true,
+            "bones": {
+                "shield": {
+                    "position": [6, 19, 2],
+                    "rotation": [10, 0, 0],
+                    "scale": 0.625
+                }
+            }
+        },
+        "animation.gorvax.guardian_shield.blocking": {
+            "loop": true,
+            "bones": {
+                "shield": {
+                    "position": [6, 20, -4],
+                    "rotation": [5, 25, 0],
+                    "scale": 0.65
+                }
+            }
+        }
+    }
+}

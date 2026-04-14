@@ -1,0 +1,9 @@
+{
+    "asset_name": "gorvax_speed",
+    "description": {
+        "translate": "trim_material.gorvax.speed",
+        "color": "#00BFFF"
+    },
+    "ingredient": "minecraft:diamond",
+    "item_model_index": 0.5
+}

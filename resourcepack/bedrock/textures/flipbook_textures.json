@@ -1,0 +1,21 @@
+[
+    {
+        "flipbook_texture": "textures/item/gorvax_blade",
+        "atlas_tile": "geyser_custom.gorvax_blade",
+        "ticks_per_frame": 4,
+        "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            4,
+            3,
+            2,
+            1
+        ],
+        "replicate": 1,
+        "blend_frames": true
+    }
+]

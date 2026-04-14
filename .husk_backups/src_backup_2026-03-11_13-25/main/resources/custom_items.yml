@@ -1,0 +1,892 @@
+# ########################################################################## #
+#                   GORVAX CORE - CUSTOM ITEMS LENDÁRIOS                     #
+#        Sistema de itens customizados com efeitos on-hit e on-equip         #
+# ########################################################################## #
+#
+# Formato de cada item:
+#   base: Material vanilla (NETHERITE_SWORD, DIAMOND_BOOTS, etc.)
+#   name: Nome customizado com cores (§)
+#   lore: Lista de strings de lore
+#   enchants:
+#     ENCHANT_NAME: nível
+#   attributes:
+#     ATTRIBUTE_NAME: valor (ADD_NUMBER no slot correspondente)
+#   on_hit_effects: (somente para armas — aplica ao atacar)
+#     - type: PotionEffectType
+#       duration: ticks de duração
+#       amplifier: nível do efeito (0 = I, 1 = II, etc.)
+#       chance: chance em % (0-100)
+#   passive_effects: (somente para armadura — aplica enquanto equipado)
+#     - type: PotionEffectType
+#       amplifier: nível do efeito
+#   source: Descrição de como obter (informativo, exibido na lore)
+#
+
+items:
+
+  # ============================================================
+  # LÂMINA DE GORVAX — Espada lendária suprema
+  # Drop do Rei Gorvax (Top 1 de dano)
+  # ============================================================
+  lamina_gorvax:
+    base: NETHERITE_SWORD
+    custom_model_data: 1001
+    item_model: "gorvax:gorvax_blade"
+
+    name: "§4§l⚔ Lâmina de Gorvax"
+    lore:
+      - ""
+      - "§7Forjada no fogo ancestral do Rei Gorvax."
+      - "§7A lâmina que fez impérios tombarem"
+      - "§7e reinos se ajoelharem."
+      - ""
+      - "§c⚔ +15% dano a jogadores"
+      - "§5☠ Efeito: Wither ao hit (3s, 30%)"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1)"
+      - "§4§lITEM LENDÁRIO"
+    enchants:
+      SHARPNESS: 7
+      FIRE_ASPECT: 3
+      UNBREAKING: 5
+      LOOTING: 4
+      SWEEPING_EDGE: 3
+    attributes:
+      GENERIC_ATTACK_DAMAGE: 12.0
+    on_hit_effects:
+      - type: WITHER
+        duration: 60
+        amplifier: 1
+        chance: 30
+    source: "Drop do Rei Gorvax (Top 1)"
+    particle_effects:
+      - particle: SOUL_FIRE_FLAME
+        count: 3
+        speed: 0.02
+        offset_x: 0.15
+        offset_y: 0.2
+        offset_z: 0.15
+    sound_effects:
+      equip:
+        - sound: "gorvax:item.gorvax_blade.equip"
+          volume: 0.8
+          pitch: 0.8
+      swing:
+        - sound: "gorvax:item.gorvax_blade.swing"
+          volume: 0.6
+          pitch: 1.2
+
+  # ============================================================
+  # COROA DE INDRAX — Capacete lendário
+  # Drop do Indrax Abissal (Top 1-3 de dano)
+  # ============================================================
+  coroa_indrax:
+    base: NETHERITE_HELMET
+    custom_model_data: 1001
+    item_model: "gorvax:indrax_crown"
+
+    name: "§5§l👑 Coroa de Indrax"
+    lore:
+      - ""
+      - "§7Arrancada da cabeça do Abissal."
+      - "§7Quem a veste enxerga além do véu"
+      - "§7que separa os mundos."
+      - ""
+      - "§b♥ +4 HP extras"
+      - "§5✦ Efeito: Respiração Aquática permanente"
+      - ""
+      - "§8Fonte: §7Drop do Indrax Abissal (Top 1-3)"
+      - "§5§lITEM LENDÁRIO"
+    enchants:
+      PROTECTION: 6
+      UNBREAKING: 5
+      RESPIRATION: 3
+      AQUA_AFFINITY: 1
+    attributes:
+      GENERIC_MAX_HEALTH: 4.0
+    passive_effects:
+      - type: WATER_BREATHING
+        amplifier: 0
+    source: "Drop do Indrax Abissal (Top 1-3)"
+    trim_pattern: "gorvax:gorvax_full"
+    trim_material: "gorvax:gorvax_indrax"
+    particle_effects:
+      - particle: WITCH
+        count: 2
+        speed: 0.01
+        offset_x: 0.2
+        offset_y: 0.3
+        offset_z: 0.2
+    sound_effects:
+      equip:
+        - sound: "gorvax:item.indrax_crown.equip"
+          volume: 0.8
+          pitch: 1.0
+
+  # ============================================================
+  # BOTAS VELOCISTAS — Botas lendárias de velocidade
+  # Conquista: 50 bosses mortos
+  # ============================================================
+  botas_velocistas:
+    base: DIAMOND_BOOTS
+    custom_model_data: 1001
+    item_model: "gorvax:speed_boots"
+
+    name: "§b§l💨 Botas Velocistas"
+    lore:
+      - ""
+      - "§7Imbuídas com a essência do vento."
+      - "§7Quem as calça corre como o relâmpago"
+      - "§7e salta como a tempestade."
+      - ""
+      - "§b💨 Velocidade aumentada permanente"
+      - "§a✦ Queda reduzida"
+      - ""
+      - "§8Fonte: §7Conquista: 50 bosses mortos"
+      - "§b§lITEM LENDÁRIO"
+    enchants:
+      PROTECTION: 5
+      FEATHER_FALLING: 5
+      DEPTH_STRIDER: 3
+      UNBREAKING: 5
+    attributes:
+      GENERIC_MOVEMENT_SPEED: 0.015
+    passive_effects:
+      - type: SPEED
+        amplifier: 0
+    source: "Conquista: 50 bosses mortos"
+    trim_pattern: "gorvax:gorvax_full"
+    trim_material: "gorvax:gorvax_speed"
+    particle_effects:
+      - particle: CLOUD
+        count: 2
+        speed: 0.01
+        offset_x: 0.15
+        offset_y: 0.05
+        offset_z: 0.15
+    sound_effects:
+      equip:
+        - sound: "gorvax:item.speed_boots.equip"
+          volume: 0.8
+          pitch: 1.3
+
+  # ============================================================
+  # ARCO DO CAÇADOR — Arco lendário de precisão mortal
+  # Drop do Zarith (Top 1-3 de dano)
+  # ============================================================
+  arco_cacador:
+    base: BOW
+    custom_model_data: 1001
+    item_model: "gorvax:hunter_bow"
+
+    name: "§a§l🏹 Arco do Caçador"
+    lore:
+      - ""
+      - "§7Talhado nos ossos de Zarith,"
+      - "§7a Presa da Selva. Cada flecha"
+      - "§7é guiada pelo instinto predatório."
+      - ""
+      - "§a☠ Efeito: Veneno ao hit (4s, 25%)"
+      - "§e⚡ Efeito: Lentidão ao hit (3s, 40%)"
+      - ""
+      - "§8Fonte: §7Drop do Zarith (Top 1-3)"
+      - "§a§lITEM LENDÁRIO"
+    enchants:
+      POWER: 6
+      INFINITY: 1
+      FLAME: 2
+      UNBREAKING: 5
+      PUNCH: 3
+    attributes:
+      GENERIC_MOVEMENT_SPEED: 0.01
+    on_hit_effects:
+      - type: POISON
+        duration: 80
+        amplifier: 1
+        chance: 25
+      - type: SLOWNESS
+        duration: 60
+        amplifier: 0
+        chance: 40
+    source: "Drop do Zarith (Top 1-3)"
+    particle_effects:
+      - particle: COMPOSTER
+        count: 2
+        speed: 0.01
+        offset_x: 0.15
+        offset_y: 0.2
+        offset_z: 0.15
+    sound_effects:
+      equip:
+        - sound: "gorvax:item.hunter_bow.equip"
+          volume: 0.8
+          pitch: 1.1
+      swing:
+        - sound: "gorvax:item.hunter_bow.swing"
+          volume: 0.5
+          pitch: 1.4
+
+  # ============================================================
+  # ESCUDO DO GUARDIÃO — Escudo lendário defenisvo
+  # Conquista: "Muro de Ferro" (200 mortes sem perder kill streak)
+  # ============================================================
+  escudo_guardiao:
+    base: SHIELD
+    custom_model_data: 1001
+    item_model: "gorvax:guardian_shield"
+
+    name: "§6§l🛡 Escudo do Guardião"
+    lore:
+      - ""
+      - "§7Forjado com fragmentos de cada boss"
+      - "§7derrotado na história de Gorvax."
+      - "§7Inquebrável como a vontade do herói."
+      - ""
+      - "§6🛡 Resistência a knockback"
+      - "§c♥ +2 HP extras"
+      - "§5☠ Efeito: Fraqueza ao hit (2s, 20%)"
+      - ""
+      - "§8Fonte: §7Conquista: Muro de Ferro"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      UNBREAKING: 6
+      MENDING: 1
+    attributes:
+      GENERIC_KNOCKBACK_RESISTANCE: 0.4
+      GENERIC_MAX_HEALTH: 2.0
+    on_hit_effects:
+      - type: WEAKNESS
+        duration: 40
+        amplifier: 0
+        chance: 20
+    source: "Conquista: Muro de Ferro"
+    particle_effects:
+      - particle: ENCHANT
+        count: 3
+        speed: 0.02
+        offset_x: 0.2
+        offset_y: 0.4
+        offset_z: 0.2
+    sound_effects:
+      equip:
+        - sound: "gorvax:item.guardian_shield.equip"
+          volume: 0.8
+          pitch: 0.7
+      block:
+        - sound: "gorvax:item.guardian_shield.block"
+          volume: 0.7
+          pitch: 0.9
+
+  # ============================================================
+  # MANTO DE VULGATHOR — Peitoral lendário de fogo
+  # Drop do Vulgathor, Arauto das Cinzas (Top 1-3 de dano)
+  # ============================================================
+  manto_vulgathor:
+    base: NETHERITE_CHESTPLATE
+    custom_model_data: 1002
+    item_model: "gorvax:vulgathor_mantle"
+
+    name: "§6§l🔥 Manto de Vulgathor"
+    lore:
+      - ""
+      - "§7Arrancado das cinzas vivas do Arauto."
+      - "§7Quem o veste carrega o calor eterno"
+      - "§7dos Basalt Deltas em seu peito."
+      - ""
+      - "§6🔥 Resistência ao Fogo permanente"
+      - "§c⚔ Efeito: Incendiário ao hit (4s, 35%)"
+      - ""
+      - "§8Fonte: §7Drop do Vulgathor (Top 1-3)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      PROTECTION: 6
+      FIRE_PROTECTION: 5
+      UNBREAKING: 5
+      THORNS: 3
+    attributes:
+      GENERIC_ARMOR: 10.0
+      GENERIC_ARMOR_TOUGHNESS: 4.0
+    passive_effects:
+      - type: FIRE_RESISTANCE
+        amplifier: 0
+    on_hit_effects:
+      - type: INSTANT_DAMAGE
+        duration: 1
+        amplifier: 0
+        chance: 35
+    source: "Drop do Vulgathor (Top 1-3)"
+    trim_pattern: "gorvax:gorvax_full"
+    trim_material: "gorvax:gorvax_vulgathor"
+    particle_effects:
+      - particle: FLAME
+        count: 3
+        speed: 0.02
+        offset_x: 0.25
+        offset_y: 0.3
+        offset_z: 0.25
+    sound_effects:
+      equip:
+        - sound: "gorvax:item.vulgathor_mantle.equip"
+          volume: 0.8
+          pitch: 0.6
+
+  # ============================================================
+  # LANÇA DE KALDUR — Tridente lendário de gelo
+  # Drop do Kaldur, Coração de Gelo (Top 1-3 de dano)
+  # ============================================================
+  lanca_kaldur:
+    base: TRIDENT
+    custom_model_data: 1002
+    item_model: "gorvax:kaldur_lance"
+
+    name: "§b§l🧊 Lança de Kaldur"
+    lore:
+      - ""
+      - "§7Cristalizada no coração congelado de Kaldur."
+      - "§7Cada golpe carrega o frio absoluto"
+      - "§7que congela até a alma do inimigo."
+      - ""
+      - "§b❄ Efeito: Lentidão ao hit (4s, 40%)"
+      - "§3✦ Efeito: Mineração Lenta ao hit (3s, 20%)"
+      - ""
+      - "§8Fonte: §7Drop do Kaldur (Top 1-3)"
+      - "§b§lITEM LENDÁRIO"
+    enchants:
+      SHARPNESS: 6
+      LOYALTY: 3
+      RIPTIDE: 0
+      CHANNELING: 1
+      UNBREAKING: 5
+      IMPALING: 5
+    attributes:
+      GENERIC_ATTACK_DAMAGE: 11.0
+      GENERIC_ATTACK_SPEED: -2.5
+    on_hit_effects:
+      - type: SLOWNESS
+        duration: 80
+        amplifier: 1
+        chance: 40
+      - type: MINING_FATIGUE
+        duration: 60
+        amplifier: 0
+        chance: 20
+    source: "Drop do Kaldur (Top 1-3)"
+    particle_effects:
+      - particle: SNOWFLAKE
+        count: 3
+        speed: 0.01
+        offset_x: 0.2
+        offset_y: 0.2
+        offset_z: 0.2
+    sound_effects:
+      equip:
+        - sound: "gorvax:item.kaldur_lance.equip"
+          volume: 0.8
+          pitch: 1.2
+      swing:
+        - sound: "gorvax:item.kaldur_lance.swing"
+          volume: 0.6
+          pitch: 1.5
+
+  # ============================================================
+  # ELMO DE SKULKOR — Elmo lendário de ossos
+  # Drop do Skulkor, General Reerguido (Top 1-3 de dano)
+  # ============================================================
+  elmo_skulkor:
+    base: NETHERITE_HELMET
+    custom_model_data: 1002
+    item_model: "gorvax:skulkor_helm"
+
+    name: "§8§l💀 Elmo de Skulkor"
+    lore:
+      - ""
+      - "§7Fundido dos ossos do General Reerguido."
+      - "§7A vontade inabalável de Skulkor ecoa"
+      - "§7na mente de quem o porta."
+      - ""
+      - "§c♥ +6 HP extras"
+      - "§4💪 Efeito: Força ao hit (3s, 15%)"
+      - ""
+      - "§8Fonte: §7Drop do Skulkor (Top 1-3)"
+      - "§8§lITEM LENDÁRIO"
+    enchants:
+      PROTECTION: 6
+      UNBREAKING: 5
+      RESPIRATION: 3
+      THORNS: 2
+    attributes:
+      GENERIC_MAX_HEALTH: 6.0
+      GENERIC_ARMOR: 4.0
+    on_hit_effects:
+      - type: STRENGTH
+        duration: 60
+        amplifier: 0
+        chance: 15
+    source: "Drop do Skulkor (Top 1-3)"
+    trim_pattern: "gorvax:gorvax_full"
+    trim_material: "gorvax:gorvax_skulkor"
+    particle_effects:
+      - particle: ASH
+        count: 3
+        speed: 0.01
+        offset_x: 0.2
+        offset_y: 0.3
+        offset_z: 0.2
+    sound_effects:
+      equip:
+        - sound: "gorvax:item.skulkor_helm.equip"
+          volume: 0.8
+          pitch: 0.5
+
+  # ============================================================
+  # PÉROLA DE XYLOS — Machado lendário dimensional
+  # Drop do Xylos, Devorador de Éter (Top 1-3 de dano)
+  # ============================================================
+  perola_xylos:
+    base: NETHERITE_AXE
+    custom_model_data: 1002
+    item_model: "gorvax:xylos_pearl"
+
+    name: "§5§l🌀 Pérola de Xylos"
+    lore:
+      - ""
+      - "§7Forjada na fenda dimensional de Xylos."
+      - "§7A lâmina distorce o espaço ao redor,"
+      - "§7devorando a visão e o equilíbrio do inimigo."
+      - ""
+      - "§5🌀 Efeito: Cegueira ao hit (3s, 25%)"
+      - "§d⬆ Efeito: Levitação ao hit (2s, 10%)"
+      - ""
+      - "§8Fonte: §7Drop do Xylos (Top 1-3)"
+      - "§5§lITEM LENDÁRIO"
+    enchants:
+      SHARPNESS: 7
+      UNBREAKING: 5
+      EFFICIENCY: 6
+    attributes:
+      GENERIC_ATTACK_DAMAGE: 13.0
+      GENERIC_ATTACK_SPEED: -2.8
+    on_hit_effects:
+      - type: BLINDNESS
+        duration: 60
+        amplifier: 0
+        chance: 25
+      - type: LEVITATION
+        duration: 40
+        amplifier: 0
+        chance: 10
+    source: "Drop do Xylos (Top 1-3)"
+    particle_effects:
+      - particle: REVERSE_PORTAL
+        count: 3
+        speed: 0.03
+        offset_x: 0.2
+        offset_y: 0.3
+        offset_z: 0.2
+    sound_effects:
+      equip:
+        - sound: "gorvax:item.xylos_pearl.equip"
+          volume: 0.8
+          pitch: 1.0
+      swing:
+        - sound: "gorvax:item.xylos_pearl.swing"
+          volume: 0.6
+          pitch: 0.7
+
+  # ============================================================
+  # PERNAS DO SOBERANO — Calça lendária imperial
+  # Drop do Rei Gorvax (Top 1-3 de dano)
+  # ============================================================
+  pernas_gorvax:
+    base: NETHERITE_LEGGINGS
+    custom_model_data: 1003
+    item_model: "gorvax:gorvax_leggings"
+
+    name: "§6§l👑 Pernas do Soberano"
+    lore:
+      - ""
+      - "§7Forjadas no trono ancestral do Rei Gorvax."
+      - "§7Quem as veste marcha com a autoridade"
+      - "§7de um império que jamais tombou."
+      - ""
+      - "§6👑 +6 HP extras"
+      - "§e⚡ Efeito: Resistência permanente"
+      - "§c🔥 Efeito: Resistência ao Fogo permanente"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1-3)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      PROTECTION: 7
+      FIRE_PROTECTION: 5
+      UNBREAKING: 5
+      THORNS: 3
+    attributes:
+      GENERIC_MAX_HEALTH: 6.0
+      GENERIC_ARMOR: 8.0
+      GENERIC_ARMOR_TOUGHNESS: 3.0
+    passive_effects:
+      - type: DAMAGE_RESISTANCE
+        amplifier: 0
+      - type: FIRE_RESISTANCE
+        amplifier: 0
+    source: "Drop do Rei Gorvax (Top 1-3)"
+    trim_pattern: "gorvax:gorvax_full"
+    trim_material: "gorvax:gorvax_gorvax"
+    particle_effects:
+      - particle: WAX_ON
+        count: 2
+        speed: 0.01
+        offset_x: 0.2
+        offset_y: 0.2
+        offset_z: 0.2
+    sound_effects:
+      equip:
+        - sound: "gorvax:item.gorvax_leggings.equip"
+          volume: 0.8
+          pitch: 0.7
+
+  # ============================================================
+  # COROA DA ALIANÇA ETERNA — Elmo do set Gorvax
+  # Drop do Rei Gorvax (Top 1-3 de dano)
+  # ============================================================
+  coroa_gorvax:
+    base: NETHERITE_HELMET
+    custom_model_data: 1004
+    item_model: "gorvax:gorvax_crown"
+
+    name: "§6§l👑 Coroa da Aliança Eterna"
+    lore:
+      - ""
+      - "§7O peso da coroa é dividido"
+      - "§7com o aliado que habita o abismo."
+      - ""
+      - "§6👑 +5 HP extras"
+      - "§b✦ Efeito: Visão Noturna permanente"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1-3)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      PROTECTION: 7
+      UNBREAKING: 5
+      RESPIRATION: 3
+      AQUA_AFFINITY: 1
+    attributes:
+      GENERIC_MAX_HEALTH: 5.0
+    passive_effects:
+      - type: NIGHT_VISION
+        amplifier: 0
+    source: "Drop do Rei Gorvax (Top 1-3)"
+    trim_pattern: "gorvax:gorvax_full"
+    trim_material: "gorvax:gorvax_gorvax"
+    particle_effects:
+      - particle: FLAME
+        count: 2
+        speed: 0.01
+        offset_x: 0.15
+        offset_y: 0.3
+        offset_z: 0.15
+
+  # ============================================================
+  # ARMADURA DO PACTO REAL — Peitoral do set Gorvax
+  # Drop do Rei Gorvax (Top 1-3 de dano)
+  # ============================================================
+  peitoral_gorvax:
+    base: NETHERITE_CHESTPLATE
+    custom_model_data: 1004
+    item_model: "gorvax:gorvax_chestplate"
+
+    name: "§6§l🔥 Armadura do Pacto Real"
+    lore:
+      - ""
+      - "§7Forjada no encontro entre a luz"
+      - "§7do trono e a escuridão do vazio."
+      - ""
+      - "§6🔥 +5 HP extras"
+      - "§c⚔ Efeito: Espinhos ao ser atacado"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1-3)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      PROTECTION: 7
+      UNBREAKING: 5
+      THORNS: 4
+    attributes:
+      GENERIC_MAX_HEALTH: 5.0
+      GENERIC_ARMOR: 10.0
+      GENERIC_ARMOR_TOUGHNESS: 4.0
+    source: "Drop do Rei Gorvax (Top 1-3)"
+    trim_pattern: "gorvax:gorvax_full"
+    trim_material: "gorvax:gorvax_gorvax"
+    particle_effects:
+      - particle: LAVA
+        count: 1
+        speed: 0.01
+        offset_x: 0.2
+        offset_y: 0.3
+        offset_z: 0.2
+
+  # ============================================================
+  # PASSOS DO CONQUISTADOR — Botas do set Gorvax
+  # Drop do Rei Gorvax (Top 1-3 de dano)
+  # ============================================================
+  botas_gorvax:
+    base: NETHERITE_BOOTS
+    custom_model_data: 1004
+    item_model: "gorvax:gorvax_boots"
+
+    name: "§6§l👢 Passos do Conquistador"
+    lore:
+      - ""
+      - "§7O caminho do Rei é traçado"
+      - "§7por sua própria vontade inabalável."
+      - ""
+      - "§6⚡ +5 HP extras"
+      - "§b💨 Velocidade aumentada"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1-3)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      PROTECTION: 7
+      UNBREAKING: 5
+      SOUL_SPEED: 3
+      DEPTH_STRIDER: 3
+    attributes:
+      GENERIC_MAX_HEALTH: 5.0
+      GENERIC_MOVEMENT_SPEED: 0.01
+    passive_effects:
+      - type: SPEED
+        amplifier: 0
+    source: "Drop do Rei Gorvax (Top 1-3)"
+    trim_pattern: "gorvax:gorvax_full"
+    trim_material: "gorvax:gorvax_gorvax"
+    particle_effects:
+      - particle: FLAME
+        count: 2
+        speed: 0.01
+        offset_x: 0.15
+        offset_y: 0.05
+        offset_z: 0.15
+
+  # ============================================================
+  # ESCUDO DO TRONO IMORTAL — Escudo do set Gorvax
+  # Drop do Rei Gorvax (Top 1-3 de dano)
+  # ============================================================
+  escudo_gorvax:
+    base: SHIELD
+    custom_model_data: 1004
+    item_model: "gorvax:gorvax_shield"
+
+    name: "§6§l🛡 Escudo do Trono Imortal"
+    lore:
+      - ""
+      - "§7A vontade do Rei é mais forte"
+      - "§7que qualquer lâmina ou maldição."
+      - "§7Nenhum golpe atravessa um pacto selado."
+      - ""
+      - "§6🛡 Resistência a knockback"
+      - "§c♥ +2 HP extras"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1-3)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      UNBREAKING: 6
+      MENDING: 1
+    attributes:
+      GENERIC_KNOCKBACK_RESISTANCE: 0.5
+      GENERIC_MAX_HEALTH: 2.0
+    source: "Drop do Rei Gorvax (Top 1-3)"
+    particle_effects:
+      - particle: ENCHANT
+        count: 3
+        speed: 0.02
+        offset_x: 0.2
+        offset_y: 0.4
+        offset_z: 0.2
+
+  # ============================================================
+  # EXECUTOR DA ALIANÇA — Machado de combate do set Gorvax
+  # Drop do Rei Gorvax (Top 1 de dano)
+  # ============================================================
+  machado_gorvax:
+    base: NETHERITE_AXE
+    custom_model_data: 1004
+    item_model: "gorvax:gorvax_axe"
+
+    name: "§6§l🪓 Executor da Aliança"
+    lore:
+      - ""
+      - "§7Cada golpe ecoa no plano abissal,"
+      - "§7pois a aliança nunca dorme."
+      - ""
+      - "§c⚔ +18% dano de ataque"
+      - "§6☠ Efeito: Fraqueza ao hit (3s, 25%)"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      SHARPNESS: 7
+      EFFICIENCY: 5
+      UNBREAKING: 5
+      FIRE_ASPECT: 2
+    attributes:
+      GENERIC_ATTACK_DAMAGE: 14.0
+    on_hit_effects:
+      - type: WEAKNESS
+        duration: 60
+        amplifier: 0
+        chance: 25
+    source: "Drop do Rei Gorvax (Top 1)"
+    particle_effects:
+      - particle: SOUL_FIRE_FLAME
+        count: 3
+        speed: 0.02
+        offset_x: 0.2
+        offset_y: 0.2
+        offset_z: 0.2
+
+  # ============================================================
+  # ARCO DA SENTENÇA SOBERANA — Arco do set Gorvax
+  # Drop do Rei Gorvax (Top 1 de dano)
+  # ============================================================
+  arco_gorvax:
+    base: BOW
+    custom_model_data: 1004
+    item_model: "gorvax:gorvax_bow"
+
+    name: "§6§l🏹 Arco da Sentença Soberana"
+    lore:
+      - ""
+      - "§7As flechas do Rei carregam a"
+      - "§7bênção sombria de Indrax."
+      - ""
+      - "§6🏹 Poder supremo"
+      - "§c🔥 Efeito: Chama eterna"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      POWER: 7
+      FLAME: 2
+      INFINITY: 1
+      UNBREAKING: 5
+      PUNCH: 3
+    attributes:
+      GENERIC_MOVEMENT_SPEED: 0.01
+    source: "Drop do Rei Gorvax (Top 1)"
+    particle_effects:
+      - particle: FLAME
+        count: 2
+        speed: 0.02
+        offset_x: 0.15
+        offset_y: 0.2
+        offset_z: 0.15
+
+  # ============================================================
+  # CETRO MINERADOR REAL — Picareta do set Gorvax
+  # Drop do Rei Gorvax (Top 1-3 de dano)
+  # ============================================================
+  picareta_gorvax:
+    base: NETHERITE_PICKAXE
+    custom_model_data: 1004
+    item_model: "gorvax:gorvax_pickaxe"
+
+    name: "§e§l⛏ Cetro Minerador Real"
+    lore:
+      - ""
+      - "§7O subsolo pertence ao Rei,"
+      - "§7mas os segredos pertencem ao Abismo."
+      - ""
+      - "§e⛏ Eficiência suprema"
+      - "§a✦ Fortuna aumentada"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1-3)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      EFFICIENCY: 7
+      FORTUNE: 4
+      UNBREAKING: 5
+    attributes:
+      GENERIC_MOVEMENT_SPEED: 0.01
+    source: "Drop do Rei Gorvax (Top 1-3)"
+
+  # ============================================================
+  # MACHADO DO MANDATO — Machado ferramenta do set Gorvax
+  # Drop do Rei Gorvax (Top 1-3 de dano)
+  # ============================================================
+  machado_mandato_gorvax:
+    base: NETHERITE_AXE
+    custom_model_data: 1005
+    item_model: "gorvax:gorvax_tool_axe"
+
+    name: "§e§l🪓 Machado do Mandato"
+    lore:
+      - ""
+      - "§7A sentença do Rei é executada"
+      - "§7com um só golpe."
+      - ""
+      - "§e⚔ Eficiência suprema"
+      - "§c🪓 Dano aumentado"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1-3)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      SHARPNESS: 5
+      EFFICIENCY: 7
+      UNBREAKING: 5
+    attributes:
+      GENERIC_ATTACK_DAMAGE: 12.0
+    source: "Drop do Rei Gorvax (Top 1-3)"
+
+  # ============================================================
+  # PÁ DO DECRETO REAL — Pá do set Gorvax
+  # Drop do Rei Gorvax (Top 1-5 de dano)
+  # ============================================================
+  pa_gorvax:
+    base: NETHERITE_SHOVEL
+    custom_model_data: 1004
+    item_model: "gorvax:gorvax_shovel"
+
+    name: "§e§l🪣 Pá do Decreto Real"
+    lore:
+      - ""
+      - "§7O Rei molda a terra como molda"
+      - "§7o destino de seus súditos."
+      - ""
+      - "§e⛏ Eficiência suprema"
+      - "§a✦ Toque suave"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1-5)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      EFFICIENCY: 7
+      UNBREAKING: 5
+      SILK_TOUCH: 1
+    attributes:
+      GENERIC_MOVEMENT_SPEED: 0.01
+    source: "Drop do Rei Gorvax (Top 1-5)"
+
+  # ============================================================
+  # FOICE DA COLHEITA ETERNA — Foice do set Gorvax
+  # Drop do Rei Gorvax (Top 1-5 de dano)
+  # ============================================================
+  foice_gorvax:
+    base: NETHERITE_HOE
+    custom_model_data: 1004
+    item_model: "gorvax:gorvax_hoe"
+
+    name: "§e§l🌾 Foice da Colheita Eterna"
+    lore:
+      - ""
+      - "§7O Rei ceifa tanto o trigo"
+      - "§7quanto os traidores da coroa."
+      - ""
+      - "§e⛏ Eficiência suprema"
+      - "§a✦ Fortuna aumentada"
+      - ""
+      - "§8Fonte: §7Drop do Rei Gorvax (Top 1-5)"
+      - "§6§lITEM LENDÁRIO"
+    enchants:
+      EFFICIENCY: 7
+      FORTUNE: 4
+      UNBREAKING: 5
+    source: "Drop do Rei Gorvax (Top 1-5)"

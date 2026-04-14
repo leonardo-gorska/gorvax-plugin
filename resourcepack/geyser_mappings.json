@@ -1,0 +1,172 @@
+{
+    "format_version": 2,
+    "items": {
+        "minecraft:netherite_sword": [
+            {
+                "type": "legacy",
+                "custom_model_data": 1001,
+                "bedrock_identifier": "geyser_custom:gorvax_blade",
+                "display_name": "Lamina de Gorvax",
+                "bedrock_options": {
+                    "icon": "geyser_custom.gorvax_blade",
+                    "display_handheld": true,
+                    "creative_category": "equipment",
+                    "creative_group": "itemGroup.name.sword"
+                }
+            }
+        ],
+        "minecraft:netherite_helmet": [
+            {
+                "type": "legacy",
+                "custom_model_data": 1001,
+                "bedrock_identifier": "geyser_custom:indrax_crown",
+                "display_name": "Coroa de Indrax",
+                "bedrock_options": {
+                    "icon": "geyser_custom.indrax_crown",
+                    "protection_value": 3,
+                    "creative_category": "equipment",
+                    "creative_group": "itemGroup.name.helmet"
+                },
+                "components": {
+                    "minecraft:equippable": {
+                        "slot": "head"
+                    },
+                    "minecraft:max_stack_size": 1
+                }
+            },
+            {
+                "type": "legacy",
+                "custom_model_data": 1002,
+                "bedrock_identifier": "geyser_custom:skulkor_helm",
+                "display_name": "Elmo de Skulkor",
+                "bedrock_options": {
+                    "icon": "geyser_custom.skulkor_helm",
+                    "protection_value": 3,
+                    "creative_category": "equipment",
+                    "creative_group": "itemGroup.name.helmet"
+                },
+                "components": {
+                    "minecraft:equippable": {
+                        "slot": "head"
+                    },
+                    "minecraft:max_stack_size": 1
+                }
+            }
+        ],
+        "minecraft:diamond_boots": [
+            {
+                "type": "legacy",
+                "custom_model_data": 1001,
+                "bedrock_identifier": "geyser_custom:speed_boots",
+                "display_name": "Botas Velocistas",
+                "bedrock_options": {
+                    "icon": "geyser_custom.speed_boots",
+                    "protection_value": 3,
+                    "creative_category": "equipment",
+                    "creative_group": "itemGroup.name.boots"
+                },
+                "components": {
+                    "minecraft:equippable": {
+                        "slot": "feet"
+                    },
+                    "minecraft:max_stack_size": 1
+                }
+            }
+        ],
+        "minecraft:bow": [
+            {
+                "type": "legacy",
+                "custom_model_data": 1001,
+                "bedrock_identifier": "geyser_custom:hunter_bow",
+                "display_name": "Arco do Cacador",
+                "bedrock_options": {
+                    "icon": "geyser_custom.hunter_bow",
+                    "display_handheld": true,
+                    "creative_category": "equipment",
+                    "creative_group": "itemGroup.name.bow"
+                }
+            }
+        ],
+        "minecraft:shield": [
+            {
+                "type": "legacy",
+                "custom_model_data": 1001,
+                "bedrock_identifier": "geyser_custom:guardian_shield",
+                "display_name": "Escudo do Guardiao",
+                "bedrock_options": {
+                    "icon": "geyser_custom.guardian_shield",
+                    "allow_offhand": true,
+                    "creative_category": "equipment",
+                    "creative_group": "itemGroup.name.shield"
+                }
+            }
+        ],
+        "minecraft:netherite_chestplate": [
+            {
+                "type": "legacy",
+                "custom_model_data": 1002,
+                "bedrock_identifier": "geyser_custom:vulgathor_mantle",
+                "display_name": "Manto de Vulgathor",
+                "bedrock_options": {
+                    "icon": "geyser_custom.vulgathor_mantle",
+                    "protection_value": 8,
+                    "creative_category": "equipment",
+                    "creative_group": "itemGroup.name.chestplate"
+                },
+                "components": {
+                    "minecraft:equippable": {
+                        "slot": "chest"
+                    },
+                    "minecraft:max_stack_size": 1
+                }
+            }
+        ],
+        "minecraft:trident": [
+            {
+                "type": "legacy",
+                "custom_model_data": 1002,
+                "bedrock_identifier": "geyser_custom:kaldur_lance",
+                "display_name": "Lanca de Kaldur",
+                "bedrock_options": {
+                    "icon": "geyser_custom.kaldur_lance",
+                    "display_handheld": true,
+                    "creative_category": "equipment"
+                }
+            }
+        ],
+        "minecraft:netherite_axe": [
+            {
+                "type": "legacy",
+                "custom_model_data": 1002,
+                "bedrock_identifier": "geyser_custom:xylos_pearl",
+                "display_name": "Perola de Xylos",
+                "bedrock_options": {
+                    "icon": "geyser_custom.xylos_pearl",
+                    "display_handheld": true,
+                    "creative_category": "equipment",
+                    "creative_group": "itemGroup.name.axe"
+                }
+            }
+        ],
+        "minecraft:netherite_leggings": [
+            {
+                "type": "legacy",
+                "custom_model_data": 1003,
+                "bedrock_identifier": "geyser_custom:gorvax_leggings",
+                "display_name": "Pernas do Soberano",
+                "bedrock_options": {
+                    "icon": "geyser_custom.gorvax_leggings",
+                    "protection_value": 6,
+                    "creative_category": "equipment",
+                    "creative_group": "itemGroup.name.leggings"
+                },
+                "components": {
+                    "minecraft:equippable": {
+                        "slot": "legs"
+                    },
+                    "minecraft:max_stack_size": 1
+                }
+            }
+        ]
+    }
+}
