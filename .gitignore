@@ -23,3 +23,15 @@ Thumbs.db
 
 # Gradle wrapper (already committed, but just in case)
 !gradle/wrapper/gradle-wrapper.jar
+
+# Internal/Production files
+Imagens Ebook/
+Imagens Tebex/
+*.mcpack
+*.zip
+PROMPTS_*.md
+MONETIZATION.md
+VIP_PRICING.md
+EBOOK_ROADMAP.md
+STORERM.md
+FIX.md
