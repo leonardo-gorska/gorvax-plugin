@@ -1,16 +1,13 @@
 # 🐉 ROADMAP DE EVOLUÇÃO — GorvaxCore
 
-> **Instruções para a IA**: Leia este arquivo completamente. Encontre o próximo batch com status `[ ]` (pendente).
-> Execute TODAS as correções/implementações desse batch. Ao terminar, marque-o como `[x]` e atualize a seção "Progresso".
-> **A interação DEVE ser 100% em Português (Brasil).**
-> **Leia o Knowledge Item `gorvax-project-rules` antes de qualquer alteração.**
+> Roteiro de desenvolvimento e melhorias contínuas do plugin GorvaxCore para Minecraft.
 
 ---
 
 ## 📘 Regra Obrigatória: Atualização do Manual
 
 > [!IMPORTANT]
-> **A cada batch concluído**, a IA **DEVE** atualizar o arquivo `MANUAL.md` na raiz do projeto.
+> **A cada batch concluído**, o manual `MANUAL.md` deve ser atualizado na raiz do projeto.
 
 ### O que fazer:
 
@@ -489,17 +486,17 @@ autosave:
 
 ## 📝 Log de Execução
 
-> A IA deve adicionar uma entrada aqui após completar cada batch.
+> Adicionar uma entrada aqui após completar cada batch.
 
-| Data | Batch | Executado por | Notas |
+| Data | Batch | Responsável | Notas |
 |------|-------|---------------|-------|
-| 2026-03-11 | B38 | IA | Expansão do menu para 2 páginas com 25 botões. Paginação Java + SimpleForm Bedrock. 48 novas chaves em messages.yml. |
-| 2026-03-11 | B39 | IA | Melhoria de lores/tooltips em todos os menus. createMenuItem() refatorado para multi-line (\n split). 25+ lores expandidos com comandos, detalhes e dicas. Hints em sub-GUIs (Daily, BattlePass, Crate, Codex). MANUAL.md atualizado. |
-| 2026-03-11 | B40 | IA | Guia do Rei (WRITTEN_BOOK) no KingdomAdminMenu Java+Bedrock. Handler KING_GUIDE envia guia completo no chat (8 categorias, 20+ comandos). Lores melhoradas em KingdomMainMenu (Spawn, Diplomacia, Lotes, Admin), KingdomPermissionsMenu (individual+geral), KingdomLotsMenu (estado vazio). Botão "Visitar Reinos" no KingdomMainMenu. MANUAL.md atualizado. |
-| 2026-03-11 | B41 | IA | Menu de Configurações expandido para submenu (SettingsHolder, 27 slots). Toggles: HUD (LIME_DYE/GRAY_DYE), Som de Fronteira (PlayerData), Canal de Chat (cicla 6 canais via ChatManager). Bedrock SimpleForm com estado ✅/❌. 13 novas chaves em messages.yml. MANUAL.md §58 adicionado. |
-| 2026-03-11 | B42 | IA | Banner de startup corrigido: versão hardcoded `v1.0.0` substituída por `getPluginMeta().getVersion()`. Variável `version` extraída para evitar drift entre banner e mensagem de inicialização. |
-| 2026-03-11 | B43 | IA | ~100 strings hardcoded migradas de 7 arquivos Java para `messages.yml`. Arquivos: VipCommand (~24), StructureCommand (~50), RankCommand (~10), KitCommand (~2), CosmeticCommand (~3), ReputationCommand (~4), SeasonalEventCommand (~2), GorvaxCommand (~15). ~140 novas chaves adicionadas. |
-| 2026-03-11 | B44 | IA | Autosave periódico global implementado. Task async salva 12 managers (claims, playerdata, kingdoms, market, audit, auction, priceHistory, mail, vote, bounty, nations, structures) a cada 5min configurável. Config `autosave.enabled`/`interval_minutes` em config.yml. 1 nova chave em messages.yml. MANUAL.md §59 adicionado. |
-| 2026-03-11 | B45 | IA | Plugin registrado em bstats.org (ID: 30054). Placeholder `99999` substituído pelo ID real em `GorvaxCore.java` e `V0_to_V1.java`. Teste `ConfigMigratorTest` atualizado. |
-| 2026-03-11 | B46 | IA | Versão corrigida em plugin.yml (1.0.0→2.2.0) e config.yml. Import duplicado `org.bukkit.Location` removido de ClaimManager.java. 5 ocorrências de `printStackTrace()` substituídas por `getLogger().log()` em MarketData, EndResetManager, ClaimManager, GorvaxCommand, BossManager. |
-| 2026-03-11 | B47 | IA | 15 catch blocks vazios em 9 arquivos agora logam em `FINE` (ClaimManager ×4, NationManager ×2, WorldBoss ×1, LootManager ×3, BossCommand ×1, PriceHistoryManager ×1, YamlDataStore ×1, SQLiteDataStore ×1, MySQLDataStore ×1). Classe deprecated `MainMenuHolder` e check de compatibilidade removidos de MainMenuGUI.java (pré-lançamento, sem instâncias em cache). |
+| 2026-03-11 | B38 | Dev | Expansão do menu para 2 páginas com 25 botões. Paginação Java + SimpleForm Bedrock. 48 novas chaves em messages.yml. |
+| 2026-03-11 | B39 | Dev | Melhoria de lores/tooltips em todos os menus. createMenuItem() refatorado para multi-line (\n split). 25+ lores expandidos com comandos, detalhes e dicas. Hints em sub-GUIs (Daily, BattlePass, Crate, Codex). MANUAL.md atualizado. |
+| 2026-03-11 | B40 | Dev | Guia do Rei (WRITTEN_BOOK) no KingdomAdminMenu Java+Bedrock. Handler KING_GUIDE envia guia completo no chat (8 categorias, 20+ comandos). Lores melhoradas em KingdomMainMenu (Spawn, Diplomacia, Lotes, Admin), KingdomPermissionsMenu (individual+geral), KingdomLotsMenu (estado vazio). Botão "Visitar Reinos" no KingdomMainMenu. MANUAL.md atualizado. |
+| 2026-03-11 | B41 | Dev | Menu de Configurações expandido para submenu (SettingsHolder, 27 slots). Toggles: HUD (LIME_DYE/GRAY_DYE), Som de Fronteira (PlayerData), Canal de Chat (cicla 6 canais via ChatManager). Bedrock SimpleForm com estado ✅/❌. 13 novas chaves em messages.yml. MANUAL.md §58 adicionado. |
+| 2026-03-11 | B42 | Dev | Banner de startup corrigido: versão hardcoded `v1.0.0` substituída por `getPluginMeta().getVersion()`. Variável `version` extraída para evitar drift entre banner e mensagem de inicialização. |
+| 2026-03-11 | B43 | Dev | ~100 strings hardcoded migradas de 7 arquivos Java para `messages.yml`. Arquivos: VipCommand (~24), StructureCommand (~50), RankCommand (~10), KitCommand (~2), CosmeticCommand (~3), ReputationCommand (~4), SeasonalEventCommand (~2), GorvaxCommand (~15). ~140 novas chaves adicionadas. |
+| 2026-03-11 | B44 | Dev | Autosave periódico global implementado. Task async salva 12 managers (claims, playerdata, kingdoms, market, audit, auction, priceHistory, mail, vote, bounty, nations, structures) a cada 5min configurável. Config `autosave.enabled`/`interval_minutes` em config.yml. 1 nova chave em messages.yml. MANUAL.md §59 adicionado. |
+| 2026-03-11 | B45 | Dev | Plugin registrado em bstats.org (ID: 30054). Placeholder `99999` substituído pelo ID real em `GorvaxCore.java` e `V0_to_V1.java`. Teste `ConfigMigratorTest` atualizado. |
+| 2026-03-11 | B46 | Dev | Versão corrigida em plugin.yml (1.0.0→2.2.0) e config.yml. Import duplicado `org.bukkit.Location` removido de ClaimManager.java. 5 ocorrências de `printStackTrace()` substituídas por `getLogger().log()` em MarketData, EndResetManager, ClaimManager, GorvaxCommand, BossManager. |
+| 2026-03-11 | B47 | Dev | 15 catch blocks vazios em 9 arquivos agora logam em `FINE` (ClaimManager ×4, NationManager ×2, WorldBoss ×1, LootManager ×3, BossCommand ×1, PriceHistoryManager ×1, YamlDataStore ×1, SQLiteDataStore ×1, MySQLDataStore ×1). Classe deprecated `MainMenuHolder` e check de compatibilidade removidos de MainMenuGUI.java (pré-lançamento, sem instâncias em cache). |
